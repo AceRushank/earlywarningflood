@@ -21,7 +21,7 @@ var grid500m = mumbai.coveringGrid(proj, 500);
 
 // Add unique cell ID
 var gridCells = grid500m.map(function(f) {
-  var centroid = f.geometry().centroid();
+  var centroid = f.geometry().centroid(1);
   return f.set({
     'grid_id': f.id(), // Stable grid ID
     'grid_center_lon': centroid.coordinates().get(0),
