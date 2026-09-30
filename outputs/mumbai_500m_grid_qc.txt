@@ -1,0 +1,46 @@
+============================================================
+MUMBAI 500m GRID QC REPORT
+============================================================
+
+Grid file: data/spatial/mumbai_500m_grid.geojson
+
+CRS (native, for area computation): EPSG:32643  WGS 84 / UTM zone 43N
+CRS (GeoJSON file):                 EPSG:4326  WGS 84
+
+AOI definition (WGS84):
+  Latitude  : 18.85 - 19.30 N
+  Longitude : 72.70 - 73.10 E
+
+Grid geometry (UTM Zone 43N, metres):
+  x_start = 257500.0 m
+  x_end   = 300500.0 m
+  y_start = 2085500.0 m
+  y_end   = 2135500.0 m
+  Cell size: 500 m x 500 m
+  Columns (nx): 86
+  Rows    (ny): 100
+  Total cells : 8600
+
+Centroid range (WGS84):
+  Min latitude : 18.849536 N
+  Max latitude : 19.301194 N
+  Min longitude: 72.694709 E
+  Max longitude: 73.104058 E
+
+Boundary / clipping decisions:
+  - Grid extends slightly beyond AOI edges (snapped to 500m boundaries).
+  - No clipping to administrative Mumbai boundary applied at this stage.
+    Clipping to MCGM/MMR boundary can be added when a reliable boundary
+    shapefile is obtained.
+  - All cells retain full 500m x 500m geometry.
+
+Columns in grid file:
+  grid_id      : unique cell identifier (G00000 .. G08599)
+  col, row     : grid column/row index
+  x_min_utm    : UTM43N easting of cell SW corner (m)
+  y_min_utm    : UTM43N northing of cell SW corner (m)
+  centroid_lat : cell centroid latitude (WGS84)
+  centroid_lon : cell centroid longitude (WGS84)
+  geometry     : POLYGON in WGS84
+
+============================================================

@@ -1,0 +1,40 @@
+# Environment and secrets
+.env
+.env.*
+*.key
+*.pem
+credentials*
+*secret*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Heavy Raw Datasets & Satellite/Raster Archives (>100MB or large binaries)
+*.tif
+*.tiff
+*.h5
+*.hdf5
+*.nc
+*.nc4
+
+# Explicit raw data directories
+data/mosdac/hdf_archive/
+data/mosdac/raw/
+data/historical/raw_nc/
+data/spatial/dem/
+data/spatial/gsw/

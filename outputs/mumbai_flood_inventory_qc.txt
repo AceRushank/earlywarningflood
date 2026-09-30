@@ -1,0 +1,526 @@
+================================================================================
+MUMBAI HISTORICAL FLOOD INVENTORY QUALITY CONTROL REPORT
+================================================================================
+
+1. Total source records: 182
+2. Total Mumbai/Maharashtra records after filtering: 182
+3. Exact duplicates removed: 0
+4. Number of unique UEI/event IDs: 182 (Unique UEIs: 182, Unique Event IDs: 182)
+5. Earliest event date: 1969-09-15
+6. Latest event date: 2023-07-20
+
+--------------------------------------------------------------------------------
+7. NUMBER OF EVENTS BY YEAR
+--------------------------------------------------------------------------------
+   1969: 1 event(s)
+   1971: 1 event(s)
+   1973: 1 event(s)
+   1974: 1 event(s)
+   1975: 1 event(s)
+   1978: 2 event(s)
+   1979: 1 event(s)
+   1980: 4 event(s)
+   1981: 3 event(s)
+   1983: 1 event(s)
+   1984: 6 event(s)
+   1985: 3 event(s)
+   1986: 2 event(s)
+   1988: 7 event(s)
+   1989: 1 event(s)
+   1990: 8 event(s)
+   1991: 4 event(s)
+   1992: 6 event(s)
+   1993: 5 event(s)
+   1994: 9 event(s)
+   1995: 2 event(s)
+   1996: 7 event(s)
+   1997: 7 event(s)
+   1998: 3 event(s)
+   1999: 3 event(s)
+   2000: 3 event(s)
+   2001: 3 event(s)
+   2002: 4 event(s)
+   2003: 3 event(s)
+   2004: 3 event(s)
+   2005: 4 event(s)
+   2006: 4 event(s)
+   2007: 3 event(s)
+   2008: 4 event(s)
+   2009: 4 event(s)
+   2010: 8 event(s)
+   2011: 3 event(s)
+   2012: 2 event(s)
+   2013: 1 event(s)
+   2014: 2 event(s)
+   2015: 2 event(s)
+   2016: 5 event(s)
+   2017: 2 event(s)
+   2018: 3 event(s)
+   2019: 6 event(s)
+   2020: 3 event(s)
+   2021: 5 event(s)
+   2022: 8 event(s)
+   2023: 8 event(s)
+   Total years represented: 49
+
+--------------------------------------------------------------------------------
+8. NUMBER OF EVENTS BY MAIN CAUSE
+--------------------------------------------------------------------------------
+   heavy rains: 132 event(s)
+   Heavy Rains & Floods: 10 event(s)
+   Heavy Rains: 9 event(s)
+   Heavy rains: 4 event(s)
+   Heavy rains,  Floods & Landslides: 3 event(s)
+   Heavy Rains & Flood: 3 event(s)
+   Floods & Heavy rains: 2 event(s)
+   severe: 2 event(s)
+   heavy rains : 2 event(s)
+   Landslide: 2 event(s)
+   floods: 2 event(s)
+   flash floods: 1 event(s)
+   moderate: 1 event(s)
+   moderate to severe, moderate: 1 event(s)
+   heavy rains, moderate, severe: 1 event(s)
+   flash flood: 1 event(s)
+   heavy rains, severe: 1 event(s)
+   flood (cloud burst): 1 event(s)
+   heavy rains, flash flood: 1 event(s)
+   flood (indrayani, mula, panchganga, pavana): 1 event(s)
+   Heavy rains , Incessant rains leading to flood-like situation.: 1 event(s)
+   Heavy Rains & Landslide: 1 event(s)
+
+--------------------------------------------------------------------------------
+9. NUMBER OF EVENTS WITH COORDINATES
+--------------------------------------------------------------------------------
+   Events with non-null Latitude and Longitude: 0 of 182
+   Note: Original inventory records district-level flood events without explicit point coordinates.
+   Per instructions, missing coordinates are preserved as blank/NA without invention.
+
+--------------------------------------------------------------------------------
+10. NUMBER OF EVENTS WITH EXACT START/END DATES
+--------------------------------------------------------------------------------
+   Events with exact Start Date and End Date: 182 of 182 (100.0%)
+   All timestamps cleanly normalized to YYYY-MM-DD from DD-MM-YYYY HH:MM format.
+
+--------------------------------------------------------------------------------
+11. NUMBER OF EVENTS CONTAINING EXPLICIT RAINFALL INFORMATION IN DESCRIPTION
+--------------------------------------------------------------------------------
+   Total events with quantitative rainfall measurement (cm / mm / inches): 5
+   - [MUM_FL_004 | UEI-IMD-FL-1974-0003 | 1974-07-01]: 50 lifes were lost | Recorded,exceptionally heavy rainfall of 58cm in Twenty Four hours on 5th July, which was the highest on record. Low level areas in Mumbai were heavily flooded,city life was completely paralysed. Damage to Railway,public property was estimated at Rs. 6 crores.
+   - [MUM_FL_018 | UEI-IMD-FL-1984-0058 | 1984-06-30]: A Twenty Four year old woman,11 year old girl washed away while crossing nullah at Sukali village, 8 km from Amravati, 1 person electrucated at Sion, 3 persons swept away in Shirol,Ajara talukas, 5 persons died, 2 persons died in a wall collapse at Mahasrul village | i)Low lying areas in the city remained submerged under water for two days , ii)Century's second highest rainfall 54.0 cm in a day recorded by Colaba observatory on 2nd July iii)All low lying areas on both sides of railway lines,a large number of roads submerged under water disrupting railway,vehicular traffic iv)Telecommunication system disrupted v)All principal markets closed vi)Vehicular traffic on Ichalkaranji - Nipani, Kolhapur - Sadoli Khalsa,Gadhinglaj - Nesari, routes,suspended vii)Area under Sangameshwar, Chiplun,Rajapur Police Stations inundated. Sangameshwar market submerged under water viii)Kubadwadi villages encircled by water ix)Heavy damage to crops reported x)Vehicular traffic on Gargoti-Ratnagiri,Gargoti-Chandgad suspended as the connecting roads badly damaged xi)Mumbai-Goa National Highway blocked for 3 dyas due to landslide near Dhamani xii)Vehicular traffic on Poladpurmasla road suspended due to breaches at three places xiii)State Transportation bus service patially or totally suspended
+   - [MUM_FL_025 | UEI-IMD-FL-1985-0045 | 1985-06-25]: 24 people died,33 injured in separate wall collapse incidents at Tardeo,Byculla | i)41.4 cm of rainfall recorded at Colaba observatory during Twenty Four hours period ending 1730 hrs of 25th June ii)Road traffic disrupted due to flooding Konkan bound State Transportation Service from Mumbai suspended iii)Thousands of people affected iv)Long distance outgoing trains on the Western Railway cancelled, while incoming trains terminated outside the city at various points v)Suburbanan train services on Western,Central railways completely paralysed
+   - [MUM_FL_035 | UEI-IMD-FL-1989-0039 | 1989-07-23]: i)917 people died ii)14,000 cattleheads perished | i)1.1 lakh houses eitherfully or partially damaged ii)2 lakh families rendered homeless iii)50 villages in Bid, Nanded,Raigarh marooned iv)Damage to building,road,power stations estimated to be worth rs. 91 crores v)In Raigarh district, entire hutmen colony on the bank of Patalganga river completely wiped out. 72cms. of rain in Twenty Four hours period reported vi)In Mumbai, local train services as well as long distance trains cancelled. Mumbai recorded highest rainfall since 1984 vii)In Beed district, Beed town razed to ground. viii)In Pune district, Bhaje village completely wiped out due to landslide. Pune-Mumbai train services suspended.
+   - [MUM_FL_072 | UEI-IMD-FL-1996-0074 | 1996-07-02]: Overhead equipments of trains damaged,the tracks submerged under 8 inches of water
+
+   Total events with explicit rainfall / torrential rains descriptors: 8
+   - [MUM_FL_004 | UEI-IMD-FL-1974-0003 | 1974-07-01]: 50 lifes were lost | Recorded,exceptionally heavy rainfall of 58cm in Twenty Four hours on 5th July, which was the highest on record. Low level areas in Mumbai were heavily flooded,city life was completely paralysed. Damage to Railway,public property was estimated at Rs. 6 crores.
+   - [MUM_FL_006 | UEI-IMD-FL-1978-0042 | 1978-06-08]: 9 people died,injured to 6 persons , Floods between Kurla,V.T. disrupted road/rail traffic,telecommunications | Torrential rains
+   - [MUM_FL_018 | UEI-IMD-FL-1984-0058 | 1984-06-30]: A Twenty Four year old woman,11 year old girl washed away while crossing nullah at Sukali village, 8 km from Amravati, 1 person electrucated at Sion, 3 persons swept away in Shirol,Ajara talukas, 5 persons died, 2 persons died in a wall collapse at Mahasrul village | i)Low lying areas in the city remained submerged under water for two days , ii)Century's second highest rainfall 54.0 cm in a day recorded by Colaba observatory on 2nd July iii)All low lying areas on both sides of railway lines,a large number of roads submerged under water disrupting railway,vehicular traffic iv)Telecommunication system disrupted v)All principal markets closed vi)Vehicular traffic on Ichalkaranji - Nipani, Kolhapur - Sadoli Khalsa,Gadhinglaj - Nesari, routes,suspended vii)Area under Sangameshwar, Chiplun,Rajapur Police Stations inundated. Sangameshwar market submerged under water viii)Kubadwadi villages encircled by water ix)Heavy damage to crops reported x)Vehicular traffic on Gargoti-Ratnagiri,Gargoti-Chandgad suspended as the connecting roads badly damaged xi)Mumbai-Goa National Highway blocked for 3 dyas due to landslide near Dhamani xii)Vehicular traffic on Poladpurmasla road suspended due to breaches at three places xiii)State Transportation bus service patially or totally suspended
+   - [MUM_FL_025 | UEI-IMD-FL-1985-0045 | 1985-06-25]: 24 people died,33 injured in separate wall collapse incidents at Tardeo,Byculla | i)41.4 cm of rainfall recorded at Colaba observatory during Twenty Four hours period ending 1730 hrs of 25th June ii)Road traffic disrupted due to flooding Konkan bound State Transportation Service from Mumbai suspended iii)Thousands of people affected iv)Long distance outgoing trains on the Western Railway cancelled, while incoming trains terminated outside the city at various points v)Suburbanan train services on Western,Central railways completely paralysed
+   - [MUM_FL_035 | UEI-IMD-FL-1989-0039 | 1989-07-23]: i)917 people died ii)14,000 cattleheads perished | i)1.1 lakh houses eitherfully or partially damaged ii)2 lakh families rendered homeless iii)50 villages in Bid, Nanded,Raigarh marooned iv)Damage to building,road,power stations estimated to be worth rs. 91 crores v)In Raigarh district, entire hutmen colony on the bank of Patalganga river completely wiped out. 72cms. of rain in Twenty Four hours period reported vi)In Mumbai, local train services as well as long distance trains cancelled. Mumbai recorded highest rainfall since 1984 vii)In Beed district, Beed town razed to ground. viii)In Pune district, Bhaje village completely wiped out due to landslide. Pune-Mumbai train services suspended.
+   - [MUM_FL_036 | UEI-IMD-FL-1990-0038 | 1990-06-15]: 22 persons died | i)Highest rainfall recorded in the last 104 year ii)Normal life completely paralysed iii)Shops, educational institutions, main market, business,commercial establishment remained close iv)Local train services completely disrupted v)Power services broke down
+   - [MUM_FL_072 | UEI-IMD-FL-1996-0074 | 1996-07-02]: Overhead equipments of trains damaged,the tracks submerged under 8 inches of water
+   - [MUM_FL_089 | UEI-IMD-FL-1999-0061 | 1999-07-15]: i)22 persons died,6 injured due to landslide in Mumbai ii)4 persons washed away in the river at Nashik | i)Multiple landslides due to torrential rains caused the worst traffic-jam in 20 years on Pune - Mumbai road,landslides also reported on Mumbai- Goa highway,Ratnagiri ii)Konkan railway services disrupted as the portion of rail track between Pen,Jite damaged iii)Extensive damage to property,agriculture reported
+
+--------------------------------------------------------------------------------
+12. LIST OF ALL UNIQUE EVENT START DATES (Total: 174)
+--------------------------------------------------------------------------------
+     1. 1969-09-15
+     2. 1971-09-22
+     3. 1973-07-01
+     4. 1974-07-01
+     5. 1975-06-20
+     6. 1978-06-08
+     7. 1978-07-08
+     8. 1979-06-24
+     9. 1980-06-15
+    10. 1980-07-01
+    11. 1980-08-04
+    12. 1980-08-21
+    13. 1981-06-22
+    14. 1981-08-22
+    15. 1981-09-15
+    16. 1983-06-24
+    17. 1984-06-15
+    18. 1984-06-30
+    19. 1984-07-03
+    20. 1984-07-17 (2 events)
+    21. 1984-09-12
+    22. 1985-06-11
+    23. 1985-06-16
+    24. 1985-06-25
+    25. 1986-06-28
+    26. 1986-08-07
+    27. 1988-06-14
+    28. 1988-06-15
+    29. 1988-07-16
+    30. 1988-07-23
+    31. 1988-09-22
+    32. 1988-09-28
+    33. 1988-10-03
+    34. 1989-07-23
+    35. 1990-06-15
+    36. 1990-06-16
+    37. 1990-06-17
+    38. 1990-06-26
+    39. 1990-08-15
+    40. 1990-08-17
+    41. 1990-08-21
+    42. 1990-09-24
+    43. 1991-06-07
+    44. 1991-07-13
+    45. 1991-07-16
+    46. 1991-07-27
+    47. 1992-07-18
+    48. 1992-07-22
+    49. 1992-08-04
+    50. 1992-08-12
+    51. 1992-08-16
+    52. 1992-09-02
+    53. 1993-06-18
+    54. 1993-07-13
+    55. 1993-09-22
+    56. 1993-09-27
+    57. 1993-10-18
+    58. 1994-06-27
+    59. 1994-07-11
+    60. 1994-07-12
+    61. 1994-07-13
+    62. 1994-07-14
+    63. 1994-07-18
+    64. 1994-08-29
+    65. 1994-08-31
+    66. 1994-09-03
+    67. 1995-08-01
+    68. 1995-09-01
+    69. 1996-06-17
+    70. 1996-06-18
+    71. 1996-07-02
+    72. 1996-07-11
+    73. 1996-07-15
+    74. 1996-08-25
+    75. 1996-09-26
+    76. 1997-06-18
+    77. 1997-06-21
+    78. 1997-06-29
+    79. 1997-07-05
+    80. 1997-08-02
+    81. 1997-08-22
+    82. 1997-12-06
+    83. 1998-06-27
+    84. 1998-07-01
+    85. 1998-07-12
+    86. 1999-06-17
+    87. 1999-06-23
+    88. 1999-07-15
+    89. 2000-07-08
+    90. 2000-07-12 (2 events)
+    91. 2001-06-16
+    92. 2001-07-09
+    93. 2001-09-19
+    94. 2002-06-22
+    95. 2002-08-05
+    96. 2002-08-11
+    97. 2002-08-22
+    98. 2003-06-19
+    99. 2003-06-28
+   100. 2003-07-07
+   101. 2004-06-18
+   102. 2004-07-26
+   103. 2004-08-11
+   104. 2005-06-22
+   105. 2005-07-26
+   106. 2005-09-08
+   107. 2005-09-21
+   108. 2006-05-30
+   109. 2006-07-01
+   110. 2006-08-15
+   111. 2006-09-12
+   112. 2007-06-24
+   113. 2007-06-30
+   114. 2007-08-01
+   115. 2008-06-07
+   116. 2008-07-01
+   117. 2008-07-26
+   118. 2008-08-09
+   119. 2009-06-24
+   120. 2009-07-03
+   121. 2009-07-14
+   122. 2009-09-05
+   123. 2010-06-16
+   124. 2010-06-18
+   125. 2010-06-24
+   126. 2010-07-03
+   127. 2010-07-23
+   128. 2010-08-05
+   129. 2010-08-17
+   130. 2010-09-19
+   131. 2011-07-08
+   132. 2011-08-27
+   133. 2011-09-03
+   134. 2012-06-09
+   135. 2012-06-29
+   136. 2013-06-09
+   137. 2014-07-13
+   138. 2014-07-31
+   139. 2015-07-28
+   140. 2015-07-29
+   141. 2016-06-20
+   142. 2016-06-25
+   143. 2016-07-01
+   144. 2016-07-11
+   145. 2016-07-30
+   146. 2017-06-26
+   147. 2017-08-30
+   148. 2018-03-07
+   149. 2018-06-25
+   150. 2018-10-07
+   151. 2019-01-07
+   152. 2019-02-07
+   153. 2019-02-08
+   154. 2019-03-08
+   155. 2019-05-09
+   156. 2019-06-09
+   157. 2020-04-08
+   158. 2020-06-18
+   159. 2020-07-16
+   160. 2021-06-09
+   161. 2021-07-17 (3 events)
+   162. 2021-07-23
+   163. 2022-06-20
+   164. 2022-07-06 (2 events)
+   165. 2022-07-11
+   166. 2022-07-12
+   167. 2022-07-14
+   168. 2022-07-15
+   169. 2022-08-12
+   170. 2023-06-25 (2 events)
+   171. 2023-06-28 (2 events)
+   172. 2023-06-29
+   173. 2023-07-19
+   174. 2023-07-20 (2 events)
+
+--------------------------------------------------------------------------------
+13. LIST OF EVENTS FROM 2018 ONWARD SEPARATELY (Total: 33)
+--------------------------------------------------------------------------------
+   [MUM_FL_150 | UEI-IMD-FL-2018-0054]
+      Dates: 2018-03-07 to 2018-03-07 (Duration: 1 day(s))
+      Cause: Floods & Heavy rains
+      Districts: Mumbai
+      Impact: 1 fatalities
+      Casualties: One youth washed away from Bandra & 5 others injured due to part of Ghokhale bridge collapsed in Andheri.
+      Damage: i) Damage to Ghokhale bridge reported. ii) Rail & Air services disrupted. Flight cancelled.
+
+   [MUM_FL_151 | UEI-IMD-FL-2018-0053]
+      Dates: 2018-06-25 to 2018-06-25 (Duration: 1 day(s))
+      Cause: Heavy rains
+      Districts: Mumbai, Mumbai Suburban, Palghar, Raigarh, Sindhudurg, Thane
+      Impact: 8 fatalities
+      Casualties: 8 people died including one girl who washed away from Sindhudurg Dist.
+      Damage: i) Damage to more than 10 vehicles reported. ii) Damage to building, roads reported.
+
+   [MUM_FL_152 | UEI-IMD-FL-2018-0057]
+      Dates: 2018-10-07 to 2018-10-07 (Duration: 1 day(s))
+      Cause: Floods & Heavy rains
+      Districts: Amravati, Mumbai
+      Impact: 1 fatalities
+      Casualties: One person died in Amravati, Dist.
+      Damage: i) Damage to Standing crops reported. ii) Damage to 35 houses partially,40 houses completely reported. iii) Water logging in Mumbai.
+
+   [MUM_FL_153 | UEI-IMD-FL-2019-0090]
+      Dates: 2019-01-07 to 2019-01-07 (Duration: 1 day(s))
+      Cause: Heavy rains
+      Districts: Mumbai, Nashik, Palghar, Pune
+      Impact: 12 fatalities
+      Casualties: Total 12 persons died & 3 others injured. Viz. Mumbai - One electrocuted at Nehru Nagar in Vile Parle. Nashik - 3, Palghar �������� 2 in Jawahar city, Pune - 6 labourers died & 3 others injured due to wall collapsed in Ambegaon area.
+
+   [MUM_FL_154 | UEI-IMD-FL-2019-0091]
+      Dates: 2019-02-07 to 2019-02-07 (Duration: 1 day(s))
+      Cause: Heavy rains , Incessant rains leading to flood-like situation.
+      Districts:  Mumbai,Thane,Ratnagiri
+      Impact: 45 fatalities
+      Casualties: Total 23 persons died. Mumbai - 21 persons died & more than 50 others injured due to wall collapsed in Mumbai's \ northern suburb of Malad & 2 other died in another incident in Malad. 3 persons died due to wall collapse in Kalyan. At least 19 persons died & 4 others missing from Bhendewadi village of Chiplun block
+      Damage: i) A wall collapsed on hutments in Pimpripada area of Malad East. ii) About 1,000 people shifted to temporary shelters by joint evacuation operation in suburban Kurla with the NDRF, Navy,fire brigade shifting. iii) Many parts of the financial capital Mumbai waterlogged. iv) Rail, Air,Road traffic disrupted with several trains,flights cancelled. Altogether 54 flights diverted,52 cancelled at Mumbai's Chhatrapati Shivaji Maharaj International Airport, where a SpiceJet plane overshot the runway.  The wall of an Urdu school behind Durgai Fort collapsed near the hutments adjacent in Kalyan.  i) Tiware Dam in Chiplun block of Ratnagiri District in the Vashishthi Basin of coastal Maharashtra breached. ii) At least 7 villages including Bhendewadi, Ovali, Riktoli, Aakle, Daadar, Nandivase, Kalkavne, with about 3000 population badly affected. iii) Several houses including at least 12 houses & 20 vehicles from Bhendewadi village near the dam washed away. iv) NDRF teams, Additional rescue teams consisting of government officials, police,volunteers carrying out search,rescue operations.
+
+   [MUM_FL_155 | UEI-IMD-FL-2019-0096]
+      Dates: 2019-02-08 to 2019-02-08 (Duration: 1 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai
+      Impact: 1 fatalities
+      Casualties: One person died.
+      Damage: A tree uprooted & fell on a wall in Chandivli.
+
+   [MUM_FL_156 | UEI-IMD-FL-2019-0097]
+      Dates: 2019-03-08 to 2019-03-08 (Duration: 1 day(s))
+      Cause: Heavy Rains & Flood
+      Districts: Mumbai, Palghar
+      Impact: 5 fatalities
+      Casualties: Total 5 persons died. Mumbai �������� 4 girls washed away at Pandavakada Waterfalls at Khargahr Palghar �������� 1 person washed away in Tiwas river. While, 4 livestock perished.
+
+   [MUM_FL_157 | UEI-IMD-FL-2019-0104]
+      Dates: 2019-05-09 to 2019-05-09 (Duration: 1 day(s))
+      Cause: Heavy Rains & Flood
+      Districts: Mumbai
+      Impact: 4 fatalities
+      Casualties: 4 persons died & other missing.
+      Damage: Around 1300 people from Kurla west evacuated with the help of Navy,NDRF personnel.
+
+   [MUM_FL_158 | UEI-IMD-FL-2019-0105]
+      Dates: 2019-06-09 to 2019-06-09 (Duration: 1 day(s))
+      Cause: Heavy Rains & Flood
+      Districts: Mumbai
+      Impact: 1 fatalities
+      Casualties: One person washed away.
+
+   [MUM_FL_159 | UEI-IMD-FL-2020-0085]
+      Dates: 2020-04-08 to 2020-06-08 (Duration: 3 day(s))
+      Cause: Heavy Rains & Landslide
+      Districts: Kolhapur, Mumbai, Nagpur, Palghar, Pune, Raigarh, Ratnagiri, Sindhudurg, Thane
+      Impact: 2 fatalities
+      Casualties: Total 2 persons died on 4th. Ratnagiri - One woman died due to tree collapsed in Rajapur, Thane - One 15 year old boy died. While 3 cowes perished in Kalyan area of Mumbai.
+      Damage: i) Damage to crops reported in Nagpur dist. i) Damage to structures, houses, roads reported. ii) Speed boat drowned in Varsova, Mumbai. iii) Damage to many vehicles reported. iv) Roof of D.Y.Patil stadium blown away in Mumbai. v) Normal life paralysed. vi) In Kolhapur , People shifted to safer places. vii) Rail traffic disrupted due to Landslide at Kandiwali, Mumbai. viii) Roads from Radhanagari, Gaganbawada, Panhala towards Konkan were blocked. Several trees/electric poles uprooted causing disruption in vehicular traffic & power supply.
+
+   [MUM_FL_160 | UEI-IMD-FL-2020-0077]
+      Dates: 2020-06-18 to 2020-06-18 (Duration: 1 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai
+      Impact: 1 fatalities
+      Casualties: One person died.
+
+   [MUM_FL_161 | UEI-IMD-FL-2020-0081]
+      Dates: 2020-07-16 to 2020-07-16 (Duration: 1 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai
+      Impact: 4 fatalities
+      Casualties: 4 persons died & 6 others injured due to wall collapsed in Fort & Malawanai area.
+      Damage: Damaage to 2 hundred year old MHADA SES building reported.
+
+   [MUM_FL_162 | UEI-IMD-FL-2021-0156]
+      Dates: 2021-06-09 to 2021-06-09 (Duration: 1 day(s))
+      Cause: Heavy rains
+      Districts: Mumbai Suburban
+      Impact: 11 fatalities
+
+   [MUM_FL_163 | UEI-IMD-FL-2021-0167]
+      Dates: 2021-07-17 to 2021-07-17 (Duration: 1 day(s))
+      Cause: Heavy rains,  Floods & Landslides
+      Districts: Mumbai 
+      Impact: 10 fatalities
+
+   [MUM_FL_164 | UEI-IMD-FL-2021-0168]
+      Dates: 2021-07-17 to 2021-07-17 (Duration: 1 day(s))
+      Cause: Heavy rains,  Floods & Landslides
+      Districts: Mumbai Suburban 
+      Impact: 22 fatalities
+
+   [MUM_FL_165 | UEI-IMD-FL-2021-0171]
+      Dates: 2021-07-17 to 2021-07-17 (Duration: 1 day(s))
+      Cause: Heavy rains,  Floods & Landslides
+      Districts: Mumbai, Mumbai Suburban, Palghar, Raigarh, Sindhudurg, Thane, Washim
+      Impact: fatalities: NA
+
+   [MUM_FL_166 | UEI-IMD-FL-2021-0190]
+      Dates: 2021-07-23 to 2021-07-23 (Duration: 1 day(s))
+      Cause: Heavy rains
+      Districts: Mumbai Suburban
+      Impact: 4 fatalities
+
+   [MUM_FL_167 | UEI-IMD-FL-2022-0627]
+      Dates: 2022-06-20 to 2022-06-20 (Duration: 1 day(s))
+      Cause: Landslide
+      Districts: Mumbai Suburban
+      Impact: fatalities: NA
+
+   [MUM_FL_168 | UEI-IMD-FL-2022-0631]
+      Dates: 2022-07-06 to 2022-07-06 (Duration: 1 day(s))
+      Cause: Landslide
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_169 | UEI-IMD-FL-2022-0632]
+      Dates: 2022-07-06 to 2022-07-06 (Duration: 1 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_170 | UEI-IMD-FL-2022-0645]
+      Dates: 2022-07-11 to 2022-07-11 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai Suburban
+      Impact: 2 fatalities
+
+   [MUM_FL_171 | UEI-IMD-FL-2022-0650]
+      Dates: 2022-07-12 to 2022-07-12 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: 3 fatalities
+
+   [MUM_FL_172 | UEI-IMD-FL-2022-0664]
+      Dates: 2022-07-14 to 2022-07-14 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_173 | UEI-IMD-FL-2022-0669]
+      Dates: 2022-07-15 to 2022-07-15 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_174 | UEI-IMD-FL-2022-0699]
+      Dates: 2022-08-12 to 2022-08-12 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_175 | UEI-IMD-FL-2023-0438]
+      Dates: 2023-06-25 to 2023-06-26 (Duration: 2 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_176 | UEI-IMD-FL-2023-0439]
+      Dates: 2023-06-25 to 2023-06-26 (Duration: 2 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai Suburban
+      Impact: fatalities: NA
+
+   [MUM_FL_177 | UEI-IMD-FL-2023-0440]
+      Dates: 2023-06-28 to 2023-06-28 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: 2 fatalities
+
+   [MUM_FL_178 | UEI-IMD-FL-2023-0441]
+      Dates: 2023-06-28 to 2023-06-28 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai Suburban
+      Impact: 2 fatalities
+
+   [MUM_FL_179 | UEI-IMD-FL-2023-0444]
+      Dates: 2023-06-29 to 2023-06-29 (Duration: 1 day(s))
+      Cause: Heavy Rains
+      Districts: Mumbai
+      Impact: 1 fatalities
+
+   [MUM_FL_180 | UEI-IMD-FL-2023-0454]
+      Dates: 2023-07-19 to 2023-07-19 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_181 | UEI-IMD-FL-2023-0460]
+      Dates: 2023-07-20 to 2023-07-20 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai
+      Impact: fatalities: NA
+
+   [MUM_FL_182 | UEI-IMD-FL-2023-0461]
+      Dates: 2023-07-20 to 2023-07-20 (Duration: 1 day(s))
+      Cause: Heavy Rains & Floods
+      Districts: Mumbai Suburban
+      Impact: 1 fatalities
+
+================================================================================
+END OF QUALITY CONTROL REPORT
+================================================================================

@@ -1,0 +1,9 @@
+metric,n,mean,median,std,p10,p25,p75,p90,min,max,window_note
+rainfall_event_day_mm,182,54.47,42.77,46.42,2.33,17.42,83.27,129.23,0.0,176.49,Single day (event start date)
+rainfall_1day_before_mm,182,38.24,22.55,42.06,0.65,8.87,55.78,97.75,0.0,228.51,Single day (day preceding event)
+rainfall_3day_accumulation_mm,182,91.37,67.6,84.33,9.0,25.86,128.31,225.55,0.0,393.49,3-day sum (3 days before event); NOT comparable to 1d or 7d
+rainfall_7day_accumulation_mm,182,183.64,143.4,154.33,16.02,64.7,271.62,384.4,0.0,771.62,7-day sum (7 days before event); NOT comparable to 1d or 3d
+rainfall_19.00_72.75_mm,182,56.77,39.5,58.06,0.43,9.08,92.32,138.58,0.0,356.56,Single day (event start date); individual IMD 0.25 deg cell
+rainfall_19.00_73.00_mm,182,56.09,34.34,60.15,1.59,11.4,89.22,135.9,0.0,288.14,Single day (event start date); individual IMD 0.25 deg cell
+rainfall_19.25_72.75_mm,182,56.67,44.67,52.52,0.58,10.74,86.95,129.53,0.0,264.45,Single day (event start date); individual IMD 0.25 deg cell
+rainfall_19.25_73.00_mm,182,48.34,31.31,48.33,0.41,10.4,68.43,118.16,0.0,241.46,Single day (event start date); individual IMD 0.25 deg cell

@@ -1,0 +1,112 @@
+====================================================================
+SPATIAL FEATURES QC REPORT
+Mumbai 500m Flood Forecasting Grid
+====================================================================
+
+1. GRID SUMMARY
+   File    : data/spatial/mumbai_500m_grid.geojson
+   CRS     : EPSG:4326 (WGS84) for GeoJSON; features extracted in EPSG:32643 (UTM43N)
+   Cells   : 8600
+   Cell sz : 500 m x 500 m (UTM43N)
+   AOI     : lat 18.85-19.30 N, lon 72.70-73.10 E
+
+2. REAL DATASETS USED
+
+   [A] Copernicus DEM GLO-30
+       Source    : European Space Agency / Airbus (open access)
+       URL       : https://copernicus-dem-30m.s3.amazonaws.com/
+       Resolution: 30 m (1 arc-second equivalent)
+       CRS       : EPSG:4326 (WGS84 horizontal), EGM2008 vertical
+       Version   : 2021 release
+       Tiles     : N18E072, N19E072, N18E073, N19E073
+       Status    : DOWNLOADED AND EXTRACTED
+
+   [B] JRC Global Surface Water v1.4 (Pekel et al. 2016)
+       Source    : European Commission JRC / Google
+       URL       : https://global-surface-water.appspot.com/
+       Layer     : occurrence (% of time water present, 1984-2021)
+       Resolution: 30 m
+       CRS       : EPSG:4326 (WGS84)
+       Tile      : 70E_20N
+       Status    : DOWNLOADED AND EXTRACTED
+
+   [PENDING] Built-up / impervious surface
+       Candidate: Copernicus Global Land Service IMPERV 100m (2018)
+                  https://land.copernicus.eu/global/products/imperv
+       Reason   : Requires registration for download; not auto-downloadable.
+       Action   : Manually download and place in data/spatial/imperv/
+                  then re-run extraction.
+
+   [PENDING] Drainage network / distance to drains
+       Candidate: OpenStreetMap waterway features (Overpass API)
+       Reason   : Overpass API call deferred; may be large/slow for AOI.
+       Action   : Run scripts/download_osm_waterways.py (future script).
+
+3. FEATURE STATISTICS
+
+   Column: elevation_mean_m
+     Description : Copernicus GLO-30 DEM, mean of 30m pixels per cell
+     Source res  : 30 m (Copernicus GLO-30 / JRC GSW)
+     Extraction  : rasterio mask per cell; stat as named
+     Status      : OK
+     n_valid     : 8600 / 8600
+     n_missing   : 0
+     min / max   : 0.0 / 447.09
+     mean        : 19.797
+
+   Column: elevation_min_m
+     Description : Copernicus GLO-30 DEM, min of 30m pixels per cell
+     Source res  : 30 m (Copernicus GLO-30 / JRC GSW)
+     Extraction  : rasterio mask per cell; stat as named
+     Status      : OK
+     n_valid     : 8600 / 8600
+     n_missing   : 0
+     min / max   : -15.38 / 351.75
+     mean        : 10.733
+
+   Column: elevation_max_m
+     Description : Copernicus GLO-30 DEM, max of 30m pixels per cell
+     Source res  : 30 m (Copernicus GLO-30 / JRC GSW)
+     Extraction  : rasterio mask per cell; stat as named
+     Status      : OK
+     n_valid     : 8600 / 8600
+     n_missing   : 0
+     min / max   : 0.0 / 487.25
+     mean        : 33.379
+
+   Column: slope_mean_deg
+     Description : Derived from Copernicus GLO-30 DEM (Horn 1981), mean slope in degrees
+     Source res  : 30 m (Copernicus GLO-30 / JRC GSW)
+     Extraction  : rasterio mask per cell; stat as named
+     Status      : OK
+     n_valid     : 8600 / 8600
+     n_missing   : 0
+     min / max   : 0.0 / 30.232
+     mean        : 2.921
+
+   Column: water_pct_gsw
+     Description : JRC GSW v1.4 occurrence, fraction of pixels with occurrence >= 10%
+     Source res  : 30 m (Copernicus GLO-30 / JRC GSW)
+     Extraction  : rasterio mask per cell; stat as named
+     Status      : OK
+     n_valid     : 8600 / 8600
+     n_missing   : 0
+     min / max   : 0.0000 / 1.0000
+     mean        : 0.4249
+
+4. IMPORTANT NOTES ON RESOLUTION
+   All extracted features derive from 30m source data.
+   Each 500m grid cell contains approximately (500/30)^2 ~ 278 source pixels.
+   The 500m grid does NOT create 500m-resolution information.
+   It provides a spatial aggregation framework for future flood modelling.
+
+5. TARGET CRS
+   Features extracted in UTM43N (EPSG:32643), stored as WGS84 in GeoJSON.
+   Coordinate integrity preserved throughout; no on-the-fly reprojection gaps.
+
+6. MISSING DATA POLICY
+   Cells with no valid source pixels receive NaN.
+   NaN values are never filled with synthetic or interpolated data.
+   Pending datasets are clearly flagged, not substituted.
+
+====================================================================

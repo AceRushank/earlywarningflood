@@ -1,0 +1,69 @@
+====================================================================
+MOSDAC FORECAST DATA QC REPORT (v2: gap-corrected)
+Source: data/mosdac/mumbai_rainfall_30min.csv
+====================================================================
+
+RAW PIXEL DATA
+  Total rows             : 102357
+  Earliest timestamp     : 2026-09-08 00:00:00
+  Latest  timestamp      : 2026-09-22 13:30:00
+  Unique timestamps      : 669
+  Expected 30-min slots  : 700
+  Missing timestamps     : 31
+  Duplicate pixel rows   : 0
+  Pixels per timestamp   : 153 (constant)
+
+MISSING TIMESTAMP LIST
+  2026-09-08 17:30:00
+  2026-09-08 18:00:00
+  2026-09-08 18:30:00
+  2026-09-08 19:00:00
+  2026-09-09 17:30:00
+  2026-09-09 19:00:00
+  2026-09-10 11:30:00
+  2026-09-10 17:30:00
+  2026-09-10 19:00:00
+  2026-09-11 17:30:00
+  2026-09-11 19:00:00
+  2026-09-12 17:30:00
+  2026-09-12 19:00:00
+  2026-09-13 17:30:00
+  2026-09-13 19:00:00
+  2026-09-14 17:30:00
+  2026-09-14 19:00:00
+  2026-09-15 17:30:00
+  2026-09-15 19:00:00
+  2026-09-16 17:30:00
+  2026-09-16 19:00:00
+  2026-09-17 17:30:00
+  2026-09-17 19:00:00
+  2026-09-18 17:30:00
+  2026-09-18 19:00:00
+  2026-09-19 17:30:00
+  2026-09-19 19:00:00
+  2026-09-20 17:30:00
+  2026-09-20 19:00:00
+  2026-09-21 17:30:00
+  2026-09-21 19:00:00
+
+  17:30 and 19:00 UTC systematically absent from 09-Sep-2026.
+  Not imputed. Rows needing these are excluded from supervised dataset.
+
+RAINFALL_MM_HR STATISTICS (pixel level)
+  Mean 0.1543  Median 0.0000  Std 1.4229
+  Min  0.0000  Max   49.4827
+  Zero%: 94.3%  NaN: 0  Negative: 0
+
+TEMPORAL-GAP VALIDATION SUMMARY
+  Total rows          : 669
+  Valid (gap-free)    : 362
+  Dropped             : 307
+    out-of-bounds     : 18
+    lag gap           : 205
+    target gap        : 84
+  v1 leaked rows      : 289
+
+UNIT: rainfall_mm_hr is INSAT-3DS HEM rainfall RATE in mm/hr.
+Targets are future RATES, NOT accumulated rainfall.
+
+====================================================================

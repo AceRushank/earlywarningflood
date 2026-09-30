@@ -1,0 +1,71 @@
+================================================================================
+MOSDAC INSAT-3DS RAINFALL GEOTIFF INSPECTION REPORT
+Generated on: 2026-09-22 19:29:12
+================================================================================
+
+1. EXECUTIVE SUMMARY & DOMAIN OVERVIEW
+   - Number of GeoTIFF files found: 26
+   - Earliest timestamp: 2026-09-22 00:00
+   - Latest timestamp: 2026-09-22 12:30
+   - Coordinate Reference System (CRS): EPSG:4326
+   - Spatial resolution: 0.03617715955 deg (~4 km)
+   - Full raster dimensions: 4493 width x 4021 height (1 band)
+   - Mumbai cropped window dimensions: 11 width x 17 height (187 pixels per timestamp)
+   - Full geographic bounds: left=0.732809, bottom=-72.736411, right=163.276787, top=72.731948
+   - Mumbai AOI bounds: lon [72.70, 73.10], lat [18.80, 19.40]
+   - Rainfall units from metadata: not specified in metadata
+   - Reported NoData value: -999.0
+   - Total valid pixels extracted (Mumbai crop): 4,862 rows across 26 files
+   - mosdac_rainfall_pixels.csv size: 199.5 KB (4,862 rows)
+   - mosdac_rainfall_summary.csv size: 1.5 KB (26 rows)
+
+2. INCONSISTENCIES & STRUCTURAL INTEGRITY CHECK
+   - Inconsistencies detected: NONE.
+   - All 26 GeoTIFFs possess identical CRS (EPSG:4326), dimensions (4493x4021), resolution (0.036177 deg), bounds, and NoData (-999.0).
+   - Mumbai crop window was confirmed NON-EMPTY for all 26 files (187 pixels per file).
+
+3. DATA INTEGRITY & NEGATIVE VALUE ANALYSIS (RULE 8)
+   - Negative valid values observed in FULL DOMAIN: Found in 9 of 26 files.
+   - Note: In MOSDAC HEM products, pixels with value -99.0 represent quality-flagged / unclassified pixels.
+   - As instructed, negative values were NOT silently merged into the NoData rule.
+     * 3SIMG_22SEP2026_0630_L2B_HEM_V01R00_HEM.tif (2026-09-22 06:30): 598 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_0700_L2B_HEM_V01R00_HEM.tif (2026-09-22 07:00): 1920 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_0730_L2B_HEM_V01R00_HEM.tif (2026-09-22 07:30): 3386 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_0800_L2B_HEM_V01R00_HEM.tif (2026-09-22 08:00): 4315 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_0830_L2B_HEM_V01R00_HEM.tif (2026-09-22 08:30): 3708 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_0900_L2B_HEM_V01R00_HEM.tif (2026-09-22 09:00): 3200 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_0930_L2B_HEM_V01R00_HEM.tif (2026-09-22 09:30): 1958 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_1000_L2B_HEM_V01R00_HEM.tif (2026-09-22 10:00): 858 pixels with negative value (-99.0)
+     * 3SIMG_22SEP2026_1030_L2B_HEM_V01R00_HEM.tif (2026-09-22 10:30): 78 pixels with negative value (-99.0)
+   - Negative values in MUMBAI AOI CROP: 0 (All Mumbai pixels are valid non-negative measurements >= 0.0)
+
+4. PER-FILE AUDIT TABLE
+Filename                                      | Timestamp        | Full Valid Px | Full Min/Max    | Crop Valid | Crop Min/Max    | Crop Mean 
+--------------------------------------------------------------------------------------------------------------------------------------------
+3SIMG_22SEP2026_0000_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 00:00 | 17,111,201    | 0.0 / 129.5     | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0030_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 00:30 | 17,111,201    | 0.0 / 127.9     | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0100_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 01:00 | 17,111,201    | 0.0 / 115.0     | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0130_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 01:30 | 17,111,201    | 0.0 / 114.9     | 187        | 0.00 / 3.98     | 0.0394    
+3SIMG_22SEP2026_0200_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 02:00 | 17,111,201    | 0.0 / 146.0     | 187        | 0.00 / 1.67     | 0.0254    
+3SIMG_22SEP2026_0230_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 02:30 | 17,111,201    | 0.0 / 117.8     | 187        | 0.00 / 2.14     | 0.0143    
+3SIMG_22SEP2026_0300_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 03:00 | 17,111,201    | 0.0 / 141.5     | 187        | 0.00 / 1.21     | 0.0139    
+3SIMG_22SEP2026_0330_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 03:30 | 17,111,201    | 0.0 / 126.6     | 187        | 0.00 / 1.04     | 0.0102    
+3SIMG_22SEP2026_0400_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 04:00 | 17,111,201    | 0.0 / 153.4     | 187        | 0.00 / 0.18     | 0.0024    
+3SIMG_22SEP2026_0430_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 04:30 | 17,111,201    | 0.0 / 165.6     | 187        | 0.00 / 0.82     | 0.0110    
+3SIMG_22SEP2026_0500_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 05:00 | 17,111,201    | 0.0 / 109.0     | 187        | 0.00 / 1.41     | 0.0283    
+3SIMG_22SEP2026_0530_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 05:30 | 17,111,201    | 0.0 / 103.1     | 187        | 0.00 / 0.63     | 0.0160    
+3SIMG_22SEP2026_0600_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 06:00 | 17,111,201    | 0.0 / 145.2     | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0630_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 06:30 | 17,111,201    | -99.0 / 110.2   | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0700_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 07:00 | 17,111,201    | -99.0 / 146.8   | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0730_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 07:30 | 17,111,201    | -99.0 / 124.3   | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0800_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 08:00 | 17,111,201    | -99.0 / 163.3   | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0830_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 08:30 | 17,111,201    | -99.0 / 146.1   | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0900_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 09:00 | 17,111,201    | -99.0 / 153.4   | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_0930_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 09:30 | 17,111,201    | -99.0 / 127.4   | 187        | 0.00 / 0.23     | 0.0036    
+3SIMG_22SEP2026_1000_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 10:00 | 17,111,201    | -99.0 / 118.4   | 187        | 0.00 / 0.34     | 0.0063    
+3SIMG_22SEP2026_1030_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 10:30 | 17,111,201    | -99.0 / 103.6   | 187        | 0.00 / 0.06     | 0.0006    
+3SIMG_22SEP2026_1100_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 11:00 | 17,111,201    | 0.0 / 126.1     | 187        | 0.00 / 0.00     | 0.0000    
+3SIMG_22SEP2026_1130_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 11:30 | 17,111,201    | 0.0 / 132.7     | 187        | 0.00 / 0.13     | 0.0065    
+3SIMG_22SEP2026_1200_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 12:00 | 17,111,201    | 0.0 / 135.7     | 187        | 0.00 / 2.11     | 0.1120    
+3SIMG_22SEP2026_1230_L2B_HEM_V01R00_HEM.tif   | 2026-09-22 12:30 | 17,111,201    | 0.0 / 142.8     | 187        | 0.00 / 3.57     | 0.5164    
+============================================================================================================================================

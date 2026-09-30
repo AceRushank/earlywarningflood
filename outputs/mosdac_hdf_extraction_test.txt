@@ -1,0 +1,22 @@
+================================================================================
+MOSDAC INSAT-3DS HDF EXTRACTION VERIFICATION REPORT
+================================================================================
+Source filename:              3SIMG_08SEP2026_0000_L2B_HEM_V01R00.h5
+Decoded timestamp:            2026-09-08 00:00
+Mumbai pixels selected:       153
+Valid rainfall pixels:        153
+Fill values excluded:         0
+Latitude min / max:           18.830000 / 19.390000
+Longitude min / max:          72.709998 / 73.099998
+Rainfall min / max (mm/hr):   0.0000 / 0.0000
+Rainfall mean (mm/hr):        0.0000
+Zero-rainfall pixels:         153
+Positive-rainfall pixels:     0
+
+SANITY CHECK & PLAUSIBILITY AUDIT:
+1. Non-empty extraction:      CONFIRMED (153 pixels captured)
+2. Geographic containment:    CONFIRMED (Lat [18.8300, 19.3900] in [18.80, 19.40], Lon [72.7100, 73.1000] in [72.70, 73.10])
+3. Value validity:            CONFIRMED (All values finite, >= 0.0, fill values completely eliminated)
+4. Broad scale plausibility:  CONFIRMED (~153 curvilinear satellite pixels vs 187 resampled GeoTIFF pixels over Mumbai AOI)
+   (Note: Numerical values are not expected to match GeoTIFF files due to differing observation dates: 08-Sep vs 22-Sep)
+================================================================================
