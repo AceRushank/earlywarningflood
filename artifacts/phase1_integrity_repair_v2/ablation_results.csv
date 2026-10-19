@@ -1,0 +1,19 @@
+horizon,ablation_id,variant_name,feature_description,train_n,eval_n,synchronized_timestamps,mae_m,mae_mm,rmse_m,rmse_mm,r2,bias_m,imp_vs_persistence_pct
++1h,ABL-02,Stage-Change Ridge (no rain),"FEAT_STAGE_DYN (dH_v_1h, dH_v_3h, dH_v_6h, accel_v_1h)",1222,612,True,0.00565,5.65,0.00831,8.31,0.99743,0.00085,-14.11
++1h,ABL-03,Stage-Change + Contemp. Rain,"FEAT_STAGE_DYN + FEAT_RAIN_CONT (rain_depth_1h_mm, rain_3h_mm, rain_6h_mm, rain_12h_mm, rain_24h_mm)",1079,612,True,0.00498,4.98,0.00717,7.17,0.99809,-0.00038,-0.57
++1h,ABL-04,Stage-Change + Lagged Rain,"FEAT_STAGE_DYN + FEAT_RAIN_LAG (rain_cont + lag1, lag2, lag3)",1073,612,True,0.00498,4.98,0.00716,7.16,0.99809,-0.00038,-0.59
++1h,ABL-05,Stage-Change + Rain + API,FEAT_MULTIMODAL (stage_dyn + rain_cont + api_7d_mm),1079,612,True,0.00518,5.18,0.00727,7.27,0.99803,-0.00134,-4.73
++1h,ABL-06,Random Forest + Rain + API,FEAT_MULTIMODAL (Random Forest),1079,612,True,0.00593,5.93,0.00767,7.67,0.99781,-0.00297,-19.79
++1h,ABL-07,XGBoost + Rain + API,FEAT_MULTIMODAL (XGBoost),1079,612,True,0.00495,4.95,0.00715,7.15,0.9981,-4e-05,-0.03
++2h,ABL-02,Stage-Change Ridge (no rain),"FEAT_STAGE_DYN (dH_v_1h, dH_v_3h, dH_v_6h, accel_v_1h)",1218,604,True,0.00769,7.69,0.01114,11.14,0.99537,0.00177,-32.25
++2h,ABL-03,Stage-Change + Contemp. Rain,"FEAT_STAGE_DYN + FEAT_RAIN_CONT (rain_depth_1h_mm, rain_3h_mm, rain_6h_mm, rain_12h_mm, rain_24h_mm)",1075,604,True,0.00601,6.01,0.00857,8.57,0.99727,-0.00033,-3.4
++2h,ABL-04,Stage-Change + Lagged Rain,"FEAT_STAGE_DYN + FEAT_RAIN_LAG (rain_cont + lag1, lag2, lag3)",1069,604,True,0.00601,6.01,0.00857,8.57,0.99727,-0.00033,-3.43
++2h,ABL-05,Stage-Change + Rain + API,FEAT_MULTIMODAL (stage_dyn + rain_cont + api_7d_mm),1075,604,True,0.00623,6.23,0.00871,8.71,0.99717,-0.0017,-7.21
++2h,ABL-06,Random Forest + Rain + API,FEAT_MULTIMODAL (Random Forest),1075,604,True,0.00717,7.17,0.00945,9.45,0.99667,-0.00364,-23.25
++2h,ABL-07,XGBoost + Rain + API,FEAT_MULTIMODAL (XGBoost),1075,604,True,0.00568,5.68,0.00811,8.11,0.99755,-0.00049,2.38
++3h,ABL-02,Stage-Change Ridge (no rain),"FEAT_STAGE_DYN (dH_v_1h, dH_v_3h, dH_v_6h, accel_v_1h)",1217,599,True,0.00989,9.89,0.01388,13.88,0.99282,0.00308,-42.22
++3h,ABL-03,Stage-Change + Contemp. Rain,"FEAT_STAGE_DYN + FEAT_RAIN_CONT (rain_depth_1h_mm, rain_3h_mm, rain_6h_mm, rain_12h_mm, rain_24h_mm)",1074,599,True,0.00705,7.05,0.00981,9.81,0.99641,-0.00035,-1.39
++3h,ABL-04,Stage-Change + Lagged Rain,"FEAT_STAGE_DYN + FEAT_RAIN_LAG (rain_cont + lag1, lag2, lag3)",1068,599,True,0.00704,7.04,0.00981,9.81,0.99641,-0.00035,-1.31
++3h,ABL-05,Stage-Change + Rain + API,FEAT_MULTIMODAL (stage_dyn + rain_cont + api_7d_mm),1074,599,True,0.00739,7.39,0.01002,10.02,0.99625,-0.00219,-6.33
++3h,ABL-06,Random Forest + Rain + API,FEAT_MULTIMODAL (Random Forest),1074,599,True,0.0087,8.7,0.01103,11.03,0.99546,-0.00578,-25.22
++3h,ABL-07,XGBoost + Rain + API,FEAT_MULTIMODAL (XGBoost),1074,599,True,0.00658,6.58,0.009,9.0,0.99698,-0.001,5.36

@@ -1,0 +1,4 @@
+horizon,n_sync_observations,best_mae_model,best_mae_mm,best_rmse_model,best_rmse_mm,persistence_mae_mm,xgboost_mae_mm,raag_v1_mae_mm,hybrid_p3_mae_mm,raag_v2_hard_mae_mm,raag_v2_soft_mae_mm,v2_hard_vs_xgb_pct,v2_hard_vs_pers_pct,v2_soft_vs_v2_hard_pct
++1h,612,RAAG_v2_Hard,4.669,Phase3_A_XGBoost,6.903,4.949,4.859,4.678,4.669,4.669,4.788,3.91,5.66,-2.55
++2h,604,Phase3_A_XGBoost,5.499,RAAG_v2_Hard,7.683,5.815,5.499,5.536,5.545,5.501,5.557,-0.04,5.4,-1.02
++3h,599,RAAG_v2_Hard,6.076,RAAG_v2_Hard,8.359,6.952,6.285,6.552,6.533,6.076,6.272,3.33,12.6,-3.23

@@ -1,0 +1,139 @@
+{
+  "phase": 6,
+  "title": "Phase 6 Medium-Range Upstream Signal and Flood-Wave Routing Experiment",
+  "horizons_hours": [
+    18,
+    24,
+    36
+  ],
+  "upstream_station": "Mudgal Barrage (Godavari River, Parbhani)",
+  "upstream_distance_km": 105.0,
+  "operational_latency_buffer_hr": 1,
+  "feature_sets": {
+    "Config_A_Persistence": [],
+    "Config_B_Local_Stage": [
+      "stage_vishnupuri",
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "dH_v_12h",
+      "dH_v_24h",
+      "accel_v_1h"
+    ],
+    "Config_C_Local_Stage_Rain": [
+      "stage_vishnupuri",
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "dH_v_12h",
+      "dH_v_24h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "rain_48h_mm",
+      "api_7d_mm"
+    ],
+    "Config_D_Local_Stage_Upstream": [
+      "stage_vishnupuri",
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "dH_v_12h",
+      "dH_v_24h",
+      "accel_v_1h",
+      "stage_m_lag1",
+      "dH_m_1h",
+      "dH_m_3h",
+      "dH_m_6h",
+      "dH_m_12h",
+      "dH_m_18h",
+      "dH_m_24h"
+    ],
+    "Config_E_Local_Stage_Rain_Upstream": [
+      "stage_vishnupuri",
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "dH_v_12h",
+      "dH_v_24h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "rain_48h_mm",
+      "api_7d_mm",
+      "stage_m_lag1",
+      "dH_m_1h",
+      "dH_m_3h",
+      "dH_m_6h",
+      "dH_m_12h",
+      "dH_m_18h",
+      "dH_m_24h"
+    ],
+    "Config_F_Simple_Lagged_Upstream_Proxy": [
+      "dH_m_12h"
+    ],
+    "Config_G_Ridge_Local_Upstream": [
+      "stage_vishnupuri",
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "dH_v_12h",
+      "dH_v_24h",
+      "accel_v_1h",
+      "stage_m_lag1",
+      "dH_m_1h",
+      "dH_m_3h",
+      "dH_m_6h",
+      "dH_m_12h",
+      "dH_m_18h",
+      "dH_m_24h"
+    ],
+    "Config_H_XGBoost_Local_Upstream": [
+      "stage_vishnupuri",
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "dH_v_12h",
+      "dH_v_24h",
+      "accel_v_1h",
+      "stage_m_lag1",
+      "dH_m_1h",
+      "dH_m_3h",
+      "dH_m_6h",
+      "dH_m_12h",
+      "dH_m_18h",
+      "dH_m_24h"
+    ]
+  },
+  "model_parameters": {
+    "Ridge_alpha_candidates": [
+      1.0,
+      10.0,
+      50.0,
+      100.0,
+      500.0
+    ],
+    "XGBoost_params": {
+      "max_depth": 2,
+      "learning_rate": 0.02,
+      "n_estimators": 50,
+      "reg_lambda": 10.0,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "random_state": 42
+    }
+  },
+  "chronological_partitions": {
+    "nominal_train": "2026-06-15 00:00 to 2026-08-10 23:00",
+    "nominal_val": "2026-08-11 00:00 to 2026-08-31 23:00",
+    "nominal_test": "2026-09-01 00:00 to 2026-09-30 23:00",
+    "synchronized_test": "2026-09-08 06:00 to 2026-09-22 19:00",
+    "boundary_separation_applied": true
+  }
+}

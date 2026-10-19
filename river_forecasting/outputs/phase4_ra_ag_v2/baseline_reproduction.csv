@@ -1,0 +1,13 @@
+horizon,model_id,model_name,sync_cohort_n,reproduced_sync_mae_mm,reproduced_sync_rmse_mm,full_cohort_n,reproduced_full_mae_mm,reproduced_full_rmse_mm,reproduction_status
++1h,M01_persistence,Persistence Baseline (dH = 0),612,4.949,7.502,642,4.911,7.437,EXACT_MATCH_VERIFIED
++1h,Finalist_A_XGBoost,Tuned Standalone XGBoost,612,4.879,6.903,642,4.874,6.866,EXACT_MATCH_VERIFIED
++1h,Finalist_B_RAAG,Existing RA-AG (Phase 2 Reproduction),612,4.675,6.91,642,4.637,6.852,EXACT_MATCH_VERIFIED
++1h,Finalist_C_Hybrid,Phase 3 RA-AG + XGBoost Hybrid,612,4.663,6.905,642,4.626,6.847,EXACT_MATCH_VERIFIED
++2h,M01_persistence,Persistence Baseline (dH = 0),604,5.815,8.772,634,5.735,8.649,EXACT_MATCH_VERIFIED
++2h,Finalist_A_XGBoost,Tuned Standalone XGBoost,604,5.502,7.991,634,5.464,7.902,EXACT_MATCH_VERIFIED
++2h,Finalist_B_RAAG,Existing RA-AG (Phase 2 Reproduction),604,5.53,8.246,634,5.453,8.128,EXACT_MATCH_VERIFIED
++2h,Finalist_C_Hybrid,Phase 3 RA-AG + XGBoost Hybrid,604,5.536,8.258,634,5.459,8.141,EXACT_MATCH_VERIFIED
++3h,M01_persistence,Persistence Baseline (dH = 0),599,6.952,9.96,629,6.878,9.841,EXACT_MATCH_VERIFIED
++3h,Finalist_A_XGBoost,Tuned Standalone XGBoost,599,6.284,8.913,629,6.277,8.856,EXACT_MATCH_VERIFIED
++3h,Finalist_B_RAAG,Existing RA-AG (Phase 2 Reproduction),599,6.554,9.318,629,6.475,9.208,EXACT_MATCH_VERIFIED
++3h,Finalist_C_Hybrid,Phase 3 RA-AG + XGBoost Hybrid,599,6.529,9.34,629,6.455,9.229,EXACT_MATCH_VERIFIED

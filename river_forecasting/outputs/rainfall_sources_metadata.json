@@ -1,0 +1,42 @@
+{
+  "sources": {
+    "source_1_imd_daily": {
+      "name": "India Meteorological Department (IMD) Gridded Daily Rainfall",
+      "center": "Climate Research and Services (CRS), IMD Pune",
+      "spatial_resolution": "0.25 degree x 0.25 degree (~27.5 km)",
+      "temporal_resolution": "Daily (08:30 IST to 08:30 IST / 24-hour total)",
+      "catchment_cells": 71,
+      "units": "millimeters per day (mm/day)",
+      "historical_period_available": "1969 to 2024",
+      "missing_data_policy": "Flagged as NaN; excluded from spatial mean; no synthetic zero-imputation",
+      "usage_role": "Medium-range antecedent wetness context (1-day, 3-day, 7-day catchment accumulation)"
+    },
+    "source_2_mosdac_insat3ds_hem": {
+      "name": "ISRO/MOSDAC INSAT-3DS Hydro-Estimator Method (HEM)",
+      "product_id": "3SIMG_L2B_HEM_V01R00",
+      "center": "Space Applications Centre (SAC / ISRO), MOSDAC",
+      "spatial_resolution": "Native 4 km geostationary curvilinear projection",
+      "temporal_resolution": "Half-hourly (aggregated to hourly)",
+      "catchment_curvilinear_pixels": 2869,
+      "units": "Instantaneous rate (mm/hr) and hourly depth (mm)",
+      "event1_coverage_window": "2024-07-31 05:00 IST to 2024-08-05 23:00 IST",
+      "event1_catalog_accounting": {
+        "total_slots": 288,
+        "valid_readable_granules": 275,
+        "catalog_gaps": 9,
+        "server_truncated_corrupted": 4
+      },
+      "missing_data_policy": "Strict NaN preservation; partial hours explicitly flagged; zero forward/backward filling",
+      "usage_role": "High-frequency convective rain tracking for Event 1 rising-limb and lag correlation analysis"
+    },
+    "source_3_cwc_stage_telemetry": {
+      "name": "Central Water Commission (CWC) / Maharashtra WRD Telemetry",
+      "station": "Vishnupuri Barrage (Nanded)",
+      "sensor_type": "Radar / Pressure Transducer River Stage Telemetry",
+      "temporal_resolution": "Hourly",
+      "units": "Meters above mean sea level (m MSL)",
+      "quality_flags": "VALID, ESTIMATED, MISSING",
+      "usage_role": "Hydrological forecast target and autoregressive stage feature foundation"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+horizon,mask_level,total_rows,masked_rows,truth_labels_unaltered,recalculated_xgboost_mae_mm,recalculated_hybrid_p3_mae_mm,recalculated_raag_v2_mae_mm,reported_raag_v2_mae_mm,diff_vs_reported_mm,audit_verdict
++1h,25% Masked,612,153,True,4.859,4.687,4.727,4.727,0.0003,VERIFIED_EXACT
++1h,50% Masked,612,306,True,4.854,4.681,4.71,4.71,0.0005,VERIFIED_EXACT
++1h,100% Masked,612,612,True,4.849,4.691,4.765,4.765,0.0004,VERIFIED_EXACT
++2h,25% Masked,604,151,True,5.497,5.542,5.568,5.568,0.0003,VERIFIED_EXACT
++2h,50% Masked,604,302,True,5.502,5.552,5.646,5.646,0.0003,VERIFIED_EXACT
++2h,100% Masked,604,604,True,5.503,5.57,5.775,5.775,0.0005,VERIFIED_EXACT
++3h,25% Masked,599,150,True,6.287,6.541,6.106,6.106,0.0002,VERIFIED_EXACT
++3h,50% Masked,599,300,True,6.272,6.544,6.159,6.159,0.0,VERIFIED_EXACT
++3h,100% Masked,599,599,True,6.261,6.562,6.289,6.289,0.0002,VERIFIED_EXACT

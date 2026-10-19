@@ -1,0 +1,52 @@
+{
+  "timestamp": "2026-10-12T21:30:00+05:30",
+  "study_area": "Vishnupuri Barrage & Godavari River Reach Corridor, Nanded, Maharashtra",
+  "spatial_grid": {
+    "resolution_m": 500,
+    "crs_projected": "EPSG:32643 (WGS 84 / UTM Zone 43N)",
+    "crs_geographic": "EPSG:4326 (WGS 84)",
+    "corridor_area_sq_km": 1231.5,
+    "upstream_basin_area_sq_km": 51768.25,
+    "cell_count": 5158
+  },
+  "predictors_status": {
+    "topography_elevation_slope": "SRTM/HydroBASINS 90m conditioned attributes available",
+    "surface_water_recurrence": "JRC GSW v1.4 (1984-2021) 30m raster available and sampled",
+    "distance_to_barrage_mainstem": "Calculated in UTM 43N coordinates",
+    "river_stage_and_rate_of_rise": "CWC Station 006-SW-MAHA continuous 1h records verified",
+    "upstream_precipitation": "Multi-tier INSAT-3DS HEM 4km + API_7d + Open-Meteo verified",
+    "regional_lulc": "Bhuvan/NRSC basin statistics available (Reach 10m tile N19E077 pending)"
+  },
+  "flood_labels_audit": {
+    "target_sensor": "Sentinel-1 SAR C-band GRD (10m)",
+    "extraction_script": "scripts\\gee_event_flood_extractor.js",
+    "gee_script_status": "AUTHENTIC_PIPELINE_DOCUMENTED_AWAITING_GEE_EXECUTION",
+    "local_sar_flood_masks_found": [],
+    "label_count": 0,
+    "label_availability": false,
+    "scientific_guardrail": "STRICT NON-FABRICATION: Because genuine pixel-level SAR flood rasters covering Nanded are not present in the local repository, 500m flood model training is SAFELY HALTED. Random positives, synthetic masks, or heuristic substitutions are strictly prohibited."
+  },
+  "model_training_status": {
+    "status": "NOT_TRAINED_PENDING_SAR_LABELS",
+    "reason": "Authentic Sentinel-1 SAR change-detection rasters have not been exported from GEE due to cloud credential requirements. Training cannot proceed without ground-truth labels.",
+    "event_splits_planned": [
+      {
+        "event": "2024_August_Peak",
+        "type": "Validation Holdout",
+        "cwc_stage_m": 354.798
+      },
+      {
+        "event": "2026_July_Inception",
+        "type": "Test Holdout",
+        "cwc_stage_m": 351.468
+      }
+    ],
+    "metrics": {
+      "precision": null,
+      "recall": null,
+      "f1_score": null,
+      "pr_auc": null,
+      "note": "Unfitted: Zero metrics manufactured in accordance with scientific ethics."
+    }
+  }
+}

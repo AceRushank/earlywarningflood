@@ -1,0 +1,255 @@
+{
+  "dataset_sha256": "ea58df0cff7ee54b",
+  "n_rows": 2592,
+  "n_cols": 39,
+  "dt_min": "2026-06-15 00:00:00",
+  "dt_max": "2026-09-30 23:00:00",
+  "expected_hourly_rows": 2592,
+  "timezone": "Asia/Kolkata (IST), naive timestamps",
+  "duplicate_timestamps": 0,
+  "split_counts": {
+    "TRAIN": 1368,
+    "TEST": 720,
+    "VAL": 504
+  },
+  "missingness": {
+    "stage_babhali": {
+      "missing_n": 228,
+      "missing_pct": 8.8,
+      "min": 327.16,
+      "max": 330.438,
+      "mean": 328.4995
+    },
+    "stage_raher": {
+      "missing_n": 112,
+      "missing_pct": 4.32,
+      "min": 328.951,
+      "max": 332.15,
+      "mean": 329.389
+    },
+    "stage_vishnupuri": {
+      "missing_n": 175,
+      "missing_pct": 6.75,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.0223
+    },
+    "rain_rate_mm_hr": {
+      "missing_n": 145,
+      "missing_pct": 5.59,
+      "min": 0.0,
+      "max": 8.2651,
+      "mean": 0.1869
+    },
+    "rain_depth_1h_mm": {
+      "missing_n": 145,
+      "missing_pct": 5.59,
+      "min": 0.0,
+      "max": 8.2651,
+      "mean": 0.1808
+    },
+    "stage_v_lag1": {
+      "missing_n": 176,
+      "missing_pct": 6.79,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.0218
+    },
+    "stage_v_lag2": {
+      "missing_n": 177,
+      "missing_pct": 6.83,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.0213
+    },
+    "stage_v_lag3": {
+      "missing_n": 178,
+      "missing_pct": 6.87,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.0208
+    },
+    "dH_v_1h": {
+      "missing_n": 197,
+      "missing_pct": 7.6,
+      "min": -0.1469999999999913,
+      "max": 0.5149999999999864,
+      "mean": 0.0011
+    },
+    "dH_v_3h": {
+      "missing_n": 218,
+      "missing_pct": 8.41,
+      "min": -0.2249999999999659,
+      "max": 1.0649999999999975,
+      "mean": 0.0033
+    },
+    "stage_r_lag1": {
+      "missing_n": 113,
+      "missing_pct": 4.36,
+      "min": 328.951,
+      "max": 332.15,
+      "mean": 329.3891
+    },
+    "dH_r_1h": {
+      "missing_n": 134,
+      "missing_pct": 5.17,
+      "min": -0.2080000000000268,
+      "max": 0.660000000000025,
+      "mean": -0.0006
+    },
+    "stage_b_lag1": {
+      "missing_n": 229,
+      "missing_pct": 8.83,
+      "min": 327.16,
+      "max": 330.438,
+      "mean": 328.4994
+    },
+    "dH_b_1h": {
+      "missing_n": 271,
+      "missing_pct": 10.46,
+      "min": -0.6299999999999955,
+      "max": 0.1940000000000168,
+      "mean": -0.0019
+    },
+    "rain_3h_mm": {
+      "missing_n": 118,
+      "missing_pct": 4.55,
+      "min": 0.0,
+      "max": 23.5068,
+      "mean": 0.5318
+    },
+    "rain_6h_mm": {
+      "missing_n": 119,
+      "missing_pct": 4.59,
+      "min": 0.0,
+      "max": 44.1934,
+      "mean": 1.0375
+    },
+    "rain_12h_mm": {
+      "missing_n": 129,
+      "missing_pct": 4.98,
+      "min": 0.0,
+      "max": 68.4603,
+      "mean": 1.9835
+    },
+    "rain_24h_mm": {
+      "missing_n": 147,
+      "missing_pct": 5.67,
+      "min": 0.0,
+      "max": 99.1287,
+      "mean": 3.7717
+    },
+    "target_v_1h": {
+      "missing_n": 176,
+      "missing_pct": 6.79,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.023
+    },
+    "target_v_2h": {
+      "missing_n": 177,
+      "missing_pct": 6.83,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.0237
+    },
+    "target_v_3h": {
+      "missing_n": 178,
+      "missing_pct": 6.87,
+      "min": 350.541,
+      "max": 355.087,
+      "mean": 353.0243
+    },
+    "target_v_dH_1h": {
+      "missing_n": 197,
+      "missing_pct": 7.6,
+      "min": -0.1469999999999913,
+      "max": 0.5149999999999864,
+      "mean": 0.0011
+    },
+    "target_v_dH_2h": {
+      "missing_n": 210,
+      "missing_pct": 8.1,
+      "min": -0.1539999999999963,
+      "max": 0.7939999999999827,
+      "mean": 0.0022
+    },
+    "target_v_dH_3h": {
+      "missing_n": 218,
+      "missing_pct": 8.41,
+      "min": -0.2249999999999659,
+      "max": 1.0649999999999975,
+      "mean": 0.0033
+    },
+    "target_r_1h": {
+      "missing_n": 112,
+      "missing_pct": 4.32,
+      "min": 328.951,
+      "max": 332.15,
+      "mean": 329.389
+    },
+    "target_r_2h": {
+      "missing_n": 113,
+      "missing_pct": 4.36,
+      "min": 328.951,
+      "max": 332.15,
+      "mean": 329.3885
+    },
+    "target_r_3h": {
+      "missing_n": 114,
+      "missing_pct": 4.4,
+      "min": 328.951,
+      "max": 332.15,
+      "mean": 329.3881
+    },
+    "dH_v_6h": {
+      "missing_n": 238,
+      "missing_pct": 9.18,
+      "min": -0.37000000000000455,
+      "max": 1.7629999999999768,
+      "mean": 0.0068
+    },
+    "accel_v_1h": {
+      "missing_n": 215,
+      "missing_pct": 8.29,
+      "min": -0.33499999999997954,
+      "max": 0.5019999999999527,
+      "mean": -0.0
+    },
+    "api_7d_mm": {
+      "missing_n": 145,
+      "missing_pct": 5.59,
+      "min": 3.776661526166196,
+      "max": 155.28049613832172,
+      "mean": 35.2889
+    },
+    "rain_lag1_1h_mm": {
+      "missing_n": 146,
+      "missing_pct": 5.63,
+      "min": 0.0,
+      "max": 8.2651,
+      "mean": 0.1808
+    },
+    "rain_lag2_1h_mm": {
+      "missing_n": 147,
+      "missing_pct": 5.67,
+      "min": 0.0,
+      "max": 8.2651,
+      "mean": 0.1809
+    },
+    "rain_lag3_1h_mm": {
+      "missing_n": 148,
+      "missing_pct": 5.71,
+      "min": 0.0,
+      "max": 8.2651,
+      "mean": 0.181
+    }
+  },
+  "temporal_gaps_gt1h": [],
+  "stage_anomaly_flags": {
+    "below_340m_msl": 0,
+    "above_358m_msl": 0,
+    "note": "Vishnupuri FRL=355.0m MSL; values outside 340-358m are suspicious."
+  },
+  "n_temporal_gaps": 0
+}

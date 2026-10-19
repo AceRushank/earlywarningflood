@@ -1,0 +1,815 @@
+{
+  "metadata": {
+    "research_question": "Does stage-change Ridge with upstream INSAT-3DS HEM rainfall features improve 1-3h river-stage forecasts compared with simpler and nonlinear alternatives?",
+    "horizons": [
+      "+1h",
+      "+2h",
+      "+3h"
+    ],
+    "features_audited": {
+      "stage_base": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "stage_dynamics": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h"
+      ],
+      "satellite_rainfall_and_api": [
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "multimodal": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ]
+    }
+  },
+  "evaluations": {
+    "Phase_A_July_Event": {
+      "n_samples": 30,
+      "training_protocol": "Pre-Event Training (Target < July 30 00:00 IST)",
+      "horizons": {
+        "+1h": {
+          "train_samples": 944,
+          "test_samples": 30,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.029,
+              "rmse_m": 0.0342,
+              "r2": 0.9838,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 30
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0531,
+              "rmse_m": 0.0643,
+              "r2": 0.9427,
+              "diff_vs_pers_m": 0.0241,
+              "imp_vs_pers_pct": -83.0,
+              "n_samples": 30
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0306,
+              "rmse_m": 0.0361,
+              "r2": 0.982,
+              "diff_vs_pers_m": 0.0016,
+              "imp_vs_pers_pct": -5.39,
+              "n_samples": 30
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0274,
+              "rmse_m": 0.0322,
+              "r2": 0.9856,
+              "diff_vs_pers_m": -0.0016,
+              "imp_vs_pers_pct": 5.36,
+              "n_samples": 30
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0355,
+              "rmse_m": 0.0425,
+              "r2": 0.975,
+              "diff_vs_pers_m": 0.0065,
+              "imp_vs_pers_pct": -22.43,
+              "n_samples": 30
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0437,
+              "rmse_m": 0.0526,
+              "r2": 0.9617,
+              "diff_vs_pers_m": 0.0147,
+              "imp_vs_pers_pct": -50.71,
+              "n_samples": 30
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0295,
+              "rmse_m": 0.0348,
+              "r2": 0.9832,
+              "diff_vs_pers_m": 0.0005,
+              "imp_vs_pers_pct": -1.85,
+              "n_samples": 30
+            }
+          }
+        },
+        "+2h": {
+          "train_samples": 939,
+          "test_samples": 30,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0543,
+              "rmse_m": 0.0649,
+              "r2": 0.9459,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 30
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.08,
+              "rmse_m": 0.0965,
+              "r2": 0.8804,
+              "diff_vs_pers_m": 0.0256,
+              "imp_vs_pers_pct": -47.16,
+              "n_samples": 30
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0568,
+              "rmse_m": 0.0675,
+              "r2": 0.9415,
+              "diff_vs_pers_m": 0.0024,
+              "imp_vs_pers_pct": -4.45,
+              "n_samples": 30
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0506,
+              "rmse_m": 0.0612,
+              "r2": 0.9518,
+              "diff_vs_pers_m": -0.0038,
+              "imp_vs_pers_pct": 6.95,
+              "n_samples": 30
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0645,
+              "rmse_m": 0.0772,
+              "r2": 0.9235,
+              "diff_vs_pers_m": 0.0102,
+              "imp_vs_pers_pct": -18.73,
+              "n_samples": 30
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0657,
+              "rmse_m": 0.0787,
+              "r2": 0.9205,
+              "diff_vs_pers_m": 0.0113,
+              "imp_vs_pers_pct": -20.85,
+              "n_samples": 30
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0558,
+              "rmse_m": 0.0664,
+              "r2": 0.9434,
+              "diff_vs_pers_m": 0.0015,
+              "imp_vs_pers_pct": -2.71,
+              "n_samples": 30
+            }
+          }
+        },
+        "+3h": {
+          "train_samples": 937,
+          "test_samples": 30,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0806,
+              "rmse_m": 0.0962,
+              "r2": 0.8886,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 30
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.1075,
+              "rmse_m": 0.1284,
+              "r2": 0.8015,
+              "diff_vs_pers_m": 0.0268,
+              "imp_vs_pers_pct": -33.29,
+              "n_samples": 30
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.084,
+              "rmse_m": 0.0995,
+              "r2": 0.8808,
+              "diff_vs_pers_m": 0.0034,
+              "imp_vs_pers_pct": -4.21,
+              "n_samples": 30
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0759,
+              "rmse_m": 0.0913,
+              "r2": 0.8995,
+              "diff_vs_pers_m": -0.0047,
+              "imp_vs_pers_pct": 5.89,
+              "n_samples": 30
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0863,
+              "rmse_m": 0.103,
+              "r2": 0.8723,
+              "diff_vs_pers_m": 0.0056,
+              "imp_vs_pers_pct": -6.98,
+              "n_samples": 30
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0927,
+              "rmse_m": 0.1107,
+              "r2": 0.8524,
+              "diff_vs_pers_m": 0.0121,
+              "imp_vs_pers_pct": -14.97,
+              "n_samples": 30
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0827,
+              "rmse_m": 0.0981,
+              "r2": 0.8841,
+              "diff_vs_pers_m": 0.002,
+              "imp_vs_pers_pct": -2.52,
+              "n_samples": 30
+            }
+          }
+        }
+      }
+    },
+    "September_Sync_Holdout": {
+      "n_samples": 305,
+      "training_protocol": "Pre-Event Training (Target < July 30 00:00 IST)",
+      "horizons": {
+        "+1h": {
+          "train_samples": 944,
+          "test_samples": 305,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0055,
+              "rmse_m": 0.0085,
+              "r2": 0.9861,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 305
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.042,
+              "rmse_m": 0.0427,
+              "r2": 0.6504,
+              "diff_vs_pers_m": 0.0364,
+              "imp_vs_pers_pct": -657.44,
+              "n_samples": 305
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0056,
+              "rmse_m": 0.0084,
+              "r2": 0.9864,
+              "diff_vs_pers_m": 0.0001,
+              "imp_vs_pers_pct": -1.65,
+              "n_samples": 305
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0058,
+              "rmse_m": 0.0085,
+              "r2": 0.9862,
+              "diff_vs_pers_m": 0.0002,
+              "imp_vs_pers_pct": -4.36,
+              "n_samples": 305
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0072,
+              "rmse_m": 0.009,
+              "r2": 0.9844,
+              "diff_vs_pers_m": 0.0016,
+              "imp_vs_pers_pct": -29.18,
+              "n_samples": 305
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0167,
+              "rmse_m": 0.0219,
+              "r2": 0.9082,
+              "diff_vs_pers_m": 0.0112,
+              "imp_vs_pers_pct": -202.24,
+              "n_samples": 305
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0056,
+              "rmse_m": 0.0082,
+              "r2": 0.987,
+              "diff_vs_pers_m": 0.0001,
+              "imp_vs_pers_pct": -1.17,
+              "n_samples": 305
+            }
+          }
+        },
+        "+2h": {
+          "train_samples": 939,
+          "test_samples": 305,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0066,
+              "rmse_m": 0.01,
+              "r2": 0.9807,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 305
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0501,
+              "rmse_m": 0.0509,
+              "r2": 0.5017,
+              "diff_vs_pers_m": 0.0435,
+              "imp_vs_pers_pct": -655.03,
+              "n_samples": 305
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0066,
+              "rmse_m": 0.0098,
+              "r2": 0.9815,
+              "diff_vs_pers_m": -0.0,
+              "imp_vs_pers_pct": 0.51,
+              "n_samples": 305
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0069,
+              "rmse_m": 0.01,
+              "r2": 0.981,
+              "diff_vs_pers_m": 0.0003,
+              "imp_vs_pers_pct": -4.04,
+              "n_samples": 305
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0086,
+              "rmse_m": 0.0108,
+              "r2": 0.9775,
+              "diff_vs_pers_m": 0.002,
+              "imp_vs_pers_pct": -30.1,
+              "n_samples": 305
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0152,
+              "rmse_m": 0.0193,
+              "r2": 0.9285,
+              "diff_vs_pers_m": 0.0085,
+              "imp_vs_pers_pct": -128.82,
+              "n_samples": 305
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0065,
+              "rmse_m": 0.0095,
+              "r2": 0.9827,
+              "diff_vs_pers_m": -0.0002,
+              "imp_vs_pers_pct": 2.4,
+              "n_samples": 305
+            }
+          }
+        },
+        "+3h": {
+          "train_samples": 937,
+          "test_samples": 305,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0078,
+              "rmse_m": 0.0112,
+              "r2": 0.9757,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 305
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0586,
+              "rmse_m": 0.0594,
+              "r2": 0.3196,
+              "diff_vs_pers_m": 0.0507,
+              "imp_vs_pers_pct": -649.76,
+              "n_samples": 305
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0076,
+              "rmse_m": 0.0108,
+              "r2": 0.9773,
+              "diff_vs_pers_m": -0.0002,
+              "imp_vs_pers_pct": 2.67,
+              "n_samples": 305
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0082,
+              "rmse_m": 0.0111,
+              "r2": 0.976,
+              "diff_vs_pers_m": 0.0003,
+              "imp_vs_pers_pct": -4.4,
+              "n_samples": 305
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0115,
+              "rmse_m": 0.014,
+              "r2": 0.962,
+              "diff_vs_pers_m": 0.0037,
+              "imp_vs_pers_pct": -47.57,
+              "n_samples": 305
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0157,
+              "rmse_m": 0.0196,
+              "r2": 0.926,
+              "diff_vs_pers_m": 0.0079,
+              "imp_vs_pers_pct": -101.66,
+              "n_samples": 305
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0075,
+              "rmse_m": 0.0105,
+              "r2": 0.9786,
+              "diff_vs_pers_m": -0.0003,
+              "imp_vs_pers_pct": 4.13,
+              "n_samples": 305
+            }
+          }
+        }
+      }
+    },
+    "September_Full_Test": {
+      "n_samples": 617,
+      "training_protocol": "Standard Train Split (June 15 - Aug 10 IST)",
+      "horizons": {
+        "+1h": {
+          "train_samples": 1102,
+          "test_samples": 617,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0048,
+              "rmse_m": 0.0074,
+              "r2": 0.9981,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 617
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0049,
+              "rmse_m": 0.0071,
+              "r2": 0.9982,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": -0.33,
+              "n_samples": 617
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0049,
+              "rmse_m": 0.0074,
+              "r2": 0.9981,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": -0.57,
+              "n_samples": 617
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0053,
+              "rmse_m": 0.0075,
+              "r2": 0.998,
+              "diff_vs_pers_m": 0.0004,
+              "imp_vs_pers_pct": -8.8,
+              "n_samples": 617
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0058,
+              "rmse_m": 0.0075,
+              "r2": 0.998,
+              "diff_vs_pers_m": 0.001,
+              "imp_vs_pers_pct": -20.22,
+              "n_samples": 617
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0108,
+              "rmse_m": 0.0159,
+              "r2": 0.991,
+              "diff_vs_pers_m": 0.006,
+              "imp_vs_pers_pct": -123.48,
+              "n_samples": 617
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0049,
+              "rmse_m": 0.0071,
+              "r2": 0.9982,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": -0.48,
+              "n_samples": 617
+            }
+          }
+        },
+        "+2h": {
+          "train_samples": 1097,
+          "test_samples": 617,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0057,
+              "rmse_m": 0.0086,
+              "r2": 0.9973,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 617
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0059,
+              "rmse_m": 0.0085,
+              "r2": 0.9974,
+              "diff_vs_pers_m": 0.0002,
+              "imp_vs_pers_pct": -3.28,
+              "n_samples": 617
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0058,
+              "rmse_m": 0.0087,
+              "r2": 0.9973,
+              "diff_vs_pers_m": 0.0001,
+              "imp_vs_pers_pct": -2.07,
+              "n_samples": 617
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0065,
+              "rmse_m": 0.0089,
+              "r2": 0.9972,
+              "diff_vs_pers_m": 0.0008,
+              "imp_vs_pers_pct": -13.29,
+              "n_samples": 617
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0068,
+              "rmse_m": 0.009,
+              "r2": 0.9971,
+              "diff_vs_pers_m": 0.0011,
+              "imp_vs_pers_pct": -19.81,
+              "n_samples": 617
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.011,
+              "rmse_m": 0.0156,
+              "r2": 0.9914,
+              "diff_vs_pers_m": 0.0053,
+              "imp_vs_pers_pct": -92.22,
+              "n_samples": 617
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0056,
+              "rmse_m": 0.0081,
+              "r2": 0.9977,
+              "diff_vs_pers_m": -0.0001,
+              "imp_vs_pers_pct": 2.35,
+              "n_samples": 617
+            }
+          }
+        },
+        "+3h": {
+          "train_samples": 1095,
+          "test_samples": 617,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0069,
+              "rmse_m": 0.0098,
+              "r2": 0.9965,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 617
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0069,
+              "rmse_m": 0.0096,
+              "r2": 0.9967,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": -0.56,
+              "n_samples": 617
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0071,
+              "rmse_m": 0.0101,
+              "r2": 0.9964,
+              "diff_vs_pers_m": 0.0002,
+              "imp_vs_pers_pct": -3.21,
+              "n_samples": 617
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0079,
+              "rmse_m": 0.0103,
+              "r2": 0.9962,
+              "diff_vs_pers_m": 0.001,
+              "imp_vs_pers_pct": -14.87,
+              "n_samples": 617
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0091,
+              "rmse_m": 0.0114,
+              "r2": 0.9954,
+              "diff_vs_pers_m": 0.0022,
+              "imp_vs_pers_pct": -31.85,
+              "n_samples": 617
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0115,
+              "rmse_m": 0.0154,
+              "r2": 0.9916,
+              "diff_vs_pers_m": 0.0046,
+              "imp_vs_pers_pct": -66.72,
+              "n_samples": 617
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0064,
+              "rmse_m": 0.009,
+              "r2": 0.9971,
+              "diff_vs_pers_m": -0.0005,
+              "imp_vs_pers_pct": 6.97,
+              "n_samples": 617
+            }
+          }
+        }
+      }
+    },
+    "Full_Season_Monitored": {
+      "n_samples": 2100,
+      "training_protocol": "Standard Train Split (June 15 - Aug 10 IST)",
+      "horizons": {
+        "+1h": {
+          "train_samples": 1102,
+          "test_samples": 2100,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0071,
+              "rmse_m": 0.0105,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 2100
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0068,
+              "rmse_m": 0.0107,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0002,
+              "imp_vs_pers_pct": 2.92,
+              "n_samples": 2100
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0071,
+              "rmse_m": 0.0105,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": -0.2,
+              "n_samples": 2100
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0072,
+              "rmse_m": 0.0101,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0002,
+              "imp_vs_pers_pct": -2.13,
+              "n_samples": 2100
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0066,
+              "rmse_m": 0.0088,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0004,
+              "imp_vs_pers_pct": 6.17,
+              "n_samples": 2100
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0079,
+              "rmse_m": 0.0113,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0008,
+              "imp_vs_pers_pct": -11.97,
+              "n_samples": 2100
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.007,
+              "rmse_m": 0.0102,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0001,
+              "imp_vs_pers_pct": 1.23,
+              "n_samples": 2100
+            }
+          }
+        },
+        "+2h": {
+          "train_samples": 1097,
+          "test_samples": 2100,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0083,
+              "rmse_m": 0.0133,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 2100
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0082,
+              "rmse_m": 0.0136,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0001,
+              "imp_vs_pers_pct": 0.86,
+              "n_samples": 2100
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0083,
+              "rmse_m": 0.0131,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0001,
+              "imp_vs_pers_pct": -0.69,
+              "n_samples": 2100
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0086,
+              "rmse_m": 0.0122,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0003,
+              "imp_vs_pers_pct": -3.5,
+              "n_samples": 2100
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0076,
+              "rmse_m": 0.0102,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0007,
+              "imp_vs_pers_pct": 8.7,
+              "n_samples": 2100
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0085,
+              "rmse_m": 0.0117,
+              "r2": 1.0,
+              "diff_vs_pers_m": 0.0002,
+              "imp_vs_pers_pct": -2.74,
+              "n_samples": 2100
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.008,
+              "rmse_m": 0.0124,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0003,
+              "imp_vs_pers_pct": 3.83,
+              "n_samples": 2100
+            }
+          }
+        },
+        "+3h": {
+          "train_samples": 1095,
+          "test_samples": 2100,
+          "models": {
+            "A. Persistence Baseline": {
+              "mae_m": 0.0094,
+              "rmse_m": 0.0164,
+              "r2": 0.9999,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": 0.0,
+              "n_samples": 2100
+            },
+            "B. Stage-Only Ridge (Level)": {
+              "mae_m": 0.0094,
+              "rmse_m": 0.0165,
+              "r2": 0.9999,
+              "diff_vs_pers_m": 0.0,
+              "imp_vs_pers_pct": -0.49,
+              "n_samples": 2100
+            },
+            "C. Stage-Change Ridge (dH, Stage-Only)": {
+              "mae_m": 0.0095,
+              "rmse_m": 0.0159,
+              "r2": 0.9999,
+              "diff_vs_pers_m": 0.0001,
+              "imp_vs_pers_pct": -1.51,
+              "n_samples": 2100
+            },
+            "D. Model D: Stage-Change + Rainfall Ridge (dH)": {
+              "mae_m": 0.0099,
+              "rmse_m": 0.0143,
+              "r2": 0.9999,
+              "diff_vs_pers_m": 0.0005,
+              "imp_vs_pers_pct": -5.35,
+              "n_samples": 2100
+            },
+            "E. Random Forest Regressor (dH)": {
+              "mae_m": 0.0089,
+              "rmse_m": 0.0117,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0005,
+              "imp_vs_pers_pct": 5.41,
+              "n_samples": 2100
+            },
+            "F. Gradient Boosting Regressor (dH)": {
+              "mae_m": 0.0091,
+              "rmse_m": 0.012,
+              "r2": 1.0,
+              "diff_vs_pers_m": -0.0003,
+              "imp_vs_pers_pct": 3.4,
+              "n_samples": 2100
+            },
+            "F. XGBoost Regressor (dH)": {
+              "mae_m": 0.0087,
+              "rmse_m": 0.0137,
+              "r2": 0.9999,
+              "diff_vs_pers_m": -0.0006,
+              "imp_vs_pers_pct": 6.76,
+              "n_samples": 2100
+            }
+          }
+        }
+      }
+    }
+  }
+}

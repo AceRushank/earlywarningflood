@@ -1,0 +1,54 @@
+﻿============================= test session starts =============================
+platform win32 -- Python 3.13.5, pytest-8.2.0, pluggy-1.6.0
+rootdir: C:\Users\aceru\floodsystem
+plugins: anyio-4.13.0, asyncio-0.23.7
+asyncio: mode=Mode.STRICT
+collected 158 items
+
+river_forecasting\tests\test_audit_verification.py ....                  [  2%]
+river_forecasting\tests\test_catchment_extractor.py ....                 [  5%]
+river_forecasting\tests\test_delayed_observation_forecasting.py ......   [  8%]
+river_forecasting\tests\test_event_evaluation_july2026.py .....          [ 12%]
+river_forecasting\tests\test_event_statistical_audit.py .......          [ 16%]
+river_forecasting\tests\test_forecast_evaluation_audit.py .....          [ 19%]
+river_forecasting\tests\test_historical_ingestion.py ...                 [ 21%]
+river_forecasting\tests\test_live_inference.py ....                      [ 24%]
+river_forecasting\tests\test_live_ingestion_audit.py ......              [ 27%]
+river_forecasting\tests\test_live_weather.py ......                      [ 31%]
+river_forecasting\tests\test_maam_parameter_flood_audit.py .....         [ 34%]
+river_forecasting\tests\test_model_comparison_benchmark.py ......        [ 38%]
+river_forecasting\tests\test_monsoon_event_evaluation.py ......          [ 42%]
+river_forecasting\tests\test_mosdac_retriever.py ...                     [ 44%]
+river_forecasting\tests\test_multivariable_forecasting.py .....          [ 47%]
+river_forecasting\tests\test_phase1_ml_pipeline.py ..................... [ 60%]
+.....................................                                    [ 84%]
+river_forecasting\tests\test_pipeline.py .............                   [ 92%]
+river_forecasting\tests\test_rising_limb_evaluation.py ...               [ 94%]
+river_forecasting\tests\test_scientific_audit_2026.py ....               [ 96%]
+river_forecasting\tests\test_spatial_flood_foundation.py .....           [100%]
+
+============================== warnings summary ===============================
+river_forecasting/tests/test_catchment_extractor.py::TestCatchmentRainfallExtractor::test_curvilinear_mask_generation
+river_forecasting/tests/test_catchment_extractor.py::TestCatchmentRainfallExtractor::test_polygon_exists_and_validates
+river_forecasting/tests/test_catchment_extractor.py::TestCatchmentRainfallExtractor::test_sequence_extraction
+river_forecasting/tests/test_catchment_extractor.py::TestCatchmentRainfallExtractor::test_single_timestep_extraction
+  C:\Users\aceru\floodsystem\river_forecasting\src\catchment_extractor.py:114: DeprecationWarning: The 'unary_union' attribute is deprecated, use the 'union_all()' method instead.
+    unified_geom = gdf.unary_union
+
+river_forecasting/tests/test_delayed_observation_forecasting.py::test_live_system_status_preserves_operational_freshness_safeguard
+river_forecasting/tests/test_live_inference.py::test_live_system_status_reports_accurate_diagnostic
+river_forecasting/tests/test_live_ingestion_audit.py::test_nwdp_live_fetch_returns_vishnupuri_record
+river_forecasting/tests/test_live_ingestion_audit.py::test_forecast_safety_strictly_blocks_model_d_on_stale_telemetry
+river_forecasting/tests/test_live_ingestion_audit.py::test_telemetry_agency_distinction_maharashtra_sw_vs_cwc
+river_forecasting/tests/test_live_weather.py::test_explicit_operational_states_and_model_blocking
+  C:\Program Files\Python313\Lib\site-packages\urllib3\connectionpool.py:1097: InsecureRequestWarning: Unverified HTTPS request is being made to host 'nwdp.nwic.gov.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+    warnings.warn(
+
+river_forecasting/tests/test_phase1_ml_pipeline.py::TestEstimatorCloningAndIsolation::test_catalogue_template_estimators_remain_unfitted
+  C:\Users\aceru\AppData\Roaming\Python\Python313\site-packages\joblib\externals\loky\backend\context.py:136: UserWarning: Could not find the number of physical cores for the following reason:
+  [WinError 2] The system cannot find the file specified
+  Returning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================= 158 passed, 11 warnings in 71.14s (0:01:11) =================

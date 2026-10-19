@@ -1,0 +1,85 @@
+{
+  "imputation_policy": "NO_TEST_IMPUTATION_COMPLETE_ORIGINS_ONLY",
+  "horizons": [
+    1,
+    2,
+    3
+  ],
+  "test_period": {
+    "start": "2024-08-05 05:00:00",
+    "end": "2024-08-05 23:00:00",
+    "test_sample_count": 19,
+    "hydrological_regime": "POST_PEAK_TAIL_REGIME (Begins 9h after Aug 4 20:00 peak of 354.798m; initial drop to 353.958m trough then mild fluctuation to 354.183m; zero rising-limb coverage)"
+  },
+  "models": {
+    "Persistence Baseline": {
+      "1h": {
+        "n": 18,
+        "mae": 0.02,
+        "rmse": 0.0248,
+        "max_ae": 0.051,
+        "nse": 0.8635
+      },
+      "2h": {
+        "n": 17,
+        "mae": 0.0318,
+        "rmse": 0.0392,
+        "max_ae": 0.087,
+        "nse": 0.6163
+      },
+      "3h": {
+        "n": 16,
+        "mae": 0.0375,
+        "rmse": 0.0449,
+        "max_ae": 0.081,
+        "nse": 0.3465
+      }
+    },
+    "Water-Level-Only ML (Ridge)": {
+      "1h": {
+        "n": 18,
+        "mae": 0.0216,
+        "rmse": 0.0273,
+        "max_ae": 0.0488,
+        "nse": 0.8343
+      },
+      "2h": {
+        "n": 17,
+        "mae": 0.0425,
+        "rmse": 0.0493,
+        "max_ae": 0.1048,
+        "nse": 0.3909
+      },
+      "3h": {
+        "n": 16,
+        "mae": 0.0556,
+        "rmse": 0.0653,
+        "max_ae": 0.1278,
+        "nse": -0.3837
+      }
+    },
+    "Rainfall-Enhanced ML (Ridge)": {
+      "1h": {
+        "n": 18,
+        "mae": 0.0217,
+        "rmse": 0.0269,
+        "max_ae": 0.0529,
+        "nse": 0.8393
+      },
+      "2h": {
+        "n": 17,
+        "mae": 0.0434,
+        "rmse": 0.0499,
+        "max_ae": 0.1052,
+        "nse": 0.3757
+      },
+      "3h": {
+        "n": 16,
+        "mae": 0.06,
+        "rmse": 0.0703,
+        "max_ae": 0.1387,
+        "nse": -0.605
+      }
+    }
+  }
+}

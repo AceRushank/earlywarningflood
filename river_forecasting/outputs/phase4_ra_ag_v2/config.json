@@ -1,0 +1,49 @@
+{
+  "execution_date": "2026-10-18",
+  "partitions": {
+    "train": {
+      "start": "2026-06-15 00:00:00",
+      "end": "2026-08-09 23:00:00",
+      "rows": 1344
+    },
+    "val": {
+      "start": "2026-08-10 00:00:00",
+      "end": "2026-08-31 23:00:00",
+      "rows": 528
+    },
+    "test": {
+      "start": "2026-09-01 00:00:00",
+      "end": "2026-09-30 23:00:00",
+      "rows": 720
+    }
+  },
+  "horizons": [
+    1,
+    2,
+    3
+  ],
+  "candidate_models": {
+    "RAAGv2_Hard": {
+      "description": "Horizon-Aware Stable Shrinkage + Bounded Linear Fallback + Hard Gating",
+      "stable_strategy_by_horizon": {
+        "1": "persistence",
+        "2": "shrinkage_ridge",
+        "3": "shrinkage_ridge"
+      },
+      "ridge_alpha_stable": 100.0,
+      "ridge_alpha_fall": 10.0,
+      "fallback_mode": "bounded_linear"
+    },
+    "RAAGv2_Soft": {
+      "description": "Continuous Soft Gating (Sigmoid Partition of Unity) + Bounded Linear Fallback",
+      "stable_strategy_by_horizon": {
+        "1": "persistence",
+        "2": "shrinkage_ridge",
+        "3": "shrinkage_ridge"
+      },
+      "ridge_alpha_stable": 100.0,
+      "ridge_alpha_fall": 10.0,
+      "fallback_mode": "bounded_linear"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+feature_name,category,source,temporal_span,mathematical_definition,issuance_availability,leakage_audit_status
+stage_vishnupuri,Stage Telemetry,CWC Hydrological Gauge (Vishnupuri Barrage),Instantaneous level at origin t,H(t),Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+dH_v_1h,Stage Dynamics (Velocity),Derived backward difference,t-1 to t (past 1 hour),H(t) - H(t-1),Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+dH_v_3h,Stage Dynamics (Velocity),Derived backward difference,t-3 to t (past 3 hours),H(t) - H(t-3),Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+dH_v_6h,Stage Dynamics (Velocity),Derived backward difference,t-6 to t (past 6 hours),H(t) - H(t-6),Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+accel_v_1h,Stage Dynamics (Acceleration),Derived second backward difference,t-2 to t,[H(t) - H(t-1)] - [H(t-1) - H(t-2)],Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+stage_v_lag1,Stage History,CWC Gauge,Observation at t-1,H(t-1),Available at t-1 (Past),VERIFIED_CAUSAL_NO_LOOKAHEAD
+stage_v_lag2,Stage History,CWC Gauge,Observation at t-2,H(t-2),Available at t-2 (Past),VERIFIED_CAUSAL_NO_LOOKAHEAD
+stage_v_lag3,Stage History,CWC Gauge,Observation at t-3,H(t-3),Available at t-3 (Past),VERIFIED_CAUSAL_NO_LOOKAHEAD
+stage_v_lag6,Stage History,CWC Gauge,Observation at t-6,H(t-6),Available at t-6 (Past),VERIFIED_CAUSAL_NO_LOOKAHEAD
+rain_depth_1h_mm,Rainfall Telemetry,INSAT-3DS Satellite / IMD Telemetry,Accumulated rainfall over t-1 to t,R(t) [backward 1 hour accumulation],Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+rain_3h_mm,Antecedent Precipitation,INSAT-3DS Satellite,Accumulated rainfall over t-3 to t,Sum(R(t-k)) for k=0..2,Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+rain_6h_mm,Antecedent Precipitation,INSAT-3DS Satellite,Accumulated rainfall over t-6 to t,Sum(R(t-k)) for k=0..5,Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+rain_12h_mm,Antecedent Precipitation,INSAT-3DS Satellite,Accumulated rainfall over t-12 to t,Sum(R(t-k)) for k=0..11,Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+rain_24h_mm,Antecedent Precipitation,INSAT-3DS Satellite,Accumulated rainfall over t-24 to t,Sum(R(t-k)) for k=0..23,Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD
+api_7d_mm,Antecedent Precipitation Index,Catchment Hydrologic Memory,Past 168 hours up to t,API(t) = API(t-1)*0.98 + R(t),Available at t,VERIFIED_CAUSAL_NO_LOOKAHEAD

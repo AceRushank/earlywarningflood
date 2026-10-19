@@ -1,0 +1,232 @@
+======================================================================
+MOSDAC INSAT-3DS HEM — GODAVARI RIVER COVERAGE ASSESSMENT
+Vishnupuri Barrage, Nanded, Maharashtra
+Generated: 2026-10-09T15:00:49 UTC
+======================================================================
+
+IMPORTANT NOTICE:
+  Credentials are loaded from environment variables only.
+  No passwords, tokens, or API keys appear in this report.
+
+======================================================================
+TASK A — EXISTING MOSDAC INTEGRATION
+======================================================================
+
+A.1  PRODUCT IDENTIFIER
+  Product ID      : 3SIMG_L2B_HEM_V01R00
+  Description     : INSAT-3DS Imager Level-2B Hydro-Estimator Precipitation (HEM)
+  HDF5 dataset    : /HEM  (shape: 1 x 2816 x 2805)
+  Units           : mm/hr
+  Fill value      : -999.0
+  Time encoding   : minutes since 2000-01-01 00:00:00
+
+A.2  ACCESS METHOD — NOT an HTTP/REST API
+  Method          : SFTP pull from download.mosdac.gov.in (no REST/HTTP API)
+  Protocol        : SSH/SFTP (Paramiko)
+  Server          : download.mosdac.gov.in:22
+  Authentication  : Username + password (env: MOSDAC_USERNAME, MOSDAC_PASSWORD)
+  Credentials     : LOADED FROM ENVIRONMENT — NOT LOGGED OR PRINTED
+  Data ordering   : Files must be ordered via MOSDAC web portal first;
+                    SFTP then retrieves the order directory.
+
+A.3  WHAT THE EXISTING INTEGRATION RETRIEVES
+  Type            : OBSERVED near-real-time satellite precipitation
+                    (NOT forecast, NOT reprocessed, NOT gauge-corrected)
+  Product type    : Level-2B geophysical (GEOPHY), near-real-time
+  Temporal res    : 30 minutes (one HDF5 file per half-hour slot)
+  Spatial res     : ~4 km curvilinear (geostationary projection)
+  Geolocation     : Explicit 2D Latitude / Longitude arrays
+                    (scale_factor=0.01, _FillValue=32767)
+  Full disk domain: lat -81.04 to +81.04 N, lon 0.84 to 163.16 E
+  Coverage        : INSAT-3DS full disk (includes all of India)
+
+A.4  CONFIRMED DATE-RANGE PARAMETERS
+  Archive on disk : 2026-09-08 00:00 UTC to 2026-09-22 13:30 UTC
+  Files in archive: 669 HDF5 files
+  Archive year    : 2026
+  Temporal gaps   : 31 timestamps missing (17:30 and 19:00 UTC slots
+                    systematically absent on most days — known MOSDAC gap)
+  Date parameters : Encoded in filename (DDMONYYYY_HHMM) and /time dataset
+  Pagination      : None — one file per 30-min slot, all files in order dir
+  Request limits  : Governed by MOSDAC order system, not API rate limits
+  Error handling  : download_mosdac_hdf.py retries 3x with reconnect on fail
+
+A.5  HISTORICAL 2022 CAPABILITY
+  Target window   : 2022-05-07 14:00 IST to 2022-11-17 18:00 IST
+  Target in UTC   : 2022-05-07 08:30 to 2022-11-17 12:30
+  Expected 30-min slots : 9320 (May–Nov 2022)
+  Confirmed in archive  : NO — archive contains 2026 data only
+  2022 data available   : POSSIBLE via MOSDAC order system,
+                          BUT requires a NEW ORDER for the 2022 date range.
+  INSAT-3DS launch      : INSAT-3DS was launched February 2024.
+  *** CRITICAL FINDING: INSAT-3DS DID NOT EXIST IN 2022 ***
+  *** HEM product from 3SIMG series is ONLY available from 2024 onwards ***
+  INSAT-3D (predecessor): may have HEM product for 2022 under a different
+                          product identifier (3RIMG_L2B_HEM or similar).
+  Action required       : Check MOSDAC for INSAT-3D / 3DIMG_L2B_HEM for 2022.
+
+======================================================================
+TASK B — READ-ONLY COVERAGE TEST (EXISTING ARCHIVE)
+======================================================================
+
+B.1  TEST DESIGN
+  Approach        : Read 3 timestamps from the existing 2026 archive.
+                    Extraction logic is identical to what would be used
+                    for 2022 data if such files were available.
+  Why 2026 files  : No 2022 HDF5 files are on disk; the pipeline is
+                    tested against existing data to confirm it works.
+  Data type tested: OBSERVED satellite precipitation (mm/hr) — not forecast.
+  Bounding box    : Godavari proxy (lat 18.0-20.5 N, lon 75.5-79.5 E)
+  Station pixel   : Nearest HEM pixel to Vishnupuri Barrage, Nanded, Maharashtra
+
+B.2  TEST RESULTS
+
+  File: 3SIMG_08SEP2026_0000_L2B_HEM_V01R00.h5
+  Timestamp (UTC): 2026-09-08 00:00
+  BBox pixels (Godavari region): 6507
+  Valid (non-fill) pixels: 6507
+  Nearest pixel to station: 19.11 N, 77.289998 E
+  Distance from Vishnupuri: 2.118 km
+  Nearest pixel rainfall: 0.0000 mm/hr
+  BBox mean rainfall: 0.0000 mm/hr
+  BBox max rainfall: 0.0000 mm/hr
+
+  File: 3SIMG_15SEP2026_0730_L2B_HEM_V01R00.h5
+  Timestamp (UTC): 2026-09-15 07:30
+  BBox pixels (Godavari region): 6507
+  Valid (non-fill) pixels: 6507
+  Nearest pixel to station: 19.11 N, 77.289998 E
+  Distance from Vishnupuri: 2.118 km
+  Nearest pixel rainfall: 0.0000 mm/hr
+  BBox mean rainfall: 0.0000 mm/hr
+  BBox max rainfall: 0.0000 mm/hr
+
+  File: 3SIMG_22SEP2026_1330_L2B_HEM_V01R00.h5
+  Timestamp (UTC): 2026-09-22 13:30
+  BBox pixels (Godavari region): 6507
+  Valid (non-fill) pixels: 6507
+  Nearest pixel to station: 19.11 N, 77.289998 E
+  Distance from Vishnupuri: 2.118 km
+  Nearest pixel rainfall: 0.0000 mm/hr
+  BBox mean rainfall: 0.2923 mm/hr
+  BBox max rainfall: 22.9908 mm/hr
+
+B.3  INTERPRETATION
+  The pipeline (extract_mosdac_hdf.py) correctly extracts:
+    - Pixels within any geographic bounding box (not just Mumbai)
+    - The nearest pixel to a point station
+    - Rainfall rate in mm/hr (not accumulated)
+  The same code can be applied to 2022 files IF they exist on disk.
+  The tests above used 2026 data because no 2022 files are available.
+  Test observations saved: godavari_coverage_test_observations.csv
+  Data type: OBSERVED near-real-time precipitation (not forecasts).
+
+======================================================================
+TASK C — SPATIAL RELEVANCE
+======================================================================
+
+C.1  STATION LOCATION
+  Station : Vishnupuri Barrage, Nanded, Maharashtra
+  Lat     : 19.126944 N
+  Lon     : 77.280833 E
+  Within INSAT-3DS full disk: YES
+
+C.2  NEAREST HEM GRID CELL
+  Nearest pixel center  : 19.11 N, 77.289998 E
+  Distance from station : 2.118 km
+  Pixel size            : ~4 km
+  Pixels in proxy bbox  : 6507 (Godavari proxy bounding box)
+
+C.3  CATCHMENT BOUNDARY
+  Catchment shapefile available: NO
+  data/spatial/ contains: Mumbai 500m grid, DEM (GLO-30), GSW — no Godavari shapefiles
+  LIMITATION: Without a catchment boundary, only the single nearest pixel
+              (~4 km) or an approximate bounding box can be used.
+  This single pixel does NOT represent catchment-average rainfall.
+  For proper hydrological forcing, the Vishnupuri catchment boundary
+  must be obtained (e.g., from CWC, WRIS India, or HydroSHEDS).
+
+C.4  WHETHER API CAN RETRIEVE CATCHMENT RAINFALL
+  The SFTP-based HEM files cover the full INSAT-3DS disk (all of India).
+  If a catchment shapefile were available, extract_mosdac_hdf.py could
+  be adapted to mask by shapefile geometry instead of a bounding box.
+  The technical capability exists; only the catchment shapefile is missing.
+
+======================================================================
+TASK D — COVERAGE ASSESSMENT SUMMARY
+======================================================================
+
+D.1  CONFIRMED PRODUCT AND ENDPOINT
+  Product : 3SIMG_L2B_HEM_V01R00
+  Dataset : /HEM (mm/hr, fill=-999.0)
+  Access  : SFTP — download.mosdac.gov.in:22
+            (Username/password from env variables — NOT logged here)
+
+D.2  HISTORICAL DATE RANGE ACTUALLY TESTED
+  Tested: 2026-09-08 archive (2026, 3 timestamps)
+  Pipeline confirmed: extraction logic works for any geographic bounding box
+
+D.3  FIRST AND LAST VALID OBSERVATION (from archive)
+  First: 2026-09-08 00:00 UTC
+  Last : 2026-09-22 13:30 UTC
+  Note : These are 2026 observations; 2022 data not in local archive.
+
+D.4  TEMPORAL AND SPATIAL RESOLUTION
+  Temporal: 30 minutes (one file per slot)
+  Spatial : ~4 km (curvilinear geostationary grid)
+  Units   : mm/hr (instantaneous rainfall rate)
+
+D.5  MISSING PERIODS AND RETRIEVAL ERRORS
+  2026 archive: 31 of 700 expected timestamps missing
+               (17:30 and 19:00 UTC slots consistently absent)
+  2022 archive: NOT on disk — ENTIRE TARGET WINDOW IS ABSENT
+
+D.6  WHETHER COVERAGE IS SUFFICIENT FOR THE AUDITED WINDOW
+  ANSWER: NO — for the following reasons:
+
+  REASON 1 — SATELLITE DID NOT EXIST:
+    INSAT-3DS was launched in February 2024.
+    The 3SIMG_L2B_HEM product CANNOT cover May-November 2022.
+    This is a hard physical constraint, not a data access issue.
+
+  REASON 2 — NO 2022 DATA ON DISK:
+    The local archive contains only 2026-09-08 to 2026-09-22.
+    Not a single 2022 HDF5 file is present.
+
+  REASON 3 — NO CATCHMENT BOUNDARY:
+    Only a point pixel (~4 km) is extractable without a shapefile.
+    Catchment-average rainfall cannot be computed.
+
+D.7  WHAT FURTHER ACCESS IS REQUIRED
+
+  OPTION A (recommended for 2022):
+    Use INSAT-3D (predecessor) HEM product if available via MOSDAC.
+    Product code likely: 3RIMG_L2B_HEM or similar.
+    Date range: INSAT-3D operational from 2013; HEM from ~2014.
+    Action: Log into mosdac.gov.in, search INSAT-3D HEM product
+            for May-November 2022, place an order, download via SFTP.
+
+  OPTION B (alternative for 2022):
+    Use NOAA PERSIANN, GPM IMERG, or IMDAA reanalysis rainfall for 2022.
+    These are available as public archives without ordering.
+
+  OPTION C:
+    Obtain Vishnupuri upstream catchment shapefile from WRIS/CWC India
+    before running any further satellite rainfall extraction.
+
+D.8  CLAIM LIMITATION
+  This report does NOT claim coverage exists for the 2022 target window.
+  It confirms the extraction pipeline works but the source data is absent.
+  No observations were fabricated. No full archive was downloaded.
+
+======================================================================
+FILES CREATED (new, no existing files modified)
+======================================================================
+  outputs/godavari_coverage_test/
+    godavari_coverage_test_observations.csv
+    godavari_mosdac_coverage_report.txt  (this file)
+
+======================================================================
+Generated by: scripts/test_godavari_mosdac_coverage.py
+Generated at: 2026-10-09T15:00:49 UTC
+======================================================================

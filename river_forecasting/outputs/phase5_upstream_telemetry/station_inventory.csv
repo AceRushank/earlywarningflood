@@ -1,0 +1,8 @@
+station_name,station_type,agency,river,tributary,district,latitude,longitude,elevation_datum_m,hydrological_relation,river_distance_km,discharge_available
+Vishnupuri,Target Barrage Pool,Maharashtra WRD / NWIC,Godavari,Mainstem,Nanded,19.1269,77.2808,Mean Sea Level,Target Forecast Point,0.0,No (Stage only)
+Mudgal Barrage,Barrage Gauge,Maharashtra WRD / NWIC,Godavari,Mainstem,Parbhani,19.0889,76.4917,Mean Sea Level,Direct Upstream Mainstem (~105 km),105.0,No (Stage only)
+Siddeshwar Dam,Storage Dam Reservoir,Maharashtra WRD / NWIC,Godavari,Purna River,Hingoli,19.6128,76.9719,Mean Sea Level,Upstream Tributary (Purna Confluence),95.0,No (Stage only)
+Majalgaon,Dam Reservoir,Maharashtra WRD / NWIC,Godavari,Sindphana River,Beed,19.1508,76.1869,Mean Sea Level,Upstream Tributary (~140 km),140.0,No (Stage only)
+Lower Dudhana Dam,Storage Dam Reservoir,Maharashtra WRD / NWIC,Godavari,Dudhana River,Parbhani,19.5308,76.3928,Mean Sea Level,Upstream Tributary (~120 km),120.0,No (Stage only)
+Raher,River Gauge,Maharashtra WRD / NWIC,Godavari,Mainstem,Nanded,18.8969,77.6772,Mean Sea Level,Downstream Mainstem (~55 km),-55.0,No (Stage only)
+Babhali Barrage,Barrage Gauge,Maharashtra WRD / NWIC,Godavari,Mainstem,Nanded,18.8536,76.7794,Mean Sea Level,Downstream Mainstem (~70 km),-70.0,No (Stage only)

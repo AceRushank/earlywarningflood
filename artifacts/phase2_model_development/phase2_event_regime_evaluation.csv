@@ -1,0 +1,13 @@
+episode,horizon,n_samples,persistence_mae_mm,persistence_bias_mm,status_model_d,model_d_mae_mm,model_d_bias_mm,status_xgboost,xgboost_mae_mm,xgboost_bias_mm,status_regime_adaptive,regime_adaptive_mae_mm,regime_adaptive_bias_mm,regime_adaptive_vs_pers_pct
+July 30–31 Flood Inception (Phase A),+1h,30,29.0,-26.07,COMPLETE,45.54,-43.41,COMPLETE,33.04,-30.92,COMPLETE,49.72,-47.81,-71.44
+July 30–31 Flood Inception (Phase A),+2h,30,54.33,-52.2,COMPLETE,70.08,-68.61,COMPLETE,61.04,-59.15,COMPLETE,83.68,-82.85,-54.01
+July 30–31 Flood Inception (Phase A),+3h,30,80.63,-80.5,COMPLETE,98.5,-98.11,COMPLETE,85.34,-85.34,COMPLETE,108.38,-108.38,-34.41
+July 31–Aug 01 Rapid Surge Limb (Phase B),+1h,26,146.0,-134.69,OUTAGE (0% Available),,,OUTAGE (0% Available),,,FALLBACK_ACTIVE (26/26 hours),268.36,-267.23,-83.81
+July 31–Aug 01 Rapid Surge Limb (Phase B),+2h,26,278.54,-272.54,OUTAGE (0% Available),,,OUTAGE (0% Available),,,FALLBACK_ACTIVE (26/26 hours),453.73,-453.73,-62.9
+July 31–Aug 01 Rapid Surge Limb (Phase B),+3h,26,416.62,-404.31,OUTAGE (0% Available),,,OUTAGE (0% Available),,,FALLBACK_ACTIVE (26/26 hours),574.99,-574.99,-38.01
+September 18 Test Inflow Pulse,+1h,8,9.5,-3.75,COMPLETE,9.61,-3.48,COMPLETE,9.85,-4.81,COMPLETE,9.05,-4.1,4.75
+September 18 Test Inflow Pulse,+2h,8,9.88,-6.37,COMPLETE,11.27,-4.62,COMPLETE,10.15,-7.88,COMPLETE,10.43,-6.97,-5.6
+September 18 Test Inflow Pulse,+3h,8,14.63,-2.62,COMPLETE,14.68,1.2,COMPLETE,15.02,-4.09,COMPLETE,12.71,-1.28,13.09
+September 21 Test Inflow Pulse,+1h,5,10.8,-6.4,COMPLETE,11.29,-9.26,COMPLETE,9.36,-6.32,COMPLETE,7.71,-4.89,28.61
+September 21 Test Inflow Pulse,+2h,5,9.2,-6.4,COMPLETE,12.21,-10.38,COMPLETE,8.26,-7.21,COMPLETE,6.27,-5.69,31.8
+September 21 Test Inflow Pulse,+3h,5,9.2,-6.4,COMPLETE,12.88,-10.64,COMPLETE,9.41,-7.5,COMPLETE,7.58,-5.68,17.58

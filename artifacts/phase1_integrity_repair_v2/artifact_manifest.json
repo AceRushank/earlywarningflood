@@ -1,0 +1,1277 @@
+[
+  {
+    "model_id": "M02",
+    "model_name": "Linear Regression (Stage History)",
+    "horizon": "+1h",
+    "artifact_filename": "M02_1h.joblib",
+    "artifact_sha256": "90e873c8eb5f7797ab0d51e3655bbdec1ecd0ad4abf45479713fc09b1c826adc",
+    "target_type": "level",
+    "target_column": "target_v_1h",
+    "feature_count": 5,
+    "features": [
+      "stage_vishnupuri",
+      "stage_v_lag1",
+      "stage_v_lag2",
+      "dH_v_1h",
+      "dH_v_3h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1237
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 661,
+      "mae_m": 0.005675,
+      "mae_mm": 5.675,
+      "rmse_m": 0.008349,
+      "r2": 0.997495,
+      "bias_m": 0.000345
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 4.818654673197781e-06
+  },
+  {
+    "model_id": "M03",
+    "model_name": "Ridge (Stage History, alpha=1)",
+    "horizon": "+1h",
+    "artifact_filename": "M03_1h.joblib",
+    "artifact_sha256": "b9b06ba991d305c5216de8b087616853f9ed60919440f26bac1475a560ca1fd7",
+    "target_type": "level",
+    "target_column": "target_v_1h",
+    "feature_count": 5,
+    "features": [
+      "stage_vishnupuri",
+      "stage_v_lag1",
+      "stage_v_lag2",
+      "dH_v_1h",
+      "dH_v_3h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1237
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 661,
+      "mae_m": 0.005993,
+      "mae_mm": 5.993,
+      "rmse_m": 0.008539,
+      "r2": 0.997379,
+      "bias_m": -0.000571
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.135567522629182e-06
+  },
+  {
+    "model_id": "M04",
+    "model_name": "Ridge (Stage-Change, alpha=10)",
+    "horizon": "+1h",
+    "artifact_filename": "M04_1h.joblib",
+    "artifact_sha256": "1a7238b7096f5258decbbd6506d567722658454aeca55b5e41b6a4e6752adbf0",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 4,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1222
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 642,
+      "mae_m": 0.0056,
+      "mae_mm": 5.6,
+      "rmse_m": 0.008233,
+      "r2": 0.997597,
+      "bias_m": 0.000761
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.8529190719897568e-08
+  },
+  {
+    "model_id": "M05",
+    "model_name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+    "horizon": "+1h",
+    "artifact_filename": "M05_1h.joblib",
+    "artifact_sha256": "22a4dad8504f2cd5b86c3a197e336337903e64bf30f36fd3aba299cbf4b4ec81",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 9,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1079
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 635,
+      "mae_m": 0.004968,
+      "mae_mm": 4.968,
+      "rmse_m": 0.007119,
+      "r2": 0.998185,
+      "bias_m": -0.000483
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.1817093121649644e-06
+  },
+  {
+    "model_id": "M06",
+    "model_name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+    "horizon": "+1h",
+    "artifact_filename": "M06_1h.joblib",
+    "artifact_sha256": "9f129fc56c1463087fdc29354303d1d6d2f55b71757bbf689a7440e5483dc488",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 12,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "rain_lag1_1h_mm",
+      "rain_lag2_1h_mm",
+      "rain_lag3_1h_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1073
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 612,
+      "mae_m": 0.004979,
+      "mae_mm": 4.979,
+      "rmse_m": 0.007164,
+      "r2": 0.99809,
+      "bias_m": -0.000376
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.222594008375849e-06
+  },
+  {
+    "model_id": "M07",
+    "model_name": "Ridge (Stage + Rain + API, alpha=10)",
+    "horizon": "+1h",
+    "artifact_filename": "M07_1h.joblib",
+    "artifact_sha256": "a9528b25819198e9170ae751652c306e23f5665b4347612e2a8d53a156db4e45",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1079
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 635,
+      "mae_m": 0.005189,
+      "mae_mm": 5.189,
+      "rmse_m": 0.007236,
+      "r2": 0.998124,
+      "bias_m": -0.001447
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.2436161275003119e-06
+  },
+  {
+    "model_id": "M08",
+    "model_name": "Random Forest (Stage + Rain + API)",
+    "horizon": "+1h",
+    "artifact_filename": "M08_1h.joblib",
+    "artifact_sha256": "091b6ec215b72e8c7844d9f9bff4777e2e35224ddcb032e415f3e834a4f020f4",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1079
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 635,
+      "mae_m": 0.005916,
+      "mae_mm": 5.916,
+      "rmse_m": 0.007641,
+      "r2": 0.997908,
+      "bias_m": -0.003032
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.934783418140832e-06
+  },
+  {
+    "model_id": "M09",
+    "model_name": "Extra Trees (Stage + Rain + API)",
+    "horizon": "+1h",
+    "artifact_filename": "M09_1h.joblib",
+    "artifact_sha256": "c15c4f5995d038f14f15cbeebcf009f4a0502668554edd739a00fce70bc2b6b4",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1079
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 635,
+      "mae_m": 0.004966,
+      "mae_mm": 4.966,
+      "rmse_m": 0.006842,
+      "r2": 0.998323,
+      "bias_m": -0.001108
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.7615654148526537e-06
+  },
+  {
+    "model_id": "M10",
+    "model_name": "Gradient Boosting Regressor (sklearn GBR)",
+    "horizon": "+1h",
+    "artifact_filename": "M10_1h.joblib",
+    "artifact_sha256": "42d2083b12ceec4edf82c72ada0585d83cd59ac243d0b279d27fe26efd294b92",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1079
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 635,
+      "mae_m": 0.010523,
+      "mae_mm": 10.523,
+      "rmse_m": 0.015359,
+      "r2": 0.99155,
+      "bias_m": -0.008604
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.4795318421040194e-06
+  },
+  {
+    "model_id": "M11",
+    "model_name": "HistGradientBoosting (sklearn, NaN-native)",
+    "horizon": "+1h",
+    "artifact_filename": "M11_1h.joblib",
+    "artifact_sha256": "73d236e088c4a94bfa783a39a938568c2f875b4840babaa3f181caf73fc6e138",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1258
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 685,
+      "mae_m": 0.005898,
+      "mae_mm": 5.898,
+      "rmse_m": 0.007611,
+      "r2": 0.997881,
+      "bias_m": -0.002433
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.380584716305499e-06
+  },
+  {
+    "model_id": "M12",
+    "model_name": "XGBoost Regressor (conservative)",
+    "horizon": "+1h",
+    "artifact_filename": "M12_1h.joblib",
+    "artifact_sha256": "b8e9860aa61433b8fa3da88ea8d7ca63ba448f151068fc647b5b380cc71d0eb5",
+    "target_type": "dH",
+    "target_column": "target_v_dH_1h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1079
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 635,
+      "mae_m": 0.004923,
+      "mae_mm": 4.923,
+      "rmse_m": 0.007097,
+      "r2": 0.998196,
+      "bias_m": -0.000139
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.2760852474731164e-06
+  },
+  {
+    "model_id": "M02",
+    "model_name": "Linear Regression (Stage History)",
+    "horizon": "+2h",
+    "artifact_filename": "M02_2h.joblib",
+    "artifact_sha256": "aa3bc7104517eb6b110d2b617f3c9c0b9ecaa02fb8f71c841e5b049d48691b14",
+    "target_type": "level",
+    "target_column": "target_v_2h",
+    "feature_count": 5,
+    "features": [
+      "stage_vishnupuri",
+      "stage_v_lag1",
+      "stage_v_lag2",
+      "dH_v_1h",
+      "dH_v_3h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1233
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 653,
+      "mae_m": 0.007685,
+      "mae_mm": 7.685,
+      "rmse_m": 0.011307,
+      "r2": 0.995409,
+      "bias_m": 0.000432
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 4.910356288350716e-06
+  },
+  {
+    "model_id": "M03",
+    "model_name": "Ridge (Stage History, alpha=1)",
+    "horizon": "+2h",
+    "artifact_filename": "M03_2h.joblib",
+    "artifact_sha256": "fec617e2522011d269e749e2c4c1a85ce38327623a69c5a91d027b3d023a2990",
+    "target_type": "level",
+    "target_column": "target_v_2h",
+    "feature_count": 5,
+    "features": [
+      "stage_vishnupuri",
+      "stage_v_lag1",
+      "stage_v_lag2",
+      "dH_v_1h",
+      "dH_v_3h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1233
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 653,
+      "mae_m": 0.007859,
+      "mae_mm": 7.859,
+      "rmse_m": 0.01132,
+      "r2": 0.995398,
+      "bias_m": -0.000527
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.26371831040209e-06
+  },
+  {
+    "model_id": "M04",
+    "model_name": "Ridge (Stage-Change, alpha=10)",
+    "horizon": "+2h",
+    "artifact_filename": "M04_2h.joblib",
+    "artifact_sha256": "f7863b8f035bf39a13144af13c34156f19cd280cb1fe2170ed9739367b7a8911",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 4,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1218
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 634,
+      "mae_m": 0.00759,
+      "mae_mm": 7.59,
+      "rmse_m": 0.011,
+      "r2": 0.995714,
+      "bias_m": 0.001564
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.994892107473183e-07
+  },
+  {
+    "model_id": "M05",
+    "model_name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+    "horizon": "+2h",
+    "artifact_filename": "M05_2h.joblib",
+    "artifact_sha256": "dd3d0702f7ff390867506a283a25e9f5cdcac4d79d83cd7e1aa176ace8fde76a",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 9,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1075
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 627,
+      "mae_m": 0.006013,
+      "mae_mm": 6.013,
+      "rmse_m": 0.008531,
+      "r2": 0.997393,
+      "bias_m": -0.000505
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.5603176822663193e-06
+  },
+  {
+    "model_id": "M06",
+    "model_name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+    "horizon": "+2h",
+    "artifact_filename": "M06_2h.joblib",
+    "artifact_sha256": "52f015718b5dc3870173dfae16a3839e02c496438df85ede6f34db6f70eefc97",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 12,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "rain_lag1_1h_mm",
+      "rain_lag2_1h_mm",
+      "rain_lag3_1h_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1069
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 604,
+      "mae_m": 0.006014,
+      "mae_mm": 6.014,
+      "rmse_m": 0.008565,
+      "r2": 0.997267,
+      "bias_m": -0.000331
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 4.142010485933684e-06
+  },
+  {
+    "model_id": "M07",
+    "model_name": "Ridge (Stage + Rain + API, alpha=10)",
+    "horizon": "+2h",
+    "artifact_filename": "M07_2h.joblib",
+    "artifact_sha256": "88d8730923fe956dcbf7085ae2bee817c3dd1168619bfbddb8b12ca8e91381a9",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1075
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 627,
+      "mae_m": 0.006256,
+      "mae_mm": 6.256,
+      "rmse_m": 0.008699,
+      "r2": 0.997289,
+      "bias_m": -0.001873
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.7443072594990634e-06
+  },
+  {
+    "model_id": "M08",
+    "model_name": "Random Forest (Stage + Rain + API)",
+    "horizon": "+2h",
+    "artifact_filename": "M08_2h.joblib",
+    "artifact_sha256": "57ef4f8c21eff5bc5fd564cbc581e4e5e4da7dcc70bc040c11ee35432a3fffcf",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1075
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 627,
+      "mae_m": 0.007147,
+      "mae_mm": 7.147,
+      "rmse_m": 0.009403,
+      "r2": 0.996832,
+      "bias_m": -0.003727
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.901272565819339e-06
+  },
+  {
+    "model_id": "M09",
+    "model_name": "Extra Trees (Stage + Rain + API)",
+    "horizon": "+2h",
+    "artifact_filename": "M09_2h.joblib",
+    "artifact_sha256": "55f10d6b78b70c6a7a5180d2f3e580b57e3d830f195f6b583b1711ef7bcc17e3",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1075
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 627,
+      "mae_m": 0.005651,
+      "mae_mm": 5.651,
+      "rmse_m": 0.007823,
+      "r2": 0.997808,
+      "bias_m": -0.000942
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.2182798489078148e-06
+  },
+  {
+    "model_id": "M10",
+    "model_name": "Gradient Boosting Regressor (sklearn GBR)",
+    "horizon": "+2h",
+    "artifact_filename": "M10_2h.joblib",
+    "artifact_sha256": "f4ce6677cca3997db956c96b72d9f2176082bb5810924cf956e511292c526565",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1075
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 627,
+      "mae_m": 0.010949,
+      "mae_mm": 10.949,
+      "rmse_m": 0.015279,
+      "r2": 0.991637,
+      "bias_m": -0.008666
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.1367865158668639e-06
+  },
+  {
+    "model_id": "M11",
+    "model_name": "HistGradientBoosting (sklearn, NaN-native)",
+    "horizon": "+2h",
+    "artifact_filename": "M11_2h.joblib",
+    "artifact_sha256": "8d462ac00442deac899623215cba06d281132a2377c36b5c0f0fd8e300b89b2b",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1255
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 678,
+      "mae_m": 0.007186,
+      "mae_mm": 7.186,
+      "rmse_m": 0.009157,
+      "r2": 0.996938,
+      "bias_m": -0.003609
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.6333004224354745e-06
+  },
+  {
+    "model_id": "M12",
+    "model_name": "XGBoost Regressor (conservative)",
+    "horizon": "+2h",
+    "artifact_filename": "M12_2h.joblib",
+    "artifact_sha256": "fee1e3b819c7757d19e7b982d48dc3a72a2456ea6ca3403cd75906a035c0987b",
+    "target_type": "dH",
+    "target_column": "target_v_dH_2h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1075
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 627,
+      "mae_m": 0.005689,
+      "mae_mm": 5.689,
+      "rmse_m": 0.008076,
+      "r2": 0.997663,
+      "bias_m": -0.000652
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.013471063094143e-06
+  },
+  {
+    "model_id": "M02",
+    "model_name": "Linear Regression (Stage History)",
+    "horizon": "+3h",
+    "artifact_filename": "M02_3h.joblib",
+    "artifact_sha256": "25d0b38948ef628b2e215608cc685b52e13f93ebd57bba846ff1d35c94e4dfa2",
+    "target_type": "level",
+    "target_column": "target_v_3h",
+    "feature_count": 5,
+    "features": [
+      "stage_vishnupuri",
+      "stage_v_lag1",
+      "stage_v_lag2",
+      "dH_v_1h",
+      "dH_v_3h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1231
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 648,
+      "mae_m": 0.009576,
+      "mae_mm": 9.576,
+      "rmse_m": 0.01383,
+      "r2": 0.993128,
+      "bias_m": 0.000396
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 4.403772541442322e-06
+  },
+  {
+    "model_id": "M03",
+    "model_name": "Ridge (Stage History, alpha=1)",
+    "horizon": "+3h",
+    "artifact_filename": "M03_3h.joblib",
+    "artifact_sha256": "8f3976fd1f3c87709ff2125fdd1aa6ec4b149bc65eb9bfb2a94a366784f487ee",
+    "target_type": "level",
+    "target_column": "target_v_3h",
+    "feature_count": 5,
+    "features": [
+      "stage_vishnupuri",
+      "stage_v_lag1",
+      "stage_v_lag2",
+      "dH_v_1h",
+      "dH_v_3h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1231
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 648,
+      "mae_m": 0.009569,
+      "mae_mm": 9.569,
+      "rmse_m": 0.013488,
+      "r2": 0.993464,
+      "bias_m": -0.000583
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.0638706427288508e-06
+  },
+  {
+    "model_id": "M04",
+    "model_name": "Ridge (Stage-Change, alpha=10)",
+    "horizon": "+3h",
+    "artifact_filename": "M04_3h.joblib",
+    "artifact_sha256": "0d7e613f771a9feecae00b338e38dd96b062a0500a6c6d4b3714000900e4ce50",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 4,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1217
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 629,
+      "mae_m": 0.009816,
+      "mae_mm": 9.816,
+      "rmse_m": 0.013734,
+      "r2": 0.993313,
+      "bias_m": 0.002819
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.5147739668676264e-06
+  },
+  {
+    "model_id": "M05",
+    "model_name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+    "horizon": "+3h",
+    "artifact_filename": "M05_3h.joblib",
+    "artifact_sha256": "1f61c35f01f3b97208a2c06dee63784818595f2989d29a2cf4d8194253d67d0a",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 9,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1074
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 622,
+      "mae_m": 0.007076,
+      "mae_mm": 7.076,
+      "rmse_m": 0.009805,
+      "r2": 0.996554,
+      "bias_m": -0.00057
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 4.007422423264219e-06
+  },
+  {
+    "model_id": "M06",
+    "model_name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+    "horizon": "+3h",
+    "artifact_filename": "M06_3h.joblib",
+    "artifact_sha256": "1284965d41d2b068752ed1399724c343125d18e72aef85253940be89fcc99591",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 12,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "rain_lag1_1h_mm",
+      "rain_lag2_1h_mm",
+      "rain_lag3_1h_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1068
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 599,
+      "mae_m": 0.007043,
+      "mae_mm": 7.043,
+      "rmse_m": 0.009807,
+      "r2": 0.996413,
+      "bias_m": -0.000349
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.688347360088432e-06
+  },
+  {
+    "model_id": "M07",
+    "model_name": "Ridge (Stage + Rain + API, alpha=10)",
+    "horizon": "+3h",
+    "artifact_filename": "M07_3h.joblib",
+    "artifact_sha256": "87a801f38a5fcfc0a3922fd0ca95cf6d432d3edb44ebeed214513985debd8cc9",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1074
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 622,
+      "mae_m": 0.007461,
+      "mae_mm": 7.461,
+      "rmse_m": 0.01005,
+      "r2": 0.99638,
+      "bias_m": -0.002401
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 5.490287522929432e-07
+  },
+  {
+    "model_id": "M08",
+    "model_name": "Random Forest (Stage + Rain + API)",
+    "horizon": "+3h",
+    "artifact_filename": "M08_3h.joblib",
+    "artifact_sha256": "f8e7f2915e3f18aaa8f466e74038897c0e0a44c5fde753858f14411cac3fb92a",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1074
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 622,
+      "mae_m": 0.008753,
+      "mae_mm": 8.753,
+      "rmse_m": 0.011029,
+      "r2": 0.995641,
+      "bias_m": -0.005905
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.069729944836855e-06
+  },
+  {
+    "model_id": "M09",
+    "model_name": "Extra Trees (Stage + Rain + API)",
+    "horizon": "+3h",
+    "artifact_filename": "M09_3h.joblib",
+    "artifact_sha256": "7decda836643c31aae8c47e67090724a47cf98ffcee0fe19f24975776cad663d",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1074
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 622,
+      "mae_m": 0.006798,
+      "mae_mm": 6.798,
+      "rmse_m": 0.008885,
+      "r2": 0.997171,
+      "bias_m": -0.002294
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 1.7860534758263463e-06
+  },
+  {
+    "model_id": "M10",
+    "model_name": "Gradient Boosting Regressor (sklearn GBR)",
+    "horizon": "+3h",
+    "artifact_filename": "M10_3h.joblib",
+    "artifact_sha256": "5cff67108931f7144b9e2b1c877cca6783e99577db19276b52c59a122adb49c4",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1074
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 622,
+      "mae_m": 0.011653,
+      "mae_mm": 11.653,
+      "rmse_m": 0.015704,
+      "r2": 0.991162,
+      "bias_m": -0.009345
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 3.3819669696382587e-06
+  },
+  {
+    "model_id": "M11",
+    "model_name": "HistGradientBoosting (sklearn, NaN-native)",
+    "horizon": "+3h",
+    "artifact_filename": "M11_3h.joblib",
+    "artifact_sha256": "98168e4852657f6d5ea08d30994c8ac70c59197002bb9a31062370654065ffac",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1254
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 673,
+      "mae_m": 0.00801,
+      "mae_mm": 8.01,
+      "rmse_m": 0.010647,
+      "r2": 0.995857,
+      "bias_m": -0.003677
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.507322159964187e-08
+  },
+  {
+    "model_id": "M12",
+    "model_name": "XGBoost Regressor (conservative)",
+    "horizon": "+3h",
+    "artifact_filename": "M12_3h.joblib",
+    "artifact_sha256": "9c44e85c63c3eb40f80445b0c109a083627bc89048fef8c841b845ac48f04c01",
+    "target_type": "dH",
+    "target_column": "target_v_dH_3h",
+    "feature_count": 10,
+    "features": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "train_cohort": {
+      "range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+      "n_rows": 1074
+    },
+    "val_cohort": {
+      "range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST"
+    },
+    "test_cohort": {
+      "range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+      "n_eval": 622,
+      "mae_m": 0.006612,
+      "mae_mm": 6.612,
+      "rmse_m": 0.008992,
+      "r2": 0.997102,
+      "bias_m": -0.001201
+    },
+    "verification_status": "VERIFIED_EXACT_MATCH",
+    "max_discrepancy": 2.496929991595287e-06
+  }
+]

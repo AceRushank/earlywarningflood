@@ -1,0 +1,450 @@
+{
+  "phase": "Phase 1 -- ML Training, Benchmarking and Model Selection",
+  "generated_utc": "2026-10-18T08:25:57.248644+00:00",
+  "train_range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+  "val_range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST",
+  "test_range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+  "phase_a_range": "2026-07-30 00:00:00 -- 2026-07-31 05:00:00 IST",
+  "random_seed": 42,
+  "xgboost_available": true,
+  "lightgbm_available": false,
+  "models": {
+    "M01": {
+      "id": "M01",
+      "name": "Persistence Baseline",
+      "target_type": "level",
+      "feature_set": [
+        "stage_vishnupuri"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": null,
+          "train_n": 1258,
+          "val_mae_m": 0.00589,
+          "test_mae_m": 0.00503
+        },
+        "+2h": {
+          "artifact": null,
+          "train_n": 1255,
+          "val_mae_m": 0.00569,
+          "test_mae_m": 0.00577
+        },
+        "+3h": {
+          "artifact": null,
+          "train_n": 1254,
+          "val_mae_m": 0.00638,
+          "test_mae_m": 0.00689
+        }
+      }
+    },
+    "M02": {
+      "id": "M02",
+      "name": "Linear Regression (Stage History)",
+      "target_type": "level",
+      "feature_set": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M02_1h.joblib",
+          "train_n": 1237,
+          "val_mae_m": 0.00632,
+          "test_mae_m": 0.00568
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M02_2h.joblib",
+          "train_n": 1233,
+          "val_mae_m": 0.00765,
+          "test_mae_m": 0.00768
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M02_3h.joblib",
+          "train_n": 1231,
+          "val_mae_m": 0.00932,
+          "test_mae_m": 0.00958
+        }
+      }
+    },
+    "M03": {
+      "id": "M03",
+      "name": "Ridge (Stage History, alpha=1)",
+      "target_type": "level",
+      "feature_set": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M03_1h.joblib",
+          "train_n": 1237,
+          "val_mae_m": 0.00657,
+          "test_mae_m": 0.00599
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M03_2h.joblib",
+          "train_n": 1233,
+          "val_mae_m": 0.00783,
+          "test_mae_m": 0.00786
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M03_3h.joblib",
+          "train_n": 1231,
+          "val_mae_m": 0.00938,
+          "test_mae_m": 0.00957
+        }
+      }
+    },
+    "M04": {
+      "id": "M04",
+      "name": "Ridge (Stage-Change, alpha=10)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M04_1h.joblib",
+          "train_n": 1222,
+          "val_mae_m": 0.00626,
+          "test_mae_m": 0.0056
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M04_2h.joblib",
+          "train_n": 1218,
+          "val_mae_m": 0.00758,
+          "test_mae_m": 0.00759
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M04_3h.joblib",
+          "train_n": 1217,
+          "val_mae_m": 0.00942,
+          "test_mae_m": 0.00982
+        }
+      }
+    },
+    "M05": {
+      "id": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M05_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00552,
+          "test_mae_m": 0.00497
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M05_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00571,
+          "test_mae_m": 0.00601
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M05_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00659,
+          "test_mae_m": 0.00708
+        }
+      }
+    },
+    "M06": {
+      "id": "M06",
+      "name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "rain_lag1_1h_mm",
+        "rain_lag2_1h_mm",
+        "rain_lag3_1h_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M06_1h.joblib",
+          "train_n": 1073,
+          "val_mae_m": 0.00559,
+          "test_mae_m": 0.00498
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M06_2h.joblib",
+          "train_n": 1069,
+          "val_mae_m": 0.00575,
+          "test_mae_m": 0.00601
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M06_3h.joblib",
+          "train_n": 1068,
+          "val_mae_m": 0.00651,
+          "test_mae_m": 0.00704
+        }
+      }
+    },
+    "M07": {
+      "id": "M07",
+      "name": "Ridge (Stage + Rain + API, alpha=10)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M07_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00568,
+          "test_mae_m": 0.00519
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M07_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00596,
+          "test_mae_m": 0.00626
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M07_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00685,
+          "test_mae_m": 0.00746
+        }
+      }
+    },
+    "M08": {
+      "id": "M08",
+      "name": "Random Forest (Stage + Rain + API)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M08_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00606,
+          "test_mae_m": 0.00592
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M08_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00587,
+          "test_mae_m": 0.00715
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M08_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.0074,
+          "test_mae_m": 0.00875
+        }
+      }
+    },
+    "M09": {
+      "id": "M09",
+      "name": "Extra Trees (Stage + Rain + API)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M09_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.0058,
+          "test_mae_m": 0.00497
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M09_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00572,
+          "test_mae_m": 0.00565
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M09_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00678,
+          "test_mae_m": 0.0068
+        }
+      }
+    },
+    "M10": {
+      "id": "M10",
+      "name": "Gradient Boosting Regressor (sklearn GBR)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M10_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00632,
+          "test_mae_m": 0.01052
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M10_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.0066,
+          "test_mae_m": 0.01095
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M10_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00764,
+          "test_mae_m": 0.01165
+        }
+      }
+    },
+    "M11": {
+      "id": "M11",
+      "name": "HistGradientBoosting (sklearn, NaN-native)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M11_1h.joblib",
+          "train_n": 1258,
+          "val_mae_m": 0.00644,
+          "test_mae_m": 0.0059
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M11_2h.joblib",
+          "train_n": 1255,
+          "val_mae_m": 0.00712,
+          "test_mae_m": 0.00719
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M11_3h.joblib",
+          "train_n": 1254,
+          "val_mae_m": 0.00793,
+          "test_mae_m": 0.00801
+        }
+      }
+    },
+    "M12": {
+      "id": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M12_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00574,
+          "test_mae_m": 0.00492
+        },
+        "+2h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M12_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00571,
+          "test_mae_m": 0.00569
+        },
+        "+3h": {
+          "artifact": "artifacts\\phase1_integrity_repair_v2\\M12_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00661,
+          "test_mae_m": 0.00661
+        }
+      }
+    }
+  },
+  "selection_by_test_mae": {
+    "+1h": {
+      "winner": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "test_mae_m": 0.00492
+    },
+    "+2h": {
+      "winner": "M09",
+      "name": "Extra Trees (Stage + Rain + API)",
+      "test_mae_m": 0.00565
+    },
+    "+3h": {
+      "winner": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "test_mae_m": 0.00661
+    }
+  }
+}

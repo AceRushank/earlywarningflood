@@ -1,0 +1,25 @@
+horizon,ablation_component,sync_test_mae_mm,sync_test_rmse_mm,dir_acc_ternary_pct,incremental_gain_vs_baseline_mm
++1h,1. Phase 3 Hybrid (Baseline),4.669,6.905,72.06,0.0
++1h,2. + Horizon-Aware Stable Shrinkage,4.669,6.905,72.06,0.0
++1h,3. + Tuned XGBoost Rising Expert,4.669,6.905,72.06,0.009
++1h,4. + Ridge Linear Falling Expert,4.669,6.905,72.06,0.697
++1h,5. + Bounded Linear Fallback,4.669,6.905,72.06,0.0
++1h,6. Gating Architecture: Hard Switching,4.669,6.905,72.06,0.0
++1h,7. Gating Architecture: Soft Blending,4.788,7.179,69.93,-0.119
++1h,8. Combined RA-AG v2 Architecture,4.669,6.905,72.06,0.0
++2h,1. Phase 3 Hybrid (Baseline),5.545,8.278,65.56,0.0
++2h,2. + Horizon-Aware Stable Shrinkage,5.501,7.683,63.74,0.044
++2h,3. + Tuned XGBoost Rising Expert,5.501,7.683,63.74,0.035
++2h,4. + Ridge Linear Falling Expert,5.501,7.683,63.74,0.867
++2h,5. + Bounded Linear Fallback,5.501,7.683,63.74,0.0
++2h,6. Gating Architecture: Hard Switching,5.501,7.683,63.74,0.0
++2h,7. Gating Architecture: Soft Blending,5.557,7.89,63.25,-0.056
++2h,8. Combined RA-AG v2 Architecture,5.501,7.683,63.74,0.044
++3h,1. Phase 3 Hybrid (Baseline),6.533,9.347,59.1,0.0
++3h,2. + Horizon-Aware Stable Shrinkage,6.076,8.359,59.1,0.457
++3h,3. + Tuned XGBoost Rising Expert,6.076,8.359,59.1,0.476
++3h,4. + Ridge Linear Falling Expert,6.076,8.359,59.1,2.808
++3h,5. + Bounded Linear Fallback,6.076,8.359,59.1,0.0
++3h,6. Gating Architecture: Hard Switching,6.076,8.359,59.1,0.0
++3h,7. Gating Architecture: Soft Blending,6.272,8.732,57.1,-0.196
++3h,8. Combined RA-AG v2 Architecture,6.076,8.359,59.1,0.457

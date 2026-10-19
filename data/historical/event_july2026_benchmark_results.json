@@ -1,0 +1,116 @@
+{
+  "event_definition": {
+    "name": "July 30 - August 2, 2026 Vishnupuri Monsoon Flood Event",
+    "pour_point": "Vishnupuri Barrage, Nanded (19.126944 N, 77.280833 E)",
+    "upstream_catchment_area_sq_km": 51768.25,
+    "event_start_ist": "2026-07-30 00:00:00",
+    "pre_event_train_window": "2026-06-15 00:00 to 2026-07-29 23:00 IST",
+    "target_leakage_purged": true,
+    "pre_event_train_samples": {
+      "1h": 956,
+      "2h": 951,
+      "3h": 948
+    },
+    "max_training_target_timestamps": {
+      "1h": "2026-07-29 23:00:00",
+      "2h": "2026-07-29 23:00:00",
+      "3h": "2026-07-29 23:00:00"
+    }
+  },
+  "phases": {
+    "phase_a_inception": {
+      "+1h": {
+        "eligible_samples": 30,
+        "persistence": {
+          "mae_m": 0.029,
+          "rmse_m": 0.0342
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.053,
+          "rmse_m": 0.0642
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.048,
+          "rmse_m": 0.0587
+        },
+        "multimodal_gain_vs_stage_ridge_pct": -9.42,
+        "best_model": "PERSISTENCE"
+      },
+      "+2h": {
+        "eligible_samples": 30,
+        "persistence": {
+          "mae_m": 0.0543,
+          "rmse_m": 0.0649
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.0799,
+          "rmse_m": 0.0964
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0729,
+          "rmse_m": 0.0889
+        },
+        "multimodal_gain_vs_stage_ridge_pct": -8.73,
+        "best_model": "PERSISTENCE"
+      },
+      "+3h": {
+        "eligible_samples": 30,
+        "persistence": {
+          "mae_m": 0.0806,
+          "rmse_m": 0.0962
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.1073,
+          "rmse_m": 0.1282
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0986,
+          "rmse_m": 0.1189
+        },
+        "multimodal_gain_vs_stage_ridge_pct": -8.15,
+        "best_model": "PERSISTENCE"
+      }
+    },
+    "phase_b_surge": {
+      "+1h": {
+        "eligible_samples": 26,
+        "persistence": {
+          "mae_m": 0.146,
+          "rmse_m": 0.1874
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.2879,
+          "rmse_m": 0.3558
+        },
+        "multimodal_status": "DISQUALIFIED_DUE_TO_AUTHENTIC_SATELLITE_OUTAGE",
+        "satellite_availability": "0% (ISRO MOSDAC Outage: July 31 05:30 to August 4 22:30 IST)"
+      },
+      "+2h": {
+        "eligible_samples": 26,
+        "persistence": {
+          "mae_m": 0.2785,
+          "rmse_m": 0.3522
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.433,
+          "rmse_m": 0.525
+        },
+        "multimodal_status": "DISQUALIFIED_DUE_TO_AUTHENTIC_SATELLITE_OUTAGE",
+        "satellite_availability": "0% (ISRO MOSDAC Outage: July 31 05:30 to August 4 22:30 IST)"
+      },
+      "+3h": {
+        "eligible_samples": 26,
+        "persistence": {
+          "mae_m": 0.4166,
+          "rmse_m": 0.5143
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.5686,
+          "rmse_m": 0.6853
+        },
+        "multimodal_status": "DISQUALIFIED_DUE_TO_AUTHENTIC_SATELLITE_OUTAGE",
+        "satellite_availability": "0% (ISRO MOSDAC Outage: July 31 05:30 to August 4 22:30 IST)"
+      }
+    }
+  }
+}

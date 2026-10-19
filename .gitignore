@@ -36,5 +36,18 @@ Thumbs.db
 data/mosdac/hdf_archive/
 data/mosdac/raw/
 data/historical/raw_nc/
-data/spatial/dem/
-data/spatial/gsw/
+data/spatial/
+data/rwl_tel_hr_*.csv
+river_forecasting/data/mosdac_raw/
+river_forecasting/data/spatial/
+scratch/
+.agent/
+
+# Spatial binary files & archives
+*.zip
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+

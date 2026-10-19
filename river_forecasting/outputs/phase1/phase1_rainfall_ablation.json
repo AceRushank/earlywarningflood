@@ -1,0 +1,821 @@
+{
+  "1h": {
+    "n_synchronized": 612,
+    "variants": {
+      "ABL-01": {
+        "name": "Persistence",
+        "note": "persistence or unavailable"
+      },
+      "ABL-02": {
+        "name": "Stage-Change Ridge (no rain)",
+        "train_n": 1222,
+        "eval_n": 612,
+        "metrics": {
+          "n": 612,
+          "mae_m": 0.00565,
+          "mae_mm": 5.65,
+          "rmse_m": 0.00831,
+          "rmse_mm": 8.31,
+          "r2": 0.99743,
+          "bias_m": 0.00085,
+          "mae_vs_persistence_m": 0.0007,
+          "imp_vs_persistence_pct": -14.11,
+          "mae_ci_low_m": 0.00504,
+          "mae_ci_high_m": 0.00628
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 612,
+            "mae_m": 0.00565,
+            "mae_persistence_m": 0.00495,
+            "imp_pct": -14.11
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 610,
+            "mae_m": 0.00565,
+            "mae_persistence_m": 0.00496,
+            "imp_pct": -13.92
+          }
+        }
+      },
+      "ABL-03": {
+        "name": "Stage-Change + Contemp. Rain",
+        "train_n": 1079,
+        "eval_n": 612,
+        "metrics": {
+          "n": 612,
+          "mae_m": 0.00498,
+          "mae_mm": 4.98,
+          "rmse_m": 0.00717,
+          "rmse_mm": 7.17,
+          "r2": 0.99809,
+          "bias_m": -0.00038,
+          "mae_vs_persistence_m": 3e-05,
+          "imp_vs_persistence_pct": -0.57,
+          "mae_ci_low_m": 0.00449,
+          "mae_ci_high_m": 0.00551
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 612,
+            "mae_m": 0.00498,
+            "mae_persistence_m": 0.00495,
+            "imp_pct": -0.57
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 610,
+            "mae_m": 0.00498,
+            "mae_persistence_m": 0.00496,
+            "imp_pct": -0.36
+          }
+        }
+      },
+      "ABL-04": {
+        "name": "Stage-Change + Lagged Rain",
+        "train_n": 1073,
+        "eval_n": 612,
+        "metrics": {
+          "n": 612,
+          "mae_m": 0.00498,
+          "mae_mm": 4.98,
+          "rmse_m": 0.00716,
+          "rmse_mm": 7.16,
+          "r2": 0.99809,
+          "bias_m": -0.00038,
+          "mae_vs_persistence_m": 3e-05,
+          "imp_vs_persistence_pct": -0.59,
+          "mae_ci_low_m": 0.0045,
+          "mae_ci_high_m": 0.00552
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 612,
+            "mae_m": 0.00498,
+            "mae_persistence_m": 0.00495,
+            "imp_pct": -0.59
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 610,
+            "mae_m": 0.00498,
+            "mae_persistence_m": 0.00496,
+            "imp_pct": -0.38
+          }
+        }
+      },
+      "ABL-05": {
+        "name": "Stage-Change + Rain + API",
+        "train_n": 1079,
+        "eval_n": 612,
+        "metrics": {
+          "n": 612,
+          "mae_m": 0.00518,
+          "mae_mm": 5.18,
+          "rmse_m": 0.00727,
+          "rmse_mm": 7.27,
+          "r2": 0.99803,
+          "bias_m": -0.00134,
+          "mae_vs_persistence_m": 0.00023,
+          "imp_vs_persistence_pct": -4.73,
+          "mae_ci_low_m": 0.00468,
+          "mae_ci_high_m": 0.0057
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 612,
+            "mae_m": 0.00518,
+            "mae_persistence_m": 0.00495,
+            "imp_pct": -4.73
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 610,
+            "mae_m": 0.00518,
+            "mae_persistence_m": 0.00496,
+            "imp_pct": -4.53
+          }
+        }
+      },
+      "ABL-06": {
+        "name": "Random Forest + Rain + API",
+        "train_n": 1079,
+        "eval_n": 612,
+        "metrics": {
+          "n": 612,
+          "mae_m": 0.00593,
+          "mae_mm": 5.93,
+          "rmse_m": 0.00767,
+          "rmse_mm": 7.67,
+          "r2": 0.99781,
+          "bias_m": -0.00297,
+          "mae_vs_persistence_m": 0.00098,
+          "imp_vs_persistence_pct": -19.79,
+          "mae_ci_low_m": 0.00545,
+          "mae_ci_high_m": 0.00647
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 612,
+            "mae_m": 0.00593,
+            "mae_persistence_m": 0.00495,
+            "imp_pct": -19.79
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 610,
+            "mae_m": 0.00594,
+            "mae_persistence_m": 0.00496,
+            "imp_pct": -19.87
+          }
+        }
+      },
+      "ABL-07": {
+        "name": "XGBoost + Rain + API",
+        "train_n": 1079,
+        "eval_n": 612,
+        "metrics": {
+          "n": 612,
+          "mae_m": 0.00495,
+          "mae_mm": 4.95,
+          "rmse_m": 0.00715,
+          "rmse_mm": 7.15,
+          "r2": 0.9981,
+          "bias_m": -4e-05,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": -0.03,
+          "mae_ci_low_m": 0.00446,
+          "mae_ci_high_m": 0.00548
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 612,
+            "mae_m": 0.00495,
+            "mae_persistence_m": 0.00495,
+            "imp_pct": -0.03
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 610,
+            "mae_m": 0.00496,
+            "mae_persistence_m": 0.00496,
+            "imp_pct": -0.06
+          }
+        }
+      }
+    }
+  },
+  "2h": {
+    "n_synchronized": 604,
+    "variants": {
+      "ABL-01": {
+        "name": "Persistence",
+        "note": "persistence or unavailable"
+      },
+      "ABL-02": {
+        "name": "Stage-Change Ridge (no rain)",
+        "train_n": 1218,
+        "eval_n": 604,
+        "metrics": {
+          "n": 604,
+          "mae_m": 0.00769,
+          "mae_mm": 7.69,
+          "rmse_m": 0.01114,
+          "rmse_mm": 11.14,
+          "r2": 0.99537,
+          "bias_m": 0.00177,
+          "mae_vs_persistence_m": 0.00188,
+          "imp_vs_persistence_pct": -32.25,
+          "mae_ci_low_m": 0.00676,
+          "mae_ci_high_m": 0.0086
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 604,
+            "mae_m": 0.00769,
+            "mae_persistence_m": 0.00581,
+            "imp_pct": -32.25
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 602,
+            "mae_m": 0.0077,
+            "mae_persistence_m": 0.00582,
+            "imp_pct": -32.32
+          }
+        }
+      },
+      "ABL-03": {
+        "name": "Stage-Change + Contemp. Rain",
+        "train_n": 1075,
+        "eval_n": 604,
+        "metrics": {
+          "n": 604,
+          "mae_m": 0.00601,
+          "mae_mm": 6.01,
+          "rmse_m": 0.00857,
+          "rmse_mm": 8.57,
+          "r2": 0.99727,
+          "bias_m": -0.00033,
+          "mae_vs_persistence_m": 0.0002,
+          "imp_vs_persistence_pct": -3.4,
+          "mae_ci_low_m": 0.00532,
+          "mae_ci_high_m": 0.00665
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 604,
+            "mae_m": 0.00601,
+            "mae_persistence_m": 0.00581,
+            "imp_pct": -3.4
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 602,
+            "mae_m": 0.00601,
+            "mae_persistence_m": 0.00582,
+            "imp_pct": -3.32
+          }
+        }
+      },
+      "ABL-04": {
+        "name": "Stage-Change + Lagged Rain",
+        "train_n": 1069,
+        "eval_n": 604,
+        "metrics": {
+          "n": 604,
+          "mae_m": 0.00601,
+          "mae_mm": 6.01,
+          "rmse_m": 0.00857,
+          "rmse_mm": 8.57,
+          "r2": 0.99727,
+          "bias_m": -0.00033,
+          "mae_vs_persistence_m": 0.0002,
+          "imp_vs_persistence_pct": -3.43,
+          "mae_ci_low_m": 0.00532,
+          "mae_ci_high_m": 0.00664
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 604,
+            "mae_m": 0.00601,
+            "mae_persistence_m": 0.00581,
+            "imp_pct": -3.43
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 602,
+            "mae_m": 0.00601,
+            "mae_persistence_m": 0.00582,
+            "imp_pct": -3.33
+          }
+        }
+      },
+      "ABL-05": {
+        "name": "Stage-Change + Rain + API",
+        "train_n": 1075,
+        "eval_n": 604,
+        "metrics": {
+          "n": 604,
+          "mae_m": 0.00623,
+          "mae_mm": 6.23,
+          "rmse_m": 0.00871,
+          "rmse_mm": 8.71,
+          "r2": 0.99717,
+          "bias_m": -0.0017,
+          "mae_vs_persistence_m": 0.00042,
+          "imp_vs_persistence_pct": -7.21,
+          "mae_ci_low_m": 0.00556,
+          "mae_ci_high_m": 0.00684
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 604,
+            "mae_m": 0.00623,
+            "mae_persistence_m": 0.00581,
+            "imp_pct": -7.21
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 602,
+            "mae_m": 0.00623,
+            "mae_persistence_m": 0.00582,
+            "imp_pct": -7.14
+          }
+        }
+      },
+      "ABL-06": {
+        "name": "Random Forest + Rain + API",
+        "train_n": 1075,
+        "eval_n": 604,
+        "metrics": {
+          "n": 604,
+          "mae_m": 0.00717,
+          "mae_mm": 7.17,
+          "rmse_m": 0.00945,
+          "rmse_mm": 9.45,
+          "r2": 0.99667,
+          "bias_m": -0.00364,
+          "mae_vs_persistence_m": 0.00135,
+          "imp_vs_persistence_pct": -23.25,
+          "mae_ci_low_m": 0.00635,
+          "mae_ci_high_m": 0.00795
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 604,
+            "mae_m": 0.00717,
+            "mae_persistence_m": 0.00581,
+            "imp_pct": -23.25
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 602,
+            "mae_m": 0.00718,
+            "mae_persistence_m": 0.00582,
+            "imp_pct": -23.44
+          }
+        }
+      },
+      "ABL-07": {
+        "name": "XGBoost + Rain + API",
+        "train_n": 1075,
+        "eval_n": 604,
+        "metrics": {
+          "n": 604,
+          "mae_m": 0.00568,
+          "mae_mm": 5.68,
+          "rmse_m": 0.00811,
+          "rmse_mm": 8.11,
+          "r2": 0.99755,
+          "bias_m": -0.00049,
+          "mae_vs_persistence_m": -0.00014,
+          "imp_vs_persistence_pct": 2.38,
+          "mae_ci_low_m": 0.00506,
+          "mae_ci_high_m": 0.00621
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 604,
+            "mae_m": 0.00568,
+            "mae_persistence_m": 0.00581,
+            "imp_pct": 2.38
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 602,
+            "mae_m": 0.00569,
+            "mae_persistence_m": 0.00582,
+            "imp_pct": 2.24
+          }
+        }
+      }
+    }
+  },
+  "3h": {
+    "n_synchronized": 599,
+    "variants": {
+      "ABL-01": {
+        "name": "Persistence",
+        "note": "persistence or unavailable"
+      },
+      "ABL-02": {
+        "name": "Stage-Change Ridge (no rain)",
+        "train_n": 1217,
+        "eval_n": 599,
+        "metrics": {
+          "n": 599,
+          "mae_m": 0.00989,
+          "mae_mm": 9.89,
+          "rmse_m": 0.01388,
+          "rmse_mm": 13.88,
+          "r2": 0.99282,
+          "bias_m": 0.00308,
+          "mae_vs_persistence_m": 0.00293,
+          "imp_vs_persistence_pct": -42.22,
+          "mae_ci_low_m": 0.00889,
+          "mae_ci_high_m": 0.01108
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 599,
+            "mae_m": 0.00989,
+            "mae_persistence_m": 0.00695,
+            "imp_pct": -42.22
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 597,
+            "mae_m": 0.0099,
+            "mae_persistence_m": 0.00696,
+            "imp_pct": -42.36
+          }
+        }
+      },
+      "ABL-03": {
+        "name": "Stage-Change + Contemp. Rain",
+        "train_n": 1074,
+        "eval_n": 599,
+        "metrics": {
+          "n": 599,
+          "mae_m": 0.00705,
+          "mae_mm": 7.05,
+          "rmse_m": 0.00981,
+          "rmse_mm": 9.81,
+          "r2": 0.99641,
+          "bias_m": -0.00035,
+          "mae_vs_persistence_m": 0.0001,
+          "imp_vs_persistence_pct": -1.39,
+          "mae_ci_low_m": 0.00632,
+          "mae_ci_high_m": 0.00774
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 599,
+            "mae_m": 0.00705,
+            "mae_persistence_m": 0.00695,
+            "imp_pct": -1.39
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 597,
+            "mae_m": 0.00706,
+            "mae_persistence_m": 0.00696,
+            "imp_pct": -1.46
+          }
+        }
+      },
+      "ABL-04": {
+        "name": "Stage-Change + Lagged Rain",
+        "train_n": 1068,
+        "eval_n": 599,
+        "metrics": {
+          "n": 599,
+          "mae_m": 0.00704,
+          "mae_mm": 7.04,
+          "rmse_m": 0.00981,
+          "rmse_mm": 9.81,
+          "r2": 0.99641,
+          "bias_m": -0.00035,
+          "mae_vs_persistence_m": 9e-05,
+          "imp_vs_persistence_pct": -1.31,
+          "mae_ci_low_m": 0.00631,
+          "mae_ci_high_m": 0.00774
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 599,
+            "mae_m": 0.00704,
+            "mae_persistence_m": 0.00695,
+            "imp_pct": -1.31
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 597,
+            "mae_m": 0.00705,
+            "mae_persistence_m": 0.00696,
+            "imp_pct": -1.37
+          }
+        }
+      },
+      "ABL-05": {
+        "name": "Stage-Change + Rain + API",
+        "train_n": 1074,
+        "eval_n": 599,
+        "metrics": {
+          "n": 599,
+          "mae_m": 0.00739,
+          "mae_mm": 7.39,
+          "rmse_m": 0.01002,
+          "rmse_mm": 10.02,
+          "r2": 0.99625,
+          "bias_m": -0.00219,
+          "mae_vs_persistence_m": 0.00044,
+          "imp_vs_persistence_pct": -6.33,
+          "mae_ci_low_m": 0.00666,
+          "mae_ci_high_m": 0.0081
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 599,
+            "mae_m": 0.00739,
+            "mae_persistence_m": 0.00695,
+            "imp_pct": -6.33
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 597,
+            "mae_m": 0.0074,
+            "mae_persistence_m": 0.00696,
+            "imp_pct": -6.41
+          }
+        }
+      },
+      "ABL-06": {
+        "name": "Random Forest + Rain + API",
+        "train_n": 1074,
+        "eval_n": 599,
+        "metrics": {
+          "n": 599,
+          "mae_m": 0.0087,
+          "mae_mm": 8.7,
+          "rmse_m": 0.01103,
+          "rmse_mm": 11.03,
+          "r2": 0.99546,
+          "bias_m": -0.00578,
+          "mae_vs_persistence_m": 0.00175,
+          "imp_vs_persistence_pct": -25.22,
+          "mae_ci_low_m": 0.00784,
+          "mae_ci_high_m": 0.00971
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 599,
+            "mae_m": 0.0087,
+            "mae_persistence_m": 0.00695,
+            "imp_pct": -25.22
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 597,
+            "mae_m": 0.00872,
+            "mae_persistence_m": 0.00696,
+            "imp_pct": -25.36
+          }
+        }
+      },
+      "ABL-07": {
+        "name": "XGBoost + Rain + API",
+        "train_n": 1074,
+        "eval_n": 599,
+        "metrics": {
+          "n": 599,
+          "mae_m": 0.00658,
+          "mae_mm": 6.58,
+          "rmse_m": 0.009,
+          "rmse_mm": 9.0,
+          "r2": 0.99698,
+          "bias_m": -0.001,
+          "mae_vs_persistence_m": -0.00037,
+          "imp_vs_persistence_pct": 5.36,
+          "mae_ci_low_m": 0.00599,
+          "mae_ci_high_m": 0.00724
+        },
+        "strata": {
+          "rising": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "falling": {
+            "n": 0,
+            "note": "insufficient samples (<10)"
+          },
+          "stable": {
+            "n": 599,
+            "mae_m": 0.00658,
+            "mae_persistence_m": 0.00695,
+            "imp_pct": 5.36
+          },
+          "rainfall_event": {
+            "n": 2,
+            "note": "insufficient samples (<10)"
+          },
+          "dry_period": {
+            "n": 597,
+            "mae_m": 0.00659,
+            "mae_persistence_m": 0.00696,
+            "imp_pct": 5.27
+          }
+        }
+      }
+    }
+  }
+}

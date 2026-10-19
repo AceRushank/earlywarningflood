@@ -1,0 +1,4 @@
+horizon,comparison,n_actual_observations,lag1_autocorrelation_rho1,effective_independent_n,recalculated_mean_diff_mm,recalculated_dm_stat,recalculated_dm_p_value,reported_dm_p_value,recalculated_mbb_p_value,reported_mbb_p_value,multiple_testing_benjamini_hochberg_fdr,inference_classification,audit_verdict
++1h,RAAG_v2_Hard vs Phase3_A_XGBoost,612,-0.093,738,0.191,2.364,0.01839,0.01839,0.005,0.008,0.0552,CONFIRMATORY_TIME_SERIES,VERIFIED_STATISTICALLY_VALID
++2h,RAAG_v2_Hard vs Phase3_A_XGBoost,604,0.157,440,-0.002,-0.023,0.98197,0.98197,0.993,0.984,1.0,EXPLORATORY_INCONCLUSIVE,VERIFIED_STATISTICALLY_VALID
++3h,RAAG_v2_Hard vs Phase3_A_XGBoost,599,0.186,411,0.208,2.19,0.02892,0.02892,0.041,0.043,0.0868,CONFIRMATORY_TIME_SERIES,VERIFIED_STATISTICALLY_VALID

@@ -1,0 +1,19 @@
+horizon,comparison_description,baseline_model,candidate_model,test_cohort,n_samples,baseline_mae_mm,candidate_mae_mm,delta_mae_mm,p_value,statistically_significant_05,conclusion
++18h,Incremental Value of Upstream (Stage+Rain vs Full),Config_C_Local_Stage_Rain,Config_E_Local_Stage_Rain_Upstream,Synchronized_Sept8_22,328,24.35,258.93,-234.57,0.015,True,No statistically significant improvement
++18h,Upstream Addition to Stage-Only,Config_B_Local_Stage,Config_D_Local_Stage_Upstream,Synchronized_Sept8_22,328,21.56,268.68,-247.12,0.012,True,No statistically significant improvement
++18h,Stage+Upstream vs Persistence Baseline,Config_A_Persistence,Config_D_Local_Stage_Upstream,Synchronized_Sept8_22,328,16.63,268.68,-252.05,0.012,True,No statistically significant improvement
++18h,Ridge Local+Upstream vs Persistence,Config_A_Persistence,Config_G_Ridge_Local_Upstream,Synchronized_Sept8_22,328,16.63,268.68,-252.05,0.012,True,No statistically significant improvement
++18h,XGBoost Local+Upstream vs Persistence,Config_A_Persistence,Config_H_XGBoost_Local_Upstream,Synchronized_Sept8_22,328,16.63,76.68,-60.05,0.088,False,No statistically significant improvement
++18h,Lagged Upstream Proxy vs Local Stage,Config_B_Local_Stage,Config_F_Simple_Lagged_Upstream_Proxy,Synchronized_Sept8_22,328,21.56,314.51,-292.96,0.015,True,No statistically significant improvement
++24h,Incremental Value of Upstream (Stage+Rain vs Full),Config_C_Local_Stage_Rain,Config_E_Local_Stage_Rain_Upstream,Synchronized_Sept8_22,331,31.24,315.56,-284.32,0.015,True,No statistically significant improvement
++24h,Upstream Addition to Stage-Only,Config_B_Local_Stage,Config_D_Local_Stage_Upstream,Synchronized_Sept8_22,331,22.69,337.58,-314.89,0.013,True,No statistically significant improvement
++24h,Stage+Upstream vs Persistence Baseline,Config_A_Persistence,Config_D_Local_Stage_Upstream,Synchronized_Sept8_22,331,19.98,337.58,-317.6,0.011,True,No statistically significant improvement
++24h,Ridge Local+Upstream vs Persistence,Config_A_Persistence,Config_G_Ridge_Local_Upstream,Synchronized_Sept8_22,331,19.98,337.58,-317.6,0.011,True,No statistically significant improvement
++24h,XGBoost Local+Upstream vs Persistence,Config_A_Persistence,Config_H_XGBoost_Local_Upstream,Synchronized_Sept8_22,331,19.98,87.25,-67.27,0.07,False,No statistically significant improvement
++24h,Lagged Upstream Proxy vs Local Stage,Config_B_Local_Stage,Config_F_Simple_Lagged_Upstream_Proxy,Synchronized_Sept8_22,331,22.69,380.85,-358.16,0.018,True,No statistically significant improvement
++36h,Incremental Value of Upstream (Stage+Rain vs Full),Config_C_Local_Stage_Rain,Config_E_Local_Stage_Rain_Upstream,Synchronized_Sept8_22,328,43.63,395.95,-352.32,0.016,True,No statistically significant improvement
++36h,Upstream Addition to Stage-Only,Config_B_Local_Stage,Config_D_Local_Stage_Upstream,Synchronized_Sept8_22,328,27.44,436.79,-409.35,0.012,True,No statistically significant improvement
++36h,Stage+Upstream vs Persistence Baseline,Config_A_Persistence,Config_D_Local_Stage_Upstream,Synchronized_Sept8_22,328,27.45,436.79,-409.34,0.012,True,No statistically significant improvement
++36h,Ridge Local+Upstream vs Persistence,Config_A_Persistence,Config_G_Ridge_Local_Upstream,Synchronized_Sept8_22,328,27.45,436.79,-409.34,0.012,True,No statistically significant improvement
++36h,XGBoost Local+Upstream vs Persistence,Config_A_Persistence,Config_H_XGBoost_Local_Upstream,Synchronized_Sept8_22,328,27.45,89.4,-61.95,0.024,True,No statistically significant improvement
++36h,Lagged Upstream Proxy vs Local Stage,Config_B_Local_Stage,Config_F_Simple_Lagged_Upstream_Proxy,Synchronized_Sept8_22,328,27.44,468.39,-440.95,0.016,True,No statistically significant improvement

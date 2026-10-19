@@ -1,0 +1,450 @@
+{
+  "phase": "Phase 1 -- ML Training, Benchmarking and Model Selection",
+  "generated_utc": "2026-10-18T07:23:52.540287+00:00",
+  "train_range": "2026-06-15 00:00:00 -- 2026-08-09 23:00:00 IST",
+  "val_range": "2026-08-10 00:00:00 -- 2026-08-31 23:00:00 IST",
+  "test_range": "2026-09-01 00:00:00 -- 2026-09-30 23:00:00 IST",
+  "phase_a_range": "2026-07-30 00:00:00 -- 2026-07-31 05:00:00 IST",
+  "random_seed": 42,
+  "xgboost_available": true,
+  "lightgbm_available": false,
+  "models": {
+    "M01": {
+      "id": "M01",
+      "name": "Persistence Baseline",
+      "target_type": "level",
+      "feature_set": [
+        "stage_vishnupuri"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": null,
+          "train_n": 1258,
+          "val_mae_m": 0.00589,
+          "test_mae_m": 0.00503
+        },
+        "+2h": {
+          "artifact": null,
+          "train_n": 1255,
+          "val_mae_m": 0.00569,
+          "test_mae_m": 0.00577
+        },
+        "+3h": {
+          "artifact": null,
+          "train_n": 1254,
+          "val_mae_m": 0.00638,
+          "test_mae_m": 0.00689
+        }
+      }
+    },
+    "M02": {
+      "id": "M02",
+      "name": "Linear Regression (Stage History)",
+      "target_type": "level",
+      "feature_set": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M02_1h.joblib",
+          "train_n": 1237,
+          "val_mae_m": 3.47414,
+          "test_mae_m": 3.22776
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M02_2h.joblib",
+          "train_n": 1233,
+          "val_mae_m": 3.47667,
+          "test_mae_m": 3.22909
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M02_3h.joblib",
+          "train_n": 1231,
+          "val_mae_m": 3.47883,
+          "test_mae_m": 3.23015
+        }
+      }
+    },
+    "M03": {
+      "id": "M03",
+      "name": "Ridge (Stage History, alpha=1)",
+      "target_type": "level",
+      "feature_set": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M03_1h.joblib",
+          "train_n": 1237,
+          "val_mae_m": 3.47414,
+          "test_mae_m": 3.22775
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M03_2h.joblib",
+          "train_n": 1233,
+          "val_mae_m": 3.47655,
+          "test_mae_m": 3.22898
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M03_3h.joblib",
+          "train_n": 1231,
+          "val_mae_m": 3.47871,
+          "test_mae_m": 3.23003
+        }
+      }
+    },
+    "M04": {
+      "id": "M04",
+      "name": "Ridge (Stage-Change, alpha=10)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M04_1h.joblib",
+          "train_n": 1222,
+          "val_mae_m": 0.00557,
+          "test_mae_m": 0.00485
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M04_2h.joblib",
+          "train_n": 1218,
+          "val_mae_m": 0.00545,
+          "test_mae_m": 0.00556
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M04_3h.joblib",
+          "train_n": 1217,
+          "val_mae_m": 0.00609,
+          "test_mae_m": 0.00647
+        }
+      }
+    },
+    "M05": {
+      "id": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M05_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00519,
+          "test_mae_m": 0.00473
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M05_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00536,
+          "test_mae_m": 0.00545
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M05_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.006,
+          "test_mae_m": 0.00617
+        }
+      }
+    },
+    "M06": {
+      "id": "M06",
+      "name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "rain_lag1_1h_mm",
+        "rain_lag2_1h_mm",
+        "rain_lag3_1h_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M06_1h.joblib",
+          "train_n": 1073,
+          "val_mae_m": 0.00528,
+          "test_mae_m": 0.00477
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M06_2h.joblib",
+          "train_n": 1069,
+          "val_mae_m": 0.00539,
+          "test_mae_m": 0.00547
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M06_3h.joblib",
+          "train_n": 1068,
+          "val_mae_m": 0.00594,
+          "test_mae_m": 0.00618
+        }
+      }
+    },
+    "M07": {
+      "id": "M07",
+      "name": "Ridge (Stage + Rain + API, alpha=10)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M07_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00549,
+          "test_mae_m": 0.00507
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M07_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.0059,
+          "test_mae_m": 0.00605
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M07_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00681,
+          "test_mae_m": 0.00705
+        }
+      }
+    },
+    "M08": {
+      "id": "M08",
+      "name": "Random Forest (Stage + Rain + API)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M08_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00631,
+          "test_mae_m": 0.00619
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M08_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00622,
+          "test_mae_m": 0.00715
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M08_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00768,
+          "test_mae_m": 0.00912
+        }
+      }
+    },
+    "M09": {
+      "id": "M09",
+      "name": "Extra Trees (Stage + Rain + API)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M09_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00601,
+          "test_mae_m": 0.00517
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M09_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00607,
+          "test_mae_m": 0.00593
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M09_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00725,
+          "test_mae_m": 0.00717
+        }
+      }
+    },
+    "M10": {
+      "id": "M10",
+      "name": "Gradient Boosting Regressor (sklearn GBR)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M10_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00648,
+          "test_mae_m": 0.01088
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M10_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00692,
+          "test_mae_m": 0.01044
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M10_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.00789,
+          "test_mae_m": 0.01129
+        }
+      }
+    },
+    "M11": {
+      "id": "M11",
+      "name": "HistGradientBoosting (sklearn, NaN-native)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M11_1h.joblib",
+          "train_n": 1258,
+          "val_mae_m": 0.00693,
+          "test_mae_m": 0.00655
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M11_2h.joblib",
+          "train_n": 1255,
+          "val_mae_m": 0.0079,
+          "test_mae_m": 0.00857
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M11_3h.joblib",
+          "train_n": 1254,
+          "val_mae_m": 0.00867,
+          "test_mae_m": 0.00967
+        }
+      }
+    },
+    "M12": {
+      "id": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "target_type": "dH",
+      "feature_set": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "horizons": {
+        "+1h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M12_1h.joblib",
+          "train_n": 1079,
+          "val_mae_m": 0.00583,
+          "test_mae_m": 0.00498
+        },
+        "+2h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M12_2h.joblib",
+          "train_n": 1075,
+          "val_mae_m": 0.00566,
+          "test_mae_m": 0.00566
+        },
+        "+3h": {
+          "artifact": "C:\\Users\\aceru\\floodsystem\\river_forecasting\\outputs\\phase1\\M12_3h.joblib",
+          "train_n": 1074,
+          "val_mae_m": 0.0065,
+          "test_mae_m": 0.00651
+        }
+      }
+    }
+  },
+  "selection_by_test_mae": {
+    "+1h": {
+      "winner": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "test_mae_m": 0.00473
+    },
+    "+2h": {
+      "winner": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "test_mae_m": 0.00545
+    },
+    "+3h": {
+      "winner": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "test_mae_m": 0.00617
+    }
+  }
+}

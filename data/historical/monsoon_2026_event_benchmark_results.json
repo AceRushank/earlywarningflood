@@ -1,0 +1,1400 @@
+{
+  "datum_audit": {
+    "station": "Vishnupuri Barrage, Godavari Basin, Nanded",
+    "official_nwic_metadata": {
+      "RL_of_zeroGauge": 0.0,
+      "MeanSeaLevel_field_val": 366.5,
+      "observed_stage_range_m": "350.541 to 355.183 m MSL"
+    },
+    "datum_resolution": "The NWIC field labeled 'MeanSeaLevel: 366.5' represents the project's structural crest / High Flood Level (HFL) or non-overflow dam top elevation in meters above MSL. The observed telemetry values (350.5m - 355.2m) are ALREADY geodetically referenced in meters above Mean Sea Level (MSL), where Full Reservoir Level (FRL) is 355.00m MSL. No datum offset addition is required.",
+    "unresolved_operational_uncertainty": "Because NWIC does not record gate opening heights, gate count, or discharge telemetry (Is_DischargeDataAvailable = 'No'), stage variations above 354.5m MSL reflect human-controlled radial gate manipulation rather than open-channel hydrodynamics."
+  },
+  "training_counts": {
+    "1h": 956,
+    "2h": 951,
+    "3h": 948
+  },
+  "episodes": {
+    "EP_01": {
+      "metadata": {
+        "episode_id": "EP_01",
+        "name": "Rise_2026-06-22",
+        "category": "PRE_EVENT_BASEFLOW",
+        "is_training_cohort": true,
+        "start_dt": "2026-06-22 19:00:00",
+        "end_dt": "2026-06-23 00:00:00",
+        "duration_hrs": 6,
+        "start_stage_m": 351.015,
+        "peak_stage_m": 351.091,
+        "net_rise_m": 0.076,
+        "max_1h_rise_rate_m_hr": 0.03,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 2.21,
+        "mae_pers_1h": 0.0217,
+        "mae_stage_1h": 0.025,
+        "mae_mm_1h": 0.0248,
+        "bias_mm_1h": -0.0113,
+        "mae_pers_3h": 0.0293,
+        "mae_stage_3h": 0.0292,
+        "mae_mm_3h": 0.0281,
+        "bias_mm_3h": -0.0281,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0248,
+        "fallback_mae_3h": 0.0281,
+        "zero_impute_mae_1h": 0.0248,
+        "zero_impute_bias_1h": -0.0113,
+        "zero_impute_mae_3h": 0.0281,
+        "zero_impute_bias_3h": -0.0281
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 6,
+          "persistence": {
+            "mae_m": 0.0217,
+            "rmse_m": 0.0261,
+            "bias_m": -0.0047
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.025,
+            "rmse_m": 0.0272,
+            "bias_m": -0.012
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0248,
+            "rmse_m": 0.0268,
+            "bias_m": -0.0113,
+            "delta_mae_vs_stage_m": -0.0003,
+            "pct_gain_vs_stage": -1.03
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0248,
+            "fallback_strategy_bias_m": -0.0113,
+            "zero_imputation_mae_m": 0.0248,
+            "zero_imputation_bias_m": -0.0113
+          }
+        },
+        "+2h": {
+          "n_samples": 6,
+          "persistence": {
+            "mae_m": 0.0245,
+            "rmse_m": 0.026,
+            "bias_m": -0.0132
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0247,
+            "rmse_m": 0.0301,
+            "bias_m": -0.0218
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0241,
+            "rmse_m": 0.0295,
+            "bias_m": -0.021,
+            "delta_mae_vs_stage_m": -0.0006,
+            "pct_gain_vs_stage": -2.44
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0241,
+            "fallback_strategy_bias_m": -0.021,
+            "zero_imputation_mae_m": 0.0241,
+            "zero_imputation_bias_m": -0.021
+          }
+        },
+        "+3h": {
+          "n_samples": 6,
+          "persistence": {
+            "mae_m": 0.0293,
+            "rmse_m": 0.0332,
+            "bias_m": -0.0193
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0292,
+            "rmse_m": 0.0354,
+            "bias_m": -0.0292
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0281,
+            "rmse_m": 0.0343,
+            "bias_m": -0.0281,
+            "delta_mae_vs_stage_m": -0.0011,
+            "pct_gain_vs_stage": -3.72
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0281,
+            "fallback_strategy_bias_m": -0.0281,
+            "zero_imputation_mae_m": 0.0281,
+            "zero_imputation_bias_m": -0.0281
+          }
+        }
+      }
+    },
+    "EP_02": {
+      "metadata": {
+        "episode_id": "EP_02",
+        "name": "Rise_2026-06-28",
+        "category": "PRE_EVENT_BASEFLOW",
+        "is_training_cohort": true,
+        "start_dt": "2026-06-28 19:00:00",
+        "end_dt": "2026-06-28 23:00:00",
+        "duration_hrs": 5,
+        "start_stage_m": 350.845,
+        "peak_stage_m": 350.901,
+        "net_rise_m": 0.056,
+        "max_1h_rise_rate_m_hr": 0.039,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 7.62,
+        "mae_pers_1h": 0.0158,
+        "mae_stage_1h": 0.0136,
+        "mae_mm_1h": 0.0111,
+        "bias_mm_1h": -0.0111,
+        "mae_pers_3h": 0.0174,
+        "mae_stage_3h": 0.0214,
+        "mae_mm_3h": 0.0154,
+        "bias_mm_3h": -0.0154,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0111,
+        "fallback_mae_3h": 0.0154,
+        "zero_impute_mae_1h": 0.0111,
+        "zero_impute_bias_1h": -0.0111,
+        "zero_impute_mae_3h": 0.0154,
+        "zero_impute_bias_3h": -0.0154
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0158,
+            "rmse_m": 0.0213,
+            "bias_m": -0.0102
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0136,
+            "rmse_m": 0.0147,
+            "bias_m": -0.0136
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0111,
+            "rmse_m": 0.0121,
+            "bias_m": -0.0111,
+            "delta_mae_vs_stage_m": -0.0025,
+            "pct_gain_vs_stage": -18.62
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0111,
+            "fallback_strategy_bias_m": -0.0111,
+            "zero_imputation_mae_m": 0.0111,
+            "zero_imputation_bias_m": -0.0111
+          }
+        },
+        "+2h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0182,
+            "rmse_m": 0.021,
+            "bias_m": -0.0126
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0169,
+            "rmse_m": 0.0194,
+            "bias_m": -0.0169
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0127,
+            "rmse_m": 0.0164,
+            "bias_m": -0.0127,
+            "delta_mae_vs_stage_m": -0.0042,
+            "pct_gain_vs_stage": -24.72
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0127,
+            "fallback_strategy_bias_m": -0.0127,
+            "zero_imputation_mae_m": 0.0127,
+            "zero_imputation_bias_m": -0.0127
+          }
+        },
+        "+3h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0174,
+            "rmse_m": 0.0195,
+            "bias_m": -0.0162
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0214,
+            "rmse_m": 0.0231,
+            "bias_m": -0.0214
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0154,
+            "rmse_m": 0.0187,
+            "bias_m": -0.0154,
+            "delta_mae_vs_stage_m": -0.0059,
+            "pct_gain_vs_stage": -27.81
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0154,
+            "fallback_strategy_bias_m": -0.0154,
+            "zero_imputation_mae_m": 0.0154,
+            "zero_imputation_bias_m": -0.0154
+          }
+        }
+      }
+    },
+    "EP_03": {
+      "metadata": {
+        "episode_id": "EP_03",
+        "name": "Rise_2026-06-29",
+        "category": "PRE_EVENT_BASEFLOW",
+        "is_training_cohort": true,
+        "start_dt": "2026-06-29 18:00:00",
+        "end_dt": "2026-06-30 00:00:00",
+        "duration_hrs": 7,
+        "start_stage_m": 350.868,
+        "peak_stage_m": 350.923,
+        "net_rise_m": 0.055,
+        "max_1h_rise_rate_m_hr": 0.025,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 8.2,
+        "mae_pers_1h": 0.0105,
+        "mae_stage_1h": 0.0111,
+        "mae_mm_1h": 0.0099,
+        "bias_mm_1h": -0.0099,
+        "mae_pers_3h": 0.013,
+        "mae_stage_3h": 0.0165,
+        "mae_mm_3h": 0.0128,
+        "bias_mm_3h": -0.0128,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0099,
+        "fallback_mae_3h": 0.0128,
+        "zero_impute_mae_1h": 0.0099,
+        "zero_impute_bias_1h": -0.0099,
+        "zero_impute_mae_3h": 0.0128,
+        "zero_impute_bias_3h": -0.0128
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 4,
+          "persistence": {
+            "mae_m": 0.0105,
+            "rmse_m": 0.0142,
+            "bias_m": -0.003
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0111,
+            "rmse_m": 0.0148,
+            "bias_m": -0.0111
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0099,
+            "rmse_m": 0.0137,
+            "bias_m": -0.0099,
+            "delta_mae_vs_stage_m": -0.0012,
+            "pct_gain_vs_stage": -10.92
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0099,
+            "fallback_strategy_bias_m": -0.0099,
+            "zero_imputation_mae_m": 0.0099,
+            "zero_imputation_bias_m": -0.0099
+          }
+        },
+        "+2h": {
+          "n_samples": 4,
+          "persistence": {
+            "mae_m": 0.016,
+            "rmse_m": 0.0194,
+            "bias_m": -0.0035
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0151,
+            "rmse_m": 0.018,
+            "bias_m": -0.0127
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0131,
+            "rmse_m": 0.0158,
+            "bias_m": -0.0102,
+            "delta_mae_vs_stage_m": -0.002,
+            "pct_gain_vs_stage": -13.4
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0131,
+            "fallback_strategy_bias_m": -0.0102,
+            "zero_imputation_mae_m": 0.0131,
+            "zero_imputation_bias_m": -0.0102
+          }
+        },
+        "+3h": {
+          "n_samples": 4,
+          "persistence": {
+            "mae_m": 0.013,
+            "rmse_m": 0.0157,
+            "bias_m": -0.0065
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0165,
+            "rmse_m": 0.0203,
+            "bias_m": -0.0165
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0128,
+            "rmse_m": 0.017,
+            "bias_m": -0.0128,
+            "delta_mae_vs_stage_m": -0.0037,
+            "pct_gain_vs_stage": -22.41
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0128,
+            "fallback_strategy_bias_m": -0.0128,
+            "zero_imputation_mae_m": 0.0128,
+            "zero_imputation_bias_m": -0.0128
+          }
+        }
+      }
+    },
+    "EP_04": {
+      "metadata": {
+        "episode_id": "EP_04",
+        "name": "Rise_2026-07-18",
+        "category": "PRE_EVENT_BASEFLOW",
+        "is_training_cohort": true,
+        "start_dt": "2026-07-18 16:00:00",
+        "end_dt": "2026-07-18 21:00:00",
+        "duration_hrs": 6,
+        "start_stage_m": 350.541,
+        "peak_stage_m": 350.61,
+        "net_rise_m": 0.069,
+        "max_1h_rise_rate_m_hr": 0.06,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 4.52,
+        "mae_pers_1h": 0.0193,
+        "mae_stage_1h": 0.0142,
+        "mae_mm_1h": 0.0136,
+        "bias_mm_1h": -0.0091,
+        "mae_pers_3h": 0.0253,
+        "mae_stage_3h": 0.0245,
+        "mae_mm_3h": 0.0231,
+        "bias_mm_3h": -0.0201,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0136,
+        "fallback_mae_3h": 0.0231,
+        "zero_impute_mae_1h": 0.0136,
+        "zero_impute_bias_1h": -0.0091,
+        "zero_impute_mae_3h": 0.0231,
+        "zero_impute_bias_3h": -0.0201
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 6,
+          "persistence": {
+            "mae_m": 0.0193,
+            "rmse_m": 0.0279,
+            "bias_m": -0.0077
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0142,
+            "rmse_m": 0.0223,
+            "bias_m": -0.01
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0136,
+            "rmse_m": 0.0218,
+            "bias_m": -0.0091,
+            "delta_mae_vs_stage_m": -0.0006,
+            "pct_gain_vs_stage": -4.41
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0136,
+            "fallback_strategy_bias_m": -0.0091,
+            "zero_imputation_mae_m": 0.0136,
+            "zero_imputation_bias_m": -0.0091
+          }
+        },
+        "+2h": {
+          "n_samples": 6,
+          "persistence": {
+            "mae_m": 0.0237,
+            "rmse_m": 0.0285,
+            "bias_m": -0.0123
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0171,
+            "rmse_m": 0.0235,
+            "bias_m": -0.0149
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0163,
+            "rmse_m": 0.0226,
+            "bias_m": -0.0135,
+            "delta_mae_vs_stage_m": -0.0008,
+            "pct_gain_vs_stage": -4.61
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0163,
+            "fallback_strategy_bias_m": -0.0135,
+            "zero_imputation_mae_m": 0.0163,
+            "zero_imputation_bias_m": -0.0135
+          }
+        },
+        "+3h": {
+          "n_samples": 6,
+          "persistence": {
+            "mae_m": 0.0253,
+            "rmse_m": 0.0294,
+            "bias_m": -0.0193
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0245,
+            "rmse_m": 0.0298,
+            "bias_m": -0.0219
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0231,
+            "rmse_m": 0.0281,
+            "bias_m": -0.0201,
+            "delta_mae_vs_stage_m": -0.0014,
+            "pct_gain_vs_stage": -5.59
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0231,
+            "fallback_strategy_bias_m": -0.0201,
+            "zero_imputation_mae_m": 0.0231,
+            "zero_imputation_bias_m": -0.0201
+          }
+        }
+      }
+    },
+    "EP_05": {
+      "metadata": {
+        "episode_id": "EP_05",
+        "name": "Rise_2026-07-29",
+        "category": "PRE_EVENT_BASEFLOW",
+        "is_training_cohort": true,
+        "start_dt": "2026-07-29 11:00:00",
+        "end_dt": "2026-07-29 19:00:00",
+        "duration_hrs": 9,
+        "start_stage_m": 350.55,
+        "peak_stage_m": 350.608,
+        "net_rise_m": 0.058,
+        "max_1h_rise_rate_m_hr": 0.032,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 3.66,
+        "mae_pers_1h": 0.0136,
+        "mae_stage_1h": 0.0084,
+        "mae_mm_1h": 0.0084,
+        "bias_mm_1h": -0.0061,
+        "mae_pers_3h": 0.0128,
+        "mae_stage_3h": 0.0134,
+        "mae_mm_3h": 0.0142,
+        "bias_mm_3h": -0.0111,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0084,
+        "fallback_mae_3h": 0.0142,
+        "zero_impute_mae_1h": 0.0084,
+        "zero_impute_bias_1h": -0.0061,
+        "zero_impute_mae_3h": 0.0142,
+        "zero_impute_bias_3h": -0.0111
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 9,
+          "persistence": {
+            "mae_m": 0.0136,
+            "rmse_m": 0.016,
+            "bias_m": -0.0044
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0084,
+            "rmse_m": 0.012,
+            "bias_m": -0.0062
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0084,
+            "rmse_m": 0.0122,
+            "bias_m": -0.0061,
+            "delta_mae_vs_stage_m": 0.0,
+            "pct_gain_vs_stage": 0.06
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0084,
+            "fallback_strategy_bias_m": -0.0061,
+            "zero_imputation_mae_m": 0.0084,
+            "zero_imputation_bias_m": -0.0061
+          }
+        },
+        "+2h": {
+          "n_samples": 9,
+          "persistence": {
+            "mae_m": 0.0152,
+            "rmse_m": 0.0185,
+            "bias_m": -0.0068
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0112,
+            "rmse_m": 0.0146,
+            "bias_m": -0.0088
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0119,
+            "rmse_m": 0.015,
+            "bias_m": -0.0088,
+            "delta_mae_vs_stage_m": 0.0007,
+            "pct_gain_vs_stage": 5.93
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0119,
+            "fallback_strategy_bias_m": -0.0088,
+            "zero_imputation_mae_m": 0.0119,
+            "zero_imputation_bias_m": -0.0088
+          }
+        },
+        "+3h": {
+          "n_samples": 9,
+          "persistence": {
+            "mae_m": 0.0128,
+            "rmse_m": 0.0159,
+            "bias_m": -0.0088
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0134,
+            "rmse_m": 0.0177,
+            "bias_m": -0.0109
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0142,
+            "rmse_m": 0.0186,
+            "bias_m": -0.0111,
+            "delta_mae_vs_stage_m": 0.0008,
+            "pct_gain_vs_stage": 6.06
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0142,
+            "fallback_strategy_bias_m": -0.0111,
+            "zero_imputation_mae_m": 0.0142,
+            "zero_imputation_bias_m": -0.0111
+          }
+        }
+      }
+    },
+    "EP_06_A": {
+      "metadata": {
+        "episode_id": "EP_06_A",
+        "name": "July 30\u201331 Flood Inception (Phase A)",
+        "category": "MAJOR_EVENT_INCEPTION",
+        "is_training_cohort": false,
+        "start_dt": "2026-07-30 00:00:00",
+        "end_dt": "2026-07-31 05:00:00",
+        "duration_hrs": 30,
+        "start_stage_m": 350.578,
+        "peak_stage_m": 351.363,
+        "net_rise_m": 0.785,
+        "max_1h_rise_rate_m_hr": 0.062,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 104.86,
+        "mae_pers_1h": 0.029,
+        "mae_stage_1h": 0.053,
+        "mae_mm_1h": 0.048,
+        "bias_mm_1h": -0.0459,
+        "mae_pers_3h": 0.0806,
+        "mae_stage_3h": 0.1073,
+        "mae_mm_3h": 0.0986,
+        "bias_mm_3h": -0.098,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.048,
+        "fallback_mae_3h": 0.0986,
+        "zero_impute_mae_1h": 0.048,
+        "zero_impute_bias_1h": -0.0459,
+        "zero_impute_mae_3h": 0.0986,
+        "zero_impute_bias_3h": -0.098
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 30,
+          "persistence": {
+            "mae_m": 0.029,
+            "rmse_m": 0.0342,
+            "bias_m": -0.0261
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.053,
+            "rmse_m": 0.0642,
+            "bias_m": -0.0513
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.048,
+            "rmse_m": 0.0587,
+            "bias_m": -0.0459,
+            "delta_mae_vs_stage_m": -0.005,
+            "pct_gain_vs_stage": -9.42
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.048,
+            "fallback_strategy_bias_m": -0.0459,
+            "zero_imputation_mae_m": 0.048,
+            "zero_imputation_bias_m": -0.0459
+          }
+        },
+        "+2h": {
+          "n_samples": 30,
+          "persistence": {
+            "mae_m": 0.0543,
+            "rmse_m": 0.0649,
+            "bias_m": -0.0522
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0799,
+            "rmse_m": 0.0964,
+            "bias_m": -0.0785
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0729,
+            "rmse_m": 0.0889,
+            "bias_m": -0.0711,
+            "delta_mae_vs_stage_m": -0.007,
+            "pct_gain_vs_stage": -8.73
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0729,
+            "fallback_strategy_bias_m": -0.0711,
+            "zero_imputation_mae_m": 0.0729,
+            "zero_imputation_bias_m": -0.0711
+          }
+        },
+        "+3h": {
+          "n_samples": 30,
+          "persistence": {
+            "mae_m": 0.0806,
+            "rmse_m": 0.0962,
+            "bias_m": -0.0805
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.1073,
+            "rmse_m": 0.1282,
+            "bias_m": -0.1073
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0986,
+            "rmse_m": 0.1189,
+            "bias_m": -0.098,
+            "delta_mae_vs_stage_m": -0.0088,
+            "pct_gain_vs_stage": -8.15
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0986,
+            "fallback_strategy_bias_m": -0.098,
+            "zero_imputation_mae_m": 0.0986,
+            "zero_imputation_bias_m": -0.098
+          }
+        }
+      }
+    },
+    "EP_06_B": {
+      "metadata": {
+        "episode_id": "EP_06_B",
+        "name": "July 31\u2013Aug 01 Rapid Surge Limb (Phase B)",
+        "category": "MAJOR_EVENT_SURGE_OUTAGE",
+        "is_training_cohort": false,
+        "start_dt": "2026-07-31 06:00:00",
+        "end_dt": "2026-08-01 07:00:00",
+        "duration_hrs": 26,
+        "start_stage_m": 351.36,
+        "peak_stage_m": 355.009,
+        "net_rise_m": 3.649,
+        "max_1h_rise_rate_m_hr": 0.515,
+        "rain_coverage_pct": 0.0,
+        "rain_total_mm": 0.0,
+        "mae_pers_1h": 0.146,
+        "mae_stage_1h": 0.2879,
+        "mae_mm_1h": null,
+        "bias_mm_1h": null,
+        "mae_pers_3h": 0.4166,
+        "mae_stage_3h": 0.5686,
+        "mae_mm_3h": null,
+        "bias_mm_3h": null,
+        "mm_status": "OUTAGE_OR_INCOMPLETE",
+        "fallback_mae_1h": 0.2879,
+        "fallback_mae_3h": 0.5686,
+        "zero_impute_mae_1h": 0.2887,
+        "zero_impute_bias_1h": -0.2887,
+        "zero_impute_mae_3h": 0.5698,
+        "zero_impute_bias_3h": -0.5698
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 26,
+          "persistence": {
+            "mae_m": 0.146,
+            "rmse_m": 0.1874,
+            "bias_m": -0.1347
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.2879,
+            "rmse_m": 0.3558,
+            "bias_m": -0.2879
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.2879,
+            "fallback_strategy_bias_m": -0.2879,
+            "zero_imputation_mae_m": 0.2887,
+            "zero_imputation_bias_m": -0.2887
+          }
+        },
+        "+2h": {
+          "n_samples": 26,
+          "persistence": {
+            "mae_m": 0.2785,
+            "rmse_m": 0.3522,
+            "bias_m": -0.2725
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.433,
+            "rmse_m": 0.525,
+            "bias_m": -0.433
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.433,
+            "fallback_strategy_bias_m": -0.433,
+            "zero_imputation_mae_m": 0.434,
+            "zero_imputation_bias_m": -0.434
+          }
+        },
+        "+3h": {
+          "n_samples": 26,
+          "persistence": {
+            "mae_m": 0.4166,
+            "rmse_m": 0.5143,
+            "bias_m": -0.4043
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.5686,
+            "rmse_m": 0.6853,
+            "bias_m": -0.5686
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.5686,
+            "fallback_strategy_bias_m": -0.5686,
+            "zero_imputation_mae_m": 0.5698,
+            "zero_imputation_bias_m": -0.5698
+          }
+        }
+      }
+    },
+    "EP_07": {
+      "metadata": {
+        "episode_id": "EP_07",
+        "name": "Rise_2026-08-01",
+        "category": "POST_EVENT_HOLDING",
+        "is_training_cohort": false,
+        "start_dt": "2026-08-01 10:00:00",
+        "end_dt": "2026-08-01 14:00:00",
+        "duration_hrs": 5,
+        "start_stage_m": 354.849,
+        "peak_stage_m": 354.954,
+        "net_rise_m": 0.105,
+        "max_1h_rise_rate_m_hr": 0.06,
+        "rain_coverage_pct": 0.0,
+        "rain_total_mm": 0.0,
+        "mae_pers_1h": 0.0452,
+        "mae_stage_1h": 0.0553,
+        "mae_mm_1h": null,
+        "bias_mm_1h": null,
+        "mae_pers_3h": 0.0478,
+        "mae_stage_3h": 0.085,
+        "mae_mm_3h": null,
+        "bias_mm_3h": null,
+        "mm_status": "OUTAGE_OR_INCOMPLETE",
+        "fallback_mae_1h": 0.0553,
+        "fallback_mae_3h": 0.085,
+        "zero_impute_mae_1h": 0.0544,
+        "zero_impute_bias_1h": -0.0544,
+        "zero_impute_mae_3h": 0.0824,
+        "zero_impute_bias_3h": -0.0824
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0452,
+            "rmse_m": 0.0496,
+            "bias_m": -0.0068
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0553,
+            "rmse_m": 0.0625,
+            "bias_m": -0.0553
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0553,
+            "fallback_strategy_bias_m": -0.0553,
+            "zero_imputation_mae_m": 0.0544,
+            "zero_imputation_bias_m": -0.0544
+          }
+        },
+        "+2h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0252,
+            "rmse_m": 0.0355,
+            "bias_m": -0.018
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0765,
+            "rmse_m": 0.0825,
+            "bias_m": -0.0765
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0765,
+            "fallback_strategy_bias_m": -0.0765,
+            "zero_imputation_mae_m": 0.0747,
+            "zero_imputation_bias_m": -0.0747
+          }
+        },
+        "+3h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0478,
+            "rmse_m": 0.0487,
+            "bias_m": -0.0166
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.085,
+            "rmse_m": 0.0895,
+            "bias_m": -0.085
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.085,
+            "fallback_strategy_bias_m": -0.085,
+            "zero_imputation_mae_m": 0.0824,
+            "zero_imputation_bias_m": -0.0824
+          }
+        }
+      }
+    },
+    "EP_08": {
+      "metadata": {
+        "episode_id": "EP_08",
+        "name": "Rise_2026-08-03",
+        "category": "POST_EVENT_HOLDING",
+        "is_training_cohort": false,
+        "start_dt": "2026-08-03 20:00:00",
+        "end_dt": "2026-08-03 22:00:00",
+        "duration_hrs": 3,
+        "start_stage_m": 354.894,
+        "peak_stage_m": 354.961,
+        "net_rise_m": 0.067,
+        "max_1h_rise_rate_m_hr": 0.039,
+        "rain_coverage_pct": 0.0,
+        "rain_total_mm": 0.0,
+        "mae_pers_1h": 0.0247,
+        "mae_stage_1h": 0.0753,
+        "mae_mm_1h": null,
+        "bias_mm_1h": null,
+        "mae_pers_3h": 0.0713,
+        "mae_stage_3h": 0.1279,
+        "mae_mm_3h": null,
+        "bias_mm_3h": null,
+        "mm_status": "OUTAGE_OR_INCOMPLETE",
+        "fallback_mae_1h": 0.0753,
+        "fallback_mae_3h": 0.1279,
+        "zero_impute_mae_1h": 0.0743,
+        "zero_impute_bias_1h": -0.0743,
+        "zero_impute_mae_3h": 0.1254,
+        "zero_impute_bias_3h": -0.1254
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 3,
+          "persistence": {
+            "mae_m": 0.0247,
+            "rmse_m": 0.028,
+            "bias_m": -0.02
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0753,
+            "rmse_m": 0.0768,
+            "bias_m": -0.0753
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0753,
+            "fallback_strategy_bias_m": -0.0753,
+            "zero_imputation_mae_m": 0.0743,
+            "zero_imputation_bias_m": -0.0743
+          }
+        },
+        "+2h": {
+          "n_samples": 3,
+          "persistence": {
+            "mae_m": 0.0553,
+            "rmse_m": 0.0577,
+            "bias_m": -0.0107
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0762,
+            "rmse_m": 0.0844,
+            "bias_m": -0.0762
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0762,
+            "fallback_strategy_bias_m": -0.0762,
+            "zero_imputation_mae_m": 0.0744,
+            "zero_imputation_bias_m": -0.0744
+          }
+        },
+        "+3h": {
+          "n_samples": 3,
+          "persistence": {
+            "mae_m": 0.0713,
+            "rmse_m": 0.0822,
+            "bias_m": -0.0527
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.1279,
+            "rmse_m": 0.1481,
+            "bias_m": -0.1279
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.1279,
+            "fallback_strategy_bias_m": -0.1279,
+            "zero_imputation_mae_m": 0.1254,
+            "zero_imputation_bias_m": -0.1254
+          }
+        }
+      }
+    },
+    "EP_09": {
+      "metadata": {
+        "episode_id": "EP_09",
+        "name": "Rise_2026-08-04",
+        "category": "POST_EVENT_HOLDING",
+        "is_training_cohort": false,
+        "start_dt": "2026-08-04 23:00:00",
+        "end_dt": "2026-08-05 07:00:00",
+        "duration_hrs": 9,
+        "start_stage_m": 354.715,
+        "peak_stage_m": 354.765,
+        "net_rise_m": 0.05,
+        "max_1h_rise_rate_m_hr": 0.039,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 0.69,
+        "mae_pers_1h": 0.0199,
+        "mae_stage_1h": 0.052,
+        "mae_mm_1h": null,
+        "bias_mm_1h": null,
+        "mae_pers_3h": 0.0169,
+        "mae_stage_3h": 0.076,
+        "mae_mm_3h": null,
+        "bias_mm_3h": null,
+        "mm_status": "OUTAGE_OR_INCOMPLETE",
+        "fallback_mae_1h": 0.052,
+        "fallback_mae_3h": 0.076,
+        "zero_impute_mae_1h": 0.0508,
+        "zero_impute_bias_1h": -0.0508,
+        "zero_impute_mae_3h": 0.0731,
+        "zero_impute_bias_3h": -0.0731
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 9,
+          "persistence": {
+            "mae_m": 0.0199,
+            "rmse_m": 0.0222,
+            "bias_m": -0.003
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.052,
+            "rmse_m": 0.054,
+            "bias_m": -0.052
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.052,
+            "fallback_strategy_bias_m": -0.052,
+            "zero_imputation_mae_m": 0.0508,
+            "zero_imputation_bias_m": -0.0508
+          }
+        },
+        "+2h": {
+          "n_samples": 9,
+          "persistence": {
+            "mae_m": 0.0092,
+            "rmse_m": 0.0122,
+            "bias_m": -0.005
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0637,
+            "rmse_m": 0.0653,
+            "bias_m": -0.0637
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0637,
+            "fallback_strategy_bias_m": -0.0637,
+            "zero_imputation_mae_m": 0.0617,
+            "zero_imputation_bias_m": -0.0617
+          }
+        },
+        "+3h": {
+          "n_samples": 9,
+          "persistence": {
+            "mae_m": 0.0169,
+            "rmse_m": 0.0222,
+            "bias_m": -0.0078
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.076,
+            "rmse_m": 0.0777,
+            "bias_m": -0.076
+          },
+          "multimodal_complete_case": {
+            "status": "OUTAGE_OR_INCOMPLETE",
+            "mae_m": null,
+            "rmse_m": null,
+            "bias_m": null,
+            "delta_mae_vs_stage_m": null,
+            "pct_gain_vs_stage": null
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.076,
+            "fallback_strategy_bias_m": -0.076,
+            "zero_imputation_mae_m": 0.0731,
+            "zero_imputation_bias_m": -0.0731
+          }
+        }
+      }
+    },
+    "EP_SEP_01": {
+      "metadata": {
+        "episode_id": "EP_SEP_01",
+        "name": "September 18 Pool Fluctuation",
+        "category": "SEPTEMBER_HOLDOUT_POOL_OSCILLATION",
+        "is_training_cohort": false,
+        "start_dt": "2026-09-18 01:00:00",
+        "end_dt": "2026-09-18 08:00:00",
+        "duration_hrs": 8,
+        "start_stage_m": 354.487,
+        "peak_stage_m": 354.531,
+        "net_rise_m": 0.044,
+        "max_1h_rise_rate_m_hr": 0.018,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 5.62,
+        "mae_pers_1h": 0.0095,
+        "mae_stage_1h": 0.0506,
+        "mae_mm_1h": 0.0486,
+        "bias_mm_1h": -0.0486,
+        "mae_pers_3h": 0.0146,
+        "mae_stage_3h": 0.0676,
+        "mae_mm_3h": 0.0634,
+        "bias_mm_3h": -0.0634,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0486,
+        "fallback_mae_3h": 0.0634,
+        "zero_impute_mae_1h": 0.0486,
+        "zero_impute_bias_1h": -0.0486,
+        "zero_impute_mae_3h": 0.0634,
+        "zero_impute_bias_3h": -0.0634
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 8,
+          "persistence": {
+            "mae_m": 0.0095,
+            "rmse_m": 0.0113,
+            "bias_m": -0.0037
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0506,
+            "rmse_m": 0.0514,
+            "bias_m": -0.0506
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0486,
+            "rmse_m": 0.0496,
+            "bias_m": -0.0486,
+            "delta_mae_vs_stage_m": -0.0019,
+            "pct_gain_vs_stage": -3.78
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0486,
+            "fallback_strategy_bias_m": -0.0486,
+            "zero_imputation_mae_m": 0.0486,
+            "zero_imputation_bias_m": -0.0486
+          }
+        },
+        "+2h": {
+          "n_samples": 8,
+          "persistence": {
+            "mae_m": 0.0099,
+            "rmse_m": 0.0139,
+            "bias_m": -0.0064
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0624,
+            "rmse_m": 0.063,
+            "bias_m": -0.0624
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0594,
+            "rmse_m": 0.0601,
+            "bias_m": -0.0594,
+            "delta_mae_vs_stage_m": -0.0031,
+            "pct_gain_vs_stage": -4.9
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0594,
+            "fallback_strategy_bias_m": -0.0594,
+            "zero_imputation_mae_m": 0.0594,
+            "zero_imputation_bias_m": -0.0594
+          }
+        },
+        "+3h": {
+          "n_samples": 8,
+          "persistence": {
+            "mae_m": 0.0146,
+            "rmse_m": 0.0192,
+            "bias_m": -0.0026
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0676,
+            "rmse_m": 0.0693,
+            "bias_m": -0.0676
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0634,
+            "rmse_m": 0.0654,
+            "bias_m": -0.0634,
+            "delta_mae_vs_stage_m": -0.0042,
+            "pct_gain_vs_stage": -6.26
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0634,
+            "fallback_strategy_bias_m": -0.0634,
+            "zero_imputation_mae_m": 0.0634,
+            "zero_imputation_bias_m": -0.0634
+          }
+        }
+      }
+    },
+    "EP_SEP_02": {
+      "metadata": {
+        "episode_id": "EP_SEP_02",
+        "name": "September 21 Pool Fluctuation",
+        "category": "SEPTEMBER_HOLDOUT_POOL_OSCILLATION",
+        "is_training_cohort": false,
+        "start_dt": "2026-09-21 16:00:00",
+        "end_dt": "2026-09-21 20:00:00",
+        "duration_hrs": 5,
+        "start_stage_m": 354.418,
+        "peak_stage_m": 354.457,
+        "net_rise_m": 0.039,
+        "max_1h_rise_rate_m_hr": 0.039,
+        "rain_coverage_pct": 100.0,
+        "rain_total_mm": 1.75,
+        "mae_pers_1h": 0.0108,
+        "mae_stage_1h": 0.0511,
+        "mae_mm_1h": 0.0497,
+        "bias_mm_1h": -0.0497,
+        "mae_pers_3h": 0.0092,
+        "mae_stage_3h": 0.069,
+        "mae_mm_3h": 0.0655,
+        "bias_mm_3h": -0.0655,
+        "mm_status": "COMPLETE",
+        "fallback_mae_1h": 0.0497,
+        "fallback_mae_3h": 0.0655,
+        "zero_impute_mae_1h": 0.0497,
+        "zero_impute_bias_1h": -0.0497,
+        "zero_impute_mae_3h": 0.0655,
+        "zero_impute_bias_3h": -0.0655
+      },
+      "horizons": {
+        "+1h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0108,
+            "rmse_m": 0.0179,
+            "bias_m": -0.0064
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0511,
+            "rmse_m": 0.0521,
+            "bias_m": -0.0511
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0497,
+            "rmse_m": 0.0507,
+            "bias_m": -0.0497,
+            "delta_mae_vs_stage_m": -0.0014,
+            "pct_gain_vs_stage": -2.82
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0497,
+            "fallback_strategy_bias_m": -0.0497,
+            "zero_imputation_mae_m": 0.0497,
+            "zero_imputation_bias_m": -0.0497
+          }
+        },
+        "+2h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0092,
+            "rmse_m": 0.0176,
+            "bias_m": -0.0064
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.0602,
+            "rmse_m": 0.061,
+            "bias_m": -0.0602
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0577,
+            "rmse_m": 0.0585,
+            "bias_m": -0.0577,
+            "delta_mae_vs_stage_m": -0.0025,
+            "pct_gain_vs_stage": -4.1
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0577,
+            "fallback_strategy_bias_m": -0.0577,
+            "zero_imputation_mae_m": 0.0577,
+            "zero_imputation_bias_m": -0.0577
+          }
+        },
+        "+3h": {
+          "n_samples": 5,
+          "persistence": {
+            "mae_m": 0.0092,
+            "rmse_m": 0.0161,
+            "bias_m": -0.0064
+          },
+          "stage_only_ridge": {
+            "mae_m": 0.069,
+            "rmse_m": 0.0694,
+            "bias_m": -0.069
+          },
+          "multimodal_complete_case": {
+            "status": "COMPLETE",
+            "mae_m": 0.0655,
+            "rmse_m": 0.066,
+            "bias_m": -0.0655,
+            "delta_mae_vs_stage_m": -0.0035,
+            "pct_gain_vs_stage": -5.09
+          },
+          "missingness_aware_sensitivity": {
+            "fallback_strategy_mae_m": 0.0655,
+            "fallback_strategy_bias_m": -0.0655,
+            "zero_imputation_mae_m": 0.0655,
+            "zero_imputation_bias_m": -0.0655
+          }
+        }
+      }
+    }
+  },
+  "pooled_summary": {}
+}

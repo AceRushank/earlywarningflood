@@ -1,0 +1,62 @@
+{
+  "raag_v2_hard_1h": {
+    "horizon": "+1h",
+    "architecture": "RA-AG v2 Hard Gating",
+    "file": "raag_v2_hard_1h.joblib",
+    "sha256": "e5e970f70ba686b2e0403265e0aab59bd87ee103a7a05f1348fce176a6709786",
+    "stable_strategy": "persistence",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=5.0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "fallback_mode": "bounded_linear (Ridge alpha=5.0)"
+  },
+  "raag_v2_soft_1h": {
+    "horizon": "+1h",
+    "architecture": "RA-AG v2 Soft Gating (Continuous Partition of Unity)",
+    "file": "raag_v2_soft_1h.joblib",
+    "sha256": "c88cf0c38ae605607daacee3d000134e0deb0bb4787805b2430e0fa7cd047d46",
+    "stable_strategy": "persistence",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=5.0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "fallback_mode": "bounded_linear (Ridge alpha=5.0)"
+  },
+  "raag_v2_hard_2h": {
+    "horizon": "+2h",
+    "architecture": "RA-AG v2 Hard Gating",
+    "file": "raag_v2_hard_2h.joblib",
+    "sha256": "7d75a875fff2026aab692ce0ba6ff729cb97f9dd2be19976edc36b64339002f8",
+    "stable_strategy": "shrinkage_ridge (alpha=100.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=10.0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "fallback_mode": "bounded_linear (Ridge alpha=5.0)"
+  },
+  "raag_v2_soft_2h": {
+    "horizon": "+2h",
+    "architecture": "RA-AG v2 Soft Gating (Continuous Partition of Unity)",
+    "file": "raag_v2_soft_2h.joblib",
+    "sha256": "0c592df5e65fbe763982274561df6bda140b39024657f9c569da68774e5bb4c2",
+    "stable_strategy": "shrinkage_ridge (alpha=100.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=10.0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "fallback_mode": "bounded_linear (Ridge alpha=5.0)"
+  },
+  "raag_v2_hard_3h": {
+    "horizon": "+3h",
+    "architecture": "RA-AG v2 Hard Gating",
+    "file": "raag_v2_hard_3h.joblib",
+    "sha256": "dd66fa162f103e1ad8ed9c60ba291eff5c295098a2663241b7f2d7f933b0b129",
+    "stable_strategy": "shrinkage_ridge (alpha=100.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=10.0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "fallback_mode": "bounded_linear (Ridge alpha=5.0)"
+  },
+  "raag_v2_soft_3h": {
+    "horizon": "+3h",
+    "architecture": "RA-AG v2 Soft Gating (Continuous Partition of Unity)",
+    "file": "raag_v2_soft_3h.joblib",
+    "sha256": "9e2cb6f9f4c131b6b45ea45c9beb8fd6492e02bd156be0165f5206e3da676fa3",
+    "stable_strategy": "shrinkage_ridge (alpha=100.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=10.0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "fallback_mode": "bounded_linear (Ridge alpha=5.0)"
+  }
+}

@@ -1,0 +1,9 @@
+period,station,total_hours,valid_hours,missing_hours,availability_pct,max_consecutive_gap_hr,reporting_latency_buffer_hr,provenance
+Train (June 15 - Aug 10),Vishnupuri (Downstream),1368,1290,78,94.3,58,0,MWRD / CWC NWIC Surface Water Telemetry
+Train (June 15 - Aug 10),Mudgal Barrage (Upstream),1368,1289,79,94.23,58,1,MWRD / CWC NWIC Surface Water Telemetry
+Val (Aug 11 - Aug 31),Vishnupuri (Downstream),504,432,72,85.71,63,0,MWRD / CWC NWIC Surface Water Telemetry
+Val (Aug 11 - Aug 31),Mudgal Barrage (Upstream),504,497,7,98.61,5,1,MWRD / CWC NWIC Surface Water Telemetry
+Test (Sept 1 - Sept 30),Vishnupuri (Downstream),720,695,25,96.53,7,0,MWRD / CWC NWIC Surface Water Telemetry
+Test (Sept 1 - Sept 30),Mudgal Barrage (Upstream),720,695,25,96.53,6,1,MWRD / CWC NWIC Surface Water Telemetry
+Whole Monsoon (June 15 - Sept 30),Vishnupuri (Downstream),2592,2417,175,93.25,63,0,MWRD / CWC NWIC Surface Water Telemetry
+Whole Monsoon (June 15 - Sept 30),Mudgal Barrage (Upstream),2592,2481,111,95.72,58,1,MWRD / CWC NWIC Surface Water Telemetry

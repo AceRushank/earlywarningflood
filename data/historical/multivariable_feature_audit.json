@@ -1,0 +1,167 @@
+[
+  {
+    "feature_name": "stage_vishnupuri",
+    "units": "m MSL",
+    "source": "NWIC Godavari Telemetry (Maharashtra SW 006)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 93.2,
+    "missing_pct": 6.8,
+    "available_at_t": true,
+    "used_in_models": "A, B, C, D, E, F",
+    "notes": "Current river stage at Vishnupuri Barrage. Baseline elevation ~350.5m, FRL=355.0m."
+  },
+  {
+    "feature_name": "stage_v_lag1, stage_v_lag2, stage_v_lag3",
+    "units": "m MSL",
+    "source": "Derived from Vishnupuri Telemetry",
+    "temporal_resolution": "1 hour (t-1, t-2, t-3)",
+    "season_coverage_pct": 93.1,
+    "missing_pct": 6.9,
+    "available_at_t": true,
+    "used_in_models": "B, C, D, E, F",
+    "notes": "Autoregressive stage memory at 1h, 2h, 3h lags."
+  },
+  {
+    "feature_name": "dH_v_1h, dH_v_3h, dH_v_6h",
+    "units": "m / window",
+    "source": "Derived from Vishnupuri Telemetry",
+    "temporal_resolution": "1 hour (t - t-k)",
+    "season_coverage_pct": 93.0,
+    "missing_pct": 7.0,
+    "available_at_t": true,
+    "used_in_models": "B, C, D, E, F",
+    "notes": "Recent rate-of-rise and hydrograph trend over 1h, 3h, 6h."
+  },
+  {
+    "feature_name": "accel_v_1h",
+    "units": "m / hr^2",
+    "source": "Derived from Vishnupuri Telemetry",
+    "temporal_resolution": "1 hour (dH_1h(t) - dH_1h(t-1))",
+    "season_coverage_pct": 92.8,
+    "missing_pct": 7.2,
+    "available_at_t": true,
+    "used_in_models": "D, E, F",
+    "notes": "Second difference representing curvature / acceleration of rising limb."
+  },
+  {
+    "feature_name": "rain_depth_1h_mm",
+    "units": "mm",
+    "source": "ISRO MOSDAC INSAT-3DS HEM (Catchment-integrated)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 94.4,
+    "missing_pct": 5.6,
+    "available_at_t": true,
+    "used_in_models": "C, D, E, F",
+    "notes": "Hourly spatial mean depth over 51,768 km\u00b2 catchment. Outage July 31\u2013Aug 4 preserved as NaN."
+  },
+  {
+    "feature_name": "rain_3h_mm, rain_6h_mm, rain_12h_mm, rain_24h_mm",
+    "units": "mm",
+    "source": "Derived from INSAT-3DS HEM",
+    "temporal_resolution": "Rolling backward sums",
+    "season_coverage_pct": 93.8,
+    "missing_pct": 6.2,
+    "available_at_t": true,
+    "used_in_models": "C, D, E, F",
+    "notes": "Backward accumulations capturing antecedent catchment rainfall."
+  },
+  {
+    "feature_name": "api_7d_mm",
+    "units": "mm equivalent",
+    "source": "Derived Antecedent Precipitation Index (decay k=0.9/day)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 94.4,
+    "missing_pct": 5.6,
+    "available_at_t": true,
+    "used_in_models": "D, E, F",
+    "notes": "Catchment wetness proxy accounting for soil saturation memory."
+  },
+  {
+    "feature_name": "freeboard_frl_m",
+    "units": "m",
+    "source": "Hydrological specification (355.0m - stage)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 93.2,
+    "missing_pct": 6.8,
+    "available_at_t": true,
+    "used_in_models": "F",
+    "notes": "Available storage buffer remaining before Full Reservoir Level (355.0m MSL)."
+  },
+  {
+    "feature_name": "is_high_pool",
+    "units": "binary {0, 1}",
+    "source": "Regime definition (stage >= 354.0m MSL)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 93.2,
+    "missing_pct": 6.8,
+    "available_at_t": true,
+    "used_in_models": "F",
+    "notes": "Distinguishes filling regime (gates closed) from crest regulation regime (gates operating)."
+  },
+  {
+    "feature_name": "stage_mudgal, dH_m_1h",
+    "units": "m MSL, m/hr",
+    "source": "NWIC Godavari Telemetry (Mudgal Barrage, ~120km upstream)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 94.8,
+    "missing_pct": 5.2,
+    "available_at_t": true,
+    "used_in_models": "Ablation candidate",
+    "notes": "Upstream mainstem stage. Hydrodynamic travel time ~20\u201330h limits 1\u20133h lead time utility."
+  },
+  {
+    "feature_name": "stage_raher, stage_babhali",
+    "units": "m MSL",
+    "source": "NWIC Godavari Telemetry (Raher & Babhali Barrage)",
+    "temporal_resolution": "1 hour",
+    "season_coverage_pct": 94.8,
+    "missing_pct": 5.2,
+    "available_at_t": true,
+    "used_in_models": "Ablation candidate",
+    "notes": "Downstream gauges. Causal direction runs from Vishnupuri downstream, not reverse."
+  },
+  {
+    "feature_name": "ground_rain_imd",
+    "units": "mm",
+    "source": "IMD automatic weather stations (Nanded / catchment)",
+    "temporal_resolution": "UNAVAILABLE",
+    "season_coverage_pct": 0.0,
+    "missing_pct": 100.0,
+    "available_at_t": false,
+    "used_in_models": "None (UNAVAILABLE)",
+    "notes": "No ground telemetry in active 2026 archive. Limits ground-truth validation."
+  },
+  {
+    "feature_name": "nwp_rainfall_forecasts",
+    "units": "mm/hr",
+    "source": "IMD GFS / NCMRWF numerical weather prediction grids",
+    "temporal_resolution": "UNAVAILABLE",
+    "season_coverage_pct": 0.0,
+    "missing_pct": 100.0,
+    "available_at_t": false,
+    "used_in_models": "None (UNAVAILABLE)",
+    "notes": "Archived NWP forecast grids not available in local dataset."
+  },
+  {
+    "feature_name": "gate_openings_and_discharge",
+    "units": "m (gate height), m^3/s (discharge)",
+    "source": "Vishnupuri Barrage operational logs (WRD Maharashtra)",
+    "temporal_resolution": "UNAVAILABLE",
+    "season_coverage_pct": 0.0,
+    "missing_pct": 100.0,
+    "available_at_t": false,
+    "used_in_models": "None (UNAVAILABLE)",
+    "notes": "NWIC lists Is_DischargeDataAvailable='No'. Major unobservable for downstream warnings."
+  },
+  {
+    "feature_name": "soil_moisture_in_situ",
+    "units": "m^3/m^3",
+    "source": "In-situ / SMAP / ASCAT satellite soil moisture",
+    "temporal_resolution": "UNAVAILABLE",
+    "season_coverage_pct": 0.0,
+    "missing_pct": 100.0,
+    "available_at_t": false,
+    "used_in_models": "None (Proxied by API)",
+    "notes": "Not archived for 2026. Proxied by 7-day Antecedent Precipitation Index (API)."
+  }
+]

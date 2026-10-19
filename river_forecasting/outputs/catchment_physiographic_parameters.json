@@ -1,0 +1,46 @@
+{
+  "station_information": {
+    "name": "Vishnupuri Barrage",
+    "project_name": "Shankar Sagar Jalashay",
+    "river": "Godavari",
+    "sub_basin": "Upper Godavari Basin",
+    "district": "Nanded",
+    "state": "Maharashtra",
+    "coordinates": {
+      "latitude_deg": 19.126944,
+      "longitude_deg": 77.280833,
+      "pour_point_crs": "EPSG:4326"
+    },
+    "hydraulic_levels": {
+      "gauge_zero_rl_m": 0.0,
+      "mean_sea_level_m": 366.5,
+      "full_reservoir_level_m": 355.0,
+      "warning_level_m": 354.0,
+      "danger_level_m": 354.8,
+      "lowest_observed_event1_m": 353.388,
+      "peak_observed_event1_m": 354.798
+    }
+  },
+  "catchment_physiography": {
+    "drainage_area_hydrobasins_sq_km": 51768.25,
+    "drainage_area_cwc_benchmark_sq_km": 51390.78,
+    "area_discrepancy_pct": 0.73,
+    "delineation_source": "HydroBASINS Asia Level 08 (WWF/USGS)",
+    "dem_foundation": "HydroSHEDS 3-arc-second / 90m SRTM conditioned DEM",
+    "main_channel_length_km": 650.0,
+    "headwater_origin": "Trimbakeshwar, Western Ghats, Nashik",
+    "headwater_elevation_m_msl": 1067.0,
+    "outlet_elevation_m_msl": 350.5,
+    "average_river_channel_slope_m_per_km": 1.1,
+    "average_river_channel_slope_pct": 0.11,
+    "estimated_mean_basin_elevation_m_msl": 540.0,
+    "estimated_mean_basin_slope_pct": 2.8,
+    "contributing_subbasins_count": 67
+  },
+  "meteorological_coverage": {
+    "imd_gridded_resolution_deg": 0.25,
+    "imd_grid_cells_inside_catchment": 71,
+    "insat3ds_hem_curvilinear_pixels": 2869,
+    "insat3ds_spatial_resolution_approx_km": 4.0
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "phase": 6,
+  "models_trained": {
+    "Config_B_Local_Stage__18h": "Config_B_Local_Stage__18h.joblib",
+    "Config_C_Local_Stage_Rain__18h": "Config_C_Local_Stage_Rain__18h.joblib",
+    "Config_D_Local_Stage_Upstream__18h": "Config_D_Local_Stage_Upstream__18h.joblib",
+    "Config_E_Local_Stage_Rain_Upstream__18h": "Config_E_Local_Stage_Rain_Upstream__18h.joblib",
+    "Config_F_Simple_Lagged_Upstream_Proxy__18h": "Config_F_Simple_Lagged_Upstream_Proxy__18h.joblib",
+    "Config_G_Ridge_Local_Upstream__18h": "Config_G_Ridge_Local_Upstream__18h.joblib",
+    "Config_H_XGBoost_Local_Upstream__18h": "Config_H_XGBoost_Local_Upstream__18h.joblib",
+    "Config_B_Local_Stage__24h": "Config_B_Local_Stage__24h.joblib",
+    "Config_C_Local_Stage_Rain__24h": "Config_C_Local_Stage_Rain__24h.joblib",
+    "Config_D_Local_Stage_Upstream__24h": "Config_D_Local_Stage_Upstream__24h.joblib",
+    "Config_E_Local_Stage_Rain_Upstream__24h": "Config_E_Local_Stage_Rain_Upstream__24h.joblib",
+    "Config_F_Simple_Lagged_Upstream_Proxy__24h": "Config_F_Simple_Lagged_Upstream_Proxy__24h.joblib",
+    "Config_G_Ridge_Local_Upstream__24h": "Config_G_Ridge_Local_Upstream__24h.joblib",
+    "Config_H_XGBoost_Local_Upstream__24h": "Config_H_XGBoost_Local_Upstream__24h.joblib",
+    "Config_B_Local_Stage__36h": "Config_B_Local_Stage__36h.joblib",
+    "Config_C_Local_Stage_Rain__36h": "Config_C_Local_Stage_Rain__36h.joblib",
+    "Config_D_Local_Stage_Upstream__36h": "Config_D_Local_Stage_Upstream__36h.joblib",
+    "Config_E_Local_Stage_Rain_Upstream__36h": "Config_E_Local_Stage_Rain_Upstream__36h.joblib",
+    "Config_F_Simple_Lagged_Upstream_Proxy__36h": "Config_F_Simple_Lagged_Upstream_Proxy__36h.joblib",
+    "Config_G_Ridge_Local_Upstream__36h": "Config_G_Ridge_Local_Upstream__36h.joblib",
+    "Config_H_XGBoost_Local_Upstream__36h": "Config_H_XGBoost_Local_Upstream__36h.joblib"
+  },
+  "optimal_alphas": {
+    "+18h": 500.0,
+    "+24h": 500.0,
+    "+36h": 500.0
+  }
+}

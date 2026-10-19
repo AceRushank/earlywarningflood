@@ -1,0 +1,7 @@
+09-10-2026 21:49:51 - ERROR - 
+
+Error Fetching Data from Search Endpoint.
+
+Error Message: Data unavailable for given parameters
+Error Details: {'timestamp': '09-10-2026 09:49:53', 'statusCode': 500, 'message': ['Data unavailable for given parameters']}
+

@@ -1,0 +1,179 @@
+{
+  "finalist_a_xgboost_1h": {
+    "horizon": "+1h",
+    "model_type": "Tuned Standalone XGBoost with Stage-Only Fallback",
+    "file": "finalist_a_xgboost_1h.joblib",
+    "sha256": "dc67867ff97e99a70adaf257ac2d8f0464dc02c3e45bfcabcac9ac66ae53909e",
+    "features_multimodal": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "features_fallback": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h"
+    ],
+    "hyperparameters": {
+      "max_depth": 2,
+      "learning_rate": 0.02,
+      "reg_lambda": 5.0,
+      "n_estimators": 60
+    }
+  },
+  "finalist_b_raag_1h": {
+    "horizon": "+1h",
+    "model_type": "Existing RA-AG (Phase 2 Exact Reproduction)",
+    "file": "finalist_b_raag_1h.joblib",
+    "sha256": "3bdbe2060c1c0936f45c416e2adbedcf90767bb93229b0df551582ee4db14210",
+    "regime_thresholds": {
+      "theta_rise": 0.01,
+      "theta_fall": -0.01
+    },
+    "stable_strategy": "Pure Persistence (dH = 0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "rising_expert": "XGBoost (max_depth=3, lr=0.03, n_est=60, l2=5.0)",
+    "fallback_expert": "Stage-Only Ridge"
+  },
+  "finalist_c_hybrid_1h": {
+    "horizon": "+1h",
+    "model_type": "RA-AG + Tuned XGBoost Rising Expert Hybrid",
+    "file": "finalist_c_hybrid_1h.joblib",
+    "sha256": "944ad0d4fddb35a0d95ad03c46350c190e9ad9143933c0ee4147f9a9bbb0eefb",
+    "regime_thresholds": {
+      "theta_rise": 0.01,
+      "theta_fall": -0.01
+    },
+    "stable_strategy": "Pure Persistence (dH = 0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=5.0)",
+    "fallback_rising_expert": "Stage-Only Tuned XGBoost",
+    "fallback_falling_expert": "Stage-Only Ridge"
+  },
+  "finalist_a_xgboost_2h": {
+    "horizon": "+2h",
+    "model_type": "Tuned Standalone XGBoost with Stage-Only Fallback",
+    "file": "finalist_a_xgboost_2h.joblib",
+    "sha256": "f6ac18d7352f31f845cb9ea1d29c7db29e1d8fa0cbc5c168487e6441c97de701",
+    "features_multimodal": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "features_fallback": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h"
+    ],
+    "hyperparameters": {
+      "max_depth": 2,
+      "learning_rate": 0.02,
+      "reg_lambda": 10.0,
+      "n_estimators": 60
+    }
+  },
+  "finalist_b_raag_2h": {
+    "horizon": "+2h",
+    "model_type": "Existing RA-AG (Phase 2 Exact Reproduction)",
+    "file": "finalist_b_raag_2h.joblib",
+    "sha256": "dce673b916a82df644e25deed235e51fffb98bf68697c8228046d9400196df75",
+    "regime_thresholds": {
+      "theta_rise": 0.01,
+      "theta_fall": -0.01
+    },
+    "stable_strategy": "Pure Persistence (dH = 0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "rising_expert": "XGBoost (max_depth=3, lr=0.03, n_est=60, l2=5.0)",
+    "fallback_expert": "Stage-Only Ridge"
+  },
+  "finalist_c_hybrid_2h": {
+    "horizon": "+2h",
+    "model_type": "RA-AG + Tuned XGBoost Rising Expert Hybrid",
+    "file": "finalist_c_hybrid_2h.joblib",
+    "sha256": "431ca52f74333fb830c11f301679a81cc2c37c4bc9b7fb1df13728c7ee0c6e3a",
+    "regime_thresholds": {
+      "theta_rise": 0.01,
+      "theta_fall": -0.01
+    },
+    "stable_strategy": "Pure Persistence (dH = 0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=10.0)",
+    "fallback_rising_expert": "Stage-Only Tuned XGBoost",
+    "fallback_falling_expert": "Stage-Only Ridge"
+  },
+  "finalist_a_xgboost_3h": {
+    "horizon": "+3h",
+    "model_type": "Tuned Standalone XGBoost with Stage-Only Fallback",
+    "file": "finalist_a_xgboost_3h.joblib",
+    "sha256": "e72ea36c2c291b747f5cbc47322d283964238caef8e1d85f1dc6b9549542f4df",
+    "features_multimodal": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h",
+      "rain_depth_1h_mm",
+      "rain_3h_mm",
+      "rain_6h_mm",
+      "rain_12h_mm",
+      "rain_24h_mm",
+      "api_7d_mm"
+    ],
+    "features_fallback": [
+      "dH_v_1h",
+      "dH_v_3h",
+      "dH_v_6h",
+      "accel_v_1h"
+    ],
+    "hyperparameters": {
+      "max_depth": 2,
+      "learning_rate": 0.02,
+      "reg_lambda": 10.0,
+      "n_estimators": 60
+    }
+  },
+  "finalist_b_raag_3h": {
+    "horizon": "+3h",
+    "model_type": "Existing RA-AG (Phase 2 Exact Reproduction)",
+    "file": "finalist_b_raag_3h.joblib",
+    "sha256": "2437e7cf6e0b5e1ee4583fccbe15ba48792f953b8b2499e5c7b2298b2c7f0ea3",
+    "regime_thresholds": {
+      "theta_rise": 0.01,
+      "theta_fall": -0.01
+    },
+    "stable_strategy": "Pure Persistence (dH = 0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "rising_expert": "XGBoost (max_depth=3, lr=0.03, n_est=60, l2=5.0)",
+    "fallback_expert": "Stage-Only Ridge"
+  },
+  "finalist_c_hybrid_3h": {
+    "horizon": "+3h",
+    "model_type": "RA-AG + Tuned XGBoost Rising Expert Hybrid",
+    "file": "finalist_c_hybrid_3h.joblib",
+    "sha256": "37f5c2213c9c42fcab88efdee22613aecb1182d575f577a1507f8edf6656c560",
+    "regime_thresholds": {
+      "theta_rise": 0.01,
+      "theta_fall": -0.01
+    },
+    "stable_strategy": "Pure Persistence (dH = 0)",
+    "falling_expert": "Ridge (alpha=10.0)",
+    "rising_expert": "Tuned XGBoost (depth=2, lr=0.02, l2=10.0)",
+    "fallback_rising_expert": "Stage-Only Tuned XGBoost",
+    "fallback_falling_expert": "Stage-Only Ridge"
+  }
+}

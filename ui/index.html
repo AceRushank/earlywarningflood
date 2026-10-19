@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vishnupuri Barrage — Godavari River Stage &amp; Monsoon Forecasting Prototype</title>
+  
+  <!-- Modern Scientific Typography: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <!-- Chart.js 4.4.1 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+  <!-- Custom Stylesheet with Cache-Buster -->
+  <link rel="stylesheet" href="style.css?v=20261011_9">
+</head>
+<body>
+
+  <!-- 1. Minimal Header -->
+  <header id="main-header" role="banner">
+    <div class="header-brand">
+      <div class="brand-icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12h20M2 12l5-5m-5 5 5 5M22 12l-5-5m5 5-5 5"/>
+        </svg>
+      </div>
+      <div>
+        <h1 class="header-title">Vishnupuri River Forecasting</h1>
+        <p class="header-subtitle">Godavari River &middot; Nanded, Maharashtra</p>
+      </div>
+    </div>
+
+    <div class="header-meta">
+      <div class="view-nav-group" role="tablist" aria-label="Dashboard Views">
+        <button id="view-btn-dashboard" class="btn-view-tab active" role="tab" aria-selected="true" type="button" onclick="switchMainView('dashboard')">
+          Forecast &amp; Models
+        </button>
+        <button id="view-btn-study" class="btn-view-tab" role="tab" aria-selected="false" type="button" onclick="switchMainView('study')">
+          Study Area
+        </button>
+        <button id="view-btn-live" class="btn-view-tab" role="tab" aria-selected="false" type="button" onclick="switchMainView('live')">
+          Live Operations
+        </button>
+        <button id="btn-show-metadata" class="btn-view-tab" role="tab" aria-selected="false" type="button" aria-haspopup="dialog" aria-expanded="false" title="Data sources and study documentation">
+          Sources
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. Compact Controls Toolbar -->
+  <nav id="control-toolbar" aria-label="Timeline and Forecast Controls">
+    <div class="toolbar-left-controls">
+      <!-- Season Selector (2026 Full Season Default) -->
+      <div class="control-group">
+        <label for="event-selector" class="control-label">Evaluation Season:</label>
+        <select id="event-selector" class="styled-select" aria-label="Select evaluation season">
+          <option value="2026_monsoon_full" selected>2026 Full Season (June 15 – Sept 30)</option>
+          <option value="monsoon_full">2024 Historical Season (July 4 – Aug 22)</option>
+        </select>
+      </div>
+
+      <!-- Forecast Horizon Selector -->
+      <div class="control-group">
+        <span class="control-label">Lead Time:</span>
+        <div class="horizon-btn-group" role="group" aria-label="Forecast Lead Time">
+          <button id="horizon-btn-1" class="btn-horizon active" data-h="1" type="button" aria-pressed="true">+1h</button>
+          <button id="horizon-btn-2" class="btn-horizon" data-h="2" type="button" aria-pressed="false">+2h</button>
+          <button id="horizon-btn-3" class="btn-horizon" data-h="3" type="button" aria-pressed="false">+3h</button>
+        </div>
+      </div>
+
+      <!-- Model Selector for Main Graph -->
+      <div class="control-group">
+        <label for="model-selector" class="control-label">Forecast Model:</label>
+        <select id="model-selector" class="styled-select" aria-label="Select model for graph overlay">
+          <option value="model_d" selected>Model D (Stage-Change + Rainfall)</option>
+          <option value="dh_ridge">Stage-Change Ridge (ΔH)</option>
+          <option value="wl_ridge">Stage-Only Ridge</option>
+          <option value="rf">Random Forest</option>
+          <option value="xgb">XGBoost</option>
+        </select>
+      </div>
+
+      <!-- Playback Controls -->
+      <div class="control-group">
+        <div class="playback-btn-group" role="group" aria-label="Playback Controls">
+          <button id="btn-restart" class="btn-playback" type="button" title="Jump to start (Home)" aria-label="Restart Timeline">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="19 20 9 12 19 4 19 20"></polygon>
+              <line x1="5" y1="19" x2="5" y2="5"></line>
+            </svg>
+          </button>
+          <button id="btn-step-back" class="btn-playback" type="button" title="Step back 1 hour" aria-label="Step Back">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="19 20 9 12 19 4 19 20"></polygon>
+            </svg>
+          </button>
+          <button id="btn-play-pause" class="btn-playback" type="button" title="Play or pause (Space)" aria-label="Play or Pause">
+            <svg id="play-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <polygon points="6 4 20 12 6 20 6 4"></polygon>
+            </svg>
+            <svg id="pause-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display:none;" aria-hidden="true">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </button>
+          <button id="btn-step-forward" class="btn-playback" type="button" title="Step forward 1 hour" aria-label="Step Forward">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polygon points="5 4 15 12 5 20 5 4"></polygon>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Center Scrubber Slider -->
+    <div class="toolbar-center-slider">
+      <input type="range" id="timeline-slider" min="0" max="2591" value="0" step="1" aria-label="Timeline position">
+    </div>
+
+    <!-- Right Timestamp Readout -->
+    <div class="toolbar-right-readout">
+      <span class="control-label">Timestamp:</span>
+      <span id="current-timestamp" class="origin-badge">2026-06-15 00:00:00 IST</span>
+      <span id="scrubber-step-indicator" class="step-counter">1/2592</span>
+    </div>
+  </nav>
+
+  <!-- 3. Four Essential Summary Metrics -->
+  <section id="telemetry-strip" aria-label="Summary Metrics">
+    <!-- Metric 1: River Stage -->
+    <div class="telemetry-cell">
+      <div class="telemetry-label">River Stage</div>
+      <div class="telemetry-val-group">
+        <span id="current-stage" class="telemetry-main-val text-stage-accent">351.468 m</span>
+      </div>
+      <div class="telemetry-caption">Metres MSL &middot; Vishnupuri Gauge</div>
+    </div>
+
+    <!-- Metric 2: Rate of Change -->
+    <div class="telemetry-cell">
+      <div class="telemetry-label">Rate of Change</div>
+      <div class="telemetry-val-group">
+        <span id="stage-rate" class="telemetry-main-val mono">+0.020 m/hr</span>
+      </div>
+      <div class="telemetry-caption">Hourly stage change (dH/dt)</div>
+    </div>
+
+    <!-- Metric 3: Catchment Rainfall -->
+    <div class="telemetry-cell">
+      <div class="telemetry-label">Catchment Rainfall</div>
+      <div class="telemetry-val-group">
+        <span id="rain-sat-1h" class="telemetry-main-val mono text-sat-accent">-- mm</span>
+      </div>
+      <div class="telemetry-caption" id="rain-completeness-tag">Hourly depth (mm) &middot; Upstream basin</div>
+    </div>
+
+    <!-- Metric 4: Forecast -->
+    <div class="telemetry-cell">
+      <div class="telemetry-label">Forecast (<span id="telemetry-lead-label">+1h Lead</span>)</div>
+      <div class="telemetry-val-group">
+        <span id="forecast-pers-val" class="telemetry-main-val mono text-exp-accent">--</span>
+      </div>
+      <div class="telemetry-caption" id="forecast-summary-caption">Selected model prediction &middot; Available</div>
+    </div>
+  </section>
+
+  <!-- 4. Main Two-Column Viewport Grid -->
+  <main id="main-layout">
+    <!-- Left Column: Synchronized Stage and Rainfall Charts -->
+    <section class="main-charts-column" aria-label="Hydrological Time-Series Visualisation">
+      <!-- River Stage Hydrograph Card -->
+      <div class="chart-card-wrapper">
+        <div class="chart-header-row">
+          <div class="chart-title-group">
+            <h2 class="chart-card-title">River Stage</h2>
+            <span class="chart-subtitle">Observed stage vs. +1h/+2h/+3h forecast &middot; Vishnupuri Barrage (006-SW-MAHA)</span>
+          </div>
+          <div class="legend-cluster" id="hydrograph-legend" aria-label="River Stage Legend">
+            <span class="legend-item"><span class="legend-marker stage"></span>Observed H(t)</span>
+            <span class="legend-item"><span class="legend-marker future-ref"></span>Ground Truth (&gt;t)</span>
+            <span class="legend-item"><span class="legend-marker pers"></span>Persistence</span>
+            <span class="legend-item" id="legend-active-model-item"><span class="legend-marker exp-ridge" id="legend-active-model-marker"></span><span id="legend-active-model-name">Model D (ΔH+Rain)</span></span>
+          </div>
+        </div>
+        <div class="chart-wrapper stage-chart">
+          <canvas id="hydrographCanvas" aria-label="River stage hydrograph chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Separate Aligned Catchment Rainfall Card -->
+      <div class="chart-card-wrapper" style="margin-top: 10px;">
+        <div class="chart-header-row">
+          <div class="chart-title-group">
+            <h2 class="chart-card-title">Catchment Rainfall</h2>
+            <span class="chart-subtitle">Upstream Godavari rainfall (mm/hr) &middot; Satellite &amp; API soil moisture</span>
+          </div>
+          <div class="legend-cluster" aria-label="Rainfall Legend">
+            <span class="legend-item"><span class="legend-marker sat-rain"></span>Catchment Rain (mm/hr)</span>
+            <span class="legend-item" id="legend-outage-item"><span class="legend-marker outage-rain"></span>Sat Outage (NaN)</span>
+            <span class="legend-item" id="legend-api-item"><span class="legend-marker api-rain"></span>Antecedent Moisture (mm)</span>
+            <span class="legend-item" id="legend-imd-item" style="display:none;"><span class="legend-marker imd-rain"></span>IMD 3d Rain</span>
+          </div>
+        </div>
+        <div class="chart-wrapper rain-chart">
+          <canvas id="hyetographCanvas" aria-label="Catchment rainfall hyetograph chart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Column: Compact Model Comparison View -->
+    <aside class="side-panel-column" aria-label="Model Comparison">
+      <div class="model-comparison-card">
+        <div class="model-comparison-header">
+          <div>
+            <h3 class="tab-section-title">Model Comparison</h3>
+            <p class="tab-section-desc">2026 Full-Season Evaluation (N=2,100 origins, June 15 – Sept 30)</p>
+          </div>
+          <span class="badge-n">Full Season</span>
+        </div>
+
+        <!-- Single clear chart: Error by Horizon -->
+        <div style="height: 200px; position: relative; margin: 8px 0 12px 0;">
+          <canvas id="modelComparisonCanvas" aria-label="Model Comparison Chart"></canvas>
+        </div>
+        <div style="display: none;">
+          <canvas id="horizonErrorCanvas" aria-label="Forecast Error by Horizon Chart"></canvas>
+        </div>
+
+        <!-- Compact Supporting Table -->
+        <div class="benchmark-table-wrapper">
+          <table class="benchmark-table" aria-label="Full-Season Performance Comparison">
+            <thead>
+              <tr>
+                <th>Model Architecture</th>
+                <th>Lead</th>
+                <th>MAE (m)</th>
+                <th>vs. Persistence</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-pers">
+                <td>A. Persistence Baseline</td>
+                <td>+1h</td>
+                <td class="mono">0.0071</td>
+                <td class="stat-imp-base">Baseline</td>
+              </tr>
+              <tr>
+                <td>B. Stage-Only Ridge</td>
+                <td>+1h</td>
+                <td class="mono">0.0068</td>
+                <td class="stat-imp-pos">+2.9%</td>
+              </tr>
+              <tr class="row-model-d">
+                <td><strong>D. Model D (Stage+Rain)</strong></td>
+                <td>+1h</td>
+                <td class="mono">0.0072</td>
+                <td class="stat-imp-neg">-2.1%</td>
+              </tr>
+              <tr>
+                <td>E. Random Forest</td>
+                <td>+1h</td>
+                <td class="mono">0.0066</td>
+                <td class="stat-imp-pos"><strong>+6.2%</strong></td>
+              </tr>
+              <tr class="highlight-exp">
+                <td>F. XGBoost Regressor</td>
+                <td>+1h</td>
+                <td class="mono">0.0070</td>
+                <td class="stat-imp-pos">+1.2%</td>
+              </tr>
+
+              <tr class="lead-group-divider highlight-pers">
+                <td>A. Persistence Baseline</td>
+                <td>+3h</td>
+                <td class="mono">0.0094</td>
+                <td class="stat-imp-base">Baseline</td>
+              </tr>
+              <tr>
+                <td>B. Stage-Only Ridge</td>
+                <td>+3h</td>
+                <td class="mono">0.0094</td>
+                <td class="stat-imp-neg">-0.5%</td>
+              </tr>
+              <tr class="row-model-d">
+                <td><strong>D. Model D (Stage+Rain)</strong></td>
+                <td>+3h</td>
+                <td class="mono">0.0099</td>
+                <td class="stat-imp-neg">-5.4%</td>
+              </tr>
+              <tr>
+                <td>E. Random Forest</td>
+                <td>+3h</td>
+                <td class="mono">0.0089</td>
+                <td class="stat-imp-pos"><strong>+5.4%</strong></td>
+              </tr>
+              <tr class="highlight-exp">
+                <td>F. XGBoost Regressor</td>
+                <td>+3h</td>
+                <td class="mono"><strong>0.0087</strong></td>
+                <td class="stat-imp-pos"><strong>+6.8%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="metrics-subnav-cluster" style="margin-top: 10px;">
+          <button id="btn-metrics-2026" class="btn-metrics-toggle active" type="button">Full Season 2026</button>
+          <button id="btn-metrics-2024" class="btn-metrics-toggle" type="button">2024 Historical Baseline</button>
+        </div>
+
+        <!-- Collapsible / Preserved Detailed Cohorts for Test Suite & Research Provenance -->
+        <div id="metrics-2026-view" style="margin-top: 8px;">
+          <div class="experimental-alert-box" role="alert" style="margin-bottom: 8px;">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-body">
+              <strong>Experimental Candidate Notice:</strong> Model D (Stage-Change + Rainfall Ridge &Delta;H) demonstrates active predictive gains on Phase A flood inception (-5.5% to -6.8% MAE vs persistence) and matches persistence on the flat-pool holdout (&lt;0.4 mm). However, it is an <strong>experimental research candidate</strong>, not a proven operational flood warning system. Barrage pool cresting is governed by unmonitored radial gate discharge.
+            </div>
+          </div>
+
+          <details class="cohort-details-accordion">
+            <summary class="cohort-summary-toggle">Event-Specific Research Cohorts (Phase A &amp; September Holdout)</summary>
+            
+            <div class="metrics-section-heading">
+              <span>Evaluation 1: July 30–31 Inception Event</span>
+              <span class="badge-n">N = 30 matched origins</span>
+            </div>
+            <div class="benchmark-table-wrapper">
+              <table class="benchmark-table">
+                <thead>
+                  <tr>
+                    <th>Model Architecture</th>
+                    <th>Lead</th>
+                    <th>MAE (m)</th>
+                    <th>RMSE (m)</th>
+                    <th>Rel. Imp (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="highlight-pers"><td>A. Persistence Baseline</td><td>+1h</td><td class="mono">0.0290</td><td class="mono">0.0342</td><td class="stat-imp-base">Baseline</td></tr>
+                  <tr><td>B. Stage-Only Ridge (Level)</td><td>+1h</td><td class="mono">0.0531</td><td class="mono">0.0643</td><td class="stat-imp-neg">-83.0% (worse)</td></tr>
+                  <tr><td>C. Stage-Change Ridge (&Delta;H)</td><td>+1h</td><td class="mono">0.0306</td><td class="mono">0.0361</td><td class="stat-imp-neg">-5.4%</td></tr>
+                  <tr class="row-model-d"><td><strong>D. Model D: Stage+Rain (&Delta;H)</strong></td><td>+1h</td><td class="mono"><strong>0.0274</strong></td><td class="mono"><strong>0.0322</strong></td><td class="stat-imp-pos"><strong>+5.4% (beats)</strong></td></tr>
+                  <tr><td>E. Random Forest (&Delta;H)</td><td>+1h</td><td class="mono">0.0355</td><td class="mono">0.0425</td><td class="stat-imp-neg">-22.4%</td></tr>
+                  <tr class="lead-group-divider"><td>F. XGBoost Regressor (&Delta;H)</td><td>+1h</td><td class="mono">0.0295</td><td class="mono">0.0348</td><td class="stat-imp-neg">-1.9%</td></tr>
+
+                  <tr class="highlight-pers"><td>A. Persistence Baseline</td><td>+2h</td><td class="mono">0.0543</td><td class="mono">0.0649</td><td class="stat-imp-base">Baseline</td></tr>
+                  <tr><td>B. Stage-Only Ridge (Level)</td><td>+2h</td><td class="mono">0.0800</td><td class="mono">0.0965</td><td class="stat-imp-neg">-47.2%</td></tr>
+                  <tr><td>C. Stage-Change Ridge (&Delta;H)</td><td>+2h</td><td class="mono">0.0568</td><td class="mono">0.0675</td><td class="stat-imp-neg">-4.5%</td></tr>
+                  <tr class="row-model-d"><td><strong>D. Model D: Stage+Rain (&Delta;H)</strong></td><td>+2h</td><td class="mono"><strong>0.0506</strong></td><td class="mono"><strong>0.0612</strong></td><td class="stat-imp-pos"><strong>+7.0% (beats)</strong></td></tr>
+                  <tr><td>E. Random Forest (&Delta;H)</td><td>+2h</td><td class="mono">0.0645</td><td class="mono">0.0772</td><td class="stat-imp-neg">-18.7%</td></tr>
+                  <tr class="lead-group-divider"><td>F. XGBoost Regressor (&Delta;H)</td><td>+2h</td><td class="mono">0.0558</td><td class="mono">0.0664</td><td class="stat-imp-neg">-2.7%</td></tr>
+
+                  <tr class="highlight-pers"><td>A. Persistence Baseline</td><td>+3h</td><td class="mono">0.0806</td><td class="mono">0.0962</td><td class="stat-imp-base">Baseline</td></tr>
+                  <tr><td>B. Stage-Only Ridge (Level)</td><td>+3h</td><td class="mono">0.1075</td><td class="mono">0.1284</td><td class="stat-imp-neg">-33.3%</td></tr>
+                  <tr><td>C. Stage-Change Ridge (&Delta;H)</td><td>+3h</td><td class="mono">0.0840</td><td class="mono">0.0995</td><td class="stat-imp-neg">-4.2%</td></tr>
+                  <tr class="row-model-d"><td><strong>D. Model D: Stage+Rain (&Delta;H)</strong></td><td>+3h</td><td class="mono"><strong>0.0759</strong></td><td class="mono"><strong>0.0913</strong></td><td class="stat-imp-pos"><strong>+5.9% (beats)</strong></td></tr>
+                  <tr><td>E. Random Forest (&Delta;H)</td><td>+3h</td><td class="mono">0.0863</td><td class="mono">0.1030</td><td class="stat-imp-neg">-7.0%</td></tr>
+                  <tr><td>F. XGBoost Regressor (&Delta;H)</td><td>+3h</td><td class="mono">0.0827</td><td class="mono">0.0981</td><td class="stat-imp-neg">-2.5%</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="metrics-section-heading">
+              <span>Evaluation 2: Full Held-Out September Split</span>
+              <span class="badge-n">N = 617 matched origins</span>
+            </div>
+            <div class="benchmark-table-wrapper">
+              <table class="benchmark-table">
+                <thead>
+                  <tr>
+                    <th>Model Architecture</th>
+                    <th>Lead</th>
+                    <th>MAE (m)</th>
+                    <th>RMSE (m)</th>
+                    <th>Rel. Imp (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="highlight-pers"><td>A. Persistence Baseline</td><td>+1h</td><td class="mono">0.0048</td><td class="mono">0.0074</td><td class="stat-imp-base">Baseline</td></tr>
+                  <tr><td>B. Stage-Only Ridge (Level)</td><td>+1h</td><td class="mono">0.0049</td><td class="mono">0.0071</td><td class="stat-imp-neg">-0.3%</td></tr>
+                  <tr><td>C. Stage-Change Ridge (&Delta;H)</td><td>+1h</td><td class="mono">0.0049</td><td class="mono">0.0074</td><td class="stat-imp-neg">-0.6%</td></tr>
+                  <tr class="row-model-d"><td><strong>D. Model D: Stage+Rain (&Delta;H)</strong></td><td>+1h</td><td class="mono">0.0053</td><td class="mono">0.0075</td><td class="stat-imp-neg">-8.8%</td></tr>
+                  <tr><td>E. Random Forest (&Delta;H)</td><td>+1h</td><td class="mono">0.0058</td><td class="mono">0.0075</td><td class="stat-imp-neg">-20.2%</td></tr>
+                  <tr class="lead-group-divider"><td>F. XGBoost Regressor (&Delta;H)</td><td>+1h</td><td class="mono">0.0049</td><td class="mono">0.0071</td><td class="stat-imp-neg">-0.5% (tied)</td></tr>
+
+                  <tr class="highlight-pers"><td>A. Persistence Baseline</td><td>+3h</td><td class="mono">0.0069</td><td class="mono">0.0098</td><td class="stat-imp-base">Baseline</td></tr>
+                  <tr><td>B. Stage-Only Ridge (Level)</td><td>+3h</td><td class="mono">0.0069</td><td class="mono">0.0096</td><td class="stat-imp-neg">-0.6%</td></tr>
+                  <tr><td>C. Stage-Change Ridge (&Delta;H)</td><td>+3h</td><td class="mono">0.0071</td><td class="mono">0.0101</td><td class="stat-imp-neg">-3.2%</td></tr>
+                  <tr class="row-model-d"><td><strong>D. Model D: Stage+Rain (&Delta;H)</strong></td><td>+3h</td><td class="mono">0.0079</td><td class="mono">0.0103</td><td class="stat-imp-neg">-14.9%</td></tr>
+                  <tr><td>E. Random Forest (&Delta;H)</td><td>+3h</td><td class="mono">0.0091</td><td class="mono">0.0114</td><td class="stat-imp-neg">-31.9%</td></tr>
+                  <tr class="highlight-exp"><td><strong>F. XGBoost Regressor (&Delta;H)</strong></td><td>+3h</td><td class="mono"><strong>0.0064</strong></td><td class="mono"><strong>0.0090</strong></td><td class="stat-imp-pos"><strong>+7.0% (beats)</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="metrics-section-heading">
+              <span>Evaluation 3: Full-Season Monitored Cohort</span>
+              <span class="badge-n">N = 2,100 matched origins</span>
+            </div>
+            <div class="benchmark-table-wrapper">
+              <table class="benchmark-table">
+                <thead>
+                  <tr>
+                    <th>Model Architecture</th>
+                    <th>Lead</th>
+                    <th>MAE (m)</th>
+                    <th>RMSE (m)</th>
+                    <th>Rel. Imp (%)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="highlight-pers"><td>A. Persistence Baseline</td><td>+3h</td><td class="mono">0.0094</td><td class="mono">0.0164</td><td class="stat-imp-base">Baseline</td></tr>
+                  <tr><td>B. Stage-Only Ridge (Level)</td><td>+3h</td><td class="mono">0.0094</td><td class="mono">0.0165</td><td class="stat-imp-neg">-0.5%</td></tr>
+                  <tr><td>C. Stage-Change Ridge (&Delta;H)</td><td>+3h</td><td class="mono">0.0095</td><td class="mono">0.0159</td><td class="stat-imp-neg">-1.5%</td></tr>
+                  <tr class="row-model-d"><td><strong>D. Model D: Stage+Rain (&Delta;H)</strong></td><td>+3h</td><td class="mono">0.0099</td><td class="mono">0.0143</td><td class="stat-imp-neg">-5.4%</td></tr>
+                  <tr><td>E. Random Forest (&Delta;H)</td><td>+3h</td><td class="mono">0.0089</td><td class="mono">0.0117</td><td class="stat-imp-pos"><strong>+5.4% (beats)</strong></td></tr>
+                  <tr class="highlight-exp"><td><strong>F. XGBoost Regressor (&Delta;H)</strong></td><td>+3h</td><td class="mono"><strong>0.0087</strong></td><td class="mono"><strong>0.0137</strong></td><td class="stat-imp-pos"><strong>+6.8% (beats)</strong></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <div class="table-summary-box benchmark-interpretation-box" style="margin-top: 8px;">
+            <strong>Interpretation:</strong> Model D improves on persistence during the July inception event at all three horizons, but performs worse on the September held-out split. Across the full-season cohort at +3h, Random Forest and XGBoost have lower MAE than persistence. Results are cohort-dependent; Model D remains experimental.
+          </div>
+        </div>
+
+        <!-- 2024 Baseline Pipeline View (Hidden by default) -->
+        <div id="metrics-2024-view" style="display: none; margin-top: 8px;">
+          <h4 class="tab-section-title" style="font-size: 11px;">Rising-Limb Evaluation Benchmark (Aug 3–4, 2024)</h4>
+          <p class="tab-section-desc">
+            Controlled evaluation over N=34, 33, 32 identical origins during +1.41m inflow rise.
+          </p>
+          <table class="benchmark-table">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Lead</th>
+                <th>N</th>
+                <th>MAE (m)</th>
+                <th>RMSE (m)</th>
+                <th>NSE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="highlight-pers">
+                <td><strong>Persistence</strong></td>
+                <td>1h</td>
+                <td>34</td>
+                <td>0.0512</td>
+                <td>0.0861</td>
+                <td>0.9471</td>
+              </tr>
+              <tr>
+                <td>WL-Only Ridge</td>
+                <td>1h</td>
+                <td>34</td>
+                <td>0.0622</td>
+                <td>0.1085</td>
+                <td>0.9161</td>
+              </tr>
+              <tr class="highlight-pers">
+                <td><strong>Persistence</strong></td>
+                <td>2h</td>
+                <td>33</td>
+                <td>0.0927</td>
+                <td>0.1612</td>
+                <td>0.7759</td>
+              </tr>
+              <tr>
+                <td>WL-Only Ridge</td>
+                <td>2h</td>
+                <td>33</td>
+                <td>0.0956</td>
+                <td>0.1734</td>
+                <td>0.7406</td>
+              </tr>
+              <tr class="highlight-pers">
+                <td><strong>Persistence</strong></td>
+                <td>3h</td>
+                <td>32</td>
+                <td>0.1289</td>
+                <td>0.2259</td>
+                <td>0.4214</td>
+              </tr>
+              <tr>
+                <td>WL-Only Ridge</td>
+                <td>3h</td>
+                <td>32</td>
+                <td>0.1251</td>
+                <td>0.2323</td>
+                <td>0.3882</td>
+              </tr>
+              <tr class="row-disabled">
+                <td>Rainfall-Enhanced Ridge</td>
+                <td>1–3h</td>
+                <td>0</td>
+                <td colspan="3">UNAVAILABLE (Zero Pre-July 31 Granules)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Secondary View: Dedicated Study Area and Thematic Maps View -->
+  <section id="study-area-view" class="study-area-container" aria-label="Study Area and Thematic Maps" style="display: none;">
+    <div class="study-area-layout">
+      <!-- Left Map Column -->
+      <div class="study-map-column">
+        <div class="map-card-header">
+          <div>
+            <h3 class="tab-section-title">Godavari Study Area &amp; Thematic Maps</h3>
+            <p class="tab-section-desc">Vishnupuri Barrage &bull; HydroBASINS Lev08 Reach Corridor (1,231 km²) &bull; Upper Basin (51,768 km²)</p>
+          </div>
+          <div id="map-coord-readout" class="map-coord-badge" title="Pour point coordinates">19.1269°N, 77.2808°E</div>
+        </div>
+
+        <!-- Thematic Layer Selector Controls -->
+        <div class="thematic-layer-bar" role="group" aria-label="Thematic Layer Selection">
+          <span class="thematic-label">Thematic Layer:</span>
+          <button id="btn-layer-lulc" class="btn-thematic active" type="button" data-layer="lulc">
+            Land Cover (LULC)
+          </button>
+          <button id="btn-layer-dem" class="btn-thematic" type="button" data-layer="dem">
+            Elevation (DEM)
+          </button>
+          <button id="btn-layer-slope" class="btn-thematic" type="button" data-layer="slope">
+            Slope (Derived)
+          </button>
+          <button id="btn-layer-river" class="btn-thematic" type="button" data-layer="river">
+            River &amp; Catchment
+          </button>
+          <button id="btn-layer-gsw" class="btn-thematic" type="button" data-layer="gsw">
+            Historical Water Occurrence
+          </button>
+        </div>
+
+        <!-- Interactive Map Container -->
+        <div id="leaflet-map" class="study-map-box" aria-label="Study Area GIS Map"></div>
+
+        <!-- Extent & Navigation Controls -->
+        <div class="map-extent-bar">
+          <div class="extent-buttons">
+            <button id="btn-zoom-reach" class="btn-gis-action" type="button">Zoom River Reach</button>
+            <button id="btn-zoom-basin" class="btn-gis-action" type="button">Zoom Catchment</button>
+            <button id="btn-toggle-catchment" class="btn-gis-action active" type="button">Toggle Catchment</button>
+            <button id="btn-toggle-reach" class="btn-gis-action active" type="button">Toggle Corridor</button>
+          </div>
+          <div id="active-layer-source-tag" class="layer-source-tag">
+            Source: Bhuvan / NRSC LULC &bull; Upper Godavari Basin &bull; 72% Agriculture, 18% Scrub, 5% Urban, 4% Water
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Compact Parameter Information Table & Spatial Specs -->
+      <div class="study-info-column">
+        <div class="compact-card">
+          <div class="card-header-clean">
+            <h4 class="card-title-sm">Parameter Information</h4>
+            <span class="badge-status-neutral">Research Baseline</span>
+          </div>
+          <p class="card-desc-sm">
+            Core parameters supporting hydrological and spatial modelling of the Godavari River and Vishnupuri Barrage reach.
+          </p>
+
+          <table class="parameter-compact-table" aria-label="Parameter Information Table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Data Used</th>
+                <th>Availability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Elevation</strong></td>
+                <td>HydroSHEDS / SRTM 90m conditioned DEM</td>
+                <td><span class="badge-tag-ready">Verified (350–1,067 m MSL)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Slope</strong></td>
+                <td>Derived from DEM (HydroBASINS Lev08)</td>
+                <td><span class="badge-tag-ready">Derived (Channel ~1.1 m/km, 0.11%)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Rainfall</strong></td>
+                <td>INSAT-3DS HEM (4km) + IMD (0.25&deg;) + NWP</td>
+                <td><span class="badge-tag-ready">Multi-sensor catchment coverage</span></td>
+              </tr>
+              <tr>
+                <td><strong>River stage</strong></td>
+                <td>CWC Gauge Telemetry (Station 006-SW-MAHA)</td>
+                <td><span class="badge-tag-ready">Hourly observations (FRL 355.0m)</span></td>
+              </tr>
+              <tr>
+                <td><strong>Land cover</strong></td>
+                <td>Bhuvan / NRSC &amp; Basin Inventory</td>
+                <td><span class="badge-tag-caution">Regional statistics verified</span></td>
+              </tr>
+              <tr>
+                <td><strong>Temperature</strong></td>
+                <td>Open-Meteo Multi-Model NWP (7 interior points)</td>
+                <td><span class="badge-tag-ready">Hourly observations &amp; forecast</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- River & Catchment Geospatial Context -->
+        <div class="compact-card" style="margin-top: 12px;">
+          <div class="card-header-clean">
+            <h4 class="card-title-sm">River Reach &amp; Catchment Specifications</h4>
+            <span class="badge-status-neutral">Godavari Domain</span>
+          </div>
+          <div class="spatial-specs-grid">
+            <div class="spec-tile">
+              <span class="spec-label">Barrage Pour Point</span>
+              <strong class="spec-val mono">19.1269°N, 77.2808°E</strong>
+              <span class="spec-sub">Nanded, Maharashtra</span>
+            </div>
+            <div class="spec-tile">
+              <span class="spec-label">Reach Corridor</span>
+              <strong class="spec-val mono">1,231.5 km²</strong>
+              <span class="spec-sub">Subbasins 4081058170 + 4081060220</span>
+            </div>
+            <div class="spec-tile">
+              <span class="spec-label">Upstream Basin</span>
+              <strong class="spec-val mono">51,768 km²</strong>
+              <span class="spec-sub">Trimbakeshwar to Nanded</span>
+            </div>
+            <div class="spec-tile">
+              <span class="spec-label">Water Recurrence</span>
+              <strong class="spec-val mono">43,728 px</strong>
+              <span class="spec-sub">JRC GSW (8.5k Perm &bull; 25.8k Seasonal)</span>
+            </div>
+          </div>
+          <div class="scientific-integrity-note">
+            <strong>Scientific Boundary:</strong> 2D spatial flood inundation model is untrained pending local Sentinel-1 SAR flood masks.
+          </div>
+        </div>
+
+        <!-- 5-Tier Early Warning Assessment Framework Card -->
+        <div class="compact-card" style="margin-top: 10px;">
+          <div class="card-header-clean">
+            <h4 class="card-title-sm">5-Tier Early Warning Assessment</h4>
+            <span class="badge-status-neutral">Decision Hierarchy</span>
+          </div>
+
+          <div class="warning-tier-list">
+            <!-- Tier 1 -->
+            <div class="warning-tier-item" id="tier-1-item">
+              <div class="tier-lead">
+                <span class="tier-badge">Tier 1</span>
+                <span class="tier-title">Upstream Catchment Rainfall</span>
+                <span class="tier-sub">&bull; Meteorological forecast (rain &ne; river flood)</span>
+              </div>
+              <span id="tier-1-status" class="tier-state-tag tag-state-normal">MONITORED</span>
+            </div>
+
+            <!-- Tier 2 -->
+            <div class="warning-tier-item" id="tier-2-item">
+              <div class="tier-lead">
+                <span class="tier-badge">Tier 2</span>
+                <span class="tier-title">Forecast River-Stage Rise</span>
+                <span class="tier-sub">&bull; Hydrological rate (dH/dt &gt; +0.015 m/hr)</span>
+              </div>
+              <span id="tier-2-status" class="tier-state-tag tag-state-normal">EVALUATED</span>
+            </div>
+
+            <!-- Tier 3 -->
+            <div class="warning-tier-item" id="tier-3-item">
+              <div class="tier-lead">
+                <span class="tier-badge">Tier 3</span>
+                <span class="tier-title">River Stage Threshold</span>
+                <span class="tier-sub">&bull; Stage: <strong id="tier-3-stage-readout" class="mono">351.468 m</strong> (Warn: 354.0m &bull; Danger: 354.8m)</span>
+              </div>
+              <span id="tier-3-status" class="tier-state-tag tag-state-normal">BELOW WARNING</span>
+            </div>
+
+            <!-- Tier 4 -->
+            <div class="warning-tier-item tier-research-preview" id="tier-4-item">
+              <div class="tier-lead">
+                <span class="tier-badge">Tier 4</span>
+                <span class="tier-title">Spatial 500m Flood Risk</span>
+                <span class="tier-sub">&bull; Research preview (untrained pending SAR labels)</span>
+              </div>
+              <span id="tier-4-status" class="tier-state-tag tag-state-blocked">NOT TRAINED</span>
+            </div>
+
+            <!-- Tier 5 -->
+            <div class="warning-tier-item" id="tier-5-item">
+              <div class="tier-lead">
+                <span class="tier-badge">Tier 5</span>
+                <span class="tier-title">Official Statutory Public Warning</span>
+                <span class="tier-sub">&bull; CWC / DDMA jurisdiction only</span>
+              </div>
+              <span id="tier-5-status" class="tier-state-tag tag-state-statutory">CWC / DDMA ONLY</span>
+            </div>
+          </div>
+
+          <!-- Alert Preview (Compact) -->
+          <div class="alert-preview-bar">
+            <span><strong>Alert Preview (Non-Operational):</strong></span>
+            <span>Origin: <strong id="alert-issue-time" class="mono">--</strong></span>
+            <span>Window: <strong class="mono">+1h to +3h Lead</strong></span>
+            <span>Spatial Risk: <strong class="text-muted">Untrained (Pending SAR)</strong></span>
+          </div>
+        </div>
+
+        <!-- 500m Spatial Flood Foundation Status Card -->
+        <div class="compact-card" style="margin-top: 10px;">
+          <div class="card-header-clean">
+            <h4 class="card-title-sm">500 m Spatial Flood Foundation</h4>
+            <span class="badge-tag-ready">5,158 Cells Delineated</span>
+          </div>
+          <div class="spatial-foundation-grid">
+            <div class="spatial-foundation-item">
+              <span class="spatial-foundation-label">Grid Resolution &amp; CRS</span>
+              <span class="spatial-foundation-val mono">500 m &times; 500 m &bull; UTM Zone 43N</span>
+            </div>
+            <div class="spatial-foundation-item">
+              <span class="spatial-foundation-label">Corridor Area</span>
+              <span class="spatial-foundation-val mono">1,231.5 km² (HydroBASINS Lev08)</span>
+            </div>
+            <div class="spatial-foundation-item">
+              <span class="spatial-foundation-label">Static Features</span>
+              <span class="spatial-foundation-val">GSW occurrence (30m), distance</span>
+            </div>
+            <div class="spatial-foundation-item">
+              <span class="spatial-foundation-label">SAR Flood Labels</span>
+              <span class="spatial-foundation-val" style="color: #b91c1c; font-weight: 600;">0 Local Masks (Pending GEE)</span>
+            </div>
+            <div class="spatial-foundation-item" style="grid-column: 1 / -1;">
+              <span class="spatial-foundation-label">Model Training State</span>
+              <span class="spatial-foundation-val"><span class="badge-tag-caution">NOT TRAINED (Awaiting SAR Ground Truth)</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <!-- 5. Dedicated Live Feed Prototype View -->
+  <section id="live-feed-container" aria-label="Official NWIC Live Telemetry & Forecast Feed" style="display: none;">
+    <!-- Compact Operational Status Strip: Weather, Stage Telemetry, Model Readiness, Forecast Availability -->
+    <div class="live-status-strip" role="region" aria-label="Operational State Indicators">
+      <div class="live-status-tile">
+        <span class="live-status-label">Weather Ingestion</span>
+        <span id="op-state-weather" class="badge-op-state badge-op-success">LIVE</span>
+      </div>
+      <div class="live-status-tile">
+        <span class="live-status-label">Stage Telemetry</span>
+        <span id="op-state-stage" class="badge-op-state badge-op-warning">STALE</span>
+      </div>
+      <div class="live-status-tile">
+        <span class="live-status-label">Model Readiness</span>
+        <span id="op-state-model" class="badge-op-state badge-op-blocked">BLOCKED</span>
+      </div>
+      <div class="live-status-tile">
+        <span class="live-status-label">Forecast Availability</span>
+        <span id="op-state-forecast" class="badge-op-state badge-op-danger">BLOCKED</span>
+      </div>
+    </div>
+
+    <!-- Live Feed Header & Refresh Bar -->
+    <div class="live-header-bar">
+      <div class="live-header-info">
+        <div class="live-header-title-wrap">
+          <span class="live-pulse-dot"></span>
+          <h2 class="live-header-title">Vishnupuri Barrage &bull; Hydrology &amp; Live Weather Monitor</h2>
+          <span id="live-refresh-status-badge" class="badge-status-subtle">LIVE POLLING (5 MIN)</span>
+        </div>
+        <p class="live-header-subtitle" id="live-banner-desc">
+          Open-Meteo NWP forecasts active across 7 points &bull; NWIC stage telemetry in archive mode &bull; Live river forecasting blocked
+        </p>
+      </div>
+
+      <div class="live-header-actions">
+        <button id="btn-refresh-live" class="btn-refresh-live" type="button" onclick="fetchLiveStatus(true)" title="Fetch fresh weather and probe telemetry gateway">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" id="refresh-spin-icon">
+            <polyline points="23 4 23 10 17 10"></polyline>
+            <polyline points="1 20 1 14 7 14"></polyline>
+            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+          </svg>
+          <span id="btn-refresh-text">Manual Refresh</span>
+        </button>
+        <div class="live-refresh-meta">
+          <span>Last Updated: <strong id="live-last-checked-time" class="mono">--</strong></span>
+          <span id="live-stale-badge" class="badge-stale" style="display:none;">STALE CACHE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Real-Time Weather & Catchment Forecast Overview -->
+    <div class="live-section-wrapper">
+      <div class="section-title-row">
+        <h3 class="section-subheading">1. Real-Time Meteorological Observations &amp; Next 3-Hour Projections</h3>
+        <span class="section-badge-note">Source: Open-Meteo Multi-Model NWP (ECMWF/ICON/GFS)</span>
+      </div>
+
+      <div class="weather-grid-2col">
+        <!-- Station-Area Live Weather Card -->
+        <div class="live-card">
+          <div class="live-card-header">
+            <div class="live-card-title-group">
+              <span class="live-card-title">Vishnupuri Station Area Weather</span>
+              <span class="live-source-tag">Outlet &bull; 19.1269°N, 77.2808°E</span>
+              <span id="live-weather-meta" class="mono" style="font-size: 10px; color: #64748b; margin-left: 8px;">Valid: -- &bull; Model Run: 15–60 min (polls 5 min)</span>
+            </div>
+            <span id="live-station-weather-badge" class="badge-live-available">LIVE NWP</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-metric-row">
+              <div class="live-temp-display">
+                <span class="weather-temp-val"><span id="live-stn-temp">--</span><span class="weather-unit">&deg;C</span></span>
+                <span id="live-stn-condition" class="weather-condition-sub">Retrieving conditions...</span>
+              </div>
+              <div class="live-key-stats">
+                <div class="stat-pair"><span>Relative Humidity</span><strong id="live-stn-humidity" class="mono">--%</strong></div>
+                <div class="stat-pair"><span>Current Precip Rate</span><strong id="live-stn-precip-rate" class="mono text-sat-accent">-- mm/hr</strong></div>
+                <div class="stat-pair"><span>Next 3h Total</span><strong id="live-stn-p3h-total" class="mono">-- mm</strong></div>
+              </div>
+            </div>
+
+            <!-- Station-Area Next Hours Forecast -->
+            <div class="weather-forecast-strip">
+              <span class="strip-label">Station-Area Hourly Precipitation Forecast:</span>
+              <div class="weather-hourly-chips">
+                <div class="hourly-chip">
+                  <span class="chip-label">+1 Hour</span>
+                  <strong id="live-stn-p1h" class="chip-val mono">-- mm</strong>
+                </div>
+                <div class="hourly-chip">
+                  <span class="chip-label">+2 Hours</span>
+                  <strong id="live-stn-p2h" class="chip-val mono">-- mm</strong>
+                </div>
+                <div class="hourly-chip">
+                  <span class="chip-label">+3 Hours</span>
+                  <strong id="live-stn-p3h" class="chip-val mono">-- mm</strong>
+                </div>
+                <div class="hourly-chip chip-total">
+                  <span class="chip-label">3h Accumulation</span>
+                  <strong id="live-stn-p3h-total-chip" class="chip-val mono">-- mm</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Upstream Catchment Sampled Precipitation Card -->
+        <div class="live-card">
+          <div class="live-card-header">
+            <div class="live-card-title-group">
+              <span class="live-card-title">Seven-Point Sampled Catchment Rainfall Estimate</span>
+              <span class="live-source-tag">51,768 km² Upper Godavari Basin</span>
+            </div>
+            <span class="badge-live-available" id="live-valid-points-badge">7/7 POINTS VALID</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-metric-row">
+              <div class="live-temp-display">
+                <span class="weather-temp-val"><span id="live-catch-mean-3h" class="text-sat-accent">--</span><span class="weather-unit">mm</span></span>
+                <span class="weather-condition-sub">Mean Next 3h Catchment Forecast</span>
+              </div>
+              <div class="live-key-stats">
+                <div class="stat-pair"><span>Current Spatial Mean</span><strong id="live-catch-curr-mean" class="mono text-sat-accent">-- mm/hr</strong></div>
+                <div class="stat-pair"><span>Maximum Point 3h Rain</span><strong id="live-catch-max-pt" class="mono">-- mm</strong></div>
+                <div class="stat-pair"><span>HydroSHEDS Lev08 Polygon</span><strong class="mono" style="color:#059669;">Verified</strong></div>
+              </div>
+            </div>
+
+            <!-- Catchment Hourly Means -->
+            <div class="weather-forecast-strip">
+              <span class="strip-label">Catchment-Sampled Mean Hourly Forecast:</span>
+              <div class="weather-hourly-chips">
+                <div class="hourly-chip">
+                  <span class="chip-label">+1h Spatial Mean</span>
+                  <strong id="live-catch-mean-1h" class="chip-val mono">-- mm</strong>
+                </div>
+                <div class="hourly-chip">
+                  <span class="chip-label">+2h Spatial Mean</span>
+                  <strong id="live-catch-mean-2h" class="chip-val mono">-- mm</strong>
+                </div>
+                <div class="hourly-chip">
+                  <span class="chip-label">+3h Spatial Mean</span>
+                  <strong id="live-catch-mean-3h-chip" class="chip-val mono">-- mm</strong>
+                </div>
+                <div class="hourly-chip chip-total">
+                  <span class="chip-label">3h Mean Total</span>
+                  <strong id="live-catch-mean-accum" class="chip-val mono">-- mm</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Dynamic Precipitation Forecast Timeline (Chart.js / SVG) -->
+    <div class="live-section-wrapper">
+      <div class="timeline-header-row">
+        <div>
+          <h3 class="section-subheading">2. Dynamic Precipitation Forecast Timeline (Next 24 Hours)</h3>
+          <p class="section-desc">Hourly numerical weather prediction (NWP) precipitation projections from Open-Meteo multi-model ensemble.</p>
+        </div>
+        <div class="timeline-controls">
+          <label for="timeline-series-select" class="timeline-select-label">Display Location / Aggregation:</label>
+          <select id="timeline-series-select" class="form-select-sm" onchange="updateLivePrecipChart()">
+            <option value="both">Station Area vs. Catchment Spatial Mean</option>
+            <option value="catchment_mean">Catchment Spatial Mean Only (7 Points)</option>
+            <option value="station">Station Area Only (Vishnupuri Barrage)</option>
+            <option value="loc_1">1. Vishnupuri Barrage (Nanded Outlet)</option>
+            <option value="loc_2">2. Lower Godavari (Parbhani)</option>
+            <option value="loc_3">3. Middle Godavari (Jalna)</option>
+            <option value="loc_4">4. Upper Godavari (Chh. Sambhajinagar)</option>
+            <option value="loc_5">5. Southern Reach (Beed / Majalgaon)</option>
+            <option value="loc_6">6. Western Sub-basin (Pravara / Sangamner)</option>
+            <option value="loc_7">7. Headwaters (Nashik / Trimbakeshwar)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="live-chart-container">
+        <canvas id="livePrecipCanvas" aria-label="Live Rainfall Forecast Timeline Chart" height="180"></canvas>
+      </div>
+      <div class="timeline-legend-footer">
+        <div class="legend-chip"><span class="legend-color-box bg-stn"></span> Station Area (Vishnupuri)</div>
+        <div class="legend-chip"><span class="legend-color-box bg-catch"></span> Catchment 7-Point Spatial Mean</div>
+        <span class="timeline-meta-text">Valid zero is 0.00 mm &bull; Units: mm/hr &bull; Forecast source: Open-Meteo NWP &bull; Retains original timestamp on stale cache</span>
+      </div>
+    </div>
+
+    <!-- Section 3: Upstream Catchment Stratified Sampling Breakdown -->
+    <div class="live-section-wrapper">
+      <div class="section-title-row">
+        <div>
+          <h3 class="section-subheading">3. Upstream Catchment Sampling Breakdown (7 Stratified Points)</h3>
+          <p class="section-desc">Points mathematically verified inside the 51,768 km² HydroSHEDS Lev08 boundary polygon.</p>
+        </div>
+        <div class="catchment-status-pill" id="catchment-points-summary-pill">
+          All 7 interior points reporting valid weather data
+        </div>
+      </div>
+
+      <div class="catchment-breakdown-card">
+        <div class="catchment-table-wrapper">
+          <table class="catchment-points-table" aria-label="Catchment Sampling Points Table">
+            <thead>
+              <tr>
+                <th>Location / Reach</th>
+                <th>Region / Physiography</th>
+                <th>Coordinates</th>
+                <th>Temp</th>
+                <th>Humidity</th>
+                <th>Current Rain</th>
+                <th>+1h</th>
+                <th>+2h</th>
+                <th>+3h</th>
+                <th>Next 3h Total</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="catchment-points-tbody">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Official Stage Telemetry & Model Diagnostic Integrity -->
+    <div class="live-section-wrapper">
+      <div class="section-title-row">
+        <h3 class="section-subheading">4. Official Stage Telemetry &amp; Model Diagnostics</h3>
+        <span class="section-badge-note">Authentic Station 006-SW-MAHA Telemetry Protocol</span>
+      </div>
+
+      <div class="live-cards-grid">
+        <!-- Card 1: Official Station Identity -->
+        <div class="live-card">
+          <div class="live-card-header">
+            <span class="live-card-title">Official Station Identity</span>
+            <span class="live-card-badge" style="background: #e0f2fe; color: #0369a1;">NWIC / CWC</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-card-row">
+              <span class="stat-label">Station Name:</span>
+              <strong id="live-card-stn-name" class="mono">Vishnupuri Barrage</strong>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Agency &amp; Code:</span>
+              <span id="live-card-agency">Maharashtra SW (006)</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">River &amp; Basin:</span>
+              <span>Godavari River / Godavari Basin</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Coordinates:</span>
+              <span class="mono" id="live-card-coords">19.12694&deg;N, 77.28083&deg;E</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Datum MSL:</span>
+              <span class="mono">366.50 m (RL of zeroGauge 0.0 m)</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Design FRL:</span>
+              <span class="mono">355.00 m MSL</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Latest Ground Telemetry & Freeboard -->
+        <div class="live-card live-card-telemetry-stale">
+          <div class="live-card-header">
+            <span class="live-card-title">Official River Stage Telemetry</span>
+            <span class="badge-stale" id="telemetry-source-badge">STALE ARCHIVE</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-card-row">
+              <span class="stat-label">Latest Observed Stage:</span>
+              <strong id="live-card-stage" class="live-val-highlight">353.953 m MSL</strong>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Freeboard to FRL (355.0m):</span>
+              <span id="live-card-freeboard" class="mono text-stage-accent" style="font-weight:700;">+1.047 m</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Observation Timestamp:</span>
+              <strong id="live-card-timestamp" class="mono" style="font-size: 11px;">2026-10-09 23:00 IST</strong>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Calculated Data Age:</span>
+              <span id="live-card-age" class="mono text-ridge-accent" style="font-weight: 700;">Computing...</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Gateway Status:</span>
+              <span id="live-card-gateway" style="color: #0369a1; font-weight: 600;">NWDP CKAN Datastore HTTP 200 (Station 006-SW-MAHA)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Precipitation Provenance & Safeguards -->
+        <div class="live-card">
+          <div class="live-card-header">
+            <span class="live-card-title">Precipitation Provenance</span>
+            <span class="live-card-badge" id="live-card-sat-badge" style="background:#e0f2fe; color:#0369a1;">LIVE CATALOG</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-card-row">
+              <span class="stat-label">Model Training Source:</span>
+              <span>ISRO INSAT-3DS HEM Satellite</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Live Satellite Ingestion:</span>
+              <span id="live-card-sat-status" style="color: #0369a1; font-weight: 600;">MOSDAC V01R00 Authenticated</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Live Meteorological Grid:</span>
+              <span style="color: #059669; font-weight: 600;">Open-Meteo NWP Active</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Zero-Imputation Policy:</span>
+              <span style="color: #b91c1c; font-weight: 700;">PROHIBITED</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Model D Forecast Engine State -->
+        <div class="live-card">
+          <div class="live-card-header">
+            <span class="live-card-title">Model D (+1h, +2h, +3h) Readiness</span>
+            <span class="tag-inactive-card">BLOCKED</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-card-row">
+              <span class="stat-label">Trained Weights:</span>
+              <span style="color: #059669; font-weight: 600;">Loaded (Verified)</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Telemetry Freshness:</span>
+              <span id="model-diag-stage-status" style="color: #b91c1c; font-weight: 600;">Blocked (Stage Age &gt;3h)</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Rainfall Compatibility:</span>
+              <span style="color: #b91c1c; font-weight: 600;">Blocked (NWP vs. Satellite Mismatch)</span>
+            </div>
+            <div class="live-forecasts-box">
+              <div>+1h Lead: <span id="live-fc-1h" style="color: #94a3b8; font-weight: 700;">BLOCKED</span></div>
+              <div>+2h Lead: <span id="live-fc-2h" style="color: #94a3b8; font-weight: 700;">BLOCKED</span></div>
+              <div>+3h Lead: <span id="live-fc-3h" style="color: #94a3b8; font-weight: 700;">BLOCKED</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 5: Delayed-Observation Forecasting Mode (Research Demonstration) -->
+    <div class="live-section-wrapper" id="delayed-mode-section">
+      <div class="section-title-row">
+        <div>
+          <h3 class="section-subheading">5. Delayed-Observation Forecasting Mode (Research Demonstration)</h3>
+          <p class="section-desc">Evaluates Model D from historical gauge origin t_gauge using strictly co-temporal features. Outputs represent forecasts for t_gauge + 1h/+2h/+3h; they do NOT estimate current river stage.</p>
+        </div>
+        <span class="badge-status-neutral" style="font-size:10px;">FACULTY EVALUATION MODE</span>
+      </div>
+
+      <div class="weather-grid-2col">
+        <!-- Card A: Latest Published Gauge Evaluation (t_gauge = 10-Oct-2026) -->
+        <div class="live-card">
+          <div class="live-card-header">
+            <span class="live-card-title">Latest Gauge Origin Evaluation</span>
+            <span class="badge-op-state badge-op-warning" id="delayed-latest-badge">RAIN UNARCHIVED</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-card-row">
+              <span class="stat-label">Gauge Timestamp (t_gauge):</span>
+              <strong id="delayed-latest-ts" class="mono">2026-10-10 23:00 IST</strong>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Gauge Latency / Age:</span>
+              <span id="delayed-latest-age" class="mono text-ridge-accent">~58 hours old</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">INSAT-3DS Rain at t_gauge:</span>
+              <span id="delayed-latest-rain-status" style="color:#b91c1c; font-weight:600;">Unarchived (coverage ends 30-Sep)</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Delayed Model D Forecast:</span>
+              <span id="delayed-latest-fc-status" style="color:#b91c1c; font-weight:700;">UNAVAILABLE</span>
+            </div>
+            <div class="live-card-disclaimer" style="font-size:10px; color:#64748b; margin-top:4px;">
+              *Zero-imputation or substituting present-day NWP rainfall is strictly prohibited by research protocols.
+            </div>
+          </div>
+        </div>
+
+        <!-- Card B: Verified Aligned Demonstration (t_gauge = 20-Sep-2026 12:00 IST) -->
+        <div class="live-card" style="border-left: 3px solid #059669;">
+          <div class="live-card-header">
+            <span class="live-card-title">Verified Aligned Demonstration Record</span>
+            <span class="badge-op-state badge-op-success">ALIGNED ORIGIN</span>
+          </div>
+          <div class="live-card-content">
+            <div class="live-card-row">
+              <span class="stat-label">Demo Origin (t_gauge):</span>
+              <strong id="delayed-demo-ts" class="mono">2026-09-20 12:00 IST</strong>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">Gauge Stage at Origin:</span>
+              <span class="mono" id="delayed-demo-stage" style="font-weight:700;">354.471 m MSL</span>
+            </div>
+            <div class="live-card-row">
+              <span class="stat-label">INSAT-3DS Rain &amp; API:</span>
+              <span class="mono" style="color:#059669;">Rain: 0.0 mm/hr &bull; API: 12.0 mm</span>
+            </div>
+            <div class="weather-forecast-strip" style="margin-top:4px;">
+              <div class="weather-hourly-chips">
+                <div class="hourly-chip">
+                  <span class="chip-label">+1h (13:00 IST)</span>
+                  <strong class="chip-val mono" id="delayed-demo-h1">354.469 m</strong>
+                </div>
+                <div class="hourly-chip">
+                  <span class="chip-label">+2h (14:00 IST)</span>
+                  <strong class="chip-val mono" id="delayed-demo-h2">354.468 m</strong>
+                </div>
+                <div class="hourly-chip">
+                  <span class="chip-label">+3h (15:00 IST)</span>
+                  <strong class="chip-val mono" id="delayed-demo-h3">354.466 m</strong>
+                </div>
+              </div>
+            </div>
+            <div class="live-card-disclaimer" style="font-size:10px; color:#059669; margin-top:4px;">
+              &check; Strictly causal: features use only data &le; t_gauge. Persistence: 354.471 m. Does NOT predict current stage.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Presentation Operational Guidance Footer -->
+    <div class="live-footer-bar">
+      <span class="live-footer-note">Telemetry archive mode &bull; Stage forecasts blocked until fresh telemetry (&le;3h) &bull; Weather via Open-Meteo NWP</span>
+      <button id="btn-return-historical" class="btn-header" type="button" onclick="setDashboardMode('historical')" style="padding: 4px 12px; font-size: 11px;">
+        &larr; Return to Historical Analysis
+      </button>
+    </div>
+  </section>
+
+  <!-- 6. Data Sources & Audit Modal Dialog -->
+  <div id="metadata-modal" class="modal-backdrop" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title" class="modal-title">Data Sources &amp; Scientific Provenance</h3>
+        <button id="btn-close-modal" class="btn-modal-close" type="button" aria-label="Close Dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="sources-compact-list">
+          <div class="source-item">
+            <strong>1. CWC / Maharashtra WRD Telemetry (Station 006-SW-MAHA)</strong>
+            <p>Hourly verified river stage observations (m MSL), rate of rise (m/hr). Warning Level 354.00 m, Danger Level 354.80 m, FRL 355.00 m. Coverage: 2024 (1,154 records) &amp; 2026 (2,568 records). Zero synthetic values.</p>
+          </div>
+          <div class="source-item">
+            <strong>2. ISRO / MOSDAC INSAT-3DS HEM Satellite (V01R00)</strong>
+            <p>4 km half-hourly rain rate / hourly depth (2,869 native pixels) across 51,768 km² Upper Godavari basin. Archive: July 31 – August 5, 2024 (275 granules). Model D trained on satellite features.</p>
+          </div>
+          <div class="source-item">
+            <strong>3. IMD 0.25° Daily Gridded Precipitation (Pune)</strong>
+            <p>71 grid cells spanning Upper Godavari basin. Maintained at native daily resolution (mm/day); never synthetically downscaled to hourly.</p>
+          </div>
+          <div class="source-item">
+            <strong>4. Open-Meteo Multi-Model NWP API (ECMWF / ICON / GFS)</strong>
+            <p>Hourly numerical weather prediction forecasts for station area and 7 verified interior catchment points. Operational live input; not satellite observations.</p>
+          </div>
+          <div class="source-item">
+            <strong>5. JRC Global Surface Water v1.4 (1984–2021) &amp; HydroBASINS Lev08</strong>
+            <p>Historical water occurrence and recurrence patterns (30m). Delineated reach corridor (1,231.5 km²; sub-basins 4081058170 &amp; 4081060220). Water occurrence represents persistence, not verified flood extent.</p>
+          </div>
+          <div class="source-item">
+            <strong>6. Sentinel-1 SAR Flood Inundation Pipeline</strong>
+            <p>GEE IW VH change-detection workflow (<code class="mono">scripts/gee_event_flood_extractor.js</code>). 500 m spatial model is untrained pending local SAR masks (tile N19E077).</p>
+          </div>
+        </div>
+
+        <div class="modal-notice-box" style="margin-top: 10px;">
+          <strong>Scientific Qualifications &amp; Safeguards:</strong>
+          (1) Historical water occurrence is not verified flood extent. (2) Spatial 500m flood model is untrained pending authentic SAR labels; zero synthetic labels manufactured. (3) Stale telemetry (&gt;3h) blocks operational stage predictions. (4) Weather source mismatch (NWP vs satellite) blocks Model D live inference.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Application Logic with Cache-Buster -->
+  <script src="app.js?v=20261012_fix_charts"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+{
+  "report_generated_utc": "2026-10-09 15:24:06 UTC",
+  "project": "Godavari River Flood Forecasting (Stage 1)",
+  "pipeline_version": "0.1.0",
+  "stage_telemetry_audit": {
+    "station_metadata": {
+      "station_name": "Vishnupuri",
+      "full_name": "Vishnupuri Barrage, Nanded, Maharashtra",
+      "district": "Nanded",
+      "river": "Godavari",
+      "basin": "Godavari",
+      "latitude": 19.12694444,
+      "longitude": 77.28083333,
+      "rl_of_zero_gauge_m": 0.0,
+      "mean_sea_level_m": 366.5
+    },
+    "window_specifications": {
+      "target_start_iso": "2024-07-04 00:00:00",
+      "target_end_iso": "2024-08-22 23:59:59",
+      "earliest_observed_timestamp": "2024-07-04 00:00:00",
+      "latest_observed_timestamp": "2024-08-22 22:00:00",
+      "total_days_span": 49.92
+    },
+    "record_counts": {
+      "total_raw_station_records": 29116,
+      "window_observed_records": 1154,
+      "window_expected_hourly_slots": 1199,
+      "missing_hourly_slots": 45,
+      "completeness_percentage": 96.25,
+      "duplicate_timestamps_count": 0,
+      "nan_or_unparsed_values_count": 0,
+      "sentinel_or_negative_values_count": 0
+    },
+    "stage_statistics_meters": {
+      "min_stage_m": 350.548,
+      "max_stage_m": 355.038,
+      "mean_stage_m": 353.456,
+      "std_stage_m": 1.409,
+      "stage_range_m": 4.49
+    },
+    "temporal_gaps": {
+      "total_gaps_exceeding_1_hour": 38,
+      "max_gap_duration_hours": 4.0,
+      "gap_duration_counts": {
+        "2h": 33,
+        "3h": 3,
+        "4h": 2
+      },
+      "gaps_list": [
+        {
+          "gap_start": "2024-07-04 19:00",
+          "gap_end": "2024-07-04 23:00",
+          "duration_hours": 4.0,
+          "missing_observations_count": 3
+        },
+        {
+          "gap_start": "2024-07-05 11:00",
+          "gap_end": "2024-07-05 13:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-05 22:00",
+          "gap_end": "2024-07-06 00:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-06 10:00",
+          "gap_end": "2024-07-06 12:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-06 20:00",
+          "gap_end": "2024-07-06 23:00",
+          "duration_hours": 3.0,
+          "missing_observations_count": 2
+        },
+        {
+          "gap_start": "2024-07-07 10:00",
+          "gap_end": "2024-07-07 12:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-08 11:00",
+          "gap_end": "2024-07-08 13:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-08 13:00",
+          "gap_end": "2024-07-08 15:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-08 15:00",
+          "gap_end": "2024-07-08 17:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-09 04:00",
+          "gap_end": "2024-07-09 06:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-11 13:00",
+          "gap_end": "2024-07-11 16:00",
+          "duration_hours": 3.0,
+          "missing_observations_count": 2
+        },
+        {
+          "gap_start": "2024-07-12 05:00",
+          "gap_end": "2024-07-12 07:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-18 11:00",
+          "gap_end": "2024-07-18 13:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-19 12:00",
+          "gap_end": "2024-07-19 14:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-21 17:00",
+          "gap_end": "2024-07-21 19:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-22 00:00",
+          "gap_end": "2024-07-22 02:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-22 06:00",
+          "gap_end": "2024-07-22 08:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-22 09:00",
+          "gap_end": "2024-07-22 11:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-25 03:00",
+          "gap_end": "2024-07-25 05:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-07-29 18:00",
+          "gap_end": "2024-07-29 21:00",
+          "duration_hours": 3.0,
+          "missing_observations_count": 2
+        },
+        {
+          "gap_start": "2024-07-31 20:00",
+          "gap_end": "2024-07-31 22:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-01 18:00",
+          "gap_end": "2024-08-01 20:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-05 03:00",
+          "gap_end": "2024-08-05 05:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-07 07:00",
+          "gap_end": "2024-08-07 09:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-07 16:00",
+          "gap_end": "2024-08-07 18:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-11 13:00",
+          "gap_end": "2024-08-11 15:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-12 15:00",
+          "gap_end": "2024-08-12 17:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-13 10:00",
+          "gap_end": "2024-08-13 12:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-13 18:00",
+          "gap_end": "2024-08-13 20:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-15 08:00",
+          "gap_end": "2024-08-15 10:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-16 22:00",
+          "gap_end": "2024-08-17 00:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-21 11:00",
+          "gap_end": "2024-08-21 13:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-21 16:00",
+          "gap_end": "2024-08-21 18:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-21 18:00",
+          "gap_end": "2024-08-21 20:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-21 23:00",
+          "gap_end": "2024-08-22 01:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-22 01:00",
+          "gap_end": "2024-08-22 03:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-22 08:00",
+          "gap_end": "2024-08-22 10:00",
+          "duration_hours": 2.0,
+          "missing_observations_count": 1
+        },
+        {
+          "gap_start": "2024-08-22 16:00",
+          "gap_end": "2024-08-22 20:00",
+          "duration_hours": 4.0,
+          "missing_observations_count": 3
+        }
+      ]
+    },
+    "stage_discontinuities": {
+      "threshold_meters": 0.5,
+      "detected_count": 2,
+      "events": [
+        {
+          "timestamp": "2024-07-22 19:00",
+          "previous_stage_m": 353.496,
+          "current_stage_m": 354.5,
+          "stage_change_m": 1.004000000000019,
+          "is_transient_spike": true,
+          "description": "Isolated 1-hour jump of +1.004m returning to baseline next hour"
+        },
+        {
+          "timestamp": "2024-07-22 20:00",
+          "previous_stage_m": 354.5,
+          "current_stage_m": 353.496,
+          "stage_change_m": -1.004000000000019,
+          "is_transient_spike": false,
+          "description": "Step change of -1.004m"
+        }
+      ]
+    }
+  },
+  "mosdac_satellite_audit": {
+    "archive_directory": "C:\\Users\\aceru\\floodsystem\\data\\mosdac\\hdf_archive",
+    "total_hdf_files_found": 669,
+    "archive_files_count": 669,
+    "sample_files_count": 1,
+    "earliest_local_timestamp_utc": "2026-09-08 00:00:00",
+    "latest_local_timestamp_utc": "2026-09-22 13:30:00",
+    "span_days": 14.56,
+    "target_window_utc": {
+      "start": "2024-07-03 18:30:00",
+      "end": "2024-08-22 18:30:00"
+    },
+    "target_window_local_files_count": 0,
+    "historical_coverage_status": "BLOCKED_MISSING_LOCAL_FILES",
+    "internal_hdf_decoding_verification": [
+      {
+        "filename": "3SIMG_08SEP2026_0000_L2B_HEM_V01R00.h5",
+        "internal_time_decoded": "2026-09-08 00:00:00",
+        "units_attr": "b'minutes since 2000-01-01 00:00:00'",
+        "raw_val": 14035680.0
+      },
+      {
+        "filename": "3SIMG_22SEP2026_1330_L2B_HEM_V01R00.h5",
+        "internal_time_decoded": "2026-09-22 13:30:00",
+        "units_attr": "b'minutes since 2000-01-01 00:00:00'",
+        "raw_val": 14056650.0
+      }
+    ],
+    "notes": "Local HDF5 files cover only September 2026. Zero local HDF5 files exist for the July 4, 2024 to August 22, 2024 historical window. Historical INSAT-3DS HEM observations must be ordered from MOSDAC and staged for download."
+  },
+  "spatial_assets_audit": {
+    "spatial_directory": "C:\\Users\\aceru\\floodsystem\\data\\spatial",
+    "total_spatial_files": 12,
+    "catchment_polygon_present": false,
+    "status": "AWAITING_CATCHMENT_POLYGON",
+    "spatial_assets_summary": [
+      "mumbai_500m_grid.geojson",
+      "dem\\copdem30_N18_00_E072_00.tif",
+      "dem\\copdem30_N18_00_E073_00.tif",
+      "dem\\copdem30_N19_00_E072_00.tif",
+      "dem\\copdem30_N19_00_E073_00.tif",
+      "dem\\mumbai_dem_mosaic.tif",
+      "dem\\mumbai_dem_utm43n.tif",
+      "dem\\mumbai_slope_utm43n.tif",
+      "gsw\\gsw_occurrence_70E_20N_v14.tif",
+      "gsw\\gsw_occurrence_aoi_clip.tif",
+      "gsw\\mumbai_gsw_occurrence_utm43n.tif",
+      "landcover\\ESA_WorldCover_10m_2021_v200_N18E072_Map.tif"
+    ],
+    "catchment_polygon_matches": [],
+    "required_polygon_specifications": {
+      "target_station": "Vishnupuri Barrage, Nanded, Maharashtra",
+      "pour_point_coordinates": {
+        "latitude": 19.126944,
+        "longitude": 77.280833
+      },
+      "required_formats": [
+        "GeoJSON (.geojson)",
+        "OGC GeoPackage (.gpkg)",
+        "ESRI Shapefile (.shp)"
+      ],
+      "required_crs": "EPSG:4326 (WGS84 Geographic Coordinate System)",
+      "geometry_type": "Polygon or MultiPolygon",
+      "delineation_method": "Hydrologically conditioned DEM (e.g. HydroSHEDS, MERIT Hydro, CopDEM 30m) delineated upstream of pour point",
+      "prohibited_substitutes": [
+        "Bounding Box (BBOX) approximation (hydrologically invalid)",
+        "Single satellite pixel at station (neglects upstream basin rainfall volume)"
+      ]
+    }
+  },
+  "extraction_interface": {
+    "module": "river_forecasting.src.catchment_extractor",
+    "class": "CatchmentRainfallExtractor",
+    "curvilinear_mask_caching": true,
+    "handles_fill_values": true,
+    "handles_missing_time_slots": true,
+    "prohibits_bbox_substitution": true,
+    "prohibits_synthetic_data": true,
+    "status": "READY_AWAITING_POLYGON_AND_HISTORICAL_HDF"
+  }
+}

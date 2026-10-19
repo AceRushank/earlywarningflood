@@ -1,0 +1,13 @@
+horizon,event_id,event_name,n_hours,peak_observed_stage_m,persistence_mae_mm,xgboost_mae_mm,raag_mae_mm,hybrid_mae_mm,peak_underpred_pers_mm,peak_underpred_xgboost_mm,peak_underpred_raag_mm,peak_underpred_hybrid_mm,rainfall_available_hours,hybrid_fallback_hours
++1h,event_sep18_peak,September 18 Test Peak Pulse,49,354.531,6.571,6.179,5.832,5.899,14.0,15.753,16.3,15.346,49,0
++1h,event_sep21_pulse,September 21 Test Secondary Pulse,49,354.471,5.143,5.3,4.818,4.687,3.0,5.172,8.309,6.467,49,0
++1h,event_july30_inception,July 30-31 Phase A Inception Limb,30,351.363,29.0,17.583,12.989,16.856,42.0,18.825,24.432,24.982,30,0
++1h,event_july31_surge_outage,July 31 Phase B Surge Limb (MOSDAC Telemetry Outage),18,353.923,142.389,127.748,78.492,127.865,186.0,162.068,5.541,161.976,0,18
++2h,event_sep18_peak,September 18 Test Peak Pulse,49,354.531,6.755,6.455,6.426,6.37,18.0,20.27,20.974,19.467,49,0
++2h,event_sep21_pulse,September 21 Test Secondary Pulse,49,354.471,6.857,6.691,5.547,5.768,26.0,26.38,12.537,12.537,49,0
++2h,event_july30_inception,July 30-31 Phase A Inception Limb,30,351.379,54.333,33.588,20.341,31.293,16.0,-22.401,-3.059,-9.726,30,0
++2h,event_july31_surge_outage,July 31 Phase B Surge Limb (MOSDAC Telemetry Outage),18,354.108,294.0,265.055,144.606,264.521,371.0,332.644,14.971,333.016,0,18
++3h,event_sep18_peak,September 18 Test Peak Pulse,49,354.531,8.408,7.96,7.142,7.226,21.0,22.776,19.748,19.445,49,0
++3h,event_sep21_pulse,September 21 Test Secondary Pulse,49,354.471,6.939,6.447,6.523,6.423,23.0,24.101,21.075,20.882,49,0
++3h,event_july30_inception,July 30-31 Phase A Inception Limb,30,351.423,80.633,46.618,27.581,44.867,60.0,2.209,8.316,10.419,30,0
++3h,event_july31_surge_outage,July 31 Phase B Surge Limb (MOSDAC Telemetry Outage),18,354.289,453.222,405.015,218.874,405.356,552.0,494.333,-11.203,492.236,0,18

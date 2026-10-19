@@ -1,0 +1,10 @@
+audit_check,horizon,condition,samples_checked,violations_detected,status,details
+origin_to_target_alignment,+18h,t_target == t_origin + 18h,2399,0,PASS,Verified 2399 origin-target pairs; zero timestamp misalignments.
+origin_to_target_alignment,+24h,t_target == t_origin + 24h,2393,0,PASS,Verified 2393 origin-target pairs; zero timestamp misalignments.
+origin_to_target_alignment,+36h,t_target == t_origin + 36h,2381,0,PASS,Verified 2381 origin-target pairs; zero timestamp misalignments.
+telemetry_latency_buffer,"All (+18h, +24h, +36h)",min_upstream_lag >= 1h,2592,0,PASS,Smallest upstream feature lag is stage_m_lag1 (t-1h). Strict 1h operational latency buffer enforced.
+chronological_continuity_and_duplicates,All,dupes == 0 and step == 1h,2592,0,PASS,"Zero duplicate timestamps found. Uniform 1-hour spacing across 2,592 timeline grid points."
+boundary_separation_train_to_val,+18h,buffer_hours >= 19h,1,0,PASS,Training split ended at 2026-08-10 05:00; target window strictly ends <= 2026-08-10 23:00.
+boundary_separation_train_to_val,+24h,buffer_hours >= 25h,1,0,PASS,Training split ended at 2026-08-09 23:00; target window strictly ends <= 2026-08-10 23:00.
+boundary_separation_train_to_val,+36h,buffer_hours >= 37h,1,0,PASS,Training split ended at 2026-08-09 11:00; target window strictly ends <= 2026-08-10 23:00.
+missing_interval_bridging_prevention,+18h,missing origin yields NaN target_dH,175,0,PASS,Missing stage values never yield fabricated target stage differences.

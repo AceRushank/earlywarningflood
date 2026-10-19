@@ -1,0 +1,21 @@
+{
+        "user_credentials": {
+                "username/email": "rushank",
+                "password": "Flood@2005"
+        },
+        "search_parameters": {
+                "datasetId": "3SIMG_L2B_HEM",
+                "startTime": "2024-07-04",
+                "endTime": "2024-08-22",
+                "count": "1",
+                "boundingBox": "",
+                "gId": ""
+        },
+        "download_settings": {
+                "download_path": "C:/Users/aceru/floodsystem/river_forecasting/data/mosdac_raw",
+                "organize_by_date": true,
+                "skip_user_input": false,
+                "generate_error_logs": true,
+                "error_logs_dir": "C:/Users/aceru/floodsystem/river_forecasting/logs"
+        }
+}

@@ -1,0 +1,4 @@
+file,timestamp_utc,bbox_pixel_count,bbox_valid_pixels,station_nearest_lat,station_nearest_lon,station_nearest_dist_km,station_pixel_rainfall_mmhr,bbox_mean_mmhr,bbox_max_mmhr,fill_count_in_bbox,error
+3SIMG_08SEP2026_0000_L2B_HEM_V01R00.h5,2026-09-08 00:00,6507,6507,19.11,77.289998,2.118,0.0,0.0,0.0,0,
+3SIMG_15SEP2026_0730_L2B_HEM_V01R00.h5,2026-09-15 07:30,6507,6507,19.11,77.289998,2.118,0.0,0.0,0.0,0,
+3SIMG_22SEP2026_1330_L2B_HEM_V01R00.h5,2026-09-22 13:30,6507,6507,19.11,77.289998,2.118,0.0,0.29231026768684387,22.990787506103516,0,

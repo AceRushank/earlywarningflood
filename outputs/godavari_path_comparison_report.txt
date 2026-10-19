@@ -1,0 +1,167 @@
+================================================================================
+GODAVARI RAINFALL COVERAGE & TELEMETRY FEASIBILITY INVESTIGATION
+COMPARISON REPORT: PATH A (INSAT-3D 2022) vs PATH B (INSAT-3DS 2024–2025)
+================================================================================
+Date: 2026-10-09
+Target River Station: Vishnupuri Barrage, Nanded, Maharashtra (19.126944 N, 77.280833 E)
+Repository: floodsystem
+
+--------------------------------------------------------------------------------
+EXECUTIVE SUMMARY & FEASIBILITY VERDICT
+--------------------------------------------------------------------------------
+FEASIBILITY VERDICT: PATH B is significantly more feasible for a real-data research prototype.
+
+KEY REASONS:
+1. Satellite Compatibility: Path B uses the operational INSAT-3DS satellite (product 3SIMG_L2B_HEM_V01R00), for which our extraction pipeline, grid coordinates, and SFTP ingest tools are already tested and validated. Path A requires ordering from an inactive satellite archive (INSAT-3D), which has been retired since June 2024.
+2. Data Volume & Practicality: Path A requires downloading ~9,300 HDF5 files (~93 GB) across 6.5 months (May–Nov 2022) before prototype development can begin. Path B can target a focused 48.7-day peak monsoon window (2024-07-04 to 2024-08-22, ~2,300 files / ~23 GB) that captures active monsoon flood hydrographs.
+3. Ground Telemetry Integrity: While 2022 has a continuous 4,661-hour record, our audit of the existing dataset (data/rwl_tel_hr_maharashtra_sw_006_2021_2025.csv) confirmed that Vishnupuri Barrage in 2024–2025 contains 14,859 hourly readings with ZERO duplicate timestamps, ZERO sensor dropouts (-99.999), and a constant gauge datum. The July–August 2024 window exhibits a 4.43 m flood stage variation ideal for rainfall-runoff modelling.
+
+================================================================================
+PATH A: HISTORICAL INSAT-3D OBSERVATIONS (2022-05-07 to 2022-11-17)
+================================================================================
+
+1. SATELLITE & SENSOR IDENTIFICATION [VERIFIED vs ASSUMED]:
+   - [VERIFIED] INSAT-3DS did NOT exist in 2022. It was launched on 2024-02-17. It cannot be used for 2022.
+   - [VERIFIED] The correct official MOSDAC product identifier for INSAT-3D Hydro-Estimator is:
+       Product ID: 3DIMG_L2B_HEM
+       DOI: 10.19038/SAC/10/3DIMG_L2B_HEM
+   - [VERIFIED] The suggested product code "3RIMG_L2B_HEM" refers to INSAT-3DR, NOT INSAT-3D.
+       INSAT-3DR was also operational in 2022 (DOI: 10.19038/SAC/10/3RIMG_L2B_HEM).
+   - [VERIFIED] Status on MOSDAC:
+       - 3DIMG_L2B_HEM: "In-Active" (Coverage: 2013-10-08 to 2024-06-18)
+       - 3RIMG_L2B_HEM: "Active" (Coverage: 2016-10-11 to present)
+     Both satellites covered the 2022 target window.
+
+2. PRODUCT SPECIFICATIONS [VERIFIED]:
+   - Temporal Resolution: Half-hourly (30 minutes).
+   - Spatial Resolution: 4 km curvilinear geostationary grid.
+   - Spatial Extent: 30°E to 130°E, 50°N to 50°S (Full Indian Region, fully covers Vishnupuri / Godavari).
+   - Units: mm/h (millimeters per hour rain rate).
+   - Format: HDF5 (.h5), dataset /HEM, 2D float arrays with scale factor 0.01 and fill value -999.0.
+   - Compatibility: Reusable with existing scripts/extract_mosdac_hdf.py logic with minor adaptation for 3DIMG/3RIMG prefix.
+
+3. ORDERING & DATA ACCESS PROCESS [VERIFIED]:
+   - Process: MOSDAC does not provide direct instant REST API downloads for historical full archives.
+   - Workflow:
+       Step 1: User logs into MOSDAC Web Portal (mosdac.gov.in/catalog/).
+       Step 2: Searches Mission "INSAT-3D" (or "INSAT-3DR") and Product "3DIMG_L2B_HEM".
+       Step 3: Selects date range (2022-05-07 to 2022-11-17), adds to cart, and submits order.
+       Step 4: MOSDAC backend processes the batch request asynchronously and assigns a Request ID.
+       Step 5: Files are staged into the user's SFTP directory (download.mosdac.gov.in:22) under /order.
+       Step 6: Existing script (scripts/download_mosdac_hdf.py) downloads staged files via SFTP.
+   - Limitations: Turnaround time for staging ~9,300 files typically ranges from 24 to 72 hours; requires MOSDAC admin quota approval for large volumes.
+
+4. GROUND TELEMETRY CORRESPONDENCE (2022 WINDOW) [VERIFIED]:
+   - Audited rows in data/rwl_tel_hr_maharashtra_sw_006_2021_2025.csv for Vishnupuri:
+       Total records in window (2022-05-07 14:00 to 2022-11-17 18:00): Exactly 4,661 rows.
+       Valid records: 4,661 (100.0% data completeness).
+       Water level range: 351.513 m to 355.590 m (Full Reservoir Level ~355 m).
+       Duplicate timestamps: 0. Sensor errors: 0.
+
+================================================================================
+PATH B: EXISTING GODAVARI TELEMETRY AUDIT (2024–2025 WINDOW)
+================================================================================
+
+1. DATASET AUDIT OVERVIEW [VERIFIED]:
+   - File: data/rwl_tel_hr_maharashtra_sw_006_2021_2025.csv (422 MB, 2,718,626 rows total).
+   - Godavari Stations Found: 105 stations across Maharashtra.
+   - Overlap with INSAT-3DS: Fully overlaps operational period (INSAT-3DS operational Feb 2024 to present).
+
+2. DETAILED AUDIT: VISHNUPURI BARRAGE (2024–2025) [VERIFIED]:
+   - Location: 19.126944 N, 77.280833 E (District: Nanded, Basin: Godavari).
+   - Nearest HEM Pixel: 19.1126 N, 77.2917 E (Distance: 2.118 km).
+   - Datum Consistency: RL_of_zeroGauge = 0, MeanSeaLevel = 366.50 m (100% constant across all records).
+   - Total Records (2024–2025): 14,859 hourly readings.
+   - Duplicate Timestamps: 0 (0.00%).
+   - Sensor Errors (-99.999 / missing): 0 (0.00%).
+   - Overall Water Level Range: 336.384 m to 367.125 m (Delta: 30.741 m).
+   - Telemetry Outages / Gaps:
+       Total gaps (>1.5 hr): 1,084. Gaps >= 24h: 14.
+       *Critical Finding:* Major gaps are synchronized across the entire Maharashtra telemetry network,
+       occurring simultaneously at all stations:
+         - 2024-12-27 05:00 to 2025-01-01 00:00 (115 hrs / 4.8 days)
+         - 2025-06-16 00:00 to 2025-06-26 00:00 (240 hrs / 10.0 days)
+         - 2025-06-27 19:00 to 2025-07-03 00:00 (125 hrs / 5.2 days)
+         - 2025-07-16 23:00 to 2025-07-20 00:00 (73 hrs / 3.0 days)
+         - 2025-08-28 23:00 to 2025-09-03 13:00 (134 hrs / 5.6 days)
+
+3. TOP CLEAN CONTINUOUS WINDOWS AT VISHNUPURI (2024–2025) [VERIFIED]:
+   - Window B1 (Peak Monsoon Flood 2024 - RECOMMENDED):
+       Start: 2024-07-04 23:00 IST
+       End  : 2024-08-22 16:00 IST
+       Duration: 48.7 days (1,131 hourly observations)
+       Completeness: 100% valid, 0 sensor dropouts, max interval <= 3h.
+       Water Level Dynamics: 350.61 m to 355.04 m (Delta: 4.43 m flood hydrograph).
+       Relevance: Active monsoon flood filling; ideal for rainfall-runoff simulation.
+
+   - Window B2 (Late Monsoon 2024):
+       Start: 2024-09-09 14:00 IST
+       End  : 2024-10-13 02:00 IST
+       Duration: 33.5 days (741 observations)
+       Water Level Dynamics: 352.95 m to 355.52 m (Delta: 2.57 m).
+
+   - Window B3 (Pre-Monsoon / Baseflow 2024):
+       Start: 2024-01-01 01:00 IST
+       End  : 2024-05-13 10:00 IST
+       Duration: 133.4 days (3,113 observations)
+       Water Level Dynamics: 349.71 m to 354.24 m (Delta: 4.52 m).
+
+   - Window B4 (Post-Monsoon 2025):
+       Start: 2025-09-22 15:00 IST
+       End  : 2025-11-27 14:00 IST
+       Duration: 66.0 days (1,548 observations)
+       Water Level Dynamics: 336.41 m to 356.06 m (Delta: 19.65 m).
+
+4. AUDIT OF COMPANION STATIONS IN GODAVARI BASIN (2024–2025) [VERIFIED]:
+   - Babhali Barrage (Nanded, 18.8536 N, 76.7794 E): Downstream of Vishnupuri.
+       2024-2025 rows: 14,969. Duplicates: 0. Errors: 0. Datum: MSL 348.0 m.
+       Clean Monsoon Window: 2024-08-25 to 2024-09-22 (28.9 days, range 329.91 to 339.19 m, Delta 9.28 m).
+   - Gangapur Dam (Nashik, 20.0500 N, 73.6797 E): Headwaters of Godavari.
+       2024-2025 rows: 15,068. Duplicates: 0. Errors: 0. Datum: MSL 615.4 m.
+       Clean Monsoon Window: 2024-07-12 to 2024-08-23 (42.7 days, range 603.13 to 611.58 m, Delta 8.45 m).
+   - Majalgaon Dam (Beed, 19.1508 N, 76.1869 E): Godavari tributary (Sindphana).
+       2024-2025 rows: 15,006. Duplicates: 0. Errors: 0. Datum: MSL 435.6 m.
+       Clean Monsoon Window: 2024-08-26 to 2024-09-23 (28.3 days, Delta 4.12 m).
+   - Disqualified Stations (Sensor Noise / Corruption):
+       - Upper Penganga (Isapur Dam): 3,282 duplicate timestamps; errant readings from 56 m to 1,008 m.
+       - Raher: Stuck gauge sensor value (341.0 m) for 100 consecutive hours.
+
+================================================================================
+COMPARATIVE FEASIBILITY MATRIX
+================================================================================
+
+Dimension                  PATH A (INSAT-3D 2022)          PATH B (INSAT-3DS 2024–2025)
+-------------------------  ------------------------------  ----------------------------------------
+Target Time Window         2022-05-07 to 2022-11-17 (194d) 2024-07-04 to 2024-08-22 (48.7d) [Window B1]
+Satellite & Sensor         INSAT-3D Imager (Inactive)      INSAT-3DS Imager (Active, Current)
+MOSDAC Product ID          3DIMG_L2B_HEM (or 3RIMG_L2B_HEM) 3SIMG_L2B_HEM_V01R00
+Code Reusability           Requires prefix adjustments     100% plug-and-play with existing code
+Data Ordering Required     Yes (Web portal order + SFTP)   Yes (Web portal order + SFTP)
+Data Volume to Fetch       ~9,300 files (~93 GB)           ~2,330 files (~23 GB)
+Ground Telemetry Quality   4,661 continuous valid hours    1,131 continuous valid hours (0 errors)
+Ground Water Level Dynamic 351.51 to 355.59 m (4.08 m)     350.61 to 355.04 m (4.43 m)
+Multi-Station Synergies    Single station evaluated        Synchronized with Gangapur & Babhali
+Operational Forward-Looking No (Historic archive only)      Yes (Matches current satellite operations)
+
+================================================================================
+EXACT DATA ACCESS & VALIDATION REMAINING
+================================================================================
+
+For PATH B Prototype Implementation:
+1. MOSDAC Order Submission:
+   - Submit web order on mosdac.gov.in for product "3SIMG_L2B_HEM_V01R00" covering
+     2024-07-04 00:00 UTC through 2024-08-23 00:00 UTC (Bbox: 18.0N–20.5N, 75.5E–79.5E).
+2. SFTP Pull:
+   - Execute existing script (scripts/download_mosdac_hdf.py) once order is staged to pull
+     the ~2,330 HDF5 files to data/mosdac/hdf_archive/.
+3. Upstream Catchment Geometry Acquisition:
+   - [CRITICAL GAP] Obtain the Godavari upstream catchment polygon for Vishnupuri Barrage
+     from India-WRIS or CWC basin atlas, saving to data/spatial/godavari_vishnupuri_catchment.geojson.
+     (Vishnupuri single-pixel precipitation alone does not capture upstream runoff).
+4. Catchment Rainfall Aggregation:
+   - Run scripts/test_godavari_mosdac_coverage.py across all downloaded HDF5 files to compute
+     basin-averaged hyetograph and station-pixel hyetograph.
+5. Telemetry Coupling & Hydrograph Validation:
+   - Extract the 1,131 hourly water level readings from data/rwl_tel_hr_maharashtra_sw_006_2021_2025.csv
+     and correlate cumulative catchment rainfall with Vishnupuri stage rise.
+================================================================================

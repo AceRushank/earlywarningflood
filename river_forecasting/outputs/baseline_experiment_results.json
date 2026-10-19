@@ -1,0 +1,894 @@
+{
+  "generated_utc": "2026-10-09 16:10:36 UTC",
+  "project": "Godavari River Stage Forecasting (Stage 2)",
+  "station": "Vishnupuri Barrage, Nanded, Maharashtra",
+  "split_information": {
+    "total_valid_origins": 1148,
+    "horizon_embargo_hours": 3,
+    "train": {
+      "count": 801,
+      "start": "2024-07-04 06:00:00",
+      "end": "2024-08-07 20:00:00",
+      "min_stage": 350.562,
+      "max_stage": 354.888
+    },
+    "val": {
+      "count": 170,
+      "start": "2024-08-07 23:00:00",
+      "end": "2024-08-15 04:00:00",
+      "min_stage": 354.498,
+      "max_stage": 354.99
+    },
+    "test": {
+      "count": 173,
+      "start": "2024-08-15 07:00:00",
+      "end": "2024-08-22 22:00:00",
+      "min_stage": 354.015,
+      "max_stage": 355.038
+    }
+  },
+  "features": {
+    "predictor_count": 23,
+    "predictor_columns": [
+      "feat_stage_t",
+      "feat_stage_lag_1h",
+      "feat_stage_lag_2h",
+      "feat_stage_lag_3h",
+      "feat_stage_lag_4h",
+      "feat_stage_lag_6h",
+      "feat_stage_diff_1h",
+      "feat_stage_diff_2h",
+      "feat_stage_diff_3h",
+      "feat_stage_diff_6h",
+      "feat_stage_rolling_mean_3h",
+      "feat_stage_rolling_std_3h",
+      "feat_stage_rolling_min_3h",
+      "feat_stage_rolling_max_3h",
+      "feat_stage_rolling_mean_6h",
+      "feat_stage_rolling_std_6h",
+      "feat_stage_rolling_min_6h",
+      "feat_stage_rolling_max_6h",
+      "feat_stage_rolling_mean_12h",
+      "feat_stage_rolling_std_12h",
+      "feat_stage_rolling_min_12h",
+      "feat_stage_rolling_max_12h",
+      "feat_is_anomaly"
+    ]
+  },
+  "experiments": {
+    "persistence_baseline": {
+      "model_name": "Persistence Baseline",
+      "horizons": {
+        "1h": {
+          "overall": {
+            "count": 163,
+            "mae_m": 0.0383,
+            "rmse_m": 0.0706,
+            "max_ae_m": 0.411,
+            "nse": 0.9248
+          },
+          "peak_stage": {
+            "count": 42,
+            "mae_m": 0.0572,
+            "rmse_m": 0.1,
+            "max_ae_m": 0.411,
+            "nse": -0.8441
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1722,
+            "rmse_m": 0.1757,
+            "max_ae_m": 0.213,
+            "nse": 0.1518,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 11,
+            "mae_m": 0.1143,
+            "rmse_m": 0.1294,
+            "max_ae_m": 0.213,
+            "nse": 0.5874,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2424,
+            "rmse_m": 0.2587,
+            "max_ae_m": 0.411,
+            "nse": -0.2112,
+            "timestamps": [
+              "2024-08-16 00:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1722,
+            "rmse_m": 0.1757,
+            "max_ae_m": 0.213,
+            "nse": 0.1518,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        },
+        "2h": {
+          "overall": {
+            "count": 163,
+            "mae_m": 0.0592,
+            "rmse_m": 0.1099,
+            "max_ae_m": 0.525,
+            "nse": 0.8159
+          },
+          "peak_stage": {
+            "count": 43,
+            "mae_m": 0.0913,
+            "rmse_m": 0.1522,
+            "max_ae_m": 0.525,
+            "nse": -1.6604
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2124,
+            "rmse_m": 0.2539,
+            "max_ae_m": 0.393,
+            "nse": -4.8461,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 10,
+            "mae_m": 0.1491,
+            "rmse_m": 0.1941,
+            "max_ae_m": 0.393,
+            "nse": 0.1058,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 7,
+            "mae_m": 0.3454,
+            "rmse_m": 0.3672,
+            "max_ae_m": 0.525,
+            "nse": -3.3044,
+            "timestamps": [
+              "2024-08-15 23:00",
+              "2024-08-16 00:00",
+              "2024-08-16 04:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 06:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2124,
+            "rmse_m": 0.2539,
+            "max_ae_m": 0.393,
+            "nse": -4.8461,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        },
+        "3h": {
+          "overall": {
+            "count": 160,
+            "mae_m": 0.0705,
+            "rmse_m": 0.1279,
+            "max_ae_m": 0.645,
+            "nse": 0.7513
+          },
+          "peak_stage": {
+            "count": 43,
+            "mae_m": 0.1037,
+            "rmse_m": 0.1689,
+            "max_ae_m": 0.549,
+            "nse": -1.7562
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.213,
+            "rmse_m": 0.2735,
+            "max_ae_m": 0.549,
+            "nse": -9.6778,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 11,
+            "mae_m": 0.1762,
+            "rmse_m": 0.2218,
+            "max_ae_m": 0.549,
+            "nse": 0.0857,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 6,
+            "mae_m": 0.4325,
+            "rmse_m": 0.4527,
+            "max_ae_m": 0.645,
+            "nse": -5.247,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-15 23:00",
+              "2024-08-16 00:00",
+              "2024-08-20 23:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.213,
+            "rmse_m": 0.2735,
+            "max_ae_m": 0.549,
+            "nse": -9.6778,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        }
+      }
+    },
+    "water_level_only_ridge": {
+      "model_name": "Water-Level-Only (Ridge)",
+      "horizons": {
+        "1h": {
+          "overall": {
+            "count": 163,
+            "mae_m": 0.0466,
+            "rmse_m": 0.0843,
+            "max_ae_m": 0.4784,
+            "nse": 0.8926
+          },
+          "peak_stage": {
+            "count": 42,
+            "mae_m": 0.073,
+            "rmse_m": 0.1234,
+            "max_ae_m": 0.4784,
+            "nse": -1.8073
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2085,
+            "rmse_m": 0.2219,
+            "max_ae_m": 0.3129,
+            "nse": -0.3534,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 11,
+            "mae_m": 0.1531,
+            "rmse_m": 0.1716,
+            "max_ae_m": 0.3129,
+            "nse": 0.2741,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2657,
+            "rmse_m": 0.2971,
+            "max_ae_m": 0.4784,
+            "nse": -0.5984,
+            "timestamps": [
+              "2024-08-16 00:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2085,
+            "rmse_m": 0.2219,
+            "max_ae_m": 0.3129,
+            "nse": -0.3534,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        },
+        "2h": {
+          "overall": {
+            "count": 163,
+            "mae_m": 0.0702,
+            "rmse_m": 0.1272,
+            "max_ae_m": 0.6466,
+            "nse": 0.7534
+          },
+          "peak_stage": {
+            "count": 43,
+            "mae_m": 0.1134,
+            "rmse_m": 0.1814,
+            "max_ae_m": 0.6466,
+            "nse": -2.7788
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.266,
+            "rmse_m": 0.3111,
+            "max_ae_m": 0.5155,
+            "nse": -7.7802,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 10,
+            "mae_m": 0.1849,
+            "rmse_m": 0.2327,
+            "max_ae_m": 0.5155,
+            "nse": -0.2858,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 7,
+            "mae_m": 0.4148,
+            "rmse_m": 0.445,
+            "max_ae_m": 0.6466,
+            "nse": -5.3223,
+            "timestamps": [
+              "2024-08-15 23:00",
+              "2024-08-16 00:00",
+              "2024-08-16 04:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 06:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.266,
+            "rmse_m": 0.3111,
+            "max_ae_m": 0.5155,
+            "nse": -7.7802,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        },
+        "3h": {
+          "overall": {
+            "count": 160,
+            "mae_m": 0.0771,
+            "rmse_m": 0.148,
+            "max_ae_m": 0.7696,
+            "nse": 0.6671
+          },
+          "peak_stage": {
+            "count": 43,
+            "mae_m": 0.1254,
+            "rmse_m": 0.2103,
+            "max_ae_m": 0.6938,
+            "nse": -3.2735
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2656,
+            "rmse_m": 0.35,
+            "max_ae_m": 0.6938,
+            "nse": -16.4847,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 11,
+            "mae_m": 0.1889,
+            "rmse_m": 0.2662,
+            "max_ae_m": 0.6938,
+            "nse": -0.3173,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 6,
+            "mae_m": 0.5493,
+            "rmse_m": 0.5737,
+            "max_ae_m": 0.7696,
+            "nse": -9.0333,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-15 23:00",
+              "2024-08-16 00:00",
+              "2024-08-20 23:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.2656,
+            "rmse_m": 0.35,
+            "max_ae_m": 0.6938,
+            "nse": -16.4847,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        }
+      }
+    },
+    "water_level_only_gradient_boosting": {
+      "model_name": "Water-Level-Only (Gradient_boosting)",
+      "horizons": {
+        "1h": {
+          "overall": {
+            "count": 163,
+            "mae_m": 0.0412,
+            "rmse_m": 0.073,
+            "max_ae_m": 0.4851,
+            "nse": 0.9196
+          },
+          "peak_stage": {
+            "count": 42,
+            "mae_m": 0.0741,
+            "rmse_m": 0.1123,
+            "max_ae_m": 0.4851,
+            "nse": -1.325
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.0592,
+            "rmse_m": 0.0809,
+            "max_ae_m": 0.1686,
+            "nse": 0.8203,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 11,
+            "mae_m": 0.0411,
+            "rmse_m": 0.0633,
+            "max_ae_m": 0.1686,
+            "nse": 0.9013,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1768,
+            "rmse_m": 0.257,
+            "max_ae_m": 0.4851,
+            "nse": -0.1954,
+            "timestamps": [
+              "2024-08-16 00:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.0592,
+            "rmse_m": 0.0809,
+            "max_ae_m": 0.1686,
+            "nse": 0.8203,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        },
+        "2h": {
+          "overall": {
+            "count": 163,
+            "mae_m": 0.0686,
+            "rmse_m": 0.1184,
+            "max_ae_m": 0.7003,
+            "nse": 0.7864
+          },
+          "peak_stage": {
+            "count": 43,
+            "mae_m": 0.1034,
+            "rmse_m": 0.1574,
+            "max_ae_m": 0.7003,
+            "nse": -1.8424
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1617,
+            "rmse_m": 0.1886,
+            "max_ae_m": 0.2663,
+            "nse": -2.2275,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 10,
+            "mae_m": 0.1178,
+            "rmse_m": 0.1444,
+            "max_ae_m": 0.2663,
+            "nse": 0.5054,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 7,
+            "mae_m": 0.3072,
+            "rmse_m": 0.3853,
+            "max_ae_m": 0.7003,
+            "nse": -3.7405,
+            "timestamps": [
+              "2024-08-15 23:00",
+              "2024-08-16 00:00",
+              "2024-08-16 04:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 06:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1617,
+            "rmse_m": 0.1886,
+            "max_ae_m": 0.2663,
+            "nse": -2.2275,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        },
+        "3h": {
+          "overall": {
+            "count": 160,
+            "mae_m": 0.0803,
+            "rmse_m": 0.1382,
+            "max_ae_m": 0.753,
+            "nse": 0.7096
+          },
+          "peak_stage": {
+            "count": 43,
+            "mae_m": 0.1162,
+            "rmse_m": 0.1718,
+            "max_ae_m": 0.5263,
+            "nse": -1.8523
+          },
+          "antecedent_rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1846,
+            "rmse_m": 0.216,
+            "max_ae_m": 0.3692,
+            "nse": -5.6582,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          },
+          "antecedent_rapid_change": {
+            "count": 11,
+            "mae_m": 0.1849,
+            "rmse_m": 0.2124,
+            "max_ae_m": 0.3699,
+            "nse": 0.1617,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-16 01:00",
+              "2024-08-16 03:00",
+              "2024-08-16 21:00",
+              "2024-08-17 04:00",
+              "2024-08-19 16:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00",
+              "2024-08-21 05:00"
+            ]
+          },
+          "future_rapid_rise": {
+            "count": 6,
+            "mae_m": 0.4483,
+            "rmse_m": 0.4894,
+            "max_ae_m": 0.753,
+            "nse": -6.3009,
+            "timestamps": [
+              "2024-08-15 22:00",
+              "2024-08-15 23:00",
+              "2024-08-16 00:00",
+              "2024-08-20 23:00",
+              "2024-08-21 00:00",
+              "2024-08-21 01:00"
+            ]
+          },
+          "rapid_rise": {
+            "count": 5,
+            "mae_m": 0.1846,
+            "rmse_m": 0.216,
+            "max_ae_m": 0.3692,
+            "nse": -5.6582,
+            "timestamps": [
+              "2024-08-16 01:00",
+              "2024-08-21 01:00",
+              "2024-08-21 02:00",
+              "2024-08-21 03:00",
+              "2024-08-21 04:00"
+            ]
+          }
+        }
+      }
+    },
+    "water_level_plus_catchment_rainfall": {
+      "model_name": "Water-Level + Catchment-Rainfall Model",
+      "status": "BLOCKED_AWAITING_AUTHENTIC_RAINFALL",
+      "description": "Model architecture implemented in river_forecasting.src.baseline_models.RainfallRunoffForecaster. Awaiting authentic MOSDAC INSAT-3DS HEM extraction for July-August 2024. Strict protocol prohibits synthetic rainfall generation or fabricated metric reporting.",
+      "horizons": null
+    }
+  },
+  "catchment_boundary_investigation": {
+    "station": "Vishnupuri",
+    "project_name": "Vishnupuri Prakalp (Shankar Sagar Jalashay)",
+    "pour_point": {
+      "latitude": 19.126944,
+      "longitude": 77.280833
+    },
+    "verified_drainage_area_sq_km": 51390.78,
+    "area_validation_range_sq_km": [
+      49000.0,
+      53000.0
+    ],
+    "required_crs": "EPSG:4326",
+    "primary_official_source": {
+      "name": "India-WRIS (Water Resources Information System, Ministry of Jal Shakti, GoI)",
+      "agency": "Central Water Commission (CWC) & National Remote Sensing Centre (NRSC / ISRO)",
+      "portal_url": "https://indiawris.gov.in/wris/",
+      "license": "Government Open Data License - India (GODL-India)",
+      "layers": [
+        "Godavari River Basin Boundary",
+        "Upper Godavari Sub-Basin Boundary",
+        "Middle Godavari (upstream of Vishnupuri) Watersheds"
+      ],
+      "notes": "India-WRIS provides the official statutory river basin and sub-basin polygons. The Vishnupuri Barrage commands the entire Upper Godavari sub-basin down to Nanded."
+    },
+    "secondary_global_source": {
+      "name": "HydroSHEDS / HydroBASINS (Asia Region)",
+      "institution": "World Wildlife Fund (WWF) & McGill University",
+      "dataset_code": "hybas_as_lev06_v1c / hybas_as_lev07_v1c",
+      "download_portal": "https://www.hydrosheds.org/products/hydrobasins",
+      "license": "Creative Commons Attribution 4.0 International (CC BY 4.0)",
+      "methodology": "Delineated from hydrologically conditioned 3-arcsecond SRTM DEM. Upstream catchment is extracted by tracing Pfafstetter topological network (HYBAS_ID -> NEXT_DOWN) terminating at the sub-basin containing (19.126944 N, 77.280833 E)."
+    },
+    "prohibited_substitutes": [
+      "Bounding Box (BBOX) approximation (captures non-contributing basins, severely violating mass balance).",
+      "Single satellite pixel at dam wall (ignores ~51,390 km\u00b2 of upstream storm runoff).",
+      "Arbitrary polygon without DEM flow-direction topology."
+    ],
+    "manual_download_instructions": [
+      "Option A: India-WRIS Official Boundary Download",
+      "  1. Navigate to https://indiawris.gov.in/wris/#/download",
+      "  2. Select Category: 'Basin / Sub-basin / Watershed'.",
+      "  3. Choose Basin: 'Godavari', Sub-basin: 'Upper Godavari'.",
+      "  4. Download the GIS layer as Shapefile or GeoJSON.",
+      "  5. In QGIS/Python, merge the Upper Godavari watersheds contributing upstream of Nanded (19.126944\u00b0 N, 77.280833\u00b0 E).",
+      "  6. Validate that total polygon area matches ~51,390 km\u00b2 within \u00b13%.",
+      "  7. Save verified boundary to `data/spatial/vishnupuri_upstream_catchment.geojson`.",
+      "",
+      "Option B: HydroBASINS Asia Automated/Manual Extraction",
+      "  1. Download `hybas_as_lev06_v1c.zip` from https://www.hydrosheds.org/products/hydrobasins.",
+      "  2. Unzip shapefile `hybas_as_lev06_v1c.shp`.",
+      "  3. Locate the pour-point polygon containing coordinates (19.126944 N, 77.280833 E).",
+      "  4. Trace all upstream contributing basins using the recursive topological query: subbasins where NEXT_DOWN leads to the pour-point polygon.",
+      "  5. Dissolve upstream polygons into a single boundary in EPSG:4326.",
+      "  6. Save output to `data/spatial/vishnupuri_upstream_catchment.geojson`."
+    ]
+  },
+  "mosdac_historical_order_plan": {
+    "product_details": {
+      "mission": "INSAT-3DS",
+      "sensor": "Imager",
+      "product_id": "3SIMG_L2B_HEM_V01R00",
+      "dataset": "/HEM (Precipitation Rate, mm/hr)",
+      "temporal_resolution": "30 minutes (half-hourly)",
+      "spatial_resolution": "~4 km curvilinear",
+      "units": "mm/hr"
+    },
+    "order_window": {
+      "start_utc": "2024-07-04 00:00:00",
+      "end_utc": "2024-08-23 23:59:00",
+      "duration_days": 51,
+      "slots_per_day": 48,
+      "theoretical_file_count": 2448,
+      "expected_file_count": 2346
+    },
+    "spatial_subset_analysis": {
+      "is_subset_option_available_on_portal": "MOSDAC cart supports geographic AOI bounding box filtering for query purposes, but raw Level-2B HDF5 products are generated and delivered as full-disk curvilinear grids. GeoTIFF conversions can be requested for subsets, but native HDF5 L2B files on SFTP are standard full-disk swaths (~9.76 MB per file).",
+      "full_disk_storage_estimate_gb": 22.36,
+      "subset_storage_estimate_gb": 1.79,
+      "recommended_strategy": "Order standard full-disk HDF5 files via MOSDAC cart. Use our fast CatchmentRainfallExtractor to immediately filter and extract catchment-average precipitation, keeping raw storage in data/mosdac/hdf_archive."
+    },
+    "runtime_estimates": {
+      "sftp_download_estimated_minutes": 61.2,
+      "catchment_extraction_estimated_seconds": 28.2,
+      "processing_rate_files_per_second": 83.3
+    },
+    "safe_credential_policy": [
+      "Never commit passwords, tokens, or private keys to git.",
+      "Store credentials only in local .env as MOSDAC_USERNAME and MOSDAC_PASSWORD.",
+      "Existing scripts/download_mosdac_hdf.py reads .env safely without printing secrets."
+    ],
+    "step_by_step_order_workflow": [
+      "1. Log into the official MOSDAC catalog at https://mosdac.gov.in/catalog/.",
+      "2. Under Mission, select 'INSAT-3DS'; under Sensor, select 'Imager'.",
+      "3. Under Product, select '3SIMG_L2B_HEM_V01R00' (Hydro-Estimator Precipitation).",
+      "4. Set Date Range: 2024-07-04 00:00 to 2024-08-23 23:59 UTC.",
+      "5. Add items to Cart and submit order with Order Purpose: 'Flood Forecasting Research'.",
+      "6. Await email notification from MOSDAC with Order ID (typically 6-24 hours for historical processing).",
+      "7. Once staged on download.mosdac.gov.in:22 under your order directory, run:",
+      "   python scripts/download_mosdac_hdf.py --start-date 2024-07-04 --end-date 2024-08-23"
+    ]
+  }
+}

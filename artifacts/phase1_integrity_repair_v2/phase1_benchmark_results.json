@@ -1,0 +1,4976 @@
+{
+  "1h": {
+    "M01": {
+      "id": "M01",
+      "name": "Persistence Baseline",
+      "horizon": "+1h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri"
+      ],
+      "n_features": 1,
+      "train_n": 1258,
+      "artifact": null,
+      "cohorts": {
+        "val": {
+          "n": 452,
+          "mae_m": 0.00589,
+          "mae_mm": 5.89,
+          "rmse_m": 0.00805,
+          "rmse_mm": 8.05,
+          "r2": 0.98409,
+          "bias_m": 0.00047,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.00514,
+          "mae_ci_high_m": 0.00653,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 449,
+              "mae_m": 0.00586,
+              "mae_persistence_m": 0.00586,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 451,
+              "mae_m": 0.00589,
+              "mae_persistence_m": 0.00589,
+              "imp_pct": 0.0
+            }
+          }
+        },
+        "test": {
+          "n": 685,
+          "mae_m": 0.00503,
+          "mae_mm": 5.03,
+          "rmse_m": 0.00757,
+          "rmse_mm": 7.57,
+          "r2": 0.9979,
+          "bias_m": 0.00096,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.0045,
+          "mae_ci_high_m": 0.0056,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 677,
+              "mae_m": 0.00504,
+              "mae_persistence_m": 0.00504,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 683,
+              "mae_m": 0.00504,
+              "mae_persistence_m": 0.00504,
+              "imp_pct": 0.0
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.029,
+          "mae_mm": 29.0,
+          "rmse_m": 0.03421,
+          "rmse_mm": 34.21,
+          "r2": 0.9838,
+          "bias_m": -0.02607,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.0174,
+          "mae_ci_high_m": 0.04252,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.02788,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.02971,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": 0.0
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M02": {
+      "id": "M02",
+      "name": "Linear Regression (Stage History)",
+      "horizon": "+1h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "n_features": 5,
+      "train_n": 1237,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M02_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 443,
+          "mae_m": 0.00632,
+          "mae_mm": 6.32,
+          "rmse_m": 0.00866,
+          "rmse_mm": 8.66,
+          "r2": 0.98116,
+          "bias_m": 0.00011,
+          "mae_vs_persistence_m": 0.00051,
+          "imp_vs_persistence_pct": -8.71,
+          "mae_ci_low_m": 0.00554,
+          "mae_ci_high_m": 0.00707,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 443,
+              "mae_m": 0.00632,
+              "mae_persistence_m": 0.00582,
+              "imp_pct": -8.71
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 442,
+              "mae_m": 0.00632,
+              "mae_persistence_m": 0.00582,
+              "imp_pct": -8.58
+            }
+          }
+        },
+        "test": {
+          "n": 661,
+          "mae_m": 0.00568,
+          "mae_mm": 5.68,
+          "rmse_m": 0.00835,
+          "rmse_mm": 8.35,
+          "r2": 0.99749,
+          "bias_m": 0.00035,
+          "mae_vs_persistence_m": 0.00069,
+          "imp_vs_persistence_pct": -13.81,
+          "mae_ci_low_m": 0.00501,
+          "mae_ci_high_m": 0.00637,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 661,
+              "mae_m": 0.00568,
+              "mae_persistence_m": 0.00499,
+              "imp_pct": -13.81
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 659,
+              "mae_m": 0.00568,
+              "mae_persistence_m": 0.005,
+              "imp_pct": -13.61
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.04855,
+          "mae_mm": 48.55,
+          "rmse_m": 0.05826,
+          "rmse_mm": 58.26,
+          "r2": 0.95301,
+          "bias_m": -0.04687,
+          "mae_vs_persistence_m": 0.01955,
+          "imp_vs_persistence_pct": -67.41,
+          "mae_ci_low_m": 0.02458,
+          "mae_ci_high_m": 0.07574,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.0431,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -54.59
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.05104,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -71.77
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M03": {
+      "id": "M03",
+      "name": "Ridge (Stage History, alpha=1)",
+      "horizon": "+1h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "n_features": 5,
+      "train_n": 1237,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M03_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 443,
+          "mae_m": 0.00657,
+          "mae_mm": 6.57,
+          "rmse_m": 0.00876,
+          "rmse_mm": 8.76,
+          "r2": 0.98071,
+          "bias_m": -0.00091,
+          "mae_vs_persistence_m": 0.00075,
+          "imp_vs_persistence_pct": -12.92,
+          "mae_ci_low_m": 0.00588,
+          "mae_ci_high_m": 0.00736,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 443,
+              "mae_m": 0.00657,
+              "mae_persistence_m": 0.00582,
+              "imp_pct": -12.92
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 442,
+              "mae_m": 0.00655,
+              "mae_persistence_m": 0.00582,
+              "imp_pct": -12.59
+            }
+          }
+        },
+        "test": {
+          "n": 661,
+          "mae_m": 0.00599,
+          "mae_mm": 5.99,
+          "rmse_m": 0.00854,
+          "rmse_mm": 8.54,
+          "r2": 0.99738,
+          "bias_m": -0.00057,
+          "mae_vs_persistence_m": 0.00101,
+          "imp_vs_persistence_pct": -20.19,
+          "mae_ci_low_m": 0.00532,
+          "mae_ci_high_m": 0.00673,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 661,
+              "mae_m": 0.00599,
+              "mae_persistence_m": 0.00499,
+              "imp_pct": -20.19
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 659,
+              "mae_m": 0.00598,
+              "mae_persistence_m": 0.005,
+              "imp_pct": -19.7
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.04905,
+          "mae_mm": 49.05,
+          "rmse_m": 0.05892,
+          "rmse_mm": 58.92,
+          "r2": 0.95193,
+          "bias_m": -0.04739,
+          "mae_vs_persistence_m": 0.02005,
+          "imp_vs_persistence_pct": -69.14,
+          "mae_ci_low_m": 0.02472,
+          "mae_ci_high_m": 0.07657,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.04347,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -55.93
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.05159,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -73.62
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M04": {
+      "id": "M04",
+      "name": "Ridge (Stage-Change, alpha=10)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h"
+      ],
+      "n_features": 4,
+      "train_n": 1222,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M04_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 435,
+          "mae_m": 0.00626,
+          "mae_mm": 6.26,
+          "rmse_m": 0.00855,
+          "rmse_mm": 8.55,
+          "r2": 0.98131,
+          "bias_m": 0.0007,
+          "mae_vs_persistence_m": 0.0005,
+          "imp_vs_persistence_pct": -8.68,
+          "mae_ci_low_m": 0.00545,
+          "mae_ci_high_m": 0.00698,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 435,
+              "mae_m": 0.00626,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -8.68
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 434,
+              "mae_m": 0.00626,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -8.59
+            }
+          }
+        },
+        "test": {
+          "n": 642,
+          "mae_m": 0.0056,
+          "mae_mm": 5.6,
+          "rmse_m": 0.00823,
+          "rmse_mm": 8.23,
+          "r2": 0.9976,
+          "bias_m": 0.00076,
+          "mae_vs_persistence_m": 0.00069,
+          "imp_vs_persistence_pct": -14.02,
+          "mae_ci_low_m": 0.00508,
+          "mae_ci_high_m": 0.00632,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 642,
+              "mae_m": 0.0056,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -14.02
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 640,
+              "mae_m": 0.0056,
+              "mae_persistence_m": 0.00492,
+              "imp_pct": -13.84
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.05015,
+          "mae_mm": 50.15,
+          "rmse_m": 0.05987,
+          "rmse_mm": 59.87,
+          "r2": 0.95038,
+          "bias_m": -0.04862,
+          "mae_vs_persistence_m": 0.02115,
+          "imp_vs_persistence_pct": -72.92,
+          "mae_ci_low_m": 0.02591,
+          "mae_ci_high_m": 0.0779,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.04465,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -60.15
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.05272,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -77.44
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M05": {
+      "id": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm"
+      ],
+      "n_features": 9,
+      "train_n": 1079,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M05_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 421,
+          "mae_m": 0.00552,
+          "mae_mm": 5.52,
+          "rmse_m": 0.00734,
+          "rmse_mm": 7.34,
+          "r2": 0.98602,
+          "bias_m": -0.00105,
+          "mae_vs_persistence_m": -0.00025,
+          "imp_vs_persistence_pct": 4.26,
+          "mae_ci_low_m": 0.0049,
+          "mae_ci_high_m": 0.00616,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 421,
+              "mae_m": 0.00552,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 4.26
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 420,
+              "mae_m": 0.00553,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 4.16
+            }
+          }
+        },
+        "test": {
+          "n": 635,
+          "mae_m": 0.00497,
+          "mae_mm": 4.97,
+          "rmse_m": 0.00712,
+          "rmse_mm": 7.12,
+          "r2": 0.99818,
+          "bias_m": -0.00048,
+          "mae_vs_persistence_m": 7e-05,
+          "imp_vs_persistence_pct": -1.34,
+          "mae_ci_low_m": 0.0045,
+          "mae_ci_high_m": 0.00553,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 635,
+              "mae_m": 0.00497,
+              "mae_persistence_m": 0.0049,
+              "imp_pct": -1.34
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 633,
+              "mae_m": 0.00497,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -1.13
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.0455,
+          "mae_mm": 45.5,
+          "rmse_m": 0.05486,
+          "rmse_mm": 54.86,
+          "r2": 0.95834,
+          "bias_m": -0.04338,
+          "mae_vs_persistence_m": 0.0165,
+          "imp_vs_persistence_pct": -56.91,
+          "mae_ci_low_m": 0.0237,
+          "mae_ci_high_m": 0.07286,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.04058,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -45.54
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.04774,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -60.67
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M06": {
+      "id": "M06",
+      "name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "rain_lag1_1h_mm",
+        "rain_lag2_1h_mm",
+        "rain_lag3_1h_mm"
+      ],
+      "n_features": 12,
+      "train_n": 1073,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M06_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 379,
+          "mae_m": 0.00559,
+          "mae_mm": 5.59,
+          "rmse_m": 0.00738,
+          "rmse_mm": 7.38,
+          "r2": 0.98488,
+          "bias_m": -0.00102,
+          "mae_vs_persistence_m": -0.00024,
+          "imp_vs_persistence_pct": 4.17,
+          "mae_ci_low_m": 0.00496,
+          "mae_ci_high_m": 0.00625,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 379,
+              "mae_m": 0.00559,
+              "mae_persistence_m": 0.00584,
+              "imp_pct": 4.17
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 378,
+              "mae_m": 0.0056,
+              "mae_persistence_m": 0.00584,
+              "imp_pct": 4.06
+            }
+          }
+        },
+        "test": {
+          "n": 612,
+          "mae_m": 0.00498,
+          "mae_mm": 4.98,
+          "rmse_m": 0.00716,
+          "rmse_mm": 7.16,
+          "r2": 0.99809,
+          "bias_m": -0.00038,
+          "mae_vs_persistence_m": 3e-05,
+          "imp_vs_persistence_pct": -0.59,
+          "mae_ci_low_m": 0.0045,
+          "mae_ci_high_m": 0.00552,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 612,
+              "mae_m": 0.00498,
+              "mae_persistence_m": 0.00495,
+              "imp_pct": -0.59
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 610,
+              "mae_m": 0.00498,
+              "mae_persistence_m": 0.00496,
+              "imp_pct": -0.38
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.04591,
+          "mae_mm": 45.91,
+          "rmse_m": 0.05536,
+          "rmse_mm": 55.36,
+          "r2": 0.95758,
+          "bias_m": -0.04381,
+          "mae_vs_persistence_m": 0.01691,
+          "imp_vs_persistence_pct": -58.31,
+          "mae_ci_low_m": 0.02378,
+          "mae_ci_high_m": 0.07344,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.04084,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -46.47
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.04817,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -62.11
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M07": {
+      "id": "M07",
+      "name": "Ridge (Stage + Rain + API, alpha=10)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1079,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M07_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 421,
+          "mae_m": 0.00568,
+          "mae_mm": 5.68,
+          "rmse_m": 0.00743,
+          "rmse_mm": 7.43,
+          "r2": 0.98567,
+          "bias_m": -0.00155,
+          "mae_vs_persistence_m": -9e-05,
+          "imp_vs_persistence_pct": 1.54,
+          "mae_ci_low_m": 0.00506,
+          "mae_ci_high_m": 0.00629,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 421,
+              "mae_m": 0.00568,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 1.54
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 420,
+              "mae_m": 0.00569,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 1.44
+            }
+          }
+        },
+        "test": {
+          "n": 635,
+          "mae_m": 0.00519,
+          "mae_mm": 5.19,
+          "rmse_m": 0.00724,
+          "rmse_mm": 7.24,
+          "r2": 0.99812,
+          "bias_m": -0.00145,
+          "mae_vs_persistence_m": 0.00029,
+          "imp_vs_persistence_pct": -5.84,
+          "mae_ci_low_m": 0.00473,
+          "mae_ci_high_m": 0.00572,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 635,
+              "mae_m": 0.00519,
+              "mae_persistence_m": 0.0049,
+              "imp_pct": -5.84
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 633,
+              "mae_m": 0.00519,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -5.65
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.04716,
+          "mae_mm": 47.16,
+          "rmse_m": 0.05701,
+          "rmse_mm": 57.01,
+          "r2": 0.95501,
+          "bias_m": -0.04503,
+          "mae_vs_persistence_m": 0.01816,
+          "imp_vs_persistence_pct": -62.62,
+          "mae_ci_low_m": 0.02412,
+          "mae_ci_high_m": 0.07576,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.04193,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -50.38
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.04951,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -66.63
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M08": {
+      "id": "M08",
+      "name": "Random Forest (Stage + Rain + API)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1079,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M08_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 421,
+          "mae_m": 0.00606,
+          "mae_mm": 6.06,
+          "rmse_m": 0.00768,
+          "rmse_mm": 7.68,
+          "r2": 0.98467,
+          "bias_m": -0.00205,
+          "mae_vs_persistence_m": 0.00029,
+          "imp_vs_persistence_pct": -5.11,
+          "mae_ci_low_m": 0.00552,
+          "mae_ci_high_m": 0.00667,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 421,
+              "mae_m": 0.00606,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -5.11
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 420,
+              "mae_m": 0.00607,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -5.16
+            }
+          }
+        },
+        "test": {
+          "n": 635,
+          "mae_m": 0.00592,
+          "mae_mm": 5.92,
+          "rmse_m": 0.00764,
+          "rmse_mm": 7.64,
+          "r2": 0.99791,
+          "bias_m": -0.00303,
+          "mae_vs_persistence_m": 0.00101,
+          "imp_vs_persistence_pct": -20.68,
+          "mae_ci_low_m": 0.00543,
+          "mae_ci_high_m": 0.00646,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 635,
+              "mae_m": 0.00592,
+              "mae_persistence_m": 0.0049,
+              "imp_pct": -20.68
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 633,
+              "mae_m": 0.00593,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -20.76
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.03491,
+          "mae_mm": 34.91,
+          "rmse_m": 0.04185,
+          "rmse_mm": 41.85,
+          "r2": 0.97575,
+          "bias_m": -0.03302,
+          "mae_vs_persistence_m": 0.00591,
+          "imp_vs_persistence_pct": -20.39,
+          "mae_ci_low_m": 0.01915,
+          "mae_ci_high_m": 0.05354,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.03273,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -17.38
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.03623,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -21.94
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M09": {
+      "id": "M09",
+      "name": "Extra Trees (Stage + Rain + API)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1079,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M09_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 421,
+          "mae_m": 0.0058,
+          "mae_mm": 5.8,
+          "rmse_m": 0.00752,
+          "rmse_mm": 7.52,
+          "r2": 0.98533,
+          "bias_m": -0.00144,
+          "mae_vs_persistence_m": 3e-05,
+          "imp_vs_persistence_pct": -0.6,
+          "mae_ci_low_m": 0.00519,
+          "mae_ci_high_m": 0.00641,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 421,
+              "mae_m": 0.0058,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -0.6
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 420,
+              "mae_m": 0.00581,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -0.62
+            }
+          }
+        },
+        "test": {
+          "n": 635,
+          "mae_m": 0.00497,
+          "mae_mm": 4.97,
+          "rmse_m": 0.00684,
+          "rmse_mm": 6.84,
+          "r2": 0.99832,
+          "bias_m": -0.00111,
+          "mae_vs_persistence_m": 6e-05,
+          "imp_vs_persistence_pct": -1.3,
+          "mae_ci_low_m": 0.00453,
+          "mae_ci_high_m": 0.00545,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 635,
+              "mae_m": 0.00497,
+              "mae_persistence_m": 0.0049,
+              "imp_pct": -1.3
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 633,
+              "mae_m": 0.00498,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -1.33
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.03473,
+          "mae_mm": 34.73,
+          "rmse_m": 0.04121,
+          "rmse_mm": 41.21,
+          "r2": 0.97649,
+          "bias_m": -0.03263,
+          "mae_vs_persistence_m": 0.00573,
+          "imp_vs_persistence_pct": -19.74,
+          "mae_ci_low_m": 0.01987,
+          "mae_ci_high_m": 0.05252,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.03266,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -17.14
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.03602,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -21.23
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M10": {
+      "id": "M10",
+      "name": "Gradient Boosting Regressor (sklearn GBR)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1079,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M10_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 421,
+          "mae_m": 0.00632,
+          "mae_mm": 6.32,
+          "rmse_m": 0.00788,
+          "rmse_mm": 7.88,
+          "r2": 0.98389,
+          "bias_m": -0.00271,
+          "mae_vs_persistence_m": 0.00055,
+          "imp_vs_persistence_pct": -9.51,
+          "mae_ci_low_m": 0.00577,
+          "mae_ci_high_m": 0.00688,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 421,
+              "mae_m": 0.00632,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -9.51
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 420,
+              "mae_m": 0.00632,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -9.54
+            }
+          }
+        },
+        "test": {
+          "n": 635,
+          "mae_m": 0.01052,
+          "mae_mm": 10.52,
+          "rmse_m": 0.01536,
+          "rmse_mm": 15.36,
+          "r2": 0.99155,
+          "bias_m": -0.0086,
+          "mae_vs_persistence_m": 0.00562,
+          "imp_vs_persistence_pct": -114.66,
+          "mae_ci_low_m": 0.00872,
+          "mae_ci_high_m": 0.01257,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 635,
+              "mae_m": 0.01052,
+              "mae_persistence_m": 0.0049,
+              "imp_pct": -114.66
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 633,
+              "mae_m": 0.01055,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -114.77
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.04371,
+          "mae_mm": 43.71,
+          "rmse_m": 0.0526,
+          "rmse_mm": 52.6,
+          "r2": 0.96169,
+          "bias_m": -0.04164,
+          "mae_vs_persistence_m": 0.01471,
+          "imp_vs_persistence_pct": -50.71,
+          "mae_ci_low_m": 0.02276,
+          "mae_ci_high_m": 0.06822,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.04037,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -44.79
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.04566,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -53.66
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M11": {
+      "id": "M11",
+      "name": "HistGradientBoosting (sklearn, NaN-native)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1258,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M11_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 452,
+          "mae_m": 0.00644,
+          "mae_mm": 6.44,
+          "rmse_m": 0.00805,
+          "rmse_mm": 8.05,
+          "r2": 0.9841,
+          "bias_m": -0.00254,
+          "mae_vs_persistence_m": 0.00055,
+          "imp_vs_persistence_pct": -9.32,
+          "mae_ci_low_m": 0.00592,
+          "mae_ci_high_m": 0.0069,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 449,
+              "mae_m": 0.00639,
+              "mae_persistence_m": 0.00586,
+              "imp_pct": -8.98
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 451,
+              "mae_m": 0.00644,
+              "mae_persistence_m": 0.00589,
+              "imp_pct": -9.4
+            }
+          }
+        },
+        "test": {
+          "n": 685,
+          "mae_m": 0.0059,
+          "mae_mm": 5.9,
+          "rmse_m": 0.00761,
+          "rmse_mm": 7.61,
+          "r2": 0.99788,
+          "bias_m": -0.00243,
+          "mae_vs_persistence_m": 0.00087,
+          "imp_vs_persistence_pct": -17.2,
+          "mae_ci_low_m": 0.00548,
+          "mae_ci_high_m": 0.00639,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 677,
+              "mae_m": 0.00581,
+              "mae_persistence_m": 0.00504,
+              "imp_pct": -15.25
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 683,
+              "mae_m": 0.00591,
+              "mae_persistence_m": 0.00504,
+              "imp_pct": -17.27
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.03753,
+          "mae_mm": 37.53,
+          "rmse_m": 0.04484,
+          "rmse_mm": 44.84,
+          "r2": 0.97217,
+          "bias_m": -0.03539,
+          "mae_vs_persistence_m": 0.00853,
+          "imp_vs_persistence_pct": -29.4,
+          "mae_ci_low_m": 0.02076,
+          "mae_ci_high_m": 0.05771,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.03504,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -25.67
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.03918,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -31.84
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M12": {
+      "id": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "horizon": "+1h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1079,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M12_1h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 421,
+          "mae_m": 0.00574,
+          "mae_mm": 5.74,
+          "rmse_m": 0.00761,
+          "rmse_mm": 7.61,
+          "r2": 0.98497,
+          "bias_m": -0.00056,
+          "mae_vs_persistence_m": -3e-05,
+          "imp_vs_persistence_pct": 0.48,
+          "mae_ci_low_m": 0.00508,
+          "mae_ci_high_m": 0.00639,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 421,
+              "mae_m": 0.00574,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 0.48
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 420,
+              "mae_m": 0.00574,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 0.49
+            }
+          }
+        },
+        "test": {
+          "n": 635,
+          "mae_m": 0.00492,
+          "mae_mm": 4.92,
+          "rmse_m": 0.0071,
+          "rmse_mm": 7.1,
+          "r2": 0.9982,
+          "bias_m": -0.00014,
+          "mae_vs_persistence_m": 2e-05,
+          "imp_vs_persistence_pct": -0.43,
+          "mae_ci_low_m": 0.00444,
+          "mae_ci_high_m": 0.00547,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 635,
+              "mae_m": 0.00492,
+              "mae_persistence_m": 0.0049,
+              "imp_pct": -0.43
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 633,
+              "mae_m": 0.00493,
+              "mae_persistence_m": 0.00491,
+              "imp_pct": -0.46
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.02951,
+          "mae_mm": 29.51,
+          "rmse_m": 0.03481,
+          "rmse_mm": 34.81,
+          "r2": 0.98322,
+          "bias_m": -0.02687,
+          "mae_vs_persistence_m": 0.00051,
+          "imp_vs_persistence_pct": -1.77,
+          "mae_ci_low_m": 0.01789,
+          "mae_ci_high_m": 0.04336,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.02832,
+              "mae_persistence_m": 0.02788,
+              "imp_pct": -1.58
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.03036,
+              "mae_persistence_m": 0.02971,
+              "imp_pct": -2.19
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    }
+  },
+  "2h": {
+    "M01": {
+      "id": "M01",
+      "name": "Persistence Baseline",
+      "horizon": "+2h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri"
+      ],
+      "n_features": 1,
+      "train_n": 1255,
+      "artifact": null,
+      "cohorts": {
+        "val": {
+          "n": 449,
+          "mae_m": 0.00569,
+          "mae_mm": 5.69,
+          "rmse_m": 0.00814,
+          "rmse_mm": 8.14,
+          "r2": 0.98359,
+          "bias_m": 0.00087,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.00492,
+          "mae_ci_high_m": 0.00643,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 446,
+              "mae_m": 0.00567,
+              "mae_persistence_m": 0.00567,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 448,
+              "mae_m": 0.0057,
+              "mae_persistence_m": 0.0057,
+              "imp_pct": 0.0
+            }
+          }
+        },
+        "test": {
+          "n": 678,
+          "mae_m": 0.00577,
+          "mae_mm": 5.77,
+          "rmse_m": 0.00863,
+          "rmse_mm": 8.63,
+          "r2": 0.99728,
+          "bias_m": 0.00181,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.00516,
+          "mae_ci_high_m": 0.0066,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 669,
+              "mae_m": 0.00579,
+              "mae_persistence_m": 0.00579,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 676,
+              "mae_m": 0.00577,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": 0.0
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.05433,
+          "mae_mm": 54.33,
+          "rmse_m": 0.06488,
+          "rmse_mm": 64.88,
+          "r2": 0.94592,
+          "bias_m": -0.0522,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.0329,
+          "mae_ci_high_m": 0.08478,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.0506,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.05779,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": 0.0
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M02": {
+      "id": "M02",
+      "name": "Linear Regression (Stage History)",
+      "horizon": "+2h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "n_features": 5,
+      "train_n": 1233,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M02_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 440,
+          "mae_m": 0.00765,
+          "mae_mm": 7.65,
+          "rmse_m": 0.01069,
+          "rmse_mm": 10.69,
+          "r2": 0.97116,
+          "bias_m": -8e-05,
+          "mae_vs_persistence_m": 0.00204,
+          "imp_vs_persistence_pct": -36.25,
+          "mae_ci_low_m": 0.00654,
+          "mae_ci_high_m": 0.00866,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 440,
+              "mae_m": 0.00765,
+              "mae_persistence_m": 0.00562,
+              "imp_pct": -36.25
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 439,
+              "mae_m": 0.00765,
+              "mae_persistence_m": 0.00562,
+              "imp_pct": -36.05
+            }
+          }
+        },
+        "test": {
+          "n": 653,
+          "mae_m": 0.00768,
+          "mae_mm": 7.68,
+          "rmse_m": 0.01131,
+          "rmse_mm": 11.31,
+          "r2": 0.99541,
+          "bias_m": 0.00043,
+          "mae_vs_persistence_m": 0.00191,
+          "imp_vs_persistence_pct": -33.18,
+          "mae_ci_low_m": 0.00677,
+          "mae_ci_high_m": 0.00867,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 653,
+              "mae_m": 0.00768,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -33.18
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 651,
+              "mae_m": 0.00769,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -33.2
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.0762,
+          "mae_mm": 76.2,
+          "rmse_m": 0.09149,
+          "rmse_mm": 91.49,
+          "r2": 0.89247,
+          "bias_m": -0.07498,
+          "mae_vs_persistence_m": 0.02187,
+          "imp_vs_persistence_pct": -40.24,
+          "mae_ci_low_m": 0.04091,
+          "mae_ci_high_m": 0.12101,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06782,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -34.04
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.08128,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -40.66
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M03": {
+      "id": "M03",
+      "name": "Ridge (Stage History, alpha=1)",
+      "horizon": "+2h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "n_features": 5,
+      "train_n": 1233,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M03_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 440,
+          "mae_m": 0.00783,
+          "mae_mm": 7.83,
+          "rmse_m": 0.01065,
+          "rmse_mm": 10.65,
+          "r2": 0.97134,
+          "bias_m": -0.00117,
+          "mae_vs_persistence_m": 0.00221,
+          "imp_vs_persistence_pct": -39.36,
+          "mae_ci_low_m": 0.00684,
+          "mae_ci_high_m": 0.00871,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 440,
+              "mae_m": 0.00783,
+              "mae_persistence_m": 0.00562,
+              "imp_pct": -39.36
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 439,
+              "mae_m": 0.00781,
+              "mae_persistence_m": 0.00562,
+              "imp_pct": -38.87
+            }
+          }
+        },
+        "test": {
+          "n": 653,
+          "mae_m": 0.00786,
+          "mae_mm": 7.86,
+          "rmse_m": 0.01132,
+          "rmse_mm": 11.32,
+          "r2": 0.9954,
+          "bias_m": -0.00053,
+          "mae_vs_persistence_m": 0.00209,
+          "imp_vs_persistence_pct": -36.19,
+          "mae_ci_low_m": 0.007,
+          "mae_ci_high_m": 0.00885,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 653,
+              "mae_m": 0.00786,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -36.19
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 651,
+              "mae_m": 0.00784,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -35.88
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.07705,
+          "mae_mm": 77.05,
+          "rmse_m": 0.09255,
+          "rmse_mm": 92.55,
+          "r2": 0.88996,
+          "bias_m": -0.0758,
+          "mae_vs_persistence_m": 0.02272,
+          "imp_vs_persistence_pct": -41.81,
+          "mae_ci_low_m": 0.0412,
+          "mae_ci_high_m": 0.12246,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06849,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -35.36
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.08217,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -42.19
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M04": {
+      "id": "M04",
+      "name": "Ridge (Stage-Change, alpha=10)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h"
+      ],
+      "n_features": 4,
+      "train_n": 1218,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M04_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 432,
+          "mae_m": 0.00758,
+          "mae_mm": 7.58,
+          "rmse_m": 0.01036,
+          "rmse_mm": 10.36,
+          "r2": 0.97239,
+          "bias_m": 0.00143,
+          "mae_vs_persistence_m": 0.002,
+          "imp_vs_persistence_pct": -35.78,
+          "mae_ci_low_m": 0.00658,
+          "mae_ci_high_m": 0.00852,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 432,
+              "mae_m": 0.00758,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -35.78
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 431,
+              "mae_m": 0.00759,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -35.68
+            }
+          }
+        },
+        "test": {
+          "n": 634,
+          "mae_m": 0.00759,
+          "mae_mm": 7.59,
+          "rmse_m": 0.011,
+          "rmse_mm": 11.0,
+          "r2": 0.99571,
+          "bias_m": 0.00156,
+          "mae_vs_persistence_m": 0.00186,
+          "imp_vs_persistence_pct": -32.35,
+          "mae_ci_low_m": 0.00676,
+          "mae_ci_high_m": 0.00854,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 634,
+              "mae_m": 0.00759,
+              "mae_persistence_m": 0.00574,
+              "imp_pct": -32.35
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 632,
+              "mae_m": 0.0076,
+              "mae_persistence_m": 0.00574,
+              "imp_pct": -32.41
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.07654,
+          "mae_mm": 76.54,
+          "rmse_m": 0.09158,
+          "rmse_mm": 91.58,
+          "r2": 0.89226,
+          "bias_m": -0.07564,
+          "mae_vs_persistence_m": 0.02221,
+          "imp_vs_persistence_pct": -40.88,
+          "mae_ci_low_m": 0.04196,
+          "mae_ci_high_m": 0.12115,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06833,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -35.05
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.08175,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -41.47
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M05": {
+      "id": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm"
+      ],
+      "n_features": 9,
+      "train_n": 1075,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M05_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 418,
+          "mae_m": 0.00571,
+          "mae_mm": 5.71,
+          "rmse_m": 0.00766,
+          "rmse_mm": 7.66,
+          "r2": 0.98459,
+          "bias_m": -0.00146,
+          "mae_vs_persistence_m": 0.00013,
+          "imp_vs_persistence_pct": -2.3,
+          "mae_ci_low_m": 0.00511,
+          "mae_ci_high_m": 0.00641,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 418,
+              "mae_m": 0.00571,
+              "mae_persistence_m": 0.00558,
+              "imp_pct": -2.3
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 417,
+              "mae_m": 0.00572,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -2.33
+            }
+          }
+        },
+        "test": {
+          "n": 627,
+          "mae_m": 0.00601,
+          "mae_mm": 6.01,
+          "rmse_m": 0.00853,
+          "rmse_mm": 8.53,
+          "r2": 0.99739,
+          "bias_m": -0.0005,
+          "mae_vs_persistence_m": 0.00025,
+          "imp_vs_persistence_pct": -4.4,
+          "mae_ci_low_m": 0.00535,
+          "mae_ci_high_m": 0.00665,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 627,
+              "mae_m": 0.00601,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -4.4
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 625,
+              "mae_m": 0.00601,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -4.33
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.07015,
+          "mae_mm": 70.15,
+          "rmse_m": 0.08509,
+          "rmse_mm": 85.09,
+          "r2": 0.90699,
+          "bias_m": -0.06868,
+          "mae_vs_persistence_m": 0.01581,
+          "imp_vs_persistence_pct": -29.11,
+          "mae_ci_low_m": 0.03882,
+          "mae_ci_high_m": 0.11398,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06276,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -24.03
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.07485,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -29.53
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M06": {
+      "id": "M06",
+      "name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "rain_lag1_1h_mm",
+        "rain_lag2_1h_mm",
+        "rain_lag3_1h_mm"
+      ],
+      "n_features": 12,
+      "train_n": 1069,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M06_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 376,
+          "mae_m": 0.00575,
+          "mae_mm": 5.75,
+          "rmse_m": 0.0077,
+          "rmse_mm": 7.7,
+          "r2": 0.98332,
+          "bias_m": -0.00138,
+          "mae_vs_persistence_m": 8e-05,
+          "imp_vs_persistence_pct": -1.46,
+          "mae_ci_low_m": 0.00507,
+          "mae_ci_high_m": 0.00656,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 376,
+              "mae_m": 0.00575,
+              "mae_persistence_m": 0.00567,
+              "imp_pct": -1.46
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 375,
+              "mae_m": 0.00576,
+              "mae_persistence_m": 0.00568,
+              "imp_pct": -1.5
+            }
+          }
+        },
+        "test": {
+          "n": 604,
+          "mae_m": 0.00601,
+          "mae_mm": 6.01,
+          "rmse_m": 0.00857,
+          "rmse_mm": 8.57,
+          "r2": 0.99727,
+          "bias_m": -0.00033,
+          "mae_vs_persistence_m": 0.0002,
+          "imp_vs_persistence_pct": -3.43,
+          "mae_ci_low_m": 0.00532,
+          "mae_ci_high_m": 0.00664,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 604,
+              "mae_m": 0.00601,
+              "mae_persistence_m": 0.00581,
+              "imp_pct": -3.43
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 602,
+              "mae_m": 0.00601,
+              "mae_persistence_m": 0.00582,
+              "imp_pct": -3.33
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.07105,
+          "mae_mm": 71.05,
+          "rmse_m": 0.08612,
+          "rmse_mm": 86.12,
+          "r2": 0.90472,
+          "bias_m": -0.06967,
+          "mae_vs_persistence_m": 0.01671,
+          "imp_vs_persistence_pct": -30.76,
+          "mae_ci_low_m": 0.03926,
+          "mae_ci_high_m": 0.11518,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06342,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -25.34
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.07582,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -31.2
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M07": {
+      "id": "M07",
+      "name": "Ridge (Stage + Rain + API, alpha=10)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1075,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M07_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 418,
+          "mae_m": 0.00596,
+          "mae_mm": 5.96,
+          "rmse_m": 0.00784,
+          "rmse_mm": 7.84,
+          "r2": 0.98388,
+          "bias_m": -0.00216,
+          "mae_vs_persistence_m": 0.00038,
+          "imp_vs_persistence_pct": -6.85,
+          "mae_ci_low_m": 0.00537,
+          "mae_ci_high_m": 0.00659,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 418,
+              "mae_m": 0.00596,
+              "mae_persistence_m": 0.00558,
+              "imp_pct": -6.85
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 417,
+              "mae_m": 0.00597,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -6.88
+            }
+          }
+        },
+        "test": {
+          "n": 627,
+          "mae_m": 0.00626,
+          "mae_mm": 6.26,
+          "rmse_m": 0.0087,
+          "rmse_mm": 8.7,
+          "r2": 0.99729,
+          "bias_m": -0.00187,
+          "mae_vs_persistence_m": 0.0005,
+          "imp_vs_persistence_pct": -8.63,
+          "mae_ci_low_m": 0.00562,
+          "mae_ci_high_m": 0.00686,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 627,
+              "mae_m": 0.00626,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -8.63
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 625,
+              "mae_m": 0.00626,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -8.57
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.07253,
+          "mae_mm": 72.53,
+          "rmse_m": 0.08803,
+          "rmse_mm": 88.03,
+          "r2": 0.90045,
+          "bias_m": -0.07099,
+          "mae_vs_persistence_m": 0.01819,
+          "imp_vs_persistence_pct": -33.49,
+          "mae_ci_low_m": 0.03963,
+          "mae_ci_high_m": 0.11817,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06472,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -27.91
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.07735,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -33.85
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M08": {
+      "id": "M08",
+      "name": "Random Forest (Stage + Rain + API)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1075,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M08_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 418,
+          "mae_m": 0.00587,
+          "mae_mm": 5.87,
+          "rmse_m": 0.0076,
+          "rmse_mm": 7.6,
+          "r2": 0.98484,
+          "bias_m": -0.00225,
+          "mae_vs_persistence_m": 0.00029,
+          "imp_vs_persistence_pct": -5.25,
+          "mae_ci_low_m": 0.00534,
+          "mae_ci_high_m": 0.00642,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 418,
+              "mae_m": 0.00587,
+              "mae_persistence_m": 0.00558,
+              "imp_pct": -5.25
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 417,
+              "mae_m": 0.00588,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -5.31
+            }
+          }
+        },
+        "test": {
+          "n": 627,
+          "mae_m": 0.00715,
+          "mae_mm": 7.15,
+          "rmse_m": 0.0094,
+          "rmse_mm": 9.4,
+          "r2": 0.99683,
+          "bias_m": -0.00373,
+          "mae_vs_persistence_m": 0.00139,
+          "imp_vs_persistence_pct": -24.1,
+          "mae_ci_low_m": 0.00638,
+          "mae_ci_high_m": 0.00797,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 627,
+              "mae_m": 0.00715,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -24.1
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 625,
+              "mae_m": 0.00716,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -24.29
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.06476,
+          "mae_mm": 64.76,
+          "rmse_m": 0.07735,
+          "rmse_mm": 77.35,
+          "r2": 0.92315,
+          "bias_m": -0.06301,
+          "mae_vs_persistence_m": 0.01043,
+          "imp_vs_persistence_pct": -19.19,
+          "mae_ci_low_m": 0.0369,
+          "mae_ci_high_m": 0.10164,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.0596,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -17.78
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.06867,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -18.83
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M09": {
+      "id": "M09",
+      "name": "Extra Trees (Stage + Rain + API)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1075,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M09_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 418,
+          "mae_m": 0.00572,
+          "mae_mm": 5.72,
+          "rmse_m": 0.00748,
+          "rmse_mm": 7.48,
+          "r2": 0.98532,
+          "bias_m": -0.0018,
+          "mae_vs_persistence_m": 0.00014,
+          "imp_vs_persistence_pct": -2.56,
+          "mae_ci_low_m": 0.00517,
+          "mae_ci_high_m": 0.00633,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 418,
+              "mae_m": 0.00572,
+              "mae_persistence_m": 0.00558,
+              "imp_pct": -2.56
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 417,
+              "mae_m": 0.00573,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -2.6
+            }
+          }
+        },
+        "test": {
+          "n": 627,
+          "mae_m": 0.00565,
+          "mae_mm": 5.65,
+          "rmse_m": 0.00782,
+          "rmse_mm": 7.82,
+          "r2": 0.99781,
+          "bias_m": -0.00094,
+          "mae_vs_persistence_m": -0.00011,
+          "imp_vs_persistence_pct": 1.87,
+          "mae_ci_low_m": 0.00511,
+          "mae_ci_high_m": 0.00619,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 627,
+              "mae_m": 0.00565,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": 1.87
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 625,
+              "mae_m": 0.00566,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": 1.74
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.06196,
+          "mae_mm": 61.96,
+          "rmse_m": 0.07404,
+          "rmse_mm": 74.04,
+          "r2": 0.92957,
+          "bias_m": -0.06073,
+          "mae_vs_persistence_m": 0.00762,
+          "imp_vs_persistence_pct": -14.03,
+          "mae_ci_low_m": 0.03593,
+          "mae_ci_high_m": 0.09715,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.05705,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -12.75
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.06602,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -14.25
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M10": {
+      "id": "M10",
+      "name": "Gradient Boosting Regressor (sklearn GBR)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1075,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M10_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 418,
+          "mae_m": 0.0066,
+          "mae_mm": 6.6,
+          "rmse_m": 0.0081,
+          "rmse_mm": 8.1,
+          "r2": 0.98277,
+          "bias_m": -0.00357,
+          "mae_vs_persistence_m": 0.00102,
+          "imp_vs_persistence_pct": -18.33,
+          "mae_ci_low_m": 0.00608,
+          "mae_ci_high_m": 0.00713,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 418,
+              "mae_m": 0.0066,
+              "mae_persistence_m": 0.00558,
+              "imp_pct": -18.33
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 417,
+              "mae_m": 0.00662,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -18.39
+            }
+          }
+        },
+        "test": {
+          "n": 627,
+          "mae_m": 0.01095,
+          "mae_mm": 10.95,
+          "rmse_m": 0.01528,
+          "rmse_mm": 15.28,
+          "r2": 0.99164,
+          "bias_m": -0.00867,
+          "mae_vs_persistence_m": 0.00519,
+          "imp_vs_persistence_pct": -90.11,
+          "mae_ci_low_m": 0.00913,
+          "mae_ci_high_m": 0.01278,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 627,
+              "mae_m": 0.01095,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -90.11
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 625,
+              "mae_m": 0.01096,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": -90.31
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.06566,
+          "mae_mm": 65.66,
+          "rmse_m": 0.07865,
+          "rmse_mm": 78.65,
+          "r2": 0.92053,
+          "bias_m": -0.0639,
+          "mae_vs_persistence_m": 0.01133,
+          "imp_vs_persistence_pct": -20.85,
+          "mae_ci_low_m": 0.03743,
+          "mae_ci_high_m": 0.10331,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06054,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -19.64
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.06957,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -20.4
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M11": {
+      "id": "M11",
+      "name": "HistGradientBoosting (sklearn, NaN-native)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1255,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M11_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 449,
+          "mae_m": 0.00712,
+          "mae_mm": 7.12,
+          "rmse_m": 0.00893,
+          "rmse_mm": 8.93,
+          "r2": 0.98028,
+          "bias_m": -0.00352,
+          "mae_vs_persistence_m": 0.00142,
+          "imp_vs_persistence_pct": -25.02,
+          "mae_ci_low_m": 0.00646,
+          "mae_ci_high_m": 0.00776,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 446,
+              "mae_m": 0.00695,
+              "mae_persistence_m": 0.00567,
+              "imp_pct": -22.59
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 448,
+              "mae_m": 0.00713,
+              "mae_persistence_m": 0.0057,
+              "imp_pct": -25.09
+            }
+          }
+        },
+        "test": {
+          "n": 678,
+          "mae_m": 0.00719,
+          "mae_mm": 7.19,
+          "rmse_m": 0.00916,
+          "rmse_mm": 9.16,
+          "r2": 0.99694,
+          "bias_m": -0.00361,
+          "mae_vs_persistence_m": 0.00141,
+          "imp_vs_persistence_pct": -24.52,
+          "mae_ci_low_m": 0.00664,
+          "mae_ci_high_m": 0.00782,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 669,
+              "mae_m": 0.00706,
+              "mae_persistence_m": 0.00579,
+              "imp_pct": -21.97
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 676,
+              "mae_m": 0.0072,
+              "mae_persistence_m": 0.00577,
+              "imp_pct": -24.76
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.06655,
+          "mae_mm": 66.55,
+          "rmse_m": 0.0791,
+          "rmse_mm": 79.1,
+          "r2": 0.91962,
+          "bias_m": -0.06378,
+          "mae_vs_persistence_m": 0.01221,
+          "imp_vs_persistence_pct": -22.48,
+          "mae_ci_low_m": 0.03823,
+          "mae_ci_high_m": 0.10386,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.06127,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -21.09
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.07021,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -21.51
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M12": {
+      "id": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "horizon": "+2h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1075,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M12_2h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 418,
+          "mae_m": 0.00571,
+          "mae_mm": 5.71,
+          "rmse_m": 0.00757,
+          "rmse_mm": 7.57,
+          "r2": 0.98498,
+          "bias_m": -0.00165,
+          "mae_vs_persistence_m": 0.00013,
+          "imp_vs_persistence_pct": -2.27,
+          "mae_ci_low_m": 0.00512,
+          "mae_ci_high_m": 0.00634,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 418,
+              "mae_m": 0.00571,
+              "mae_persistence_m": 0.00558,
+              "imp_pct": -2.27
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 417,
+              "mae_m": 0.00572,
+              "mae_persistence_m": 0.00559,
+              "imp_pct": -2.34
+            }
+          }
+        },
+        "test": {
+          "n": 627,
+          "mae_m": 0.00569,
+          "mae_mm": 5.69,
+          "rmse_m": 0.00808,
+          "rmse_mm": 8.08,
+          "r2": 0.99766,
+          "bias_m": -0.00065,
+          "mae_vs_persistence_m": -7e-05,
+          "imp_vs_persistence_pct": 1.22,
+          "mae_ci_low_m": 0.0051,
+          "mae_ci_high_m": 0.00626,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 627,
+              "mae_m": 0.00569,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": 1.22
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 625,
+              "mae_m": 0.0057,
+              "mae_persistence_m": 0.00576,
+              "imp_pct": 1.08
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.05579,
+          "mae_mm": 55.79,
+          "rmse_m": 0.06635,
+          "rmse_mm": 66.35,
+          "r2": 0.94345,
+          "bias_m": -0.0539,
+          "mae_vs_persistence_m": 0.00146,
+          "imp_vs_persistence_pct": -2.68,
+          "mae_ci_low_m": 0.03399,
+          "mae_ci_high_m": 0.08678,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.05197,
+              "mae_persistence_m": 0.0506,
+              "imp_pct": -2.7
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.0594,
+              "mae_persistence_m": 0.05779,
+              "imp_pct": -2.8
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    }
+  },
+  "3h": {
+    "M01": {
+      "id": "M01",
+      "name": "Persistence Baseline",
+      "horizon": "+3h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri"
+      ],
+      "n_features": 1,
+      "train_n": 1254,
+      "artifact": null,
+      "cohorts": {
+        "val": {
+          "n": 447,
+          "mae_m": 0.00638,
+          "mae_mm": 6.38,
+          "rmse_m": 0.00872,
+          "rmse_mm": 8.72,
+          "r2": 0.98113,
+          "bias_m": 0.00125,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.00559,
+          "mae_ci_high_m": 0.00714,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 444,
+              "mae_m": 0.00637,
+              "mae_persistence_m": 0.00637,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 446,
+              "mae_m": 0.00637,
+              "mae_persistence_m": 0.00637,
+              "imp_pct": 0.0
+            }
+          }
+        },
+        "test": {
+          "n": 673,
+          "mae_m": 0.00689,
+          "mae_mm": 6.89,
+          "rmse_m": 0.00985,
+          "rmse_mm": 9.85,
+          "r2": 0.99645,
+          "bias_m": 0.00275,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.00618,
+          "mae_ci_high_m": 0.00776,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 664,
+              "mae_m": 0.00688,
+              "mae_persistence_m": 0.00688,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 671,
+              "mae_m": 0.00689,
+              "mae_persistence_m": 0.00689,
+              "imp_pct": 0.0
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.08063,
+          "mae_mm": 80.63,
+          "rmse_m": 0.09616,
+          "rmse_mm": 96.16,
+          "r2": 0.88861,
+          "bias_m": -0.0805,
+          "mae_vs_persistence_m": 0.0,
+          "imp_vs_persistence_pct": 0.0,
+          "mae_ci_low_m": 0.04722,
+          "mae_ci_high_m": 0.12648,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.07312,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": 0.0
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.08593,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": 0.0
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M02": {
+      "id": "M02",
+      "name": "Linear Regression (Stage History)",
+      "horizon": "+3h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "n_features": 5,
+      "train_n": 1231,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M02_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 438,
+          "mae_m": 0.00932,
+          "mae_mm": 9.32,
+          "rmse_m": 0.01242,
+          "rmse_mm": 12.42,
+          "r2": 0.96096,
+          "bias_m": -0.0005,
+          "mae_vs_persistence_m": 0.00304,
+          "imp_vs_persistence_pct": -48.42,
+          "mae_ci_low_m": 0.00812,
+          "mae_ci_high_m": 0.01042,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 438,
+              "mae_m": 0.00932,
+              "mae_persistence_m": 0.00628,
+              "imp_pct": -48.42
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 437,
+              "mae_m": 0.00929,
+              "mae_persistence_m": 0.00627,
+              "imp_pct": -48.23
+            }
+          }
+        },
+        "test": {
+          "n": 648,
+          "mae_m": 0.00958,
+          "mae_mm": 9.58,
+          "rmse_m": 0.01383,
+          "rmse_mm": 13.83,
+          "r2": 0.99313,
+          "bias_m": 0.0004,
+          "mae_vs_persistence_m": 0.00266,
+          "imp_vs_persistence_pct": -38.5,
+          "mae_ci_low_m": 0.00857,
+          "mae_ci_high_m": 0.01084,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 648,
+              "mae_m": 0.00958,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": -38.5
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 646,
+              "mae_m": 0.00959,
+              "mae_persistence_m": 0.00692,
+              "imp_pct": -38.58
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.10447,
+          "mae_mm": 104.47,
+          "rmse_m": 0.1242,
+          "rmse_mm": 124.2,
+          "r2": 0.81419,
+          "bias_m": -0.10447,
+          "mae_vs_persistence_m": 0.02384,
+          "imp_vs_persistence_pct": -29.56,
+          "mae_ci_low_m": 0.05844,
+          "mae_ci_high_m": 0.16533,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.09247,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -26.46
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.11143,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -29.68
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M03": {
+      "id": "M03",
+      "name": "Ridge (Stage History, alpha=1)",
+      "horizon": "+3h",
+      "target_type": "level",
+      "features": [
+        "stage_vishnupuri",
+        "stage_v_lag1",
+        "stage_v_lag2",
+        "dH_v_1h",
+        "dH_v_3h"
+      ],
+      "n_features": 5,
+      "train_n": 1231,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M03_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 438,
+          "mae_m": 0.00938,
+          "mae_mm": 9.38,
+          "rmse_m": 0.01251,
+          "rmse_mm": 12.51,
+          "r2": 0.96037,
+          "bias_m": -0.00161,
+          "mae_vs_persistence_m": 0.0031,
+          "imp_vs_persistence_pct": -49.39,
+          "mae_ci_low_m": 0.00834,
+          "mae_ci_high_m": 0.01042,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 438,
+              "mae_m": 0.00938,
+              "mae_persistence_m": 0.00628,
+              "imp_pct": -49.39
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 437,
+              "mae_m": 0.00934,
+              "mae_persistence_m": 0.00627,
+              "imp_pct": -48.92
+            }
+          }
+        },
+        "test": {
+          "n": 648,
+          "mae_m": 0.00957,
+          "mae_mm": 9.57,
+          "rmse_m": 0.01349,
+          "rmse_mm": 13.49,
+          "r2": 0.99346,
+          "bias_m": -0.00058,
+          "mae_vs_persistence_m": 0.00266,
+          "imp_vs_persistence_pct": -38.41,
+          "mae_ci_low_m": 0.00859,
+          "mae_ci_high_m": 0.01074,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 648,
+              "mae_m": 0.00957,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": -38.41
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 646,
+              "mae_m": 0.00956,
+              "mae_persistence_m": 0.00692,
+              "imp_pct": -38.17
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.10533,
+          "mae_mm": 105.33,
+          "rmse_m": 0.12527,
+          "rmse_mm": 125.27,
+          "r2": 0.81098,
+          "bias_m": -0.10533,
+          "mae_vs_persistence_m": 0.02469,
+          "imp_vs_persistence_pct": -30.62,
+          "mae_ci_low_m": 0.05872,
+          "mae_ci_high_m": 0.16687,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.09313,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -27.36
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.11237,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -30.77
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M04": {
+      "id": "M04",
+      "name": "Ridge (Stage-Change, alpha=10)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h"
+      ],
+      "n_features": 4,
+      "train_n": 1217,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M04_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 430,
+          "mae_m": 0.00942,
+          "mae_mm": 9.42,
+          "rmse_m": 0.01214,
+          "rmse_mm": 12.14,
+          "r2": 0.96191,
+          "bias_m": 0.0025,
+          "mae_vs_persistence_m": 0.00322,
+          "imp_vs_persistence_pct": -51.78,
+          "mae_ci_low_m": 0.00843,
+          "mae_ci_high_m": 0.01053,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 430,
+              "mae_m": 0.00942,
+              "mae_persistence_m": 0.00621,
+              "imp_pct": -51.78
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 429,
+              "mae_m": 0.00941,
+              "mae_persistence_m": 0.0062,
+              "imp_pct": -51.74
+            }
+          }
+        },
+        "test": {
+          "n": 629,
+          "mae_m": 0.00982,
+          "mae_mm": 9.82,
+          "rmse_m": 0.01373,
+          "rmse_mm": 13.73,
+          "r2": 0.99331,
+          "bias_m": 0.00282,
+          "mae_vs_persistence_m": 0.00294,
+          "imp_vs_persistence_pct": -42.73,
+          "mae_ci_low_m": 0.00872,
+          "mae_ci_high_m": 0.01083,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 629,
+              "mae_m": 0.00982,
+              "mae_persistence_m": 0.00688,
+              "imp_pct": -42.73
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 627,
+              "mae_m": 0.00983,
+              "mae_persistence_m": 0.00688,
+              "imp_pct": -42.87
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.10704,
+          "mae_mm": 107.04,
+          "rmse_m": 0.12643,
+          "rmse_mm": 126.43,
+          "r2": 0.80746,
+          "bias_m": -0.10704,
+          "mae_vs_persistence_m": 0.02641,
+          "imp_vs_persistence_pct": -32.75,
+          "mae_ci_low_m": 0.06128,
+          "mae_ci_high_m": 0.16819,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.09509,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -30.05
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.11403,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -32.7
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M05": {
+      "id": "M05",
+      "name": "Ridge (Stage-Change + Contemp. Rain) [Model D]",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm"
+      ],
+      "n_features": 9,
+      "train_n": 1074,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M05_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 416,
+          "mae_m": 0.00659,
+          "mae_mm": 6.59,
+          "rmse_m": 0.00862,
+          "rmse_mm": 8.62,
+          "r2": 0.98045,
+          "bias_m": -0.00181,
+          "mae_vs_persistence_m": 0.00035,
+          "imp_vs_persistence_pct": -5.56,
+          "mae_ci_low_m": 0.00595,
+          "mae_ci_high_m": 0.00727,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 416,
+              "mae_m": 0.00659,
+              "mae_persistence_m": 0.00625,
+              "imp_pct": -5.56
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 415,
+              "mae_m": 0.0066,
+              "mae_persistence_m": 0.00624,
+              "imp_pct": -5.74
+            }
+          }
+        },
+        "test": {
+          "n": 622,
+          "mae_m": 0.00708,
+          "mae_mm": 7.08,
+          "rmse_m": 0.00981,
+          "rmse_mm": 9.81,
+          "r2": 0.99655,
+          "bias_m": -0.00057,
+          "mae_vs_persistence_m": 0.00017,
+          "imp_vs_persistence_pct": -2.52,
+          "mae_ci_low_m": 0.00633,
+          "mae_ci_high_m": 0.00787,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 622,
+              "mae_m": 0.00708,
+              "mae_persistence_m": 0.0069,
+              "imp_pct": -2.52
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 620,
+              "mae_m": 0.00709,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": -2.59
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.09833,
+          "mae_mm": 98.33,
+          "rmse_m": 0.11809,
+          "rmse_mm": 118.09,
+          "r2": 0.83203,
+          "bias_m": -0.09793,
+          "mae_vs_persistence_m": 0.0177,
+          "imp_vs_persistence_pct": -21.95,
+          "mae_ci_low_m": 0.05465,
+          "mae_ci_high_m": 0.15935,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.08741,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -19.55
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.1048,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -21.96
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M06": {
+      "id": "M06",
+      "name": "Ridge (Stage-Change + Lagged Rain, alpha=10)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "rain_lag1_1h_mm",
+        "rain_lag2_1h_mm",
+        "rain_lag3_1h_mm"
+      ],
+      "n_features": 12,
+      "train_n": 1068,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M06_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 374,
+          "mae_m": 0.00651,
+          "mae_mm": 6.51,
+          "rmse_m": 0.00855,
+          "rmse_mm": 8.55,
+          "r2": 0.97918,
+          "bias_m": -0.00159,
+          "mae_vs_persistence_m": 0.00023,
+          "imp_vs_persistence_pct": -3.67,
+          "mae_ci_low_m": 0.00589,
+          "mae_ci_high_m": 0.00726,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 374,
+              "mae_m": 0.00651,
+              "mae_persistence_m": 0.00628,
+              "imp_pct": -3.67
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 373,
+              "mae_m": 0.00652,
+              "mae_persistence_m": 0.00627,
+              "imp_pct": -3.87
+            }
+          }
+        },
+        "test": {
+          "n": 599,
+          "mae_m": 0.00704,
+          "mae_mm": 7.04,
+          "rmse_m": 0.00981,
+          "rmse_mm": 9.81,
+          "r2": 0.99641,
+          "bias_m": -0.00035,
+          "mae_vs_persistence_m": 9e-05,
+          "imp_vs_persistence_pct": -1.31,
+          "mae_ci_low_m": 0.00631,
+          "mae_ci_high_m": 0.00774,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 599,
+              "mae_m": 0.00704,
+              "mae_persistence_m": 0.00695,
+              "imp_pct": -1.31
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 597,
+              "mae_m": 0.00705,
+              "mae_persistence_m": 0.00696,
+              "imp_pct": -1.37
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.09883,
+          "mae_mm": 98.83,
+          "rmse_m": 0.11861,
+          "rmse_mm": 118.61,
+          "r2": 0.83054,
+          "bias_m": -0.09843,
+          "mae_vs_persistence_m": 0.0182,
+          "imp_vs_persistence_pct": -22.57,
+          "mae_ci_low_m": 0.05507,
+          "mae_ci_high_m": 0.15998,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.08783,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -20.12
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.10535,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -22.6
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M07": {
+      "id": "M07",
+      "name": "Ridge (Stage + Rain + API, alpha=10)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1074,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M07_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 416,
+          "mae_m": 0.00685,
+          "mae_mm": 6.85,
+          "rmse_m": 0.00888,
+          "rmse_mm": 8.88,
+          "r2": 0.97922,
+          "bias_m": -0.00275,
+          "mae_vs_persistence_m": 0.00061,
+          "imp_vs_persistence_pct": -9.69,
+          "mae_ci_low_m": 0.00621,
+          "mae_ci_high_m": 0.00746,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 416,
+              "mae_m": 0.00685,
+              "mae_persistence_m": 0.00625,
+              "imp_pct": -9.69
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 415,
+              "mae_m": 0.00686,
+              "mae_persistence_m": 0.00624,
+              "imp_pct": -9.9
+            }
+          }
+        },
+        "test": {
+          "n": 622,
+          "mae_m": 0.00746,
+          "mae_mm": 7.46,
+          "rmse_m": 0.01005,
+          "rmse_mm": 10.05,
+          "r2": 0.99638,
+          "bias_m": -0.0024,
+          "mae_vs_persistence_m": 0.00056,
+          "imp_vs_persistence_pct": -8.09,
+          "mae_ci_low_m": 0.00674,
+          "mae_ci_high_m": 0.00824,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 622,
+              "mae_m": 0.00746,
+              "mae_persistence_m": 0.0069,
+              "imp_pct": -8.09
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 620,
+              "mae_m": 0.00747,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": -8.18
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.10135,
+          "mae_mm": 101.35,
+          "rmse_m": 0.12194,
+          "rmse_mm": 121.94,
+          "r2": 0.82089,
+          "bias_m": -0.10098,
+          "mae_vs_persistence_m": 0.02072,
+          "imp_vs_persistence_pct": -25.69,
+          "mae_ci_low_m": 0.05584,
+          "mae_ci_high_m": 0.16511,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.08986,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -22.89
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.1081,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -25.81
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M08": {
+      "id": "M08",
+      "name": "Random Forest (Stage + Rain + API)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1074,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M08_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 416,
+          "mae_m": 0.0074,
+          "mae_mm": 7.4,
+          "rmse_m": 0.00911,
+          "rmse_mm": 9.11,
+          "r2": 0.97815,
+          "bias_m": -0.00412,
+          "mae_vs_persistence_m": 0.00115,
+          "imp_vs_persistence_pct": -18.44,
+          "mae_ci_low_m": 0.00687,
+          "mae_ci_high_m": 0.00798,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 416,
+              "mae_m": 0.0074,
+              "mae_persistence_m": 0.00625,
+              "imp_pct": -18.44
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 415,
+              "mae_m": 0.0074,
+              "mae_persistence_m": 0.00624,
+              "imp_pct": -18.61
+            }
+          }
+        },
+        "test": {
+          "n": 622,
+          "mae_m": 0.00875,
+          "mae_mm": 8.75,
+          "rmse_m": 0.01103,
+          "rmse_mm": 11.03,
+          "r2": 0.99564,
+          "bias_m": -0.00591,
+          "mae_vs_persistence_m": 0.00185,
+          "imp_vs_persistence_pct": -26.82,
+          "mae_ci_low_m": 0.00788,
+          "mae_ci_high_m": 0.00958,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 622,
+              "mae_m": 0.00875,
+              "mae_persistence_m": 0.0069,
+              "imp_pct": -26.82
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 620,
+              "mae_m": 0.00877,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": -26.96
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.08675,
+          "mae_mm": 86.75,
+          "rmse_m": 0.10353,
+          "rmse_mm": 103.53,
+          "r2": 0.8709,
+          "bias_m": -0.08675,
+          "mae_vs_persistence_m": 0.00612,
+          "imp_vs_persistence_pct": -7.59,
+          "mae_ci_low_m": 0.05106,
+          "mae_ci_high_m": 0.13639,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.07849,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -7.35
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.09279,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -7.98
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M09": {
+      "id": "M09",
+      "name": "Extra Trees (Stage + Rain + API)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1074,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M09_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 416,
+          "mae_m": 0.00678,
+          "mae_mm": 6.78,
+          "rmse_m": 0.00852,
+          "rmse_mm": 8.52,
+          "r2": 0.98087,
+          "bias_m": -0.00296,
+          "mae_vs_persistence_m": 0.00053,
+          "imp_vs_persistence_pct": -8.5,
+          "mae_ci_low_m": 0.00623,
+          "mae_ci_high_m": 0.00733,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 416,
+              "mae_m": 0.00678,
+              "mae_persistence_m": 0.00625,
+              "imp_pct": -8.5
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 415,
+              "mae_m": 0.00678,
+              "mae_persistence_m": 0.00624,
+              "imp_pct": -8.62
+            }
+          }
+        },
+        "test": {
+          "n": 622,
+          "mae_m": 0.0068,
+          "mae_mm": 6.8,
+          "rmse_m": 0.00889,
+          "rmse_mm": 8.89,
+          "r2": 0.99717,
+          "bias_m": -0.00229,
+          "mae_vs_persistence_m": -0.0001,
+          "imp_vs_persistence_pct": 1.5,
+          "mae_ci_low_m": 0.00621,
+          "mae_ci_high_m": 0.00741,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 622,
+              "mae_m": 0.0068,
+              "mae_persistence_m": 0.0069,
+              "imp_pct": 1.5
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 620,
+              "mae_m": 0.00681,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": 1.46
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.0856,
+          "mae_mm": 85.6,
+          "rmse_m": 0.1017,
+          "rmse_mm": 101.7,
+          "r2": 0.87541,
+          "bias_m": -0.0856,
+          "mae_vs_persistence_m": 0.00497,
+          "imp_vs_persistence_pct": -6.16,
+          "mae_ci_low_m": 0.05074,
+          "mae_ci_high_m": 0.13392,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.07759,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -6.11
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.09128,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -6.23
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M10": {
+      "id": "M10",
+      "name": "Gradient Boosting Regressor (sklearn GBR)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1074,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M10_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 416,
+          "mae_m": 0.00764,
+          "mae_mm": 7.64,
+          "rmse_m": 0.00932,
+          "rmse_mm": 9.32,
+          "r2": 0.97711,
+          "bias_m": -0.00467,
+          "mae_vs_persistence_m": 0.0014,
+          "imp_vs_persistence_pct": -22.34,
+          "mae_ci_low_m": 0.00711,
+          "mae_ci_high_m": 0.00819,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 416,
+              "mae_m": 0.00764,
+              "mae_persistence_m": 0.00625,
+              "imp_pct": -22.34
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 415,
+              "mae_m": 0.00765,
+              "mae_persistence_m": 0.00624,
+              "imp_pct": -22.64
+            }
+          }
+        },
+        "test": {
+          "n": 622,
+          "mae_m": 0.01165,
+          "mae_mm": 11.65,
+          "rmse_m": 0.0157,
+          "rmse_mm": 15.7,
+          "r2": 0.99116,
+          "bias_m": -0.00935,
+          "mae_vs_persistence_m": 0.00475,
+          "imp_vs_persistence_pct": -68.84,
+          "mae_ci_low_m": 0.0099,
+          "mae_ci_high_m": 0.01344,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 622,
+              "mae_m": 0.01165,
+              "mae_persistence_m": 0.0069,
+              "imp_pct": -68.84
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 620,
+              "mae_m": 0.01168,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": -69.16
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.0927,
+          "mae_mm": 92.7,
+          "rmse_m": 0.11069,
+          "rmse_mm": 110.69,
+          "r2": 0.85242,
+          "bias_m": -0.0927,
+          "mae_vs_persistence_m": 0.01207,
+          "imp_vs_persistence_pct": -14.97,
+          "mae_ci_low_m": 0.05383,
+          "mae_ci_high_m": 0.14664,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.08377,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -14.56
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.09931,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -15.57
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M11": {
+      "id": "M11",
+      "name": "HistGradientBoosting (sklearn, NaN-native)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1254,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M11_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 447,
+          "mae_m": 0.00793,
+          "mae_mm": 7.93,
+          "rmse_m": 0.01013,
+          "rmse_mm": 10.13,
+          "r2": 0.9745,
+          "bias_m": -0.00425,
+          "mae_vs_persistence_m": 0.00155,
+          "imp_vs_persistence_pct": -24.32,
+          "mae_ci_low_m": 0.00726,
+          "mae_ci_high_m": 0.00871,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 444,
+              "mae_m": 0.00771,
+              "mae_persistence_m": 0.00637,
+              "imp_pct": -21.01
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 446,
+              "mae_m": 0.00793,
+              "mae_persistence_m": 0.00637,
+              "imp_pct": -24.53
+            }
+          }
+        },
+        "test": {
+          "n": 673,
+          "mae_m": 0.00801,
+          "mae_mm": 8.01,
+          "rmse_m": 0.01065,
+          "rmse_mm": 10.65,
+          "r2": 0.99586,
+          "bias_m": -0.00368,
+          "mae_vs_persistence_m": 0.00112,
+          "imp_vs_persistence_pct": -16.28,
+          "mae_ci_low_m": 0.00732,
+          "mae_ci_high_m": 0.00878,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 664,
+              "mae_m": 0.00779,
+              "mae_persistence_m": 0.00688,
+              "imp_pct": -13.33
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 671,
+              "mae_m": 0.00801,
+              "mae_persistence_m": 0.00689,
+              "imp_pct": -16.23
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.08794,
+          "mae_mm": 87.94,
+          "rmse_m": 0.10525,
+          "rmse_mm": 105.25,
+          "r2": 0.86658,
+          "bias_m": -0.08794,
+          "mae_vs_persistence_m": 0.00731,
+          "imp_vs_persistence_pct": -9.07,
+          "mae_ci_low_m": 0.05154,
+          "mae_ci_high_m": 0.1388,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.07975,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -9.07
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.09414,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -9.56
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    },
+    "M12": {
+      "id": "M12",
+      "name": "XGBoost Regressor (conservative)",
+      "horizon": "+3h",
+      "target_type": "dH",
+      "features": [
+        "dH_v_1h",
+        "dH_v_3h",
+        "dH_v_6h",
+        "accel_v_1h",
+        "rain_depth_1h_mm",
+        "rain_3h_mm",
+        "rain_6h_mm",
+        "rain_12h_mm",
+        "rain_24h_mm",
+        "api_7d_mm"
+      ],
+      "n_features": 10,
+      "train_n": 1074,
+      "artifact": "artifacts\\phase1_integrity_repair_v2\\M12_3h.joblib",
+      "cohorts": {
+        "val": {
+          "n": 416,
+          "mae_m": 0.00661,
+          "mae_mm": 6.61,
+          "rmse_m": 0.0084,
+          "rmse_mm": 8.4,
+          "r2": 0.98141,
+          "bias_m": -0.00267,
+          "mae_vs_persistence_m": 0.00037,
+          "imp_vs_persistence_pct": -5.85,
+          "mae_ci_low_m": 0.00604,
+          "mae_ci_high_m": 0.00722,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 416,
+              "mae_m": 0.00661,
+              "mae_persistence_m": 0.00625,
+              "imp_pct": -5.85
+            },
+            "rainfall_event": {
+              "n": 1,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 415,
+              "mae_m": 0.00661,
+              "mae_persistence_m": 0.00624,
+              "imp_pct": -5.97
+            }
+          }
+        },
+        "test": {
+          "n": 622,
+          "mae_m": 0.00661,
+          "mae_mm": 6.61,
+          "rmse_m": 0.00899,
+          "rmse_mm": 8.99,
+          "r2": 0.9971,
+          "bias_m": -0.0012,
+          "mae_vs_persistence_m": -0.00029,
+          "imp_vs_persistence_pct": 4.19,
+          "mae_ci_low_m": 0.00599,
+          "mae_ci_high_m": 0.00732,
+          "strata": {
+            "rising": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 622,
+              "mae_m": 0.00661,
+              "mae_persistence_m": 0.0069,
+              "imp_pct": 4.19
+            },
+            "rainfall_event": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            },
+            "dry_period": {
+              "n": 620,
+              "mae_m": 0.00662,
+              "mae_persistence_m": 0.00691,
+              "imp_pct": 4.1
+            }
+          }
+        },
+        "phase_a": {
+          "n": 30,
+          "mae_m": 0.08259,
+          "mae_mm": 82.59,
+          "rmse_m": 0.09807,
+          "rmse_mm": 98.07,
+          "r2": 0.88416,
+          "bias_m": -0.08259,
+          "mae_vs_persistence_m": 0.00195,
+          "imp_vs_persistence_pct": -2.42,
+          "mae_ci_low_m": 0.04892,
+          "mae_ci_high_m": 0.12881,
+          "strata": {
+            "rising": {
+              "n": 5,
+              "note": "insufficient samples (<10)"
+            },
+            "falling": {
+              "n": 0,
+              "note": "insufficient samples (<10)"
+            },
+            "stable": {
+              "n": 25,
+              "mae_m": 0.075,
+              "mae_persistence_m": 0.07312,
+              "imp_pct": -2.57
+            },
+            "rainfall_event": {
+              "n": 28,
+              "mae_m": 0.08797,
+              "mae_persistence_m": 0.08593,
+              "imp_pct": -2.38
+            },
+            "dry_period": {
+              "n": 2,
+              "note": "insufficient samples (<10)"
+            }
+          }
+        }
+      }
+    }
+  }
+}

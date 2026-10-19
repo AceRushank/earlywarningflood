@@ -1,0 +1,85 @@
+Cohort,Lead_Time,Model,MAE_m,RMSE_m,R2,Diff_vs_Persistence_m,Imp_vs_Persistence_Pct,N_Eval_Samples,N_Train_Samples
+Phase_A_July_Event,+1h,A. Persistence Baseline,0.029,0.0342,0.9838,0.0,0.0,30,944
+Phase_A_July_Event,+1h,B. Stage-Only Ridge (Level),0.0531,0.0643,0.9427,0.0241,-83.0,30,944
+Phase_A_July_Event,+1h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0306,0.0361,0.982,0.0016,-5.39,30,944
+Phase_A_July_Event,+1h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0274,0.0322,0.9856,-0.0016,5.36,30,944
+Phase_A_July_Event,+1h,E. Random Forest Regressor (dH),0.0355,0.0425,0.975,0.0065,-22.43,30,944
+Phase_A_July_Event,+1h,F. Gradient Boosting Regressor (dH),0.0437,0.0526,0.9617,0.0147,-50.71,30,944
+Phase_A_July_Event,+1h,F. XGBoost Regressor (dH),0.0295,0.0348,0.9832,0.0005,-1.85,30,944
+Phase_A_July_Event,+2h,A. Persistence Baseline,0.0543,0.0649,0.9459,0.0,0.0,30,939
+Phase_A_July_Event,+2h,B. Stage-Only Ridge (Level),0.08,0.0965,0.8804,0.0256,-47.16,30,939
+Phase_A_July_Event,+2h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0568,0.0675,0.9415,0.0024,-4.45,30,939
+Phase_A_July_Event,+2h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0506,0.0612,0.9518,-0.0038,6.95,30,939
+Phase_A_July_Event,+2h,E. Random Forest Regressor (dH),0.0645,0.0772,0.9235,0.0102,-18.73,30,939
+Phase_A_July_Event,+2h,F. Gradient Boosting Regressor (dH),0.0657,0.0787,0.9205,0.0113,-20.85,30,939
+Phase_A_July_Event,+2h,F. XGBoost Regressor (dH),0.0558,0.0664,0.9434,0.0015,-2.71,30,939
+Phase_A_July_Event,+3h,A. Persistence Baseline,0.0806,0.0962,0.8886,0.0,0.0,30,937
+Phase_A_July_Event,+3h,B. Stage-Only Ridge (Level),0.1075,0.1284,0.8015,0.0268,-33.29,30,937
+Phase_A_July_Event,+3h,"C. Stage-Change Ridge (dH, Stage-Only)",0.084,0.0995,0.8808,0.0034,-4.21,30,937
+Phase_A_July_Event,+3h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0759,0.0913,0.8995,-0.0047,5.89,30,937
+Phase_A_July_Event,+3h,E. Random Forest Regressor (dH),0.0863,0.103,0.8723,0.0056,-6.98,30,937
+Phase_A_July_Event,+3h,F. Gradient Boosting Regressor (dH),0.0927,0.1107,0.8524,0.0121,-14.97,30,937
+Phase_A_July_Event,+3h,F. XGBoost Regressor (dH),0.0827,0.0981,0.8841,0.002,-2.52,30,937
+September_Sync_Holdout,+1h,A. Persistence Baseline,0.0055,0.0085,0.9861,0.0,0.0,305,944
+September_Sync_Holdout,+1h,B. Stage-Only Ridge (Level),0.042,0.0427,0.6504,0.0364,-657.44,305,944
+September_Sync_Holdout,+1h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0056,0.0084,0.9864,0.0001,-1.65,305,944
+September_Sync_Holdout,+1h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0058,0.0085,0.9862,0.0002,-4.36,305,944
+September_Sync_Holdout,+1h,E. Random Forest Regressor (dH),0.0072,0.009,0.9844,0.0016,-29.18,305,944
+September_Sync_Holdout,+1h,F. Gradient Boosting Regressor (dH),0.0167,0.0219,0.9082,0.0112,-202.24,305,944
+September_Sync_Holdout,+1h,F. XGBoost Regressor (dH),0.0056,0.0082,0.987,0.0001,-1.17,305,944
+September_Sync_Holdout,+2h,A. Persistence Baseline,0.0066,0.01,0.9807,0.0,0.0,305,939
+September_Sync_Holdout,+2h,B. Stage-Only Ridge (Level),0.0501,0.0509,0.5017,0.0435,-655.03,305,939
+September_Sync_Holdout,+2h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0066,0.0098,0.9815,-0.0,0.51,305,939
+September_Sync_Holdout,+2h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0069,0.01,0.981,0.0003,-4.04,305,939
+September_Sync_Holdout,+2h,E. Random Forest Regressor (dH),0.0086,0.0108,0.9775,0.002,-30.1,305,939
+September_Sync_Holdout,+2h,F. Gradient Boosting Regressor (dH),0.0152,0.0193,0.9285,0.0085,-128.82,305,939
+September_Sync_Holdout,+2h,F. XGBoost Regressor (dH),0.0065,0.0095,0.9827,-0.0002,2.4,305,939
+September_Sync_Holdout,+3h,A. Persistence Baseline,0.0078,0.0112,0.9757,0.0,0.0,305,937
+September_Sync_Holdout,+3h,B. Stage-Only Ridge (Level),0.0586,0.0594,0.3196,0.0507,-649.76,305,937
+September_Sync_Holdout,+3h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0076,0.0108,0.9773,-0.0002,2.67,305,937
+September_Sync_Holdout,+3h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0082,0.0111,0.976,0.0003,-4.4,305,937
+September_Sync_Holdout,+3h,E. Random Forest Regressor (dH),0.0115,0.014,0.962,0.0037,-47.57,305,937
+September_Sync_Holdout,+3h,F. Gradient Boosting Regressor (dH),0.0157,0.0196,0.926,0.0079,-101.66,305,937
+September_Sync_Holdout,+3h,F. XGBoost Regressor (dH),0.0075,0.0105,0.9786,-0.0003,4.13,305,937
+September_Full_Test,+1h,A. Persistence Baseline,0.0048,0.0074,0.9981,0.0,0.0,617,1102
+September_Full_Test,+1h,B. Stage-Only Ridge (Level),0.0049,0.0071,0.9982,0.0,-0.33,617,1102
+September_Full_Test,+1h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0049,0.0074,0.9981,0.0,-0.57,617,1102
+September_Full_Test,+1h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0053,0.0075,0.998,0.0004,-8.8,617,1102
+September_Full_Test,+1h,E. Random Forest Regressor (dH),0.0058,0.0075,0.998,0.001,-20.22,617,1102
+September_Full_Test,+1h,F. Gradient Boosting Regressor (dH),0.0108,0.0159,0.991,0.006,-123.48,617,1102
+September_Full_Test,+1h,F. XGBoost Regressor (dH),0.0049,0.0071,0.9982,0.0,-0.48,617,1102
+September_Full_Test,+2h,A. Persistence Baseline,0.0057,0.0086,0.9973,0.0,0.0,617,1097
+September_Full_Test,+2h,B. Stage-Only Ridge (Level),0.0059,0.0085,0.9974,0.0002,-3.28,617,1097
+September_Full_Test,+2h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0058,0.0087,0.9973,0.0001,-2.07,617,1097
+September_Full_Test,+2h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0065,0.0089,0.9972,0.0008,-13.29,617,1097
+September_Full_Test,+2h,E. Random Forest Regressor (dH),0.0068,0.009,0.9971,0.0011,-19.81,617,1097
+September_Full_Test,+2h,F. Gradient Boosting Regressor (dH),0.011,0.0156,0.9914,0.0053,-92.22,617,1097
+September_Full_Test,+2h,F. XGBoost Regressor (dH),0.0056,0.0081,0.9977,-0.0001,2.35,617,1097
+September_Full_Test,+3h,A. Persistence Baseline,0.0069,0.0098,0.9965,0.0,0.0,617,1095
+September_Full_Test,+3h,B. Stage-Only Ridge (Level),0.0069,0.0096,0.9967,0.0,-0.56,617,1095
+September_Full_Test,+3h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0071,0.0101,0.9964,0.0002,-3.21,617,1095
+September_Full_Test,+3h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0079,0.0103,0.9962,0.001,-14.87,617,1095
+September_Full_Test,+3h,E. Random Forest Regressor (dH),0.0091,0.0114,0.9954,0.0022,-31.85,617,1095
+September_Full_Test,+3h,F. Gradient Boosting Regressor (dH),0.0115,0.0154,0.9916,0.0046,-66.72,617,1095
+September_Full_Test,+3h,F. XGBoost Regressor (dH),0.0064,0.009,0.9971,-0.0005,6.97,617,1095
+Full_Season_Monitored,+1h,A. Persistence Baseline,0.0071,0.0105,1.0,0.0,0.0,2100,1102
+Full_Season_Monitored,+1h,B. Stage-Only Ridge (Level),0.0068,0.0107,1.0,-0.0002,2.92,2100,1102
+Full_Season_Monitored,+1h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0071,0.0105,1.0,0.0,-0.2,2100,1102
+Full_Season_Monitored,+1h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0072,0.0101,1.0,0.0002,-2.13,2100,1102
+Full_Season_Monitored,+1h,E. Random Forest Regressor (dH),0.0066,0.0088,1.0,-0.0004,6.17,2100,1102
+Full_Season_Monitored,+1h,F. Gradient Boosting Regressor (dH),0.0079,0.0113,1.0,0.0008,-11.97,2100,1102
+Full_Season_Monitored,+1h,F. XGBoost Regressor (dH),0.007,0.0102,1.0,-0.0001,1.23,2100,1102
+Full_Season_Monitored,+2h,A. Persistence Baseline,0.0083,0.0133,1.0,0.0,0.0,2100,1097
+Full_Season_Monitored,+2h,B. Stage-Only Ridge (Level),0.0082,0.0136,1.0,-0.0001,0.86,2100,1097
+Full_Season_Monitored,+2h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0083,0.0131,1.0,0.0001,-0.69,2100,1097
+Full_Season_Monitored,+2h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0086,0.0122,1.0,0.0003,-3.5,2100,1097
+Full_Season_Monitored,+2h,E. Random Forest Regressor (dH),0.0076,0.0102,1.0,-0.0007,8.7,2100,1097
+Full_Season_Monitored,+2h,F. Gradient Boosting Regressor (dH),0.0085,0.0117,1.0,0.0002,-2.74,2100,1097
+Full_Season_Monitored,+2h,F. XGBoost Regressor (dH),0.008,0.0124,1.0,-0.0003,3.83,2100,1097
+Full_Season_Monitored,+3h,A. Persistence Baseline,0.0094,0.0164,0.9999,0.0,0.0,2100,1095
+Full_Season_Monitored,+3h,B. Stage-Only Ridge (Level),0.0094,0.0165,0.9999,0.0,-0.49,2100,1095
+Full_Season_Monitored,+3h,"C. Stage-Change Ridge (dH, Stage-Only)",0.0095,0.0159,0.9999,0.0001,-1.51,2100,1095
+Full_Season_Monitored,+3h,D. Model D: Stage-Change + Rainfall Ridge (dH),0.0099,0.0143,0.9999,0.0005,-5.35,2100,1095
+Full_Season_Monitored,+3h,E. Random Forest Regressor (dH),0.0089,0.0117,1.0,-0.0005,5.41,2100,1095
+Full_Season_Monitored,+3h,F. Gradient Boosting Regressor (dH),0.0091,0.012,1.0,-0.0003,3.4,2100,1095
+Full_Season_Monitored,+3h,F. XGBoost Regressor (dH),0.0087,0.0137,0.9999,-0.0006,6.76,2100,1095

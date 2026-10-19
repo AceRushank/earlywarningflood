@@ -1,0 +1,28 @@
+horizon,model_id,model_name,test_mae_mm,test_rmse_mm,test_bias_mm,test_r2,imp_vs_pers_pct,direction_accuracy_pct,mae_rapid_rise_mm,peak_underprediction_mm,mae_falling_mm,mae_stable_mm,fallback_freq_pct,forecast_coverage_pct
++1h,M01_persistence,Persistence Baseline (dH = 0),4.949,7.502,1.077,0.9979,0.0,0.0,2.833,0.0,14.545,4.793,0.0,100.0
++1h,M02_stage_only_ridge_level,Ridge (Stage History Direct Level),10.245,12.04,-9.176,0.9946,-107.0,64.4,15.497,10.955,18.441,10.041,0.0,100.0
++1h,M03_stage_change_ridge,"Ridge (Stage-Change dH, Stage-Only)",5.132,7.436,0.546,0.9979,-3.7,65.45,7.782,0.32,11.808,4.982,0.0,100.0
++1h,M04_model_d_rainfall,"Ridge (Stage-Change + Rain [Model D, alpha=10.0])",4.978,7.165,-0.379,0.9981,-0.57,74.87,7.949,1.756,11.443,4.828,0.0,100.0
++1h,M05_random_forest,"Random Forest (Stage+Rain+API, depth=3)",5.102,6.96,-1.169,0.9982,-3.09,75.92,4.315,2.826,10.699,5.007,0.0,100.0
++1h,M06_extra_trees,"Extra Trees (Stage+Rain+API, depth=3)",4.839,6.925,-0.065,0.9982,2.24,78.53,2.974,1.671,10.693,4.749,0.0,100.0
++1h,M07_xgboost,"XGBoost (depth=2, lr=0.02, l2=5.0)",4.859,6.903,-0.017,0.9982,1.82,79.06,2.891,1.661,11.048,4.765,0.0,100.0
++1h,M08_regime_aware_adaptive,"Regime-Aware Adaptive Gating (RA-AG, theta=0.01)",4.678,6.907,1.473,0.9982,5.48,30.89,4.861,0.0,11.031,4.559,1.09,100.0
++1h,M09_event_weighted_ridge,Event-Weighted Ridge (Asymmetric Rise Penalty),6.404,8.482,4.517,0.9973,-29.39,40.84,5.572,-3.065,11.055,6.327,0.0,100.0
++2h,M01_persistence,Persistence Baseline (dH = 0),5.815,8.772,2.093,0.9971,0.0,0.0,6.0,17.0,15.182,5.637,0.0,100.0
++2h,M02_stage_only_ridge_level,Ridge (Stage History Direct Level),10.7,13.112,-8.632,0.9936,-84.02,70.85,17.744,38.1,22.433,10.408,0.0,100.0
++2h,M03_stage_change_ridge,"Ridge (Stage-Change dH, Stage-Only)",6.45,9.134,1.02,0.9969,-10.93,60.09,10.882,23.517,14.067,6.262,0.0,100.0
++2h,M04_model_d_rainfall,"Ridge (Stage-Change + Rain [Model D, alpha=0.5])",6.023,8.572,-0.331,0.9973,-3.58,73.99,10.579,23.234,13.122,5.843,0.0,100.0
++2h,M05_random_forest,"Random Forest (Stage+Rain+API, depth=3)",6.047,8.203,-1.389,0.9975,-4.0,80.27,7.819,20.196,11.402,5.929,0.0,100.0
++2h,M06_extra_trees,"Extra Trees (Stage+Rain+API, depth=3)",5.54,8.044,0.521,0.9976,4.72,80.72,4.813,17.73,12.295,5.421,0.0,100.0
++2h,M07_xgboost,"XGBoost (depth=2, lr=0.02, l2=10.0)",5.499,8.012,0.715,0.9976,5.43,80.27,4.998,17.965,12.478,5.373,0.0,100.0
++2h,M08_regime_aware_adaptive,"Regime-Aware Adaptive Gating (RA-AG, theta=0.01)",5.536,8.245,2.385,0.9975,4.79,24.22,6.398,16.277,11.205,5.421,1.1,100.0
++2h,M09_event_weighted_ridge,Event-Weighted Ridge (Asymmetric Rise Penalty),7.981,10.494,5.54,0.9959,-37.26,30.04,6.619,18.213,11.912,7.921,0.0,100.0
++3h,M01_persistence,Persistence Baseline (dH = 0),6.952,9.96,3.052,0.9963,0.0,0.0,2.167,17.0,17.0,6.811,0.0,100.0
++3h,M02_stage_only_ridge_level,Ridge (Stage History Direct Level),10.86,13.828,-8.043,0.9929,-56.23,74.81,14.782,34.704,33.391,10.394,0.0,100.0
++3h,M03_stage_change_ridge,"Ridge (Stage-Change dH, Stage-Only)",7.672,10.708,1.53,0.9957,-10.36,56.77,8.443,23.074,20.1,7.429,0.0,100.0
++3h,M04_model_d_rainfall,"Ridge (Stage-Change + Rain [Model D, alpha=5.0])",7.053,9.81,-0.353,0.9964,-1.46,73.68,8.989,22.836,18.716,6.813,0.0,100.0
++3h,M05_random_forest,"Random Forest (Stage+Rain+API, depth=3)",6.647,8.824,-1.85,0.9971,4.38,82.71,4.953,18.267,10.721,6.588,0.0,100.0
++3h,M06_extra_trees,"Extra Trees (Stage+Rain+API, depth=3)",6.395,9.043,0.613,0.9969,8.01,83.08,1.992,18.159,14.91,6.279,0.0,100.0
++3h,M07_xgboost,"XGBoost (depth=2, lr=0.02, l2=10.0)",6.285,8.91,0.726,0.997,9.6,84.59,2.038,17.158,14.119,6.18,0.0,100.0
++3h,M08_regime_aware_adaptive,"Regime-Aware Adaptive Gating (RA-AG, theta=0.01)",6.552,9.315,3.32,0.9968,5.74,23.31,6.101,11.601,8.777,6.515,1.11,100.0
++3h,M09_event_weighted_ridge,Event-Weighted Ridge (Asymmetric Rise Penalty),9.722,12.549,6.808,0.9941,-39.85,20.3,3.789,19.522,15.679,9.67,0.0,100.0

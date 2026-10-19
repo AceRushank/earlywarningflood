@@ -1,0 +1,25 @@
+horizon,evaluation_cohort,model_id,model_name,mae_mm,rmse_mm,bias_mm,r2,imp_vs_pers_pct,dir_acc_p2_pct,dir_acc_ternary_pct,dir_acc_active_pct,peak_underpred_mm,mae_rapid_rise_mm,mae_falling_mm,mae_stable_mm,forecast_coverage_pct,fallback_freq_pct
++1h,Synchronized (Complete Cases),M01_persistence,Persistence Baseline (dH = 0),4.949,7.502,1.077,0.9979,0.0,0.0,68.79,0.0,0.0,2.833,14.545,4.793,100.0,0.0
++1h,Synchronized (Complete Cases),Finalist_A_XGBoost,"Tuned XGBoost Baseline (depth=2, lr=0.02, l2=5.0)",4.859,6.903,-0.017,0.9982,1.82,79.06,70.26,7.33,1.661,2.891,11.048,4.765,100.0,0.0
++1h,Synchronized (Complete Cases),Finalist_B_RAAG,Existing RA-AG (Phase 2 Exact Reproduction),4.678,6.907,1.473,0.9982,5.48,30.89,71.24,16.75,0.0,4.861,11.031,4.559,100.0,0.0
++1h,Synchronized (Complete Cases),Finalist_C_Hybrid,RA-AG + Tuned XGBoost Rising Expert Hybrid,4.669,6.905,1.566,0.9982,5.67,30.89,72.06,15.71,0.0,3.322,11.031,4.564,100.0,0.0
++1h,Full Operational (Real Missing Rain),Finalist_A_XGBoost_NoFallback,Tuned XGBoost (No Fallback Gate),,,,,,,,,,,,,98.91,0.0
++1h,Full Operational (Real Missing Rain),Finalist_A_XGBoost_StageFallback,Tuned XGBoost (with Stage-Only Fallback),4.847,6.862,-0.087,0.9983,1.3,78.0,70.25,7.0,1.662,2.891,11.048,4.757,100.0,1.09
++1h,Full Operational (Real Missing Rain),Finalist_B_RAAG,Existing RA-AG (Phase 2 Exact Reproduction),4.64,6.848,1.4,0.9983,5.52,30.5,71.18,16.5,0.0,4.861,11.031,4.526,100.0,1.09
++1h,Full Operational (Real Missing Rain),Finalist_C_Hybrid,RA-AG + Tuned XGBoost Rising Expert Hybrid,4.631,6.847,1.49,0.9983,5.71,30.5,71.96,15.5,0.0,3.322,11.031,4.531,100.0,1.09
++2h,Synchronized (Complete Cases),M01_persistence,Persistence Baseline (dH = 0),5.815,8.772,2.093,0.9971,0.0,0.0,63.08,0.0,17.0,6.0,15.182,5.637,100.0,0.0
++2h,Synchronized (Complete Cases),Finalist_A_XGBoost,"Tuned XGBoost Baseline (depth=2, lr=0.02, l2=10.0)",5.499,8.012,0.715,0.9976,5.43,80.27,63.41,1.79,17.965,4.998,12.478,5.373,100.0,0.0
++2h,Synchronized (Complete Cases),Finalist_B_RAAG,Existing RA-AG (Phase 2 Exact Reproduction),5.536,8.245,2.385,0.9975,4.79,24.22,64.74,12.11,16.277,6.398,11.205,5.421,100.0,0.0
++2h,Synchronized (Complete Cases),Finalist_C_Hybrid,RA-AG + Tuned XGBoost Rising Expert Hybrid,5.545,8.278,2.517,0.9974,4.63,22.42,65.56,10.31,16.277,4.81,11.205,5.447,100.0,0.0
++2h,Full Operational (Real Missing Rain),Finalist_A_XGBoost_NoFallback,Tuned XGBoost (No Fallback Gate),,,,,,,,,,,,,98.9,0.0
++2h,Full Operational (Real Missing Rain),Finalist_A_XGBoost_StageFallback,Tuned XGBoost (with Stage-Only Fallback),5.462,7.923,0.55,0.9978,4.76,79.22,63.88,1.73,1.51,4.998,12.478,5.341,100.0,1.1
++2h,Full Operational (Real Missing Rain),Finalist_B_RAAG,Existing RA-AG (Phase 2 Exact Reproduction),5.458,8.127,2.202,0.9977,4.84,24.68,65.14,11.69,0.0,6.398,11.205,5.346,100.0,1.1
++2h,Full Operational (Real Missing Rain),Finalist_C_Hybrid,RA-AG + Tuned XGBoost Rising Expert Hybrid,5.466,8.16,2.331,0.9976,4.69,22.94,65.93,9.96,0.0,4.81,11.205,5.37,100.0,1.1
++3h,Synchronized (Complete Cases),M01_persistence,Persistence Baseline (dH = 0),6.952,9.96,3.052,0.9963,0.0,0.0,55.59,0.0,17.0,2.167,17.0,6.811,100.0,0.0
++3h,Synchronized (Complete Cases),Finalist_A_XGBoost,"Tuned XGBoost Baseline (depth=2, lr=0.02, l2=10.0)",6.285,8.91,0.726,0.997,9.6,84.59,55.59,0.0,17.158,2.038,14.119,6.18,100.0,0.0
++3h,Synchronized (Complete Cases),Finalist_B_RAAG,Existing RA-AG (Phase 2 Exact Reproduction),6.552,9.315,3.32,0.9968,5.74,23.31,58.26,9.4,11.601,6.101,8.777,6.515,100.0,0.0
++3h,Synchronized (Complete Cases),Finalist_C_Hybrid,RA-AG + Tuned XGBoost Rising Expert Hybrid,6.533,9.347,3.499,0.9967,6.02,21.8,59.1,9.02,11.601,1.995,8.777,6.537,100.0,0.0
++3h,Full Operational (Real Missing Rain),Finalist_A_XGBoost_NoFallback,Tuned XGBoost (No Fallback Gate),,,,,,,,,,,,,98.89,0.0
++3h,Full Operational (Real Missing Rain),Finalist_A_XGBoost_StageFallback,Tuned XGBoost (with Stage-Only Fallback),6.275,8.849,0.533,0.9972,8.76,82.5,55.48,0.0,2.198,2.038,14.119,6.176,100.0,1.11
++3h,Full Operational (Real Missing Rain),Finalist_B_RAAG,Existing RA-AG (Phase 2 Exact Reproduction),6.475,9.206,3.111,0.997,5.85,23.21,58.03,8.93,0.0,6.101,8.777,6.437,100.0,1.11
++3h,Full Operational (Real Missing Rain),Finalist_C_Hybrid,RA-AG + Tuned XGBoost Rising Expert Hybrid,6.46,9.238,3.285,0.997,6.08,21.79,58.82,8.57,0.0,1.995,8.777,6.462,100.0,1.11

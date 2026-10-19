@@ -1,0 +1,32 @@
+================================================================================
+PHASE 1: MOSDAC INSAT-3DS HEM HDF5 ARCHIVE INTEGRITY AUDIT REPORT
+Generated: 2026-10-10 11:53:13
+================================================================================
+
+1. FILE INVENTORY:
+   - Total .h5 files inspected: 123
+   - Total .part files found: 1
+     * Incomplete: 2024\02AUG\3SIMG_02AUG2024_1700_L2B_HEM_V01R00.h5.part (1048576 bytes)
+   - Valid & Verified .h5 files: 110
+   - Corrupt files count: 1
+   - Timestamp mismatches: 0
+   - Duplicate timestamps count: 0
+
+2. TEMPORAL COVERAGE OF VERIFIED GRANULES:
+   - Earliest UTC: 2024-07-04 23:00:00
+   - Latest UTC:   2024-08-02 16:30:00
+   - Verified Date Folders:
+     * 2024/01AUG: 46 granules (493.2 MB)
+     * 2024/02AUG: 24 granules (257.4 MB)
+     * 2024/04JUL: 2 granules (21.8 MB)
+     * 2024/31JUL: 38 granules (406.7 MB)
+
+3. PHYSICAL VARIABLE VALIDATION:
+   - Variable: /HEM (Hydro-Estimator Precipitation Rate, mm/hr)
+   - Dimensions: (1, 2816, 2805), float32
+   - Fill Value: -999.0
+   - Mean disk rain range across files: [0.0820, 0.1410] mm/hr
+   - Max disk rain range across files:  [66.4998, 245.4931] mm/hr
+
+4. INTEGRITY VERDICT:
+   ANOMALIES DETECTED. See detailed log above.

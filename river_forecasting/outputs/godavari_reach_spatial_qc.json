@@ -1,0 +1,36 @@
+{
+  "study_area": {
+    "name": "Vishnupuri Barrage & Godavari River Reach Study Area",
+    "river": "Godavari",
+    "location": "Nanded, Maharashtra",
+    "coordinates": {
+      "lat": 19.126944,
+      "lon": 77.280833
+    },
+    "crs": "EPSG:4326 (WGS84)",
+    "bounding_box": {
+      "min_lon": 77.02083333333336,
+      "min_lat": 18.89583333333336,
+      "max_lon": 77.52500000000003,
+      "max_lat": 19.304166666666696
+    },
+    "corridor_area_sq_km": 1231.5,
+    "upstream_catchment_sq_km": 51768.25
+  },
+  "gsw_surface_water": {
+    "source": "JRC Global Surface Water (GSW) v1.4 (1984-2021)",
+    "tile": "gsw_occurrence_70E_20N_v14.tif",
+    "grid_shape": [
+      1633,
+      2017
+    ],
+    "total_valid_pixels": 3293761,
+    "water_detected_pixels": 43728,
+    "water_fraction_pct": 1.33,
+    "permanent_water_pixels_ge80pct": 8515,
+    "seasonal_water_pixels_20_to_80pct": 25756,
+    "ephemeral_inundation_pixels_1_to_20pct": 9457,
+    "mean_water_occurrence_pct": 48.08,
+    "max_water_occurrence_pct": 98
+  }
+}

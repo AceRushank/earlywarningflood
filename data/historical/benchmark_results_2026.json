@@ -1,0 +1,184 @@
+{
+  "horizons": [
+    "+1h",
+    "+2h",
+    "+3h"
+  ],
+  "models": {
+    "stage_only_full_september": {
+      "+1h": {
+        "eligible_samples": 643,
+        "rapid_rise_samples": 19,
+        "persistence": {
+          "mae_m": 0.0049,
+          "rmse_m": 0.0075,
+          "mae_rapid_rise_m": 0.0108
+        },
+        "ridge": {
+          "mae_m": 0.0056,
+          "rmse_m": 0.0081,
+          "mae_rapid_rise_m": 0.0112
+        },
+        "random_forest": {
+          "mae_m": 0.1975,
+          "rmse_m": 0.2399,
+          "mae_rapid_rise_m": 0.1815
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0056,
+          "rmse_m": 0.0081,
+          "mae_rapid_rise_m": 0.0112
+        },
+        "multimodal_rf": {
+          "mae_m": 0.1997,
+          "rmse_m": 0.2406,
+          "mae_rapid_rise_m": 0.1868
+        }
+      },
+      "+2h": {
+        "eligible_samples": 643,
+        "rapid_rise_samples": 19,
+        "persistence": {
+          "mae_m": 0.0057,
+          "rmse_m": 0.0086,
+          "mae_rapid_rise_m": 0.0125
+        },
+        "ridge": {
+          "mae_m": 0.0075,
+          "rmse_m": 0.0108,
+          "mae_rapid_rise_m": 0.0175
+        },
+        "random_forest": {
+          "mae_m": 0.2262,
+          "rmse_m": 0.275,
+          "mae_rapid_rise_m": 0.2054
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0075,
+          "rmse_m": 0.0108,
+          "mae_rapid_rise_m": 0.0173
+        },
+        "multimodal_rf": {
+          "mae_m": 0.2296,
+          "rmse_m": 0.2781,
+          "mae_rapid_rise_m": 0.2103
+        }
+      },
+      "+3h": {
+        "eligible_samples": 643,
+        "rapid_rise_samples": 19,
+        "persistence": {
+          "mae_m": 0.0069,
+          "rmse_m": 0.0098,
+          "mae_rapid_rise_m": 0.0121
+        },
+        "ridge": {
+          "mae_m": 0.0092,
+          "rmse_m": 0.0129,
+          "mae_rapid_rise_m": 0.0221
+        },
+        "random_forest": {
+          "mae_m": 0.2559,
+          "rmse_m": 0.3081,
+          "mae_rapid_rise_m": 0.2338
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0092,
+          "rmse_m": 0.0129,
+          "mae_rapid_rise_m": 0.0219
+        },
+        "multimodal_rf": {
+          "mae_m": 0.2542,
+          "rmse_m": 0.306,
+          "mae_rapid_rise_m": 0.2328
+        }
+      }
+    },
+    "complete_case_multimodal_evaluation": {
+      "+1h": {
+        "eligible_samples": 635,
+        "persistence": {
+          "mae_m": 0.0049,
+          "rmse_m": 0.0075
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.0056,
+          "rmse_m": 0.0081
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0049,
+          "rmse_m": 0.0071
+        },
+        "rainfall_benefit": "NO_OVERALL_BENEFIT_IN_REGULATED_RECESSION"
+      },
+      "+2h": {
+        "eligible_samples": 635,
+        "persistence": {
+          "mae_m": 0.0057,
+          "rmse_m": 0.0087
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.0075,
+          "rmse_m": 0.0108
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0059,
+          "rmse_m": 0.0084
+        },
+        "rainfall_benefit": "NO_OVERALL_BENEFIT_IN_REGULATED_RECESSION"
+      },
+      "+3h": {
+        "eligible_samples": 635,
+        "persistence": {
+          "mae_m": 0.0069,
+          "rmse_m": 0.0099
+        },
+        "stage_only_ridge": {
+          "mae_m": 0.0093,
+          "rmse_m": 0.013
+        },
+        "multimodal_ridge": {
+          "mae_m": 0.0068,
+          "rmse_m": 0.0095
+        },
+        "rainfall_benefit": "NO_OVERALL_BENEFIT_IN_REGULATED_RECESSION"
+      }
+    },
+    "downstream_raher_exploratory": {
+      "+1h": {
+        "eligible_samples": 659,
+        "persistence": {
+          "mae_m": 0.0094,
+          "rmse_m": 0.014
+        },
+        "upstream_informed_rf": {
+          "mae_m": 0.0114,
+          "rmse_m": 0.0157
+        }
+      },
+      "+2h": {
+        "eligible_samples": 659,
+        "persistence": {
+          "mae_m": 0.0118,
+          "rmse_m": 0.0167
+        },
+        "upstream_informed_rf": {
+          "mae_m": 0.0136,
+          "rmse_m": 0.0185
+        }
+      },
+      "+3h": {
+        "eligible_samples": 659,
+        "persistence": {
+          "mae_m": 0.0133,
+          "rmse_m": 0.0186
+        },
+        "upstream_informed_rf": {
+          "mae_m": 0.017,
+          "rmse_m": 0.023
+        }
+      }
+    }
+  },
+  "rapid_rise_threshold_m_hr": 0.02
+}

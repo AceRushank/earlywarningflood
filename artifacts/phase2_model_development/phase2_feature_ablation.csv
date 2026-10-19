@@ -1,0 +1,16 @@
+horizon,feature_suite,n_features,target_type,val_mae_mm,test_mae_mm
++1h,F01_Stage_Base,5,level,11.694,10.287
++1h,F02_Stage_Dynamics,4,dH,5.66,5.133
++1h,F03_Stage_Dyn_Contemp_Rain,9,dH,5.599,4.976
++1h,F04_Stage_Dyn_Lagged_Rain,12,dH,5.593,4.979
++1h,F05_Full_Multimodal,10,dH,5.758,5.189
++2h,F01_Stage_Base,5,level,11.722,10.736
++2h,F02_Stage_Dynamics,4,dH,5.894,6.449
++2h,F03_Stage_Dyn_Contemp_Rain,9,dH,5.758,6.009
++2h,F04_Stage_Dyn_Lagged_Rain,12,dH,5.75,6.014
++2h,F05_Full_Multimodal,10,dH,6.004,6.239
++3h,F01_Stage_Base,5,level,11.741,10.893
++3h,F02_Stage_Dynamics,4,dH,7.021,7.679
++3h,F03_Stage_Dyn_Contemp_Rain,9,dH,6.507,7.043
++3h,F04_Stage_Dyn_Lagged_Rain,12,dH,6.511,7.043
++3h,F05_Full_Multimodal,10,dH,6.751,7.407

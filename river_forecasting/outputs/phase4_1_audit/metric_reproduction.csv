@@ -1,0 +1,28 @@
+horizon,cohort,model_id,n_samples,reported_mae_mm,recalculated_mae_mm,diff_mae_mm,reported_rmse_mm,recalculated_rmse_mm,diff_rmse_mm,recalculated_bias_mm,recalculated_r2,recalculated_dir_acc_ternary_pct,recalculated_peak_underpred_mm,audit_verdict
++1h,Synchronized (Complete Cases),M01_persistence,612,4.949,4.949,0.0003,7.502,7.502,0.0003,1.077,0.9979,68.79,0.0,VERIFIED_EXACT
++1h,Synchronized (Complete Cases),Phase3_A_XGBoost,612,4.859,4.879,0.0201,6.903,6.903,0.0002,-0.258,0.9982,69.61,2.0,DISCREPANCY
++1h,Synchronized (Complete Cases),Phase3_B_RAAG_v1,612,4.678,4.675,0.0032,6.907,6.91,0.0031,1.489,0.9982,71.41,0.0,DISCREPANCY
++1h,Synchronized (Complete Cases),Phase3_C_Hybrid,612,4.669,4.663,0.0056,6.905,6.905,0.0003,1.575,0.9982,72.22,0.0,DISCREPANCY
++1h,Synchronized (Complete Cases),RAAG_v2_Hard,612,4.669,4.663,0.0056,6.905,6.905,0.0003,1.575,0.9982,72.22,0.0,DISCREPANCY
++1h,Synchronized (Complete Cases),RAAG_v2_Soft,612,4.788,4.775,0.0135,7.179,7.171,0.0081,1.379,0.9981,70.1,0.0,DISCREPANCY
++1h,Full Operational (Real Missing Rain),Phase3_A_XGBoost_Full,642,4.847,4.874,0.0268,6.862,6.866,0.0038,-0.329,0.9983,,2.0,DISCREPANCY
++1h,Full Operational (Real Missing Rain),RAAG_v2_Hard_Full,642,4.631,4.626,0.0048,6.847,6.847,0.0,1.498,0.9983,,0.0,DISCREPANCY
++1h,Full Operational (Real Missing Rain),RAAG_v2_Soft_Full,642,4.748,4.734,0.0144,7.114,7.105,0.0088,1.31,0.9982,,0.0,DISCREPANCY
++2h,Synchronized (Complete Cases),M01_persistence,604,5.815,5.815,0.0004,8.772,8.772,0.0004,2.093,0.9971,63.08,17.0,VERIFIED_EXACT
++2h,Synchronized (Complete Cases),Phase3_A_XGBoost,604,5.499,5.502,0.0027,8.012,7.991,0.0206,0.551,0.9976,63.25,18.0,DISCREPANCY
++2h,Synchronized (Complete Cases),Phase3_B_RAAG_v1,604,5.536,5.53,0.0062,8.245,8.246,0.0012,2.384,0.9975,64.74,16.0,DISCREPANCY
++2h,Synchronized (Complete Cases),Phase3_C_Hybrid,604,5.545,5.536,0.0086,8.278,8.258,0.0196,2.52,0.9975,65.4,16.0,DISCREPANCY
++2h,Synchronized (Complete Cases),RAAG_v2_Hard,604,5.501,5.48,0.0209,7.683,7.662,0.0206,0.046,0.9978,64.57,16.0,DISCREPANCY
++2h,Synchronized (Complete Cases),RAAG_v2_Soft,604,5.557,5.538,0.0189,7.89,7.876,0.0142,-0.326,0.9977,63.91,20.0,DISCREPANCY
++2h,Full Operational (Real Missing Rain),Phase3_A_XGBoost_Full,634,5.462,5.464,0.0017,7.923,7.902,0.0214,0.391,0.9978,,2.0,DISCREPANCY
++2h,Full Operational (Real Missing Rain),RAAG_v2_Hard_Full,634,5.488,5.462,0.0259,7.629,7.605,0.0239,-0.134,0.998,,3.0,DISCREPANCY
++2h,Full Operational (Real Missing Rain),RAAG_v2_Soft_Full,634,5.551,5.527,0.0242,7.831,7.814,0.0165,-0.498,0.9978,,3.0,DISCREPANCY
++3h,Synchronized (Complete Cases),M01_persistence,599,6.952,6.952,0.0004,9.96,9.96,0.0001,3.052,0.9963,55.59,17.0,VERIFIED_EXACT
++3h,Synchronized (Complete Cases),Phase3_A_XGBoost,599,6.285,6.284,0.0012,8.91,8.913,0.0029,0.684,0.997,55.59,17.0,DISCREPANCY
++3h,Synchronized (Complete Cases),Phase3_B_RAAG_v1,599,6.552,6.554,0.0023,9.315,9.318,0.003,3.322,0.9968,57.93,12.0,DISCREPANCY
++3h,Synchronized (Complete Cases),Phase3_C_Hybrid,599,6.533,6.529,0.0038,9.347,9.34,0.0073,3.484,0.9967,58.76,12.0,DISCREPANCY
++3h,Synchronized (Complete Cases),RAAG_v2_Hard,599,6.076,6.063,0.0126,8.359,8.356,0.0032,0.304,0.9974,58.93,12.0,DISCREPANCY
++3h,Synchronized (Complete Cases),RAAG_v2_Soft,599,6.272,6.28,0.0085,8.732,8.752,0.0202,-0.157,0.9971,57.1,20.0,DISCREPANCY
++3h,Full Operational (Real Missing Rain),Phase3_A_XGBoost_Full,629,6.275,6.277,0.0016,8.849,8.856,0.0068,0.493,0.9972,,2.0,DISCREPANCY
++3h,Full Operational (Real Missing Rain),RAAG_v2_Hard_Full,629,6.097,6.081,0.0159,8.328,8.322,0.0059,0.087,0.9975,,4.0,DISCREPANCY
++3h,Full Operational (Real Missing Rain),RAAG_v2_Soft_Full,629,6.293,6.3,0.0075,8.7,8.723,0.0234,-0.367,0.9973,,4.0,DISCREPANCY
